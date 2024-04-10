@@ -4,9 +4,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/b2b-doc-db
     username: postgres
     password: Sovita#28
-  #    url: jdbc:postgresql://178.128.52.39:5432/digital_asset_db
-  #    username: sovita
-  #    password: Sovita#28
+#      url: jdbc:postgresql://localhost:5432/b2b_doc_db
+#      username: postgres
+#      password: Sovita#28
   jpa:
     hibernate:
       ddl-auto: update

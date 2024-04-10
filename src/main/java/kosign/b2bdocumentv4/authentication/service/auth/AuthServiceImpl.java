@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.authentication.repository.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
+import kosign.b2bdocumentv4.model.entity.Role;
 import kosign.b2bdocumentv4.model.entity.UserInfo;
 import kosign.b2bdocumentv4.model.entity.UserInfoDto;
 import kosign.b2bdocumentv4.model.request.UserInfoRequest;
@@ -43,6 +44,7 @@ public class AuthServiceImpl implements AuthService {
            userInfo.setUsername(adminUsername);
            String pass = passwordEncoder.encode(adminPassword);
            userInfo.setPassword(pass);
+           userInfo.setRole(Role.ADMIN);
            authRepository.save(userInfo);
        }else{
            System.out.println("already have admin");
@@ -89,6 +91,7 @@ public class AuthServiceImpl implements AuthService {
         //set pw to encoder
         String pass = passwordEncoder.encode(appUserRequest.getPassword());
         appUserRequest.setPassword(pass);
+        appUserRequest.setRole(Role.USER);
         UserInfo appUser = mapper.map(appUserRequest, UserInfo.class);
 
         authRepository.save(appUser);
