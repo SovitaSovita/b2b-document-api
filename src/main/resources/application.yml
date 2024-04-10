@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/b2b-doc-db
+    username: postgres
+    password: Sovita#28
+  #    url: jdbc:postgresql://178.128.52.39:5432/digital_asset_db
+  #    username: sovita
+  #    password: Sovita#28
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  application:
+    name: b2b-document-v4
+
+jwt:
+  secret: b2b-document-v4
+myAdmin:
+  username: Admin
+  password: DigitalAsset1@
+
+
