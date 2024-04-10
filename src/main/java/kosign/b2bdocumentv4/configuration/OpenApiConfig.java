@@ -9,9 +9,9 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @OpenAPIDefinition(
         servers = @Server(url = "/", description = "Default Server URL"),
         info = @Info(
-                title = "Digital Asset",
-                description = "Started From 04/December/2023",
-                version = "1.0.0"
+                title = "B2B Document V4",
+                description = "Live fast die young.",
+                version = "4.0.0"
         )
 )
 @SecurityScheme(

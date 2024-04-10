@@ -4,7 +4,7 @@ import jakarta.annotation.PostConstruct;
 import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.authentication.repository.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
-import kosign.b2bdocumentv4.model.entity.UserInfo;
+import kosign.b2bdocumentv4.model.entity.DocUsers;
 import kosign.b2bdocumentv4.model.entity.UserInfoDto;
 import kosign.b2bdocumentv4.model.request.UserInfoRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @Slf4j
@@ -39,11 +38,11 @@ public class AuthServiceImpl implements AuthService {
     @PostConstruct
     public void createAdmin() {
        if (authRepository.findAll().isEmpty()){
-           UserInfo userInfo = new UserInfo();
-           userInfo.setUsername(adminUsername);
+           DocUsers docUsers = new DocUsers();
+           docUsers.setUsername(adminUsername);
            String pass = passwordEncoder.encode(adminPassword);
-           userInfo.setPassword(pass);
-           authRepository.save(userInfo);
+           docUsers.setPassword(pass);
+           authRepository.save(docUsers);
        }else{
            System.out.println("already have admin");
        }
@@ -56,18 +55,18 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void changePassword(UUID id, InfoChangePassword password) {
-        Optional<UserInfo> adminOptional = authRepository.findById(id);
+    public void changePassword(Long id, InfoChangePassword password) {
+        Optional<DocUsers> adminOptional = authRepository.findById(id);
         if (adminOptional.isPresent()) {
-            UserInfo userInfo = adminOptional.get();
+            DocUsers docUsers = adminOptional.get();
             String pass = passwordEncoder.encode(password.getCurrentPassword());
             String newpass = passwordEncoder.encode(password.getNewPassword());
 
-            if (!passwordEncoder.matches(password.getCurrentPassword(), userInfo.getPassword())) {
+            if (!passwordEncoder.matches(password.getCurrentPassword(), docUsers.getPassword())) {
                 throw new IllegalArgumentException("Current Password isn't correct. Please Try Again.");
             }
 
-            if (passwordEncoder.matches(password.getNewPassword(), userInfo.getPassword())) {
+            if (passwordEncoder.matches(password.getNewPassword(), docUsers.getPassword())) {
                 throw new IllegalArgumentException("Your new password is still the same as your old password");
             }
 
@@ -75,8 +74,8 @@ public class AuthServiceImpl implements AuthService {
                 throw new IllegalArgumentException("Your confirm password does not match with your new password");
             }
 
-            userInfo.setPassword(newpass);
-            authRepository.save(userInfo);
+            docUsers.setPassword(newpass);
+            authRepository.save(docUsers);
         } else {
             throw new NotFoundExceptionClass("Admin not found with ID: " + id);
         }
@@ -89,7 +88,7 @@ public class AuthServiceImpl implements AuthService {
         //set pw to encoder
         String pass = passwordEncoder.encode(appUserRequest.getPassword());
         appUserRequest.setPassword(pass);
-        UserInfo appUser = mapper.map(appUserRequest, UserInfo.class);
+        DocUsers appUser = mapper.map(appUserRequest, DocUsers.class);
 
         authRepository.save(appUser);
         //return as userDTO

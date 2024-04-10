@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public interface AuthService extends UserDetailsService {
 
-    void changePassword(UUID id, InfoChangePassword password);
+    void changePassword(Long id, InfoChangePassword password);
 
     UserInfoDto register(UserInfoRequest appUserRequest);
 }
