@@ -8,7 +8,7 @@ import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.authentication.service.auth.AuthService;
 import kosign.b2bdocumentv4.jwt.JwtRespon;
 import kosign.b2bdocumentv4.jwt.JwtTokenUtils;
-import kosign.b2bdocumentv4.model.entity.UserInfo;
+import kosign.b2bdocumentv4.model.entity.DocUsers;
 import kosign.b2bdocumentv4.model.entity.UserInfoDto;
 import kosign.b2bdocumentv4.model.request.UserInfoRequest;
 import kosign.b2bdocumentv4.model.response.ApiResponse;
@@ -22,7 +22,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -41,11 +40,11 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest jwtRequest) {
-        try {
-            authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Invalid username or password");
-        }
+//        try {
+//            authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException("Invalid username or password");
+//        }
 
         final UserDetails userDetails = authService.loadUserByUsername(jwtRequest.getUsername());
         final String token = jwtTokenUtils.generateToken(userDetails);
@@ -57,7 +56,9 @@ public class AuthController {
     }
 
     private void authenticate(String username, String password) throws Exception {
+        System.out.println("User: " + username + "pass: " + password);
         try {
+            System.out.println(username+password);
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
@@ -70,10 +71,9 @@ public class AuthController {
     @Operation(summary = "change password")
     @SecurityRequirement(name = "bearerAuth")
     public ApiResponse<?> changePassword(@Valid @RequestBody InfoChangePassword changePassword){
-        UserInfo currentUser = (UserInfo) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        DocUsers currentUser = (DocUsers) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        System.out.println(currentUser);
-        UUID id = currentUser.getId();
-        authService.changePassword(id,changePassword);
+        authService.changePassword(currentUser.getId(),changePassword);
         return ApiResponse.builder()
                 .date(LocalDateTime.now())
                 .message("successfully change password")
