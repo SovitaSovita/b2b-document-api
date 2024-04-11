@@ -41,10 +41,10 @@ public class DocUsers implements UserDetails {
     private Role role;
 
     @Column(name = "dept_id")
-    private Long dept_id = 1L;
+    private Long dept_id;
 
     private String image;
-    private Integer status = 1;
+    private Integer status;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
