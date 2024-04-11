@@ -5,6 +5,7 @@ import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.authentication.repository.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.model.entity.DocUsers;
+import kosign.b2bdocumentv4.model.entity.Role;
 import kosign.b2bdocumentv4.model.entity.UserInfoDto;
 import kosign.b2bdocumentv4.model.request.UserInfoRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -35,11 +36,14 @@ public class AuthServiceImpl implements AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void createAdmin() {
+        System.out.println("TEST TEST");
+        System.out.println(authRepository.findAll());
        if (authRepository.findAll().isEmpty()){
            DocUsers docUsers = new DocUsers();
            docUsers.setUsername(adminUsername);
+           docUsers.setRole(Role.ADMIN);
            String pass = passwordEncoder.encode(adminPassword);
            docUsers.setPassword(pass);
            authRepository.save(docUsers);
@@ -88,6 +92,7 @@ public class AuthServiceImpl implements AuthService {
         //set pw to encoder
         String pass = passwordEncoder.encode(appUserRequest.getPassword());
         appUserRequest.setPassword(pass);
+        appUserRequest.setRole(appUserRequest.getRole());
         DocUsers appUser = mapper.map(appUserRequest, DocUsers.class);
 
         authRepository.save(appUser);
