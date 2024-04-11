@@ -66,6 +66,7 @@ public class DataBaseSecurity{
                                 "/api/v1/images/Files",
                                 "/api/v1/images/**",
                                 "/swagger-ui/**",
+                                "/api/v1/doc/**",
                                 "/swagger/ui.html").permitAll()
                         .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
