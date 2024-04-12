@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.model.entity;
+package kosign.b2bdocumentv4.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

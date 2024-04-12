@@ -1,6 +1,6 @@
-package kosign.b2bdocumentv4.authentication.repository;
+package kosign.b2bdocumentv4.entity.docUsers;
 
-import kosign.b2bdocumentv4.model.entity.DocUsers;
+import kosign.b2bdocumentv4.entity.docUsers.DocUsers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

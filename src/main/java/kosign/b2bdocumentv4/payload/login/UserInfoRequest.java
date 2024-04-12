@@ -1,6 +1,6 @@
-package kosign.b2bdocumentv4.model.request;
+package kosign.b2bdocumentv4.payload.login;
 
-import kosign.b2bdocumentv4.model.entity.Role;
+import kosign.b2bdocumentv4.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,17 +1,17 @@
-package kosign.b2bdocumentv4.authentication.controller;
+package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import kosign.b2bdocumentv4.authentication.auth.AuthenticationRequest;
-import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
-import kosign.b2bdocumentv4.authentication.service.auth.AuthService;
+import kosign.b2bdocumentv4.payload.auth.AuthenticationRequest;
+import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
+import kosign.b2bdocumentv4.service.auth.AuthService;
 import kosign.b2bdocumentv4.jwt.JwtRespon;
 import kosign.b2bdocumentv4.jwt.JwtTokenUtils;
-import kosign.b2bdocumentv4.model.entity.DocUsers;
-import kosign.b2bdocumentv4.model.entity.UserInfoDto;
-import kosign.b2bdocumentv4.model.request.UserInfoRequest;
-import kosign.b2bdocumentv4.model.response.ApiResponse;
+import kosign.b2bdocumentv4.entity.docUsers.DocUsers;
+import kosign.b2bdocumentv4.dto.UserInfoDto;
+import kosign.b2bdocumentv4.payload.login.UserInfoRequest;
+import kosign.b2bdocumentv4.payload.login.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;

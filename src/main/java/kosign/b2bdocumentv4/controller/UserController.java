@@ -1,7 +1,7 @@
-package kosign.b2bdocumentv4.authentication.controller;
+package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import kosign.b2bdocumentv4.authentication.service.docUsers.DocUserServiceImpl;
+import kosign.b2bdocumentv4.service.doc_users.DocUserServiceImpl;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

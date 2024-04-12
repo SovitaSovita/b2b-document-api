@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.model.response;
+package kosign.b2bdocumentv4.payload.login.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

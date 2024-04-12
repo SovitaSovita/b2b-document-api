@@ -1,10 +1,9 @@
-package kosign.b2bdocumentv4.authentication.service.docUsers;
+package kosign.b2bdocumentv4.service.doc_users;
 
-import kosign.b2bdocumentv4.authentication.repository.DocUsersRepository;
-import kosign.b2bdocumentv4.model.entity.DocUsers;
+import kosign.b2bdocumentv4.entity.docUsers.DocUsersRepository;
+import kosign.b2bdocumentv4.entity.docUsers.DocUsers;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.docUser.DocUserResponse;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

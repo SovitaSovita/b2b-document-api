@@ -1,12 +1,12 @@
-package kosign.b2bdocumentv4.authentication.service.auth;
+package kosign.b2bdocumentv4.service.auth;
 
-import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
-import kosign.b2bdocumentv4.authentication.repository.AuthRepository;
+import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
+import kosign.b2bdocumentv4.entity.docUsers.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
-import kosign.b2bdocumentv4.model.entity.DocUsers;
-import kosign.b2bdocumentv4.model.entity.Role;
-import kosign.b2bdocumentv4.model.entity.UserInfoDto;
-import kosign.b2bdocumentv4.model.request.UserInfoRequest;
+import kosign.b2bdocumentv4.entity.docUsers.DocUsers;
+import kosign.b2bdocumentv4.enums.Role;
+import kosign.b2bdocumentv4.dto.UserInfoDto;
+import kosign.b2bdocumentv4.payload.login.UserInfoRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -95,7 +95,7 @@ public class AuthServiceImpl implements AuthService {
         DocUsers appUser = mapper.map(appUserRequest, DocUsers.class);
 
         authRepository.save(appUser);
-        //return as userDTO
+        //return as user_dto
         return mapper.map(appUser, UserInfoDto.class);
     }
 

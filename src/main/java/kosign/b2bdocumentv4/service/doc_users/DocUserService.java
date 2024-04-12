@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.authentication.service.docUsers;
+package kosign.b2bdocumentv4.service.doc_users;
 
 
 import kosign.b2bdocumentv4.payload.BaseResponse;

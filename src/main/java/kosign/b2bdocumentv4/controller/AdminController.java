@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.authentication.controller;
+package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;

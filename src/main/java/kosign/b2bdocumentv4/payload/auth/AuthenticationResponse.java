@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.authentication.auth;
+package kosign.b2bdocumentv4.payload.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,12 +1,12 @@
-package kosign.b2bdocumentv4.model.entity;
+package kosign.b2bdocumentv4.entity.docUsers;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import kosign.b2bdocumentv4.configuration.ValidationConfig;
+import kosign.b2bdocumentv4.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

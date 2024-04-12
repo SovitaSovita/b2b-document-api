@@ -1,6 +1,6 @@
 package kosign.b2bdocumentv4.configuration;
 
-import kosign.b2bdocumentv4.authentication.service.auth.AuthServiceImpl;
+import kosign.b2bdocumentv4.service.auth.AuthServiceImpl;
 import kosign.b2bdocumentv4.jwt.JwtAuthEntryPoint;
 import kosign.b2bdocumentv4.jwt.JwtTokenFilter;
 import org.springframework.context.annotation.Bean;
@@ -9,9 +9,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -51,9 +54,8 @@ public class DataBaseSecurity{
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors();
-        http.csrf()
-                .disable()
+        http.cors(AbstractHttpConfigurer::disable);
+        http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(
                                 "/api/v1/auth/change-password",
@@ -67,15 +69,13 @@ public class DataBaseSecurity{
                                 "/api/v1/images/**",
                                 "/api/v1/docs",
                                 "/swagger-ui/**",
-                                "/swagger/ui.html").permitAll()
+                                "/swagger/ui.html").permitAll() // for free api
                         .requestMatchers(
                                 "/api/v1/admin/**",
                                 "/api/v1/user/**"
-                        ).hasRole("ADMIN")
+                        ).hasRole("ADMIN") // for admin api
                         .anyRequest().authenticated()
-                ).exceptionHandling()
-                .authenticationEntryPoint(authEntryPoint)
-                .and()
+                ).exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage("/403"))
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
