@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.payload.docUser;
+package kosign.b2bdocumentv4.payload.doc_users;
 
 import lombok.Data;
 

@@ -1,9 +1,9 @@
 package kosign.b2bdocumentv4.service.auth;
 
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
-import kosign.b2bdocumentv4.entity.docUsers.AuthRepository;
+import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
-import kosign.b2bdocumentv4.entity.docUsers.DocUsers;
+import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.enums.Role;
 import kosign.b2bdocumentv4.dto.UserInfoDto;
 import kosign.b2bdocumentv4.payload.login.UserInfoRequest;
@@ -40,12 +40,12 @@ public class AuthServiceImpl implements AuthService {
         System.out.println("TEST TEST");
         System.out.println(authRepository.findAll());
        if (authRepository.findAll().isEmpty()){
-           DocUsers docUsers = new DocUsers();
-           docUsers.setUsername(adminUsername);
-           docUsers.setRole(Role.ADMIN);
+           DocumentUsers documentUsers = new DocumentUsers();
+           documentUsers.setUsername(adminUsername);
+           documentUsers.setRole(Role.ADMIN);
            String pass = passwordEncoder.encode(adminPassword);
-           docUsers.setPassword(pass);
-           authRepository.save(docUsers);
+           documentUsers.setPassword(pass);
+           authRepository.save(documentUsers);
        }else{
            System.out.println("already have admin");
        }
@@ -59,17 +59,17 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void changePassword(Long id, InfoChangePassword password) {
-        Optional<DocUsers> adminOptional = authRepository.findById(id);
+        Optional<DocumentUsers> adminOptional = authRepository.findById(id);
         if (adminOptional.isPresent()) {
-            DocUsers docUsers = adminOptional.get();
+            DocumentUsers documentUsers = adminOptional.get();
             String pass = passwordEncoder.encode(password.getCurrentPassword());
             String newpass = passwordEncoder.encode(password.getNewPassword());
 
-            if (!passwordEncoder.matches(password.getCurrentPassword(), docUsers.getPassword())) {
+            if (!passwordEncoder.matches(password.getCurrentPassword(), documentUsers.getPassword())) {
                 throw new IllegalArgumentException("Current Password isn't correct. Please Try Again.");
             }
 
-            if (passwordEncoder.matches(password.getNewPassword(), docUsers.getPassword())) {
+            if (passwordEncoder.matches(password.getNewPassword(), documentUsers.getPassword())) {
                 throw new IllegalArgumentException("Your new password is still the same as your old password");
             }
 
@@ -77,8 +77,8 @@ public class AuthServiceImpl implements AuthService {
                 throw new IllegalArgumentException("Your confirm password does not match with your new password");
             }
 
-            docUsers.setPassword(newpass);
-            authRepository.save(docUsers);
+            documentUsers.setPassword(newpass);
+            authRepository.save(documentUsers);
         } else {
             throw new NotFoundExceptionClass("Admin not found with ID: " + id);
         }
@@ -92,7 +92,7 @@ public class AuthServiceImpl implements AuthService {
         String pass = passwordEncoder.encode(appUserRequest.getPassword());
         appUserRequest.setPassword(pass);
         appUserRequest.setRole(appUserRequest.getRole());
-        DocUsers appUser = mapper.map(appUserRequest, DocUsers.class);
+        DocumentUsers appUser = mapper.map(appUserRequest, DocumentUsers.class);
 
         authRepository.save(appUser);
         //return as user_dto

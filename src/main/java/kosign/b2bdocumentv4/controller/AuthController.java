@@ -8,7 +8,7 @@ import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.service.auth.AuthService;
 import kosign.b2bdocumentv4.jwt.JwtRespon;
 import kosign.b2bdocumentv4.jwt.JwtTokenUtils;
-import kosign.b2bdocumentv4.entity.docUsers.DocUsers;
+import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.dto.UserInfoDto;
 import kosign.b2bdocumentv4.payload.login.UserInfoRequest;
 import kosign.b2bdocumentv4.payload.login.response.ApiResponse;
@@ -71,7 +71,7 @@ public class AuthController {
     @Operation(summary = "change password")
     @SecurityRequirement(name = "bearerAuth")
     public ApiResponse<?> changePassword(@Valid @RequestBody InfoChangePassword changePassword){
-        DocUsers currentUser = (DocUsers) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        DocumentUsers currentUser = (DocumentUsers) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        System.out.println(currentUser);
         authService.changePassword(currentUser.getId(),changePassword);
         return ApiResponse.builder()

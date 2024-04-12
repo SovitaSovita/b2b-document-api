@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.entity.docUsers;
+package kosign.b2bdocumentv4.entity.doc_users;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -22,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "doc_users", schema = "stdy")
-public class DocUsers implements UserDetails {
+public class DocumentUsers implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +44,8 @@ public class DocUsers implements UserDetails {
     private Long dept_id;
 
     private String image;
-    private Integer status;
+
+    private Long status;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
