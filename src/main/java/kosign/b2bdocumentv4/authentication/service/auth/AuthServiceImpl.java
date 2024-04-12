@@ -1,6 +1,5 @@
 package kosign.b2bdocumentv4.authentication.service.auth;
 
-import jakarta.annotation.PostConstruct;
 import kosign.b2bdocumentv4.authentication.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.authentication.repository.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;

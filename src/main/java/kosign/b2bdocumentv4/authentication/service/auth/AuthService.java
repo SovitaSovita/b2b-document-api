@@ -7,8 +7,6 @@ import kosign.b2bdocumentv4.model.request.UserInfoRequest;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public interface AuthService extends UserDetailsService {
 

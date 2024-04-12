@@ -65,13 +65,15 @@ public class DataBaseSecurity{
                                 "/v3/api-docs/**",
                                 "/api/v1/images/Files",
                                 "/api/v1/images/**",
+                                "/api/v1/docs",
                                 "/swagger-ui/**",
-                                "/api/v1/doc/**",
                                 "/swagger/ui.html").permitAll()
-                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
+                        .requestMatchers(
+                                "/api/v1/admin/**",
+                                "/api/v1/user/**"
+                        ).hasRole("ADMIN")
                         .anyRequest().authenticated()
-                )
-                .exceptionHandling()
+                ).exceptionHandling()
                 .authenticationEntryPoint(authEntryPoint)
                 .and()
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
