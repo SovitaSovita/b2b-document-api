@@ -17,7 +17,7 @@ public class UserController {
 
     @GetMapping("/listAll")
     public BaseResponse listUser(@RequestParam Long dep_id) {
-        System.out.println("Workkk");
+
         return docUserService.listUsers(dep_id);
     }
 

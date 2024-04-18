@@ -67,7 +67,7 @@ public class DataBaseSecurity{
                                 "/v3/api-docs/**",
                                 "/api/v1/images/Files",
                                 "/api/v1/images/**",
-                                "/api/v1/docs",
+                                "/api/v1/docs/**",
                                 "/swagger-ui/**",
                                 "/swagger/ui.html").permitAll() // for free api
                         .requestMatchers(
