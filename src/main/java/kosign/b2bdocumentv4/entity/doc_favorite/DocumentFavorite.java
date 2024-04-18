@@ -1,9 +1,7 @@
-package kosign.b2bdocumentv4.entity.doc_listDepartment;
-
+package kosign.b2bdocumentv4.entity.doc_favorite;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import kosign.b2bdocumentv4.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +10,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "doc_department" , schema = "stdy")
-public class ListDepartment extends BaseEntity {
+@Table(name = "doc_favorite" , schema = "stdy")
+public class DocumentFavorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int dep_id;
     @NotNull
-    private String dep_name;
-
+    private int id;
+    @NotNull
+    private int user_id;
+    @NotNull
+    private int article_id;
+    @NotNull
+    private String dep_id;
 }
