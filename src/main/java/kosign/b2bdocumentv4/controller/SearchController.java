@@ -2,22 +2,23 @@ package kosign.b2bdocumentv4.controller;
 
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import kosign.b2bdocumentv4.payload.BaseResponse;
+import kosign.b2bdocumentv4.service.doc_search.DocSearchServiceImpl;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/docs")
+@SecurityRequirement(name = "bearerAuth")
+@RequestMapping("/api/v1/articles")
 @CrossOrigin
-
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SearchController {
 
-    @GetMapping
-    public String searchDos() {
-        System.out.println("Hi");
-        return "welcomes";
+    private final DocSearchServiceImpl service;
+
+    @GetMapping("/doc_search_r01")
+    public BaseResponse searchDoc(String ttile) {
+
+        return service.searchDoc(ttile);
     }
 }
