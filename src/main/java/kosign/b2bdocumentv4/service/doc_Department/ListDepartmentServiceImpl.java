@@ -1,6 +1,6 @@
 package kosign.b2bdocumentv4.service.doc_Department;
 
-import kosign.b2bdocumentv4.entity.doc_department.DocDepartment;
+import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartment;
 import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartmentRepository;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ public class ListDepartmentServiceImpl implements ListDepartmentService {
 
     @Override
     public BaseResponse ListDepartment(){
-        List<DocDepartment> getAllDepartment = repository.findAll();
+        List<DocumentDepartment> getAllDepartment = repository.findAll();
         return BaseResponse.builder()
                 .code("200")
                 .message("Fetch Data successfully")

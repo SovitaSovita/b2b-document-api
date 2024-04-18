@@ -13,11 +13,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "doc_department" , schema = "stdy")
-public class DocDepartment extends BaseEntity {
+public class DocumentDepartment extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int dep_id;
     @NotNull
     private String dep_name;
+    private String dep_status;
 
 }

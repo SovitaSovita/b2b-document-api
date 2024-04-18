@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class DocumentFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String article_id;
+    private String file_article_id;
     @NotNull
     private String file_idnt_id;
     private String file_nm;
