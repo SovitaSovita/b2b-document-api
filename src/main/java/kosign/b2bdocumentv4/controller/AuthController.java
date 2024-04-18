@@ -40,11 +40,11 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest jwtRequest) {
-//        try {
-//            authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
-//        } catch (Exception e) {
-//            throw new IllegalArgumentException("Invalid username or password");
-//        }
+        try {
+            authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid username or password");
+        }
 
         final UserDetails userDetails = authService.loadUserByUsername(jwtRequest.getUsername());
         final String token = jwtTokenUtils.generateToken(userDetails);
