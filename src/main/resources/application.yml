@@ -6,7 +6,7 @@ spring:
     password: uRWUApKZAgdx6Ekg6chegfQRvE17jHPp
 
 
-  #    url: jdbc:postgresql://localhost:5432/b2b-doc-db
+#    url: jdbc:postgresql://localhost:5432/b2b-doc-db
 #    username: postgres
 #    password: Sovita#28
   jpa:
