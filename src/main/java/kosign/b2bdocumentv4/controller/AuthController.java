@@ -72,7 +72,7 @@ public class AuthController {
     @SecurityRequirement(name = "bearerAuth")
     public ApiResponse<?> changePassword(@Valid @RequestBody InfoChangePassword changePassword){
         DocumentUsers currentUser = (DocumentUsers) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        System.out.println(currentUser);
+        System.out.println("[DEBUG] " + currentUser);
         authService.changePassword(currentUser.getId(),changePassword);
         return ApiResponse.builder()
                 .date(LocalDateTime.now())

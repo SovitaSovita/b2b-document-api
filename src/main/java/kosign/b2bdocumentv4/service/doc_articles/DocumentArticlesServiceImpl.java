@@ -16,6 +16,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
     @Override
     public BaseResponse listArticles(String dep_id) {
         List<DocumentArticles> list = repository.getByDepartmentId(dep_id);
-        return BaseResponse.builder().rec(list).build();
+        return BaseResponse.builder()
+                .rec(list)
+                .build();
     }
 }

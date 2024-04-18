@@ -35,22 +35,6 @@ public class AuthServiceImpl implements AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-//    @PostConstruct
-    public void createAdmin() {
-        System.out.println("TEST TEST");
-        System.out.println(authRepository.findAll());
-       if (authRepository.findAll().isEmpty()){
-           DocumentUsers documentUsers = new DocumentUsers();
-           documentUsers.setUsername(adminUsername);
-           documentUsers.setRole(Role.ADMIN);
-           String pass = passwordEncoder.encode(adminPassword);
-           documentUsers.setPassword(pass);
-           authRepository.save(documentUsers);
-       }else{
-           System.out.println("already have admin");
-       }
-    }
-
     @Override
     public UserDetails loadUserByUsername(String username){
         UserDetails userDetails = authRepository.findByUsername(username);
