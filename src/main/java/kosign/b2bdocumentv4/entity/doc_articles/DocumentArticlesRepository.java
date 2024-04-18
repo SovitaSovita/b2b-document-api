@@ -14,5 +14,15 @@ public interface DocumentArticlesRepository extends JpaRepository<DocumentArticl
            """,nativeQuery = true)
     List<DocumentArticles> getByDepartmentId(String dep_id);
 
+    @Query(value = """
+            SELECT a.id, a.tag_id, a.file_article_id, t.title as tag_title,a.title, a.content_body,  a.modified_date , a.create_date,  a.status,b.username,b.image,a.user_id,\s
+                            f.file_id,f.file_idnt_id,f.file_nm,f.file_size,f.thum_img_path,f.img_path
+                            FROM doc_articles a
+                            inner join doc_users b on a.user_id = b.id
+                            left join doc_tags t on t.id = a.tag_id \s
+                            left join doc_file as f on f.file_article_id = a.file_article_id
+                            where a.id=cast($1 as INTEGER) and a.status = 1 and t.status = 1
+            """,nativeQuery = true)
+    List<DocumentArticles> findArticlesById(Long id);
 
 }

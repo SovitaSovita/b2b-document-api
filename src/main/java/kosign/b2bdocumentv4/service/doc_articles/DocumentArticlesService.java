@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface DocumentArticlesService {
     BaseResponse listArticles(String dep_id);
+    BaseResponse listAllArticles(Long id);
+
+
 }
+
