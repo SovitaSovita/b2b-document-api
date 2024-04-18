@@ -14,4 +14,5 @@ public interface DocumentArticlesRepository extends JpaRepository<DocumentArticl
            """,nativeQuery = true)
     List<DocumentArticles> getByDepartmentId(String dep_id);
 
+
 }
