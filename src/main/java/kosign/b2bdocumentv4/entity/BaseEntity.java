@@ -16,37 +16,18 @@ import java.time.LocalDateTime;
 @Getter
 public abstract class BaseEntity {
 
-    // @CreatedBy
-    // @Column(updatable = false)
-    // private String createdBy;
+     @CreatedBy
+     @Column(updatable = false)
+     private String createdBy;
 
-    // @LastModifiedBy
-    // private String modifiedBy;
+     @LastModifiedBy
+     private String modifiedBy;
 
-    // @CreatedDate
-    // @Column(updatable = false)
-    // private Timestamp create_date;
+     @CreatedDate
+     @Column(updatable = false)
+     private Timestamp create_date;
 
-    // @LastModifiedDate
-    // private Timestamp modified_date;
+     @LastModifiedDate
+     private Timestamp modified_date;
 
-    @Column(name = "create_date")
-    private Timestamp create_date;
-
-    @Column(name = "modified_date")
-    private Timestamp modified_date;
-
-    @PrePersist
-    public void prePersist() {
-        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        if (create_date == null) {
-            create_date = currentTimestamp;
-        }
-        modified_date = currentTimestamp;
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        modified_date = new Timestamp(System.currentTimeMillis());
-    }
 }

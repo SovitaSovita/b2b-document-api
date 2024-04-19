@@ -33,8 +33,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserDetails loadUserByUsername(String username){
-        UserDetails userDetails = authRepository.findByUsername(username);
-        return userDetails;
+        return authRepository.findByUsername(username);
     }
 
     @Override
