@@ -7,10 +7,10 @@ import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface DocumentUserMapper {
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     DocUserResponse entityToResponse(DocumentUsers entity);
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     DocumentUsers responseToEntity(DocUserResponse response);
-
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     DocumentUsers updateDocUser(@MappingTarget DocumentUsers entity , DocUserUpdateRequest updateRequest );
 }

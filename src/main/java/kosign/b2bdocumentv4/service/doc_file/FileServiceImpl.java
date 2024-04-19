@@ -4,7 +4,7 @@ import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
 import kosign.b2bdocumentv4.entity.doc_file.DocumentFile;
 import kosign.b2bdocumentv4.entity.doc_file.DocumentFileRepository;
-import kosign.b2bdocumentv4.configuration.CommonValidation;
+import kosign.b2bdocumentv4.utils.CommonValidation;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
