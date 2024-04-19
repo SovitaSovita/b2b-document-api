@@ -33,5 +33,9 @@ myAdmin:
 server:
   port: 4545
 
+base_url_img : http://localhost:4545/api/v1/files/view_image?fileName=
+dashboard_url: http://localhost:4545/
+file_path: src/main/resources/static/images
+
 # Swagger URL
 # /swagger-ui/index.html/

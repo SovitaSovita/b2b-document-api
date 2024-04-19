@@ -1,6 +1,6 @@
 package kosign.b2bdocumentv4.service.doc_users;
 
-import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
+import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.mapper.DocumentUserMapper;
 import kosign.b2bdocumentv4.payload.BaseResponse;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DocUserServiceImpl implements DocUserService{
 
-    private final DocumentUsersRepository usersRepository;
+    private final AuthRepository usersRepository;
     private final DocumentUserMapper userMapper;
 
     @Override

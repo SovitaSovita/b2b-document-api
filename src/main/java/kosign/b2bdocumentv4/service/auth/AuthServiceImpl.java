@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,12 +25,6 @@ public class AuthServiceImpl implements AuthService {
     private final AuthRepository authRepository;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper mapper = new ModelMapper();
-
-
-    @Value("${myAdmin.username}")
-    private String adminUsername;
-    @Value("${myAdmin.password}")
-    private String adminPassword;
 
     public AuthServiceImpl(AuthRepository authRepository, PasswordEncoder passwordEncoder ) {
         this.authRepository = authRepository;
@@ -44,6 +40,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void changePassword(Long id, InfoChangePassword password) {
         Optional<DocumentUsers> adminOptional = authRepository.findById(id);
+//        System.out.println("[DEBUG] :: " + adminOptional.get());
         if (adminOptional.isPresent()) {
             DocumentUsers documentUsers = adminOptional.get();
             String pass = passwordEncoder.encode(password.getCurrentPassword());
@@ -83,7 +80,11 @@ public class AuthServiceImpl implements AuthService {
         return mapper.map(appUser, UserInfoDto.class);
     }
 
-
+    @Override
+    public void deleteUser(Long user_id) {
+        DocumentUsers user = authRepository.findById(user_id).orElseThrow(() -> new NotFoundExceptionClass("User with id [" + user_id + "] not found."));
+        authRepository.deleteById(user.getId());
+    }
 
 
 }
