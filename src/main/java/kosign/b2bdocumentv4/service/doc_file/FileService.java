@@ -11,4 +11,6 @@ public interface FileService {
     DocumentFile fileUpload(MultipartFile imageFile, String articleId) throws IOException;
 
     List<DocumentFile> fileList(String articleId);
+
+    void deletefile(Integer fileId) throws IOException;
 }
