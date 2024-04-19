@@ -13,4 +13,6 @@ public interface AuthService extends UserDetailsService {
     void changePassword(Long id, InfoChangePassword password);
 
     UserInfoDto register(UserInfoRequest appUserRequest);
+
+    void deleteUser(Long user_id);
 }
