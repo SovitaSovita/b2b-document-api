@@ -1,6 +1,7 @@
 package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import kosign.b2bdocumentv4.payload.doc_users.DocUserUpdateRequest;
 import kosign.b2bdocumentv4.service.doc_users.DocUserServiceImpl;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,12 @@ public class UserController {
 
     @GetMapping("/listAll")
     public BaseResponse listUser(@RequestParam Long dep_id) {
-
         return docUserService.listUsers(dep_id);
+    }
+
+    @PutMapping("/update_user")
+    public BaseResponse updateUser(@RequestBody DocUserUpdateRequest updateRequest){
+        return docUserService.updateDocumentUser(updateRequest);
     }
 
 

@@ -61,7 +61,7 @@ public class FileController {
     public ResponseEntity<ApiResponse> fileList(@RequestParam String articleId) throws IOException {
         ApiResponse<List<DocumentFile>> response = ApiResponse.<List<DocumentFile>>builder()
                 .status(200)
-                .message("Inserted Successfully.")
+                .message("Get Successfully.")
                 .payload(fileService.fileList(articleId))
                 .date(LocalDateTime.now())
                 .build();

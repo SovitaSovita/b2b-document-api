@@ -4,6 +4,7 @@ import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
 import kosign.b2bdocumentv4.entity.doc_file.DocumentFile;
 import kosign.b2bdocumentv4.entity.doc_file.DocumentFileRepository;
+import kosign.b2bdocumentv4.configuration.CommonValidation;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import java.util.UUID;
 public class FileServiceImpl implements FileService {
 
     private final DocumentArticlesRepository articlesRepository;
+    private final CommonValidation commonValidation;
     private final DocumentFileRepository fileRepository;
 
     @Value("${file_path}")
@@ -31,8 +33,9 @@ public class FileServiceImpl implements FileService {
     @Value("${base_url_img}")
     private String base_url;
 
-    public FileServiceImpl(DocumentArticlesRepository articlesRepository, DocumentFileRepository fileRepository) {
+    public FileServiceImpl(DocumentArticlesRepository articlesRepository, CommonValidation commonValidation, DocumentFileRepository fileRepository) {
         this.articlesRepository = articlesRepository;
+        this.commonValidation = commonValidation;
         this.fileRepository = fileRepository;
     }
 
@@ -56,7 +59,8 @@ public class FileServiceImpl implements FileService {
                     fileName.contains(".jpeg") ||
                     fileName.contains(".ong") ||
                     fileName.contains((".png")) ||
-                    fileName.contains((".webp"))
+                    fileName.contains((".webp")) ||
+                    fileName.contains((".xlsx"))
             ) {
                 fileName = UUID.randomUUID() +  "." + StringUtils.getFilenameExtension(fileName);
 
@@ -82,7 +86,11 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public List<DocumentFile> fileList(String articleId) {
-        //work here
-        return fileRepository.findByFile_article_id(articleId);
+        if(!commonValidation.isNumeric(articleId)){
+            throw new IllegalArgumentException("Article ID must be a number.");
+        }
+        List <DocumentFile> files = fileRepository.findByArticleIdAndStatus(Integer.parseInt(articleId));
+        if(!files.isEmpty()) return files;
+        else throw new NotFoundExceptionClass("Article with ID ["+ articleId +"] not found.");
     }
 }
