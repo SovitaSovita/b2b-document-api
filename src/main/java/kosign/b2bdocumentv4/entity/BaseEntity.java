@@ -1,8 +1,6 @@
 package kosign.b2bdocumentv4.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,17 +16,37 @@ import java.time.LocalDateTime;
 @Getter
 public abstract class BaseEntity {
 
-    @CreatedBy
-    @Column(updatable = false)
-    private String createdBy;
+    // @CreatedBy
+    // @Column(updatable = false)
+    // private String createdBy;
 
-    @LastModifiedBy
-    private String modifiedBy;
+    // @LastModifiedBy
+    // private String modifiedBy;
 
-    @CreatedDate
-    @Column(updatable = false)
-    private Timestamp createdDate;
+    // @CreatedDate
+    // @Column(updatable = false)
+    // private Timestamp create_date;
 
-    @LastModifiedDate
-    private Timestamp modifiedDate;
+    // @LastModifiedDate
+    // private Timestamp modified_date;
+
+    @Column(name = "create_date")
+    private Timestamp create_date;
+
+    @Column(name = "modified_date")
+    private Timestamp modified_date;
+
+    @PrePersist
+    public void prePersist() {
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+        if (create_date == null) {
+            create_date = currentTimestamp;
+        }
+        modified_date = currentTimestamp;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        modified_date = new Timestamp(System.currentTimeMillis());
+    }
 }

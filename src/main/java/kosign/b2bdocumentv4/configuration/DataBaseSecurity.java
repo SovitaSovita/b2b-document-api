@@ -72,7 +72,8 @@ public class DataBaseSecurity{
                                 "/swagger/ui.html").permitAll() // for free api
                         .requestMatchers(
                                 "/api/v1/admin/**",
-                                "/api/v1/user/**"
+                                "/api/v1/user/**",
+                                "/api/v1/saveTag/**"
                         ).hasRole("ADMIN") // for admin api
                         .anyRequest().authenticated()
                 ).exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage("/403"))

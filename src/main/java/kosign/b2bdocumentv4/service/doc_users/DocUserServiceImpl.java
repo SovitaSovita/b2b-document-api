@@ -22,7 +22,7 @@ public class DocUserServiceImpl implements DocUserService{
 
     @Override
     public BaseResponse listUsers(Long dep_id) {
-        List<DocumentUsers> usersList = usersRepository.findAll();
+        List<DocumentUsers> usersList = usersRepository.getAllByDep_Id(dep_id);
         List<DocUserResponse> responseUserList = usersList.stream()
                 .map(userMapper::entityToResponse)
                 .toList();

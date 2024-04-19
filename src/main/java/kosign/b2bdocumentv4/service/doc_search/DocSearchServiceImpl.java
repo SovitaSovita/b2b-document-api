@@ -20,13 +20,9 @@ public class DocSearchServiceImpl implements DocSearchService{
     @Override
     public BaseResponse searchDoc(String title){
 
-        System.out.println("Checking:  "+ repository.findByTitleContaining(title));
         List<DocSearch> getSearch = repository.findByTitleContaining(title);
-//        System.out.println("1" + getSearch);
-//        System.out.println("2" + title);
-//        System.out.println("3" + repository.findByTitle(title));
 
-        return BaseResponse.builder().code("200").message("yuth 168").isError(false).rec(getSearch).build();
+        return BaseResponse.builder().code("200").message("success").isError(false).rec(getSearch).build();
     }
 
 }
