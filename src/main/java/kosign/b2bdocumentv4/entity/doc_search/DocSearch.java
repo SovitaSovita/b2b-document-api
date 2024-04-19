@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "doc_articles", schema = "stdy")
-public class DocSearch extends BaseEntity{
+public class DocSearch extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +23,6 @@ public class DocSearch extends BaseEntity{
     private String title;
     @NotNull
     private int tag_id;
+
+
 }

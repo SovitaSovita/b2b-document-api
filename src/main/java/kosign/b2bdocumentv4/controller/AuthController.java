@@ -90,5 +90,16 @@ public class AuthController {
                 .build();
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/delete_user")
+    public ResponseEntity<?> deleteUser(@RequestParam Long user_id){
+        authService.deleteUser(user_id);
+        ApiResponse<DocumentUsers> response = ApiResponse.<DocumentUsers>builder()
+                .status(200)
+                .message("Deleted Successfully!")
+                .date(LocalDateTime.now())
+                .build();
+        return ResponseEntity.ok(response);
+    }
 }
 

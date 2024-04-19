@@ -61,18 +61,20 @@ public class DataBaseSecurity{
                                 "/api/v1/auth/change-password",
                                 "/api/v1/auth/login",
                                 "/api/v1/auth/register",
+                                "/api/v1/auth/**",
                                 "/api/v1/excel",
                                 "/api/v1/auth",
                                 "/api/v1/send-email",
                                 "/v3/api-docs/**",
                                 "/api/v1/images/Files",
-                                "/api/v1/images/**",
+                                "/api/v1/files/**",
                                 "/api/v1/docs/**",
                                 "/swagger-ui/**",
                                 "/swagger/ui.html").permitAll() // for free api
                         .requestMatchers(
                                 "/api/v1/admin/**",
-                                "/api/v1/user/**"
+                                "/api/v1/user/**",
+                                "/api/v1/saveTag/**"
                         ).hasRole("ADMIN") // for admin api
                         .anyRequest().authenticated()
                 ).exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage("/403"))

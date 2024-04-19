@@ -1,7 +1,8 @@
 package kosign.b2bdocumentv4.service.doc_users;
 
-import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
+import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
+import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
 import kosign.b2bdocumentv4.mapper.DocumentUserMapper;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_users.DocUserResponse;
@@ -17,12 +18,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DocUserServiceImpl implements DocUserService{
 
-    private final DocumentUsersRepository usersRepository;
+    private final AuthRepository usersRepository;
     private final DocumentUserMapper userMapper;
+    private final DocumentUsersRepository repository;
 
     @Override
     public BaseResponse listUsers(Long dep_id) {
-        List<DocumentUsers> usersList = usersRepository.findAll();
+        List<DocumentUsers> usersList = repository.getAllByDep_Id(dep_id);
         List<DocUserResponse> responseUserList = usersList.stream()
                 .map(userMapper::entityToResponse)
                 .toList();
