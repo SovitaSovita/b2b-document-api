@@ -16,7 +16,7 @@ public class UserController {
 
     private final DocUserServiceImpl docUserService;
 
-    @GetMapping("/listAll")
+    @GetMapping("/list-by-department")
     public BaseResponse listUser(@RequestParam Long dep_id) {
         return docUserService.listUsers(dep_id);
     }

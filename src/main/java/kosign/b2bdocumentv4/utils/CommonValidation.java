@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.configuration;
+package kosign.b2bdocumentv4.utils;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
