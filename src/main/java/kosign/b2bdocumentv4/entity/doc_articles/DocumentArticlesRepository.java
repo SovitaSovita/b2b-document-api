@@ -14,5 +14,8 @@ public interface DocumentArticlesRepository extends JpaRepository<DocumentArticl
            """,nativeQuery = true)
     List<DocumentArticles> getByDepartmentId(String dep_id);
 
-
+    @Query(value = """
+           select da.file_article_id from stdy.doc_articles da where da.id = :id
+           """,nativeQuery = true)
+    String getFileArticleById(Long id);
 }
