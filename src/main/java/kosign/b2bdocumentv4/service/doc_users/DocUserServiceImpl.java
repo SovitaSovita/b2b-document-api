@@ -7,6 +7,7 @@ import kosign.b2bdocumentv4.mapper.DocumentUserMapper;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_users.DocUserResponse;
 import kosign.b2bdocumentv4.payload.doc_users.DocUserUpdateRequest;
+import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -38,14 +39,12 @@ public class DocUserServiceImpl implements DocUserService{
 
     @Override
     public BaseResponse updateDocumentUser(DocUserUpdateRequest updateRequest){
-        if(updateRequest.getId() != null){
-            DocumentUsers findUser = usersRepository.findById(updateRequest.getId()).orElse(null);
-            if(null == findUser) return BaseResponse.builder().isError(true).code("403").message("could not find user with that ID").build();
-
-            var updatedUser = usersRepository.save(userMapper.updateDocUser(findUser,updateRequest));
-            return BaseResponse.builder().rec(userMapper.entityToResponse(updatedUser)).code("200").message("Save success!").build();
+        DocumentUsers user = AuthHelper.getUser();
+        if(user != null){
+            var savedUser = usersRepository.save(userMapper.updateDocUser(user,updateRequest));
+            return BaseResponse.builder().rec(userMapper.entityToResponse(savedUser)).code("200").message("Success!").build();
         }
-        return BaseResponse.builder().isError(true).code("403").message("User id could not be null").build();
+        return BaseResponse.builder().isError(true).code("403").message("User not found!").build();
     }
 
 }
