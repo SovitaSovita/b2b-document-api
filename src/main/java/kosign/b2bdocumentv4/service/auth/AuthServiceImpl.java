@@ -1,11 +1,13 @@
 package kosign.b2bdocumentv4.service.auth;
 
+import kosign.b2bdocumentv4.enums.Provider;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.enums.Role;
 import kosign.b2bdocumentv4.dto.UserInfoDto;
+import kosign.b2bdocumentv4.payload.login.CreateUserRequest;
 import kosign.b2bdocumentv4.payload.login.UserInfoRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -72,7 +74,11 @@ public class AuthServiceImpl implements AuthService {
         String pass = passwordEncoder.encode(appUserRequest.getPassword());
         appUserRequest.setPassword(pass);
         appUserRequest.setRole(appUserRequest.getRole());
+        appUserRequest.setRole(appUserRequest.getRole());
         DocumentUsers appUser = mapper.map(appUserRequest, DocumentUsers.class);
+        appUser.setProvider(Provider.CREDENTIAL);
+        appUser.setStatus(1L);
+        appUser.setDept_id(1L);
 
         authRepository.save(appUser);
         //return as user_dto
@@ -83,6 +89,30 @@ public class AuthServiceImpl implements AuthService {
     public void deleteUser(Long user_id) {
         DocumentUsers user = authRepository.findById(user_id).orElseThrow(() -> new NotFoundExceptionClass("User with id [" + user_id + "] not found."));
         authRepository.deleteById(user.getId());
+    }
+
+    @Override
+    public String getProviderId(String userId) {
+        return authRepository.getByProvider(userId);
+    }
+
+    @Override
+    public UserInfoDto createUser(CreateUserRequest userRequest) {
+        Boolean existsUser = authRepository.existsByUsername(userRequest.getUsername());
+        if(!existsUser){
+            DocumentUsers users = new DocumentUsers();
+            users.setRole(Role.USER);
+            users.setProvider(userRequest.getProvider());
+            users.setUsername(userRequest.getUsername());
+            users.setStatus(1L);
+            users.setDept_id(1L);
+            users = authRepository.save(users);
+
+            return mapper.map(users, UserInfoDto.class);
+        }
+        else {
+            throw new IllegalArgumentException("User already exist");
+        }
     }
 
 
