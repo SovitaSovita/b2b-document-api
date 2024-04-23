@@ -91,7 +91,7 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/delete_user")
+    @DeleteMapping("/delete_user")
     public ResponseEntity<?> deleteUser(@RequestParam Long user_id){
         authService.deleteUser(user_id);
         ApiResponse<DocumentUsers> response = ApiResponse.<DocumentUsers>builder()

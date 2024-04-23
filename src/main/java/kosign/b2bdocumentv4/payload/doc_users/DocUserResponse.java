@@ -7,5 +7,8 @@ import lombok.Data;
 public class DocUserResponse {
     private Long id;
     private String username;
+    private String image;
+    private Long status;
+    private Long dept_id;
     private Role role;
 }

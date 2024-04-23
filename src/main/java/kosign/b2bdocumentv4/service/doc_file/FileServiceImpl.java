@@ -43,12 +43,14 @@ public class FileServiceImpl implements FileService {
     public DocumentFile fileUpload(MultipartFile file, String articleId) throws IOException {
 
         Path root = Paths.get(file_path);
+        String fileArticleId = articlesRepository.getFileArticleById(Long.valueOf(articleId));
 
-        DocumentArticles articleData = articlesRepository.findById(Long.valueOf(articleId))
-                .orElseThrow(() -> new NotFoundExceptionClass("Article with ID [" + articleId + "]"));
+        if(fileArticleId == null){
+            throw new NotFoundExceptionClass("Article not Found.");
+        }
 
         DocumentFile documentFile = new DocumentFile();
-        documentFile.setFile_article_id(articleData.getFile_article_id());
+        documentFile.setFile_article_id(fileArticleId);
         documentFile.setFile_idnt_id(LocalDate.now().toString());
 
 
@@ -60,7 +62,21 @@ public class FileServiceImpl implements FileService {
                     fileName.contains(".ong") ||
                     fileName.contains((".png")) ||
                     fileName.contains((".webp")) ||
-                    fileName.contains((".xlsx"))
+                    fileName.contains((".xlsx")) ||
+                    fileName.contains((".docx")) ||
+                    fileName.contains((".pdf")) ||
+                    fileName.contains((".gif")) ||
+                    fileName.contains((".csv")) ||
+                    fileName.contains((".doc")) ||
+                    fileName.contains((".xls")) ||
+                    fileName.contains((".ppt")) ||
+                    fileName.contains((".pptx")) ||
+                    fileName.contains((".mp3")) ||
+                    fileName.contains((".mp4")) ||
+                    fileName.contains((".webm")) ||
+                    fileName.contains((".rar")) ||
+                    fileName.contains((".zip")) ||
+                    fileName.contains((".tar"))
             ) {
                 fileName = UUID.randomUUID() +  "." + StringUtils.getFilenameExtension(fileName);
 
@@ -92,5 +108,19 @@ public class FileServiceImpl implements FileService {
         List <DocumentFile> files = fileRepository.findByArticleIdAndStatus(Integer.parseInt(articleId));
         if(!files.isEmpty()) return files;
         else throw new NotFoundExceptionClass("Article with ID ["+ articleId +"] not found.");
+    }
+
+    @Override
+    public void deletefile(Integer fileId) throws IOException {
+        Path root = Paths.get(file_path);
+        DocumentFile docFile = fileRepository.findById(fileId)
+                .orElseThrow(() -> new NotFoundExceptionClass("File not found"));
+        String fileName = docFile.getFile_nm();
+        if(fileName != null){
+            Path imagePath = root.resolve(fileName);
+            Files.deleteIfExists(imagePath);
+        }
+
+        fileRepository.deleteById(fileId);
     }
 }
