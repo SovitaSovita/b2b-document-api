@@ -31,9 +31,14 @@ public class DocumentTag {
     @NotEmpty
     private Long status;
 
-    @NotBlank
-    @NotEmpty
-    private String dep_id;
+//    @NotBlank
+//    @NotEmpty
+//    @Column(name = "dep_id") // Explicitly specify the column name
+//    private String depId;
+
+    private Long dept_id;
+
+
 
     @Column(name = "create_date")
     private Timestamp create_date;

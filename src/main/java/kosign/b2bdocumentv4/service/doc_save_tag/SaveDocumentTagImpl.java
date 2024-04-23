@@ -3,15 +3,17 @@ package kosign.b2bdocumentv4.service.doc_save_tag;
 
 import kosign.b2bdocumentv4.entity.doc_tags.DocumentTag;
 import kosign.b2bdocumentv4.entity.doc_tags.DocumentTagRepository;
-import kosign.b2bdocumentv4.mapper.DocumentTagMapper;
-import kosign.b2bdocumentv4.mapper.DocumentUserMapper;
+import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
+import kosign.b2bdocumentv4.mapper.*;
 import kosign.b2bdocumentv4.payload.BaseResponse;
-import kosign.b2bdocumentv4.payload.doc_tags.DocTagRequest;
+import kosign.b2bdocumentv4.payload.doc_tags.*;
+import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -19,22 +21,69 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     private final DocumentTagRepository documentTagRepository;
     private final DocumentTagMapper documentTagMapper;
+    private final DocumentTagUpdateMapper documentTagUpdateMapper;
+    private final DocumentTageDeleteMapper documentTageDeleteMapper;
+    private final DocumentTagListMapper documentTagListMapper;
+
 
     @Override
     public BaseResponse saveTag(DocTagRequest docTagRequest) {
         DocumentTag documentTag = documentTagMapper.requestToEntity(docTagRequest);
 
-        // documentTag.setId(documentTag.getId());
         documentTag.setStatus(1L);
-        // documentTag.setId(docTagRequest.getUser_id());
-        documentTag.setUser_id(docTagRequest.getUser_id());
-        documentTag.setDep_id(docTagRequest.getDept_id());
-        documentTag.setTitle(docTagRequest.getTitle());
+        // documentTag.setUser_id(docTagRequest.getUser_id());
+
+
+        // documentTag.setTitle(docTagRequest.getTitle());
         documentTag.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
+        System.out.println(documentTag);
+        var newEntity = documentTagRepository.save(documentTag);
+        return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
+    }
+
+    // update
+    @Override
+    public BaseResponse updateTag(DocTagUpdateRequest docTagUpdateRequest) {
+
+        DocumentTag documentTag = documentTagUpdateMapper.requestToEntity(docTagUpdateRequest);
+
+        documentTag.setStatus(1L);
+        documentTag.setUser_id(docTagUpdateRequest.getUser_id());
+        //documentTag.setDepId(docTagUpdateRequest.getDepId());
+        documentTag.setTitle(docTagUpdateRequest.getTitle());
+        documentTag.setModified_date(docTagUpdateRequest.getCreate_date());
 
         System.out.println(documentTag);
         var newEntity = documentTagRepository.save(documentTag);
-        // return BaseResponse.builder().rec(documentTag).code("200").message("success").build();
         return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
+
     }
+
+    // delete
+    @Override
+    public BaseResponse deleteTag(DocTagDeleteRequest docTagDeleteRequest) {
+        var user = AuthHelper.getUser();
+        System.out.println(user);
+        var newEntity = documentTagRepository.findById(docTagDeleteRequest.getId()).orElse(null);
+        if (null == newEntity) return BaseResponse.builder().isError(true).code("404").message("Document Tag with id ["+docTagDeleteRequest.getId()+"] not exist!").build();
+        documentTagRepository.deleteById(newEntity.getId());
+        return  BaseResponse.builder().code("200").message("Delete success!").build();
+    }
+
+    // list
+    @Override
+    public BaseResponse getAllTagByDep_Id(Long dep_d) {
+        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dep_d);
+        System.out.println("1" + litDocTagByDep_ID);
+
+        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::entityToResponse).toList();
+
+        return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
+
+
+    }
+
+
+
+
 }
