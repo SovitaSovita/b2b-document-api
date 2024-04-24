@@ -17,3 +17,9 @@ ssh -p "$server_port" "$server_username@$server_ip" "bash -s" << EOF
 cd "$server_script_directory"
 ./startWAS_b2bdocument.sh
 EOF
+
+# SSH into the server again and run the start script
+ssh -p "$server_port" "$server_username@$server_ip" "bash -s" << EOF
+cd "$server_script_directory"
+./logWAS_b2bdocument.sh
+EOF
