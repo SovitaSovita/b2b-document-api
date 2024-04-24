@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.service.doc_Department;
+package kosign.b2bdocumentv4.service.doc_department;
 
 import kosign.b2bdocumentv4.entity.doc_department.DocDepartmentTag;
 import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartmentRepository;
