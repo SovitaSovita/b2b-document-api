@@ -7,6 +7,8 @@ import kosign.b2bdocumentv4.payload.login.response.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -37,11 +39,19 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
     @Override
     public BaseResponse getMenuByDept_ID(String dept_id) {
         List<DocumentArticles> list = repository.getMenuByDept_ID(dept_id);
-        return BaseResponse.builder()
-                .rec(list)
-                .code("200")
-                .message("successfully fetch menu")
-                .build();
+        if (list.isEmpty()) {
+            return BaseResponse.builder()
+                    .rec(Collections.emptyList()) // Empty list
+                    .code("404")
+                    .message("No data found for the given department ID: " + dept_id)
+                    .build();
+        } else {
+            return BaseResponse.builder()
+                    .rec(list)
+                    .code("200")
+                    .message("Successfully fetched menu")
+                    .build();
+        }
     }
 
 }
