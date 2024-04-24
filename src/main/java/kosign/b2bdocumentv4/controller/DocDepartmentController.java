@@ -1,11 +1,8 @@
 package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import kosign.b2bdocumentv4.entity.doc_department.DocDepartmentTag;
 import kosign.b2bdocumentv4.payload.BaseResponse;
-import kosign.b2bdocumentv4.payload.doc_documents.DocDeleteDepartmentRequest;
 import kosign.b2bdocumentv4.payload.doc_documents.DocDepartmentRequest;
-import kosign.b2bdocumentv4.payload.doc_documents.DocUpdateDocumentRepose;
 import kosign.b2bdocumentv4.payload.doc_documents.DocUpdateDocumentRequest;
 import kosign.b2bdocumentv4.service.doc_Department.DocDepartmentServiceImpl;
 import lombok.RequiredArgsConstructor;
