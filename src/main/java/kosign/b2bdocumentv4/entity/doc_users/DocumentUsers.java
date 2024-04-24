@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import kosign.b2bdocumentv4.configuration.ValidationConfig;
+import kosign.b2bdocumentv4.enums.Provider;
 import kosign.b2bdocumentv4.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,6 +46,9 @@ public class DocumentUsers implements UserDetails {
     private String image;
 
     private Long status;
+
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

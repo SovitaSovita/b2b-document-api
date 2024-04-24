@@ -61,6 +61,7 @@ public class DataBaseSecurity{
                                 "/api/v1/auth/change-password",
                                 "/api/v1/auth/login",
                                 "/api/v1/auth/register",
+                                "/api/v1/auth/create_user",
                                 "/api/v1/auth/**",
                                 "/api/v1/excel",
                                 "/api/v1/auth",

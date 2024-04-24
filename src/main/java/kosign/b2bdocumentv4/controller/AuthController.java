@@ -1,10 +1,14 @@
 package kosign.b2bdocumentv4.controller;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.auth.AuthenticationRequest;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
+import kosign.b2bdocumentv4.payload.login.CreateUserRequest;
 import kosign.b2bdocumentv4.service.auth.AuthService;
 import kosign.b2bdocumentv4.jwt.JwtRespon;
 import kosign.b2bdocumentv4.jwt.JwtTokenUtils;
@@ -22,6 +26,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -56,7 +62,6 @@ public class AuthController {
     }
 
     private void authenticate(String username, String password) throws Exception {
-        System.out.println("User: " + username + "pass: " + password);
         try {
             System.out.println(username+password);
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -87,6 +92,19 @@ public class AuthController {
                 .status(200)
                 .message("Registered Successfully!")
                 .payload(appUserDto)
+                .date(LocalDateTime.now())
+                .build();
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/create_user")
+    public ResponseEntity<?> createUserIfNotExists(@RequestBody CreateUserRequest userRequest){
+        UserInfoDto appUserDto = authService.createUser(userRequest);
+        ApiResponse<UserInfoDto> response = ApiResponse.<UserInfoDto>builder()
+                .status(200)
+                .message("Created Successfully!")
+                .payload(appUserDto)
+                .date(LocalDateTime.now())
                 .build();
         return ResponseEntity.ok(response);
     }
@@ -100,6 +118,32 @@ public class AuthController {
                 .date(LocalDateTime.now())
                 .build();
         return ResponseEntity.ok(response);
+    }
+
+
+    @PostMapping("/generateToken")
+    public ResponseEntity<?> generateToken (@RequestParam String userId){
+        UserDetails userDetails = retrieveUserDetails(userId);
+        if(userDetails == null){
+            throw new NotFoundExceptionClass("User not found!");
+        }
+        String provider = authService.getProviderId(userId);
+        System.out.println("[DEBUG] " + provider);
+        if(Objects.equals(provider, "GITHUB")){
+            String token = jwtTokenUtils.generateToken(userDetails);
+            return ResponseEntity.ok(new JwtRespon(LocalDateTime.now(),
+                    userId,
+                    token,
+                    jwtTokenUtils.getExpirationDateFromToken(token)
+            ));
+        }
+        else {
+            throw new IllegalArgumentException("This user is SIGN IN by credential!");
+        }
+    }
+    private UserDetails retrieveUserDetails(String providerId) {
+        UserDetails userDetails = authService.loadUserByUsername(providerId);
+        return userDetails;
     }
 }
 
