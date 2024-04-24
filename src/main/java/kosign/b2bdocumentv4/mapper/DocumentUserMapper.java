@@ -13,6 +13,7 @@ public interface DocumentUserMapper {
     DocUserResponse entityToResponse(DocumentUsers entity);
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     DocumentUsers responseToEntity(DocUserResponse response);
+
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     DocumentUsers updateDocUser(@MappingTarget DocumentUsers entity , DocUserUpdateRequest updateRequest );
 
