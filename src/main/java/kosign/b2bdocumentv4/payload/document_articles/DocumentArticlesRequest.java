@@ -6,5 +6,6 @@ import lombok.Data;
 @Data
 public class DocumentArticlesRequest {
     @NotNull
-    private String dep_id;
+    // private String dep_id;
+    private String dept_id;
 }

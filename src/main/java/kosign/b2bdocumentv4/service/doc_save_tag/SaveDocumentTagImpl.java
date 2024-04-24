@@ -31,10 +31,9 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         DocumentTag documentTag = documentTagMapper.requestToEntity(docTagRequest);
 
         documentTag.setStatus(1L);
-        // documentTag.setUser_id(docTagRequest.getUser_id());
+        documentTag.setUser_id(documentTag.getUser_id());
 
-
-        // documentTag.setTitle(docTagRequest.getTitle());
+        documentTag.setDept_id(documentTag.getDept_id());
         documentTag.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
         System.out.println(documentTag);
         var newEntity = documentTagRepository.save(documentTag);
@@ -47,13 +46,15 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
         DocumentTag documentTag = documentTagUpdateMapper.requestToEntity(docTagUpdateRequest);
 
+        documentTag.setId(docTagUpdateRequest.getId());
         documentTag.setStatus(1L);
         documentTag.setUser_id(docTagUpdateRequest.getUser_id());
-        //documentTag.setDepId(docTagUpdateRequest.getDepId());
+
+        documentTag.setDept_id(docTagUpdateRequest.getDept_id());
         documentTag.setTitle(docTagUpdateRequest.getTitle());
         documentTag.setModified_date(docTagUpdateRequest.getCreate_date());
 
-        System.out.println(documentTag);
+        System.out.println("yuth" + documentTag);
         var newEntity = documentTagRepository.save(documentTag);
         return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
 

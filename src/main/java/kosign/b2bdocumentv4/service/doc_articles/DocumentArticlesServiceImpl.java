@@ -16,8 +16,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
     private final DocumentArticlesRepository repository;
     //private final DocumentArticlesRepository idMapper ;
     @Override
-    public BaseResponse listArticles(String dep_id) {
-        List<DocumentArticles> list = repository.getByDepartmentId(dep_id);
+    public BaseResponse listArticles(String dept_id) {
+        List<DocumentArticles> list = repository.getByDepartmentId(dept_id);
         return BaseResponse.builder()
                 .rec(list)
                 .build();
@@ -31,6 +31,17 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                  .code("200")
                  .message("successfully fetch users")
                  .build();
+    }
+
+    // List menu
+    @Override
+    public BaseResponse getMenuByDept_ID(String dept_id) {
+        List<DocumentArticles> list = repository.getMenuByDept_ID(dept_id);
+        return BaseResponse.builder()
+                .rec(list)
+                .code("200")
+                .message("successfully fetch menu")
+                .build();
     }
 
 }

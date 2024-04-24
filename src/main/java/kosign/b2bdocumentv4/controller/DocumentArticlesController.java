@@ -25,7 +25,7 @@ public class DocumentArticlesController {
 
     @PostMapping("/list")
     public BaseResponse getArticlesList(@RequestBody DocumentArticlesRequest documentArticlesRequest){
-        return service.listArticles(documentArticlesRequest.getDep_id());
+        return service.listArticles(documentArticlesRequest.getDept_id());
     }
 
     @GetMapping("/articlesLis")

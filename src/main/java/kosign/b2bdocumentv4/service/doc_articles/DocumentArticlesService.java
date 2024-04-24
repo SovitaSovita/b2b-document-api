@@ -9,6 +9,8 @@ public interface DocumentArticlesService {
     BaseResponse listArticles(String dep_id);
     BaseResponse listAllArticles(Long id);
 
+    BaseResponse getMenuByDept_ID(String dept_id);
+
 
 }
 

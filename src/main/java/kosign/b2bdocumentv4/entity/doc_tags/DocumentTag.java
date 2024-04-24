@@ -38,8 +38,6 @@ public class DocumentTag {
 
     private Long dept_id;
 
-
-
     @Column(name = "create_date")
     private Timestamp create_date;
 
