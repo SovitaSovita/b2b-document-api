@@ -39,7 +39,7 @@ public class DocDepartmentServiceImpl implements DocDepartmentService {
 
     @Override
     public BaseResponse insertDepartment(DocDepartmentRequest documentDepartment) {
-        DocDepartmentTag docDepartmentTag = documentDepartmentMapper.requestToEntity(documentDepartment);
+        DocDepartmentTag docDepartmentTag = documentDepartmentMapper.toEntity(documentDepartment);
 
         docDepartmentTag.setDep_status("1");
         //docDepartmentTag.setDep_id(documentDepartment.getDep_id());
@@ -62,7 +62,7 @@ public class DocDepartmentServiceImpl implements DocDepartmentService {
     @Override
     public BaseResponse updateDepartment(DocUpdateDocumentRequest docUpdateDocumentRequest) {
 
-        DocDepartmentTag docDepartmentTag = documentDepartmentMapper.requestToEntityUpdate(docUpdateDocumentRequest);
+        DocDepartmentTag docDepartmentTag = documentDepartmentMapper.update(docUpdateDocumentRequest);
         docDepartmentTag.setDept_id(docDepartmentTag.getDept_id());
         docDepartmentTag.setDep_status(docUpdateDocumentRequest.getDep_status());
         docDepartmentTag.setDep_name(docUpdateDocumentRequest.getDep_name());

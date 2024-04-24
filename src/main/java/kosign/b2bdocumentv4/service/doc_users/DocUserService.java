@@ -9,5 +9,5 @@ public interface DocUserService {
     BaseResponse listUsers(Long dep_id);
 
     BaseResponse updateDocumentUser(DocUserUpdateRequest updateRequest);
-
+    BaseResponse deactivateUser(Long userId);
 }

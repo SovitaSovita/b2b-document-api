@@ -11,7 +11,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(componentModel = "spring")
 public interface DocumentDepartmentMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    DocDepartmentTag requestToEntity(DocDepartmentRequest departmentRequest);
+    DocDepartmentTag toEntity(DocDepartmentRequest departmentRequest);
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    DocDepartmentTag requestToEntityUpdate(DocUpdateDocumentRequest docUpdateDocumentRequest);
+    DocDepartmentTag update(DocUpdateDocumentRequest docUpdateDocumentRequest);
 }
