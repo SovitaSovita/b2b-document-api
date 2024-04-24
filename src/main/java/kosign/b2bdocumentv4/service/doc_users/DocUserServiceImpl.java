@@ -29,7 +29,7 @@ public class DocUserServiceImpl implements DocUserService {
     public BaseResponse listUsers(Long dep_id) {
         List<DocumentUsers> usersList = repository.getAllByDep_Id(dep_id);
         List<DocUserResponse> responseUserList = usersList.stream()
-                .map(userMapper::entityToResponse)
+                .map(userMapper::toResponse)
                 .toList();
         return BaseResponse.builder()
                 .code("200")
@@ -43,8 +43,8 @@ public class DocUserServiceImpl implements DocUserService {
     public BaseResponse updateDocumentUser(DocUserUpdateRequest updateRequest) {
         DocumentUsers user = AuthHelper.getUser();
         if (user != null) {
-            var savedUser = usersRepository.save(userMapper.updateDocUser(user, updateRequest));
-            return BaseResponse.builder().rec(userMapper.entityToResponse(savedUser)).code("200").message("Success!").build();
+            var savedUser = usersRepository.save(userMapper.update(user, updateRequest));
+            return BaseResponse.builder().rec(userMapper.toResponse(savedUser)).code("200").message("Success!").build();
         }
         return BaseResponse.builder().isError(true).code("403").message("User not found!").build();
     }
