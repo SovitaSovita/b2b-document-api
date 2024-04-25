@@ -8,7 +8,29 @@ import java.util.List;
 
 @Repository
 public interface DocumentUsersRepository extends JpaRepository<DocumentUsers, Long> {
-    @Query("select du from DocumentUsers du where du.dept_id = :dept_id")
-    List<DocumentUsers> getAllByDep_Id(Long dept_id);
+//    @Query("select du from DocumentUsers du where du.dept_id = :dept_id")
+//    @Query(value = """
+//            select id,dept_id,image,password,provider,role,status,username
+//            from stdy.doc_users
+//            where dept_id=:dept_id
+//            """, nativeQuery = true)
+    // test new
+    @Query(value = """
+            SELECT
+                    du.id,
+                    du.username,
+                    du.password,
+                    du.status,
+                    du.role,
+                    du.image,
+                    du.dept_id,
+                    dd.dep_name
+                FROM
+                    stdy.doc_users du
+                left join
+                    stdy.doc_department dd
+                        on dd.dep_id=:dep_id
+            """, nativeQuery = true)
+    List<DocumentUsers> getAllByDep_Id(Long dep_id);
 
 }

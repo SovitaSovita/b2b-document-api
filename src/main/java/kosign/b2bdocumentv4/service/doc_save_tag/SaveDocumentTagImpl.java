@@ -73,11 +73,11 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // list
     @Override
-    public BaseResponse getAllTagByDep_Id(Long dep_d) {
-        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dep_d);
+    public BaseResponse getAllTagByDep_Id(Long dept_d) {
+        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_d);
         System.out.println("1" + litDocTagByDep_ID);
 
-        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::entityToResponse).toList();
+        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toResponse).toList();
 
         return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
 

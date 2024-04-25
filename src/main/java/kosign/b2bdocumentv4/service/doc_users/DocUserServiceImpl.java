@@ -26,16 +26,25 @@ public class DocUserServiceImpl implements DocUserService {
     private final DocumentUsersRepository repository;
 
     @Override
-    public BaseResponse listUsers(Long dep_id) {
-        List<DocumentUsers> usersList = repository.getAllByDep_Id(dep_id);
+    public BaseResponse listUsers(Long dept_id) {
+        List<DocumentUsers> usersList = repository.getAllByDep_Id(dept_id);
+;
+        if (usersList.isEmpty()) {
+            return BaseResponse.builder()
+                    .code("404")
+                    .message("No users found for department ID: " + dept_id)
+                    .isError(false)
+                    .build();
+        }
         List<DocUserResponse> responseUserList = usersList.stream()
                 .map(userMapper::toResponse)
                 .toList();
+
         return BaseResponse.builder()
                 .code("200")
                 .message("success")
                 .isError(false)
-                .rec(responseUserList)
+                .rec(usersList)
                 .build();
     }
 

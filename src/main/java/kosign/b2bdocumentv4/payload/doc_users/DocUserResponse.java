@@ -11,4 +11,6 @@ public class DocUserResponse {
     private Long status;
     private Long dept_id;
     private Role role;
+    // New
+    private String dep_name;
 }

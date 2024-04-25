@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 @RestController
-@SecurityRequirement(name = "bearerAuth")
+//@SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/v1/user")
 @CrossOrigin
 @RequiredArgsConstructor
@@ -25,8 +25,8 @@ public class UserController {
     private final ModelMapper  modelMapper;
 
     @GetMapping("/list-by-department")
-    public BaseResponse listUser(@RequestParam Long dep_id) {
-        return docUserService.listUsers(dep_id);
+    public BaseResponse listUser(@RequestParam Long dept_id) {
+        return docUserService.listUsers(dept_id);
     }
 
     @PutMapping("/update")
