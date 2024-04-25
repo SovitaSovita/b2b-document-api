@@ -1,6 +1,5 @@
-package kosign.b2bdocumentv4.service.doc_Department;
+package kosign.b2bdocumentv4.service.doc_department;
 
-import kosign.b2bdocumentv4.entity.doc_department.DocDepartmentTag;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_documents.DocDepartmentRequest;
 import kosign.b2bdocumentv4.payload.doc_documents.DocUpdateDocumentRequest;

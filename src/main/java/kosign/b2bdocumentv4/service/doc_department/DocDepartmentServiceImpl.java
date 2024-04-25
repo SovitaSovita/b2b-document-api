@@ -1,19 +1,15 @@
-package kosign.b2bdocumentv4.service.doc_Department;
+package kosign.b2bdocumentv4.service.doc_department;
 
 import kosign.b2bdocumentv4.entity.doc_department.DocDepartmentTag;
 import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartmentRepository;
 import kosign.b2bdocumentv4.mapper.DocumentDepartmentMapper;
 import kosign.b2bdocumentv4.payload.BaseResponse;
-import kosign.b2bdocumentv4.payload.doc_documents.DocDeleteDepartmentRequest;
 import kosign.b2bdocumentv4.payload.doc_documents.DocDepartmentRequest;
 import kosign.b2bdocumentv4.payload.doc_documents.DocUpdateDocumentRequest;
-import kosign.b2bdocumentv4.payload.doc_tags.DocTagRequest;
-import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;

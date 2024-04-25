@@ -7,7 +7,4 @@ import java.util.List;
 
 public interface DocumentDepartmentRepository extends JpaRepository<DocDepartmentTag,Long> {
     List<DocDepartmentTag> save(Long dep_id);
-
-
-
 }

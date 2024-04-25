@@ -16,11 +16,9 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "doc_tags", schema = "stdy")
 public class DocumentTag {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
 
     @NotBlank
