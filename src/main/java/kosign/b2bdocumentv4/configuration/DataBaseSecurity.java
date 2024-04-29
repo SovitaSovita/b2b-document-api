@@ -54,14 +54,14 @@ public class DataBaseSecurity{
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(AbstractHttpConfigurer::disable);
-        http.csrf(AbstractHttpConfigurer::disable)
+        http.cors();
+        http.csrf()
+                .disable()
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(
                                 "/api/v1/auth/change-password",
                                 "/api/v1/auth/login",
                                 "/api/v1/auth/register",
-                                "/api/v1/auth/create_user",
                                 "/api/v1/auth/**",
                                 "/api/v1/excel",
                                 "/api/v1/auth",
@@ -76,9 +76,10 @@ public class DataBaseSecurity{
                                 "/api/v1/admin/**",
                                 "/api/v1/user/**",
                                 "/api/v1/saveTag/**"
-                        ).hasRole("ADMIN") // for admin api
-                        .anyRequest().authenticated()
-                ).exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage("/403"))
+                        ).authenticated()
+                ).exceptionHandling()
+                .authenticationEntryPoint(authEntryPoint)
+                .and()
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

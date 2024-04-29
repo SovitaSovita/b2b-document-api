@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.auth.AuthenticationRequest;
+import kosign.b2bdocumentv4.payload.auth.AuthenticationResponse;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.payload.login.CreateUserRequest;
 import kosign.b2bdocumentv4.service.auth.AuthService;
@@ -53,17 +54,21 @@ public class AuthController {
         }
 
         final UserDetails userDetails = authService.loadUserByUsername(jwtRequest.getUsername());
+        AuthenticationResponse authResponse = authService.getUserByUsername(jwtRequest.getUsername());
+
+        System.out.println(authResponse);
+
         final String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtRespon(LocalDateTime.now(),
-                jwtRequest.getUsername(),
                 token,
-                jwtTokenUtils.getExpirationDateFromToken(token)
+                jwtTokenUtils.getExpirationDateFromToken(token),
+                authResponse
         ));
     }
 
     private void authenticate(String username, String password) throws Exception {
         try {
-            System.out.println(username+password);
+//            System.out.println(username+password);
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
@@ -97,18 +102,6 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/create_user")
-    public ResponseEntity<?> createUserIfNotExists(@RequestBody CreateUserRequest userRequest){
-        UserInfoDto appUserDto = authService.createUser(userRequest);
-        ApiResponse<UserInfoDto> response = ApiResponse.<UserInfoDto>builder()
-                .status(200)
-                .message("Created Successfully!")
-                .payload(appUserDto)
-                .date(LocalDateTime.now())
-                .build();
-        return ResponseEntity.ok(response);
-    }
-
     @DeleteMapping("/delete_user")
     public ResponseEntity<?> deleteUser(@RequestParam Long user_id){
         authService.deleteUser(user_id);
@@ -118,32 +111,6 @@ public class AuthController {
                 .date(LocalDateTime.now())
                 .build();
         return ResponseEntity.ok(response);
-    }
-
-
-    @PostMapping("/generateToken")
-    public ResponseEntity<?> generateToken (@RequestParam String userId){
-        UserDetails userDetails = retrieveUserDetails(userId);
-        if(userDetails == null){
-            throw new NotFoundExceptionClass("User not found!");
-        }
-        String provider = authService.getProviderId(userId);
-        System.out.println("[DEBUG] " + provider);
-        if(Objects.equals(provider, "GITHUB")){
-            String token = jwtTokenUtils.generateToken(userDetails);
-            return ResponseEntity.ok(new JwtRespon(LocalDateTime.now(),
-                    userId,
-                    token,
-                    jwtTokenUtils.getExpirationDateFromToken(token)
-            ));
-        }
-        else {
-            throw new IllegalArgumentException("This user is SIGN IN by credential!");
-        }
-    }
-    private UserDetails retrieveUserDetails(String providerId) {
-        UserDetails userDetails = authService.loadUserByUsername(providerId);
-        return userDetails;
     }
 }
 

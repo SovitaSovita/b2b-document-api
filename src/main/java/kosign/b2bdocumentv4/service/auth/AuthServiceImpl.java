@@ -1,6 +1,7 @@
 package kosign.b2bdocumentv4.service.auth;
 
 import kosign.b2bdocumentv4.enums.Provider;
+import kosign.b2bdocumentv4.payload.auth.AuthenticationResponse;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
@@ -76,7 +77,6 @@ public class AuthServiceImpl implements AuthService {
         appUserRequest.setRole(appUserRequest.getRole());
         appUserRequest.setRole(appUserRequest.getRole());
         DocumentUsers appUser = mapper.map(appUserRequest, DocumentUsers.class);
-        appUser.setProvider(Provider.CREDENTIAL);
         appUser.setStatus(1L);
         appUser.setDept_id(1L);
 
@@ -92,27 +92,8 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String getProviderId(String userId) {
-        return authRepository.getByProvider(userId);
-    }
-
-    @Override
-    public UserInfoDto createUser(CreateUserRequest userRequest) {
-        Boolean existsUser = authRepository.existsByUsername(userRequest.getUsername());
-        if(!existsUser){
-            DocumentUsers users = new DocumentUsers();
-            users.setRole(Role.USER);
-            users.setProvider(userRequest.getProvider());
-            users.setUsername(userRequest.getUsername());
-            users.setStatus(1L);
-            users.setDept_id(1L);
-            users = authRepository.save(users);
-
-            return mapper.map(users, UserInfoDto.class);
-        }
-        else {
-            throw new IllegalArgumentException("User already exist");
-        }
+    public AuthenticationResponse getUserByUsername(String username) {
+        return mapper.map(authRepository.findByUsername(username), AuthenticationResponse.class);
     }
 
 
