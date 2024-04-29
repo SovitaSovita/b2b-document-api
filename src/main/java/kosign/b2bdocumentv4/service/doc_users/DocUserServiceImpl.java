@@ -51,11 +51,22 @@ public class DocUserServiceImpl implements DocUserService {
     @Override
     public BaseResponse updateDocumentUser(DocUserUpdateRequest updateRequest) {
         DocumentUsers user = AuthHelper.getUser();
-        if (user != null) {
-            var savedUser = usersRepository.save(userMapper.update(user, updateRequest));
-            return BaseResponse.builder().rec(userMapper.toResponse(savedUser)).code("200").message("Success!").build();
+        if(!user.getRole().equals(Role.ADMIN)){
+            BaseResponse.builder().isError(true).code("401").message("Only admin can update!").build();
         }
-        return BaseResponse.builder().isError(true).code("403").message("User not found!").build();
+        // find user
+        DocumentUsers userToUpdate = repository.findByIdAndDept_id(updateRequest.getId(),user.getDept_id()).orElse(null);
+        if(null == userToUpdate){
+            return BaseResponse.builder()
+                    .isError(true)
+                    .code("404")
+                    .message("User id["+updateRequest.getId()+"] not found in department id["+user.getDept_id()+"]!")
+                    .build();
+        }
+
+        var savedUser = usersRepository.save(userMapper.update(user, updateRequest));
+        return BaseResponse.builder().rec(userMapper.toResponse(savedUser)).code("200").message("Success!").build();
+
     }
 
     @Override

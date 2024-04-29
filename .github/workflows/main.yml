@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
     - name: Get pusher's name
       id: get_pusher_name
       run: echo "::set-output name=name::$(git log -1 --format='%an')"
