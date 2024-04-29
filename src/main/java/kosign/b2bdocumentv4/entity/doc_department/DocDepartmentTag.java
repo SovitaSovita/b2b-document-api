@@ -35,5 +35,4 @@ public class DocDepartmentTag {
     @Column(name = "create_date")
     private Timestamp create_date;
 
-
 }
