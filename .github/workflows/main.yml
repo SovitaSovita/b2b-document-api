@@ -1,0 +1,27 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Get pusher's name
+      id: get_pusher_name
+      run: echo "::set-output name=name::$(git log -1 --format='%an')"
+
+    - name: Send notification
+      if: github.ref == 'refs/heads/main'
+      run: |
+        curl -X POST \
+          -d "chatId=-4173491325" \
+          -d "message=[${{ steps.get_pusher_name.outputs.name }}] has pushed new code to branch main in API. Please pull." \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          https://daraboth-personalai.vercel.app/telegram/daraboth/send-message
