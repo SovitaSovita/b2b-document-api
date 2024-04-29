@@ -1,5 +1,6 @@
 package kosign.b2bdocumentv4.service.doc_users;
 
+import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartmentRepository;
 import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
@@ -11,6 +12,7 @@ import kosign.b2bdocumentv4.payload.doc_users.DocUserResponse;
 import kosign.b2bdocumentv4.payload.doc_users.DocUserUpdateRequest;
 import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -24,11 +26,23 @@ public class DocUserServiceImpl implements DocUserService {
     private final AuthRepository usersRepository;
     private final DocumentUserMapper userMapper;
     private final DocumentUsersRepository repository;
+    private final DocumentDepartmentRepository departmentRepository;
+    private final ModelMapper modelMapper;
 
     @Override
     public BaseResponse listUsers(Long dept_id) {
-        List<DocumentUsers> usersList = repository.getAllByDep_Id(dept_id);
-;
+        var department = departmentRepository.findById(dept_id).orElse(null); // find department
+
+        if(null == department){
+            return BaseResponse.builder()
+                    .code("404")
+                    .message("No users found for department ID: " + dept_id)
+                    .isError(false)
+                    .build();
+        }
+
+        List<DocumentUsers> usersList = repository.getAllByDep_Id(dept_id); // Query
+        System.out.println(usersList);
         if (usersList.isEmpty()) {
             return BaseResponse.builder()
                     .code("404")
@@ -36,15 +50,21 @@ public class DocUserServiceImpl implements DocUserService {
                     .isError(false)
                     .build();
         }
+
         List<DocUserResponse> responseUserList = usersList.stream()
-                .map(userMapper::toResponse)
+                .map(user->{
+                    DocUserResponse userRes = modelMapper.map(user,DocUserResponse.class);
+                    userRes.setDept_id(department.getDept_id());
+                    userRes.setDept_name(department.getDept_name());
+                    return userRes;
+                })
                 .toList();
 
         return BaseResponse.builder()
                 .code("200")
                 .message("success")
                 .isError(false)
-                .rec(usersList)
+                .rec(responseUserList)
                 .build();
     }
 
@@ -65,7 +85,7 @@ public class DocUserServiceImpl implements DocUserService {
         }
 
         var savedUser = usersRepository.save(userMapper.update(user, updateRequest));
-        return BaseResponse.builder().rec(userMapper.toResponse(savedUser)).code("200").message("Success!").build();
+        return BaseResponse.builder().rec(userMapper.toRes(savedUser)).code("200").message("Success!").build();
 
     }
 
