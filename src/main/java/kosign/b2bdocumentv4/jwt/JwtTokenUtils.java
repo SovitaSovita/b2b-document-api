@@ -81,6 +81,8 @@ public class JwtTokenUtils implements Serializable {
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
         String json = getUserDetails(username).block();
+
+        System.out.println(json);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode jsonNode = objectMapper.readTree(json);

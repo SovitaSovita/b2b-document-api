@@ -77,6 +77,7 @@ public class DataBaseSecurity{
                                 "/api/v1/user/**",
                                 "/api/v1/saveTag/**"
                         ).authenticated()
+                        .anyRequest().authenticated()
                 ).exceptionHandling()
                 .authenticationEntryPoint(authEntryPoint)
                 .and()
