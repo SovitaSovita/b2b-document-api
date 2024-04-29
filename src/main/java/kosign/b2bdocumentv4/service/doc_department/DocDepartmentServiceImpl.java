@@ -37,9 +37,9 @@ public class DocDepartmentServiceImpl implements DocDepartmentService {
     public BaseResponse insertDepartment(DocDepartmentRequest documentDepartment) {
         DocDepartmentTag docDepartmentTag = documentDepartmentMapper.toEntity(documentDepartment);
 
-        docDepartmentTag.setDep_status("1");
-        //docDepartmentTag.setDep_id(documentDepartment.getDep_id());
-        docDepartmentTag.setDep_name(documentDepartment.getDep_name());
+        docDepartmentTag.setDept_status("1");
+        //docDepartmentTag.setDept_id(documentDepartment.getDep_id());
+        docDepartmentTag.setDept_name(documentDepartment.getDept_name());
         docDepartmentTag.setCreated_by(documentDepartment.getCreated_by());
 /*        if(!documentDepartment.getDep_status().equals(("0")) && !documentDepartment.getDep_status().equals("1")){
             docDepartmentTag.setDep_status(d);
@@ -60,8 +60,8 @@ public class DocDepartmentServiceImpl implements DocDepartmentService {
 
         DocDepartmentTag docDepartmentTag = documentDepartmentMapper.update(docUpdateDocumentRequest);
         docDepartmentTag.setDept_id(docDepartmentTag.getDept_id());
-        docDepartmentTag.setDep_status(docUpdateDocumentRequest.getDep_status());
-        docDepartmentTag.setDep_name(docUpdateDocumentRequest.getDep_name());
+        docDepartmentTag.setDept_status(docUpdateDocumentRequest.getDept_status());
+        docDepartmentTag.setDept_name(docUpdateDocumentRequest.getDept_name());
         docDepartmentTag.setModified_by(docUpdateDocumentRequest.getModified_by());
         docDepartmentTag.setModified_date(Timestamp.valueOf(LocalDateTime.now()));
 

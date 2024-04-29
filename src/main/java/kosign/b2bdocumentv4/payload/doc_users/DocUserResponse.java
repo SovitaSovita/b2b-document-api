@@ -8,9 +8,8 @@ public class DocUserResponse {
     private Long id;
     private String username;
     private String image;
-    private Long status;
     private Long dept_id;
+    private String dept_name;
+    private Long status;
     private Role role;
-    // New
-    private String dep_name;
 }

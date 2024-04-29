@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Data
 public class DocDepartmentRequest {
     //private  int dep_id;
-    private  String dep_name;
+    private  String dept_name;
     //private  String dep_status;
     private  String created_by;
 }

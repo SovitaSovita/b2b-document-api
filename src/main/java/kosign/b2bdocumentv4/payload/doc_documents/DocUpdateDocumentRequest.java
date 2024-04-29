@@ -8,8 +8,8 @@ import java.sql.Timestamp;
 @Data
 public class DocUpdateDocumentRequest {
     private Long dept_id;
-    private String dep_name;
-    private String dep_status;
+    private String dept_name;
+    private String dept_status;
     private String modified_by;
     //private String modified_date;
     //private Timestamp create_at;

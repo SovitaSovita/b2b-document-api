@@ -20,10 +20,10 @@ public class DocDepartmentTag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dept_id;
     @NotNull
-    private String dep_name;
+    private String dept_name;
 
     @NotNull
-    private String dep_status;
+    private String dept_status;
 
     private String created_by;
     @JsonInclude(JsonInclude.Include.NON_NULL)
