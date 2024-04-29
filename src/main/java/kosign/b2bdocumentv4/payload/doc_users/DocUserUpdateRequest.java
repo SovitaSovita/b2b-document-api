@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class DocUserUpdateRequest {
+    private Long id;
     private String username;
     private Long status;
     private Role role;
