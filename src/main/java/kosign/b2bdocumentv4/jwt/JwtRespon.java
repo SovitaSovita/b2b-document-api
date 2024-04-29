@@ -1,5 +1,6 @@
 package kosign.b2bdocumentv4.jwt;
 
+import kosign.b2bdocumentv4.payload.auth.AuthenticationResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,9 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class JwtRespon implements Serializable {
     private final LocalDateTime dateTime;
-    private final String username;
     private final String token;
     private final Date expired;
+    private final AuthenticationResponse authenticationResponse;
 
 
 

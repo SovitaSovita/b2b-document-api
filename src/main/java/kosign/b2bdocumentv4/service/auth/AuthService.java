@@ -1,6 +1,7 @@
 package kosign.b2bdocumentv4.service.auth;
 
 
+import kosign.b2bdocumentv4.payload.auth.AuthenticationResponse;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.dto.UserInfoDto;
 import kosign.b2bdocumentv4.payload.login.CreateUserRequest;
@@ -18,7 +19,5 @@ public interface AuthService extends UserDetailsService {
 
     void deleteUser(Long user_id);
 
-    String getProviderId(String userId);
-
-    UserInfoDto createUser(CreateUserRequest userRequest);
+    AuthenticationResponse getUserByUsername(String username);
 }

@@ -26,7 +26,7 @@ spring:
   application:
     name: b2b-document-v4
 jwt:
-  secret: b2b-document-v4
+  secret: A0WEwEhf+UFp3tI2PM3TfxRNk4a4dr8L2AyXyxu/JqY=
 myAdmin:
   username: Admin
   password: DigitalAsset1@
@@ -36,6 +36,8 @@ server:
 base_url_img : http://localhost:4545/api/v1/files/view_image?fileName=
 dashboard_url: http://localhost:4545/
 file_path: src/main/resources/static/images
+
+API_URL: http://192.168.178.239:8085
 
 # Swagger URL
 # /swagger-ui/index.html/
