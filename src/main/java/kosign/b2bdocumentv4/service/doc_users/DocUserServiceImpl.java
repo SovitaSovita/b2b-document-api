@@ -1,6 +1,5 @@
 package kosign.b2bdocumentv4.service.doc_users;
 
-import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartmentRepository;
 import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
@@ -12,7 +11,6 @@ import kosign.b2bdocumentv4.payload.doc_users.DocUserResponse;
 import kosign.b2bdocumentv4.payload.doc_users.DocUserUpdateRequest;
 import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -26,23 +24,11 @@ public class DocUserServiceImpl implements DocUserService {
     private final AuthRepository usersRepository;
     private final DocumentUserMapper userMapper;
     private final DocumentUsersRepository repository;
-    private final DocumentDepartmentRepository departmentRepository;
-    private final ModelMapper modelMapper;
 
     @Override
     public BaseResponse listUsers(Long dept_id) {
-        var department = departmentRepository.findById(dept_id).orElse(null); // find department
-
-        if(null == department){
-            return BaseResponse.builder()
-                    .code("404")
-                    .message("No users found for department ID: " + dept_id)
-                    .isError(false)
-                    .build();
-        }
-
-        List<DocumentUsers> usersList = repository.getAllByDep_Id(dept_id); // Query
-        System.out.println(usersList);
+        List<DocumentUsers> usersList = repository.getAllByDep_Id(dept_id);
+;
         if (usersList.isEmpty()) {
             return BaseResponse.builder()
                     .code("404")
@@ -50,32 +36,37 @@ public class DocUserServiceImpl implements DocUserService {
                     .isError(false)
                     .build();
         }
-
         List<DocUserResponse> responseUserList = usersList.stream()
-                .map(user->{
-                    DocUserResponse userRes = modelMapper.map(user,DocUserResponse.class);
-                    userRes.setDept_id(department.getDept_id());
-                    userRes.setDept_name(department.getDept_name());
-                    return userRes;
-                })
+                .map(userMapper::toResponse)
                 .toList();
 
         return BaseResponse.builder()
                 .code("200")
                 .message("success")
                 .isError(false)
-                .rec(responseUserList)
+                .rec(usersList)
                 .build();
     }
 
     @Override
     public BaseResponse updateDocumentUser(DocUserUpdateRequest updateRequest) {
         DocumentUsers user = AuthHelper.getUser();
-        if (user != null) {
-            var savedUser = usersRepository.save(userMapper.update(user, updateRequest));
-            return BaseResponse.builder().rec(userMapper.toRes(savedUser)).code("200").message("Success!").build();
+        if(!user.getRole().equals(Role.ADMIN)){
+            BaseResponse.builder().isError(true).code("401").message("Only admin can update!").build();
         }
-        return BaseResponse.builder().isError(true).code("403").message("User not found!").build();
+        // find user
+        DocumentUsers userToUpdate = repository.findByIdAndDept_id(updateRequest.getId(),user.getDept_id()).orElse(null);
+        if(null == userToUpdate){
+            return BaseResponse.builder()
+                    .isError(true)
+                    .code("404")
+                    .message("User id["+updateRequest.getId()+"] not found in department id["+user.getDept_id()+"]!")
+                    .build();
+        }
+
+        var savedUser = usersRepository.save(userMapper.update(user, updateRequest));
+        return BaseResponse.builder().rec(userMapper.toResponse(savedUser)).code("200").message("Success!").build();
+
     }
 
     @Override
