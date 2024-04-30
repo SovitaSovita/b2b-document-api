@@ -77,7 +77,7 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_d);
         System.out.println("1" + litDocTagByDep_ID);
 
-        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toResponse).toList();
+        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toRes).toList();
 
         return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
 

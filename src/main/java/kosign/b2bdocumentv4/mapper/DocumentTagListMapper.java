@@ -14,7 +14,8 @@ import org.mapstruct.*;
 public interface DocumentTagListMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    DocTagResponse toResponse(DocumentTag entity);
+    // DocTagResponse toResponse(DocumentTag entity);
+    DocTagResponse toRes(DocumentTag entity);
 
 
 
