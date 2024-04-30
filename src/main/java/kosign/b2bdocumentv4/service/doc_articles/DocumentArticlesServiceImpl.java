@@ -3,6 +3,7 @@ package kosign.b2bdocumentv4.service.doc_articles;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
 import kosign.b2bdocumentv4.payload.BaseResponse;
+import kosign.b2bdocumentv4.payload.document_articles.GetMenuResponse;
 import kosign.b2bdocumentv4.payload.login.response.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
 
     // List menu
     @Override
-    public BaseResponse getMenuByDept_ID(String dept_id) {
-        List<DocumentArticles> list = repository.getMenuByDept_ID(dept_id);
+    public BaseResponse getMenuByUser(Long dept_id, String username) {
+        List<DocumentArticles> list = repository.getMenuByDept_ID(String.valueOf(dept_id), username);
         if (list.isEmpty()) {
             return BaseResponse.builder()
                     .rec(Collections.emptyList()) // Empty list

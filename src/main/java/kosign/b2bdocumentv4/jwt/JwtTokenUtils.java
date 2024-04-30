@@ -5,14 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
+import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
+import kosign.b2bdocumentv4.enums.Role;
+import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
+import kosign.b2bdocumentv4.utils.ApiService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -24,11 +26,8 @@ import java.util.function.Function;
 @Service
 public class JwtTokenUtils implements Serializable {
 
-    private final WebClient.Builder webClient;
-    @Value("${API_URL}")
-    private String API_URL;
-
-
+    private final DocumentUsersRepository documentUsersRepository;
+    private final ApiService apiService;
 
     @Serial
     private static final long serialVersionUID = -2550185165626007488L;
@@ -37,8 +36,9 @@ public class JwtTokenUtils implements Serializable {
     @Value("${jwt.secret}")
     private String secret;
 
-    public JwtTokenUtils(WebClient.Builder webClient) {
-        this.webClient = webClient;
+    public JwtTokenUtils(DocumentUsersRepository documentUsersRepository, ApiService apiService) {
+        this.apiService = apiService;
+        this.documentUsersRepository = documentUsersRepository;
     }
 
     public String generateToken(UserDetails userDetails) {
@@ -79,32 +79,41 @@ public class JwtTokenUtils implements Serializable {
 
     //validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
-        final String username = getUsernameFromToken(token);
-        String json = getUserDetails(username).block();
-
-        System.out.println(json);
+        final String usernameFromToken = getUsernameFromToken(token);
+        String json = apiService.getUserDetails(usernameFromToken).block();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode jsonNode = objectMapper.readTree(json);
             JsonNode payloadNode = jsonNode.get("payload");
-            String username1 = payloadNode.get("username").asText();
-            System.out.println(username1 + ":::" + username);
-            return (username.equals(username1) && !isTokenExpired(token));
+            String username = payloadNode.get("username").asText();
+            String password = payloadNode.get("password").asText();
+            String clph_NO = payloadNode.get("clph_NO").asText();
+            String dvsn_CD = payloadNode.get("dvsn_CD").asText();
+            String dvsn_NM = payloadNode.get("dvsn_NM").asText();
+            String jbcl_NM = payloadNode.get("jbcl_NM").asText();
+            String eml = payloadNode.get("eml").asText();
+            String flnm = payloadNode.get("flnm").asText();
+            String prfl_PHTG = payloadNode.get("prfl_PHTG").asText();
+
+            DocumentUsers documentUsers = new DocumentUsers();
+            documentUsers.setUsername(username);
+            documentUsers.setDept_id(Long.valueOf(dvsn_CD));
+            documentUsers.setRole(Role.USER);
+            documentUsers.setStatus(1L);
+            documentUsers.setPassword(password);
+            documentUsers.setImage(prfl_PHTG);
+
+            DocumentUsers existUser = documentUsersRepository.findByUsername(username);
+
+            if(existUser == null){
+                documentUsersRepository.save(documentUsers);
+            }
+
+            return (usernameFromToken.equals(username) && !isTokenExpired(token));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
-    public Mono<String> getUserDetails(String userId){
-        return webClient
-                .baseUrl(API_URL)
-                .build()
-                .get()
-                .uri("/api/v1/auth/user-details/" + userId)
-                .retrieve()
-                .bodyToMono(String.class);
-    }
-
 
 }

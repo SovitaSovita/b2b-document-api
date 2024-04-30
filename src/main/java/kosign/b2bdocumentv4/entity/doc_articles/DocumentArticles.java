@@ -31,4 +31,6 @@ public class DocumentArticles extends BaseEntity {
     private String dept_id;
     @NotNull
     private String isfavorite;
+    @NotNull
+    private String tag_title; //added
 }

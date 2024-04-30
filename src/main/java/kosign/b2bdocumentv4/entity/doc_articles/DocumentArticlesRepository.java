@@ -1,5 +1,6 @@
 package kosign.b2bdocumentv4.entity.doc_articles;
 
+import kosign.b2bdocumentv4.payload.document_articles.GetMenuResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -33,13 +34,16 @@ public interface  DocumentArticlesRepository extends JpaRepository<DocumentArtic
 
     // get menu by dept_id (Articles)
     @Query(value = """
-            SELECT a.id, a.tag_id, a.title, a.content_body, a.create_date, a.created_by, a.dept_id, a.file_article_id, a.isfavorite, a.modified_by, a.modified_date, a.status, a.user_id
-            FROM stdy.doc_articles a
-            RIGHT JOIN stdy.doc_tags t ON a.tag_id = t.id
-            WHERE a.status = 1 AND t.status = 1 AND a.dept_id = :dept_id
-            ORDER BY a.title
+                 SELECT a.id, a.user_id , a.tag_id , t.title as tag_title, a.title, a.content_body,
+                 a.create_date , a.created_by, a.dept_id, a.file_article_id, a.isfavorite,
+                 a.modified_by, a.modified_date, a.status
+                 FROM stdy.doc_articles a
+                 left join stdy.doc_users du on du.id = a.user_id
+                 RIGHT JOIN stdy.doc_tags t ON a.tag_id = t.id
+                 WHERE a.dept_id = :dept_id and du.username  = :username
+                 ORDER BY t.title
             """, nativeQuery = true)
-    List<DocumentArticles> getMenuByDept_ID(String dept_id);
+    List<DocumentArticles> getMenuByDept_ID(String dept_id, String username);
 
 
     // get menu by dept_id (Tag)
