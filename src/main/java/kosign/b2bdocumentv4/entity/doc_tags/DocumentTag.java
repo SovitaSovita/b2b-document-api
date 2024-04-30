@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -29,17 +30,12 @@ public class DocumentTag {
     @NotEmpty
     private Long status;
 
-//    @NotBlank
-//    @NotEmpty
-//    @Column(name = "dep_id") // Explicitly specify the column name
-//    private String depId;
-
     private Long dept_id;
 
     @Column(name = "create_date")
     private Timestamp create_date;
 
-    @Column(name = "modified_date")
+
     private Timestamp modified_date;
 
     @PrePersist

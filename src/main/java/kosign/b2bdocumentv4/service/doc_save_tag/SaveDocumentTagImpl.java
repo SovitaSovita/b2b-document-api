@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -34,8 +36,8 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         documentTag.setUser_id(documentTag.getUser_id());
 
         documentTag.setDept_id(documentTag.getDept_id());
-        documentTag.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
-        System.out.println(documentTag);
+        //documentTag.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
+
         var newEntity = documentTagRepository.save(documentTag);
         return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
     }
@@ -54,7 +56,6 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         documentTag.setTitle(docTagUpdateRequest.getTitle());
         documentTag.setModified_date(docTagUpdateRequest.getCreate_date());
 
-        System.out.println("yuth" + documentTag);
         var newEntity = documentTagRepository.save(documentTag);
         return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
 
@@ -73,16 +74,45 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // list
     @Override
-    public BaseResponse getAllTagByDep_Id(Long dept_d) {
-        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_d);
-        System.out.println("1" + litDocTagByDep_ID);
+//    public BaseResponse getAllTagByDep_Id(Long dept_id) {
+//        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_id);
+//
+//        // Check if the list is null or empty
+//        if (litDocTagByDep_ID == null || litDocTagByDep_ID.isEmpty()) {
+//            return BaseResponse.builder()
+//                    .code("404")
+//                    .message("No data found for department ID: " + dept_id)
+//                    .isError(true)
+//                    .build();
+//        }
+//
+//        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toRes).toList();
+//
+//        return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
+//
+//
+//    }
+    // test
+    public BaseResponse getAllTagByDep_Id(Long dept_id) {
+        // Retrieve tags by department ID
+        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_id);
 
+        // Check if the list is null or empty
+        if (litDocTagByDep_ID == null || litDocTagByDep_ID.isEmpty()) {
+            return BaseResponse.builder()
+                    .code("404")
+                    .message("No data found for department ID: " + dept_id)
+                    .isError(true)
+                    .build();
+        }
+
+        // Mapping tags to appropriate response objects
         List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toRes).toList();
 
         return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
-
-
     }
+
+
 
 
 

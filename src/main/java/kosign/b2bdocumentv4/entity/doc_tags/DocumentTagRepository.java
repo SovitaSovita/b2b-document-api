@@ -11,10 +11,17 @@ import java.util.List;
 @Repository
 public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> {
 
-    // Custom query method
-
-    //@Query("select du from DocumentTag du where status = 1 and du.dept_id = :dept_id")
-    @Query(value = "SELECT id, title, create_date, modified_date, user_id, status, dept_id FROM stdy.doc_tags WHERE dept_id = :dept_id", nativeQuery = true)
+    // Tag
+    @Query(value = """
+            SELECT id, title, create_date, modified_date, user_id, status, dept_id FROM stdy.doc_tags WHERE dept_id = :dept_id
+            """, nativeQuery = true)
     List<DocumentTag> getTagsByDepId(Long dept_id);
+
+    // Articles
+    @Query(value = """
+            SELECT a.id, a.tag_id, a.title, a.create_date, a.dept_id, a.modified_date, a.status, a.user_id FROM stdy.doc_articles a right join stdy.doc_tags t on a.tag_id = t.id  where a.status=1 and t.status = 1 order by a.title
+            """, nativeQuery = true)
+    List<DocumentTag> getArticles();
+
 
 }
