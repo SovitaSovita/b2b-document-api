@@ -37,4 +37,6 @@ public interface DocumentUsersRepository extends JpaRepository<DocumentUsers, Lo
     @Query("SELECT u from DocumentUsers u WHERE u.id = :id AND u.dept_id = :dept_id")
     Optional<DocumentUsers> findByIdAndDept_id(Long id, Long dept_id);
 
+    DocumentUsers findByUsername(String username);
+
 }

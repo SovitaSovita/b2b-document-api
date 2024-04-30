@@ -8,12 +8,13 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
 import kosign.b2bdocumentv4.enums.Role;
+import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
+import kosign.b2bdocumentv4.utils.ApiService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -25,11 +26,8 @@ import java.util.function.Function;
 @Service
 public class JwtTokenUtils implements Serializable {
 
-    private final WebClient.Builder webClient;
-    @Value("${API_URL}")
-    private String API_URL;
-
     private final DocumentUsersRepository documentUsersRepository;
+    private final ApiService apiService;
 
     @Serial
     private static final long serialVersionUID = -2550185165626007488L;
@@ -38,8 +36,8 @@ public class JwtTokenUtils implements Serializable {
     @Value("${jwt.secret}")
     private String secret;
 
-    public JwtTokenUtils(WebClient.Builder webClient, DocumentUsersRepository documentUsersRepository) {
-        this.webClient = webClient;
+    public JwtTokenUtils(DocumentUsersRepository documentUsersRepository, ApiService apiService) {
+        this.apiService = apiService;
         this.documentUsersRepository = documentUsersRepository;
     }
 
@@ -82,9 +80,7 @@ public class JwtTokenUtils implements Serializable {
     //validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String usernameFromToken = getUsernameFromToken(token);
-        String json = getUserDetails(usernameFromToken).block();
-
-        System.out.println(json);
+        String json = apiService.getUserDetails(usernameFromToken).block();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode jsonNode = objectMapper.readTree(json);
@@ -109,8 +105,6 @@ public class JwtTokenUtils implements Serializable {
 
             DocumentUsers existUser = documentUsersRepository.findByUsername(username);
 
-            System.out.println("exist >> " + existUser);
-
             if(existUser == null){
                 documentUsersRepository.save(documentUsers);
             }
@@ -121,16 +115,5 @@ public class JwtTokenUtils implements Serializable {
         }
         return null;
     }
-
-    public Mono<String> getUserDetails(String userId){
-        return webClient
-                .baseUrl(API_URL)
-                .build()
-                .get()
-                .uri("/api/v1/auth/user-details/" + userId)
-                .retrieve()
-                .bodyToMono(String.class);
-    }
-
 
 }
