@@ -16,7 +16,7 @@ public interface DocumentTagListMapper {
     // DocTagResponse toResponse(DocumentTag entity);
     DocTagResponse toRes(DocumentTag entity);
 
-    // Articles
+    // Article
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     DocArticleResponse toResponse(DocumentTag entity);
 

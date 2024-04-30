@@ -74,25 +74,6 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // list
     @Override
-//    public BaseResponse getAllTagByDep_Id(Long dept_id) {
-//        List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_id);
-//
-//        // Check if the list is null or empty
-//        if (litDocTagByDep_ID == null || litDocTagByDep_ID.isEmpty()) {
-//            return BaseResponse.builder()
-//                    .code("404")
-//                    .message("No data found for department ID: " + dept_id)
-//                    .isError(true)
-//                    .build();
-//        }
-//
-//        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toRes).toList();
-//
-//        return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
-//
-//
-//    }
-    // test
     public BaseResponse getAllTagByDep_Id(Long dept_id) {
         // Retrieve tags by department ID
         List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_id);
