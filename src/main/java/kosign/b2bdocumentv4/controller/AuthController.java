@@ -45,7 +45,7 @@ public class AuthController {
     }
 
 
-    @PostMapping("/login")
+//    @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest jwtRequest) {
         try {
             authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
@@ -77,9 +77,9 @@ public class AuthController {
         }
     }
 
-    @PutMapping("/change-password")
-    @Operation(summary = "change password")
-    @SecurityRequirement(name = "bearerAuth")
+//    @PutMapping("/change-password")
+//    @Operation(summary = "change password")
+//    @SecurityRequirement(name = "bearerAuth")
     public ApiResponse<?> changePassword(@Valid @RequestBody InfoChangePassword changePassword){
         DocumentUsers currentUser = (DocumentUsers) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println("[DEBUG] " + currentUser);
