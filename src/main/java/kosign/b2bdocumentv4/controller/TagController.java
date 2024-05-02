@@ -19,9 +19,10 @@ public class TagController {
 
     private final SaveDocumentTagImpl service;
 
+    // Tag and Article
     @GetMapping("/getTagByDepId")
     public BaseResponse listTagByDep_Id(@RequestParam Long dept_id) {
-        return service.getAllTagByDep_Id(dept_id);
+        return service.getAllTagByDept_Id(dept_id);
     }
 
     @PostMapping("/saveTagTitle")

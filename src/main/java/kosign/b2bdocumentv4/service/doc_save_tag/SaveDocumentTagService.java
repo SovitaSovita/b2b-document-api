@@ -18,7 +18,7 @@ public interface SaveDocumentTagService {
     // BaseResponse listDocumentTag(DocTagGetAllByDepIdRequest docTagGetAllByDepIdRequest);
 
 
-    BaseResponse getAllTagByDep_Id(Long dept_id);
+    BaseResponse getAllTagByDept_Id(Long dept_id);
     // List<DocumentTag> getAllTagByDep_Id(Long dept_id);
 
 }

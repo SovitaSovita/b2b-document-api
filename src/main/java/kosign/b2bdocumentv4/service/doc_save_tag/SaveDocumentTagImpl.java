@@ -11,6 +11,7 @@ import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -33,12 +34,14 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         DocumentTag documentTag = documentTagMapper.requestToEntity(docTagRequest);
 
         documentTag.setStatus(1L);
-        documentTag.setUser_id(documentTag.getUser_id());
+        documentTag.setUser_id(docTagRequest.getUser_id());
+        documentTag.setTitle(docTagRequest.getTitle());
 
-        documentTag.setDept_id(documentTag.getDept_id());
-        //documentTag.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
+        documentTag.setDept_id(docTagRequest.getDept_id());
+        documentTag.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
 
         var newEntity = documentTagRepository.save(documentTag);
+        System.out.println("Save tag " + newEntity) ;
         return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
     }
 
@@ -51,7 +54,6 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         documentTag.setId(docTagUpdateRequest.getId());
         documentTag.setStatus(1L);
         documentTag.setUser_id(docTagUpdateRequest.getUser_id());
-
         documentTag.setDept_id(docTagUpdateRequest.getDept_id());
         documentTag.setTitle(docTagUpdateRequest.getTitle());
         documentTag.setModified_date(docTagUpdateRequest.getCreate_date());
@@ -72,11 +74,14 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         return  BaseResponse.builder().code("200").message("Delete success!").build();
     }
 
-    // list
+    // list tag, article
     @Override
-    public BaseResponse getAllTagByDep_Id(Long dept_id) {
+    public BaseResponse getAllTagByDept_Id(Long dept_id) {
         // Retrieve tags by department ID
         List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_id);
+        // Retrieve article
+        List<DocumentTag> listDocArticleByDept_Id = documentTagRepository.getArticles();
+        System.out.println("Article " + listDocArticleByDept_Id);
 
         // Check if the list is null or empty
         if (litDocTagByDep_ID == null || litDocTagByDep_ID.isEmpty()) {
