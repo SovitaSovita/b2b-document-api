@@ -1,18 +1,13 @@
 package kosign.b2bdocumentv4.controller;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
+import jakarta.servlet.http.HttpServletRequest;
 import kosign.b2bdocumentv4.payload.BaseResponse;
+import kosign.b2bdocumentv4.payload.document_articles.DocInsertArticleRequest;
 import kosign.b2bdocumentv4.payload.document_articles.DocumentArticlesRequest;
-import kosign.b2bdocumentv4.payload.login.response.ApiResponse;
-import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesService;
 import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @SecurityRequirement(name = "bearerAuth")
@@ -25,17 +20,19 @@ public class DocumentArticlesController {
 
     @PostMapping("/list")
     public BaseResponse getArticlesList(@RequestBody DocumentArticlesRequest documentArticlesRequest){
-        return service.listArticles(documentArticlesRequest.getDept_id());
+        return service.listArticlesByDeptId(documentArticlesRequest.getDept_id());
     }
 
-    @GetMapping("/articlesLis")
-    public BaseResponse getArticlesLists(@RequestParam Long id){
-        return service.listAllArticles(id);
+    @GetMapping("/listById")
+    public BaseResponse getArticlesById(@RequestParam Long id){
+        return service.ArticleById(id);
     }
 
 
-    public BaseResponse insertArticlesList(@RequestParam Long tag_id, String title,String content_body,Long user_id,String file_article_id,String dep_id ){
-        return null;
+    @PostMapping("/add")
+    public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request){
+
+        return service.insertArticle(articleRequest, request);
     }
 
 
