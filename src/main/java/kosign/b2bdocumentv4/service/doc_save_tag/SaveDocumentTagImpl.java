@@ -81,7 +81,7 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         List<DocumentTag> litDocTagByDep_ID = documentTagRepository.getTagsByDepId(dept_id);
         // Retrieve article
         List<DocumentTag> listDocArticleByDept_Id = documentTagRepository.getArticles();
-        System.out.println("Article " + listDocArticleByDept_Id);
+        System.out.println("Tag >>  " + litDocTagByDep_ID);
 
         // Check if the list is null or empty
         if (litDocTagByDep_ID == null || litDocTagByDep_ID.isEmpty()) {
