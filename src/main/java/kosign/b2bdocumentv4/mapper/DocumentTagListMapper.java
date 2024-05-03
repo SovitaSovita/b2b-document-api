@@ -14,10 +14,14 @@ public interface DocumentTagListMapper {
     // Tag
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     // DocTagResponse toResponse(DocumentTag entity);
-    DocTagResponse toRes(DocumentTag entity);
+    DocTagResponse toResponse(DocumentTag entity);
 
     // Article
+    // @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    // DocArticleResponse toResponse(DocumentTag entity);
+
+    // New API
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    DocArticleResponse toResponse(DocumentTag entity);
+    DocTagResponse response(DocumentTag documentTag);
 
 }

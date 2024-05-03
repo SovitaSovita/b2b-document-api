@@ -24,4 +24,26 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
     List<DocumentTag> getArticles();
 
 
+    // New API Tag
+    @Query(value = """
+            SELECT id,title,dept_id,create_date,modified_date,status,user_id
+            FROM stdy.doc_tags
+            where status = 1 and dept_id = :dept_id
+            order by
+            title
+            """, nativeQuery = true)
+    List<DocumentTag> getDocumentTag(Long dept_id);
+
+    // New API Articles
+    @Query(value = """
+            SELECT a.id, a.tag_id, a.title,a.create_date,a.dept_id,a.modified_date,a.status,a.user_id
+            FROM stdy.doc_articles a
+            right join stdy.doc_tags t
+            on a.tag_id = t.id
+            where a.status = 1 order by title
+            """, nativeQuery = true)
+    List<DocumentTag> getDocumentArticleList(Long dept_id);
+
+
+
 }

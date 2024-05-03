@@ -8,10 +8,10 @@ import java.sql.Timestamp;
 public class DocTagResponse {
     private Long id;
     private String title;
-//    private Long user_id;
-//    private Long status;
-    // private String depId;
+    private Long user_id;
+    private Long status;
     private Long dept_id;
+
 //    private Timestamp create_date;
 //    private Timestamp modified_date;
 }
