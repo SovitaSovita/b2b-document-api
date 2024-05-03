@@ -11,9 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@SecurityRequirement(name = "bearerAuth")
+@SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/v1/DocTag")
-//@CrossOrigin
+@CrossOrigin
 @RequiredArgsConstructor
 public class TagController {
 
