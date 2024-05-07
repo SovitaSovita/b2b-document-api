@@ -20,7 +20,7 @@ public class FavoriteController {
 
     // List
     @GetMapping("/favorite")
-    public BaseResponse getFavoriteByUser(@RequestParam Long user_id) {
+    public BaseResponse getFavoriteByUser(@RequestParam String user_id) {
         return docFavoriteService.listFavorite(user_id);
     }
 

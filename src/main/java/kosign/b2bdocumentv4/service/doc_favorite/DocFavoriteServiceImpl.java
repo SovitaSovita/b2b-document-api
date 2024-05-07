@@ -11,6 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -22,10 +23,12 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
     // Mapper
     private final DocumentFavoriteMapper documentFavoriteMapper;
 
+    // List
     @Override
-    public BaseResponse listFavorite(Long user_id) {
-        List<DocumentFavorite> favorite = repository.listAllFavorite(user_id);
-        System.out.println("Favorite" + favorite);
+    public BaseResponse listFavorite(String user_id) {
+
+        List<Map<Object, String>> favorite = repository.listAllFavorite(user_id);
+
         return BaseResponse.builder()
                 .code("202")
                 .message("success")
@@ -41,12 +44,13 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
 
         DocumentFavorite documentFavorite = documentFavoriteMapper.requestToEntity(documentFavoriteRequest);
 
-        // User
-        documentFavorite.setUser_id(documentFavoriteRequest.getUser_id());
+
         // Article
         documentFavorite.setArticle_id(documentFavoriteRequest.getArticle_id());
         // Department
         documentFavorite.setDept_id(documentFavoriteRequest.getDept_id());
+        // user
+        documentFavorite.setUser_id(documentFavoriteRequest.getUser_id());
 
         // Using save method
         var newEntity = repository.save(documentFavorite);

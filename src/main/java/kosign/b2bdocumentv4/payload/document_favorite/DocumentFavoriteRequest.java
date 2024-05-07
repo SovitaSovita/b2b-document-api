@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class DocumentFavoriteRequest {
 
-    private Long user_id;
     private Long article_id;
     private Long dept_id;
+    private String user_id;
 }

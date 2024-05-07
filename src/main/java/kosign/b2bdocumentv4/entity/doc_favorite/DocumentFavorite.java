@@ -18,11 +18,10 @@ public class DocumentFavorite {
     private Long id;
 
     @NotNull
-    private Long user_id;
-
-    @NotNull
     private Long article_id;
 
     @NotNull
     private Long dept_id;
+
+    private String user_id;
 }

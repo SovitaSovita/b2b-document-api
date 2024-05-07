@@ -7,7 +7,7 @@ import kosign.b2bdocumentv4.payload.document_favorite.DocumentFavoriteRequest;
 public interface DocFavoriteService {
 
     // List
-    BaseResponse listFavorite(Long user_id);
+    BaseResponse listFavorite(String user_id);
     // Add
     BaseResponse saveFavorite(DocumentFavoriteRequest documentFavoriteRequest);
     // Delete
