@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class DocumentArticlesController {
 
     private final DocumentArticlesServiceImpl service;
-
     @PostMapping("/list")
     public BaseResponse getArticlesList(@RequestBody DocumentArticlesRequest documentArticlesRequest){
         return service.listArticlesByDeptId(documentArticlesRequest.getDept_id());
@@ -31,7 +30,6 @@ public class DocumentArticlesController {
 
     @PostMapping("/add")
     public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request){
-
         return service.insertArticle(articleRequest, request);
     }
 
