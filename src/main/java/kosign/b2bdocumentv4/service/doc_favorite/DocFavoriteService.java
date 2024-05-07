@@ -10,7 +10,6 @@ public interface DocFavoriteService {
     BaseResponse listFavorite(Long user_id);
     // Add
     BaseResponse saveFavorite(DocumentFavoriteRequest documentFavoriteRequest);
-
     // Delete
     BaseResponse deleteFavorite(DocumentFavoriteDeleteRequest documentFavoriteDeleteRequest);
 

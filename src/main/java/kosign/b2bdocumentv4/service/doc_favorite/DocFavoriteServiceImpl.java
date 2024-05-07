@@ -65,7 +65,6 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
 
         Long articleId = documentFavoriteDeleteRequest.getId();
 
-
         try {
             repository.deleteById(articleId);
         } catch (EmptyResultDataAccessException e) {
@@ -83,6 +82,9 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                 .message("Delete successful")
                 .build();
     }
+
+
+
 
 
 }
