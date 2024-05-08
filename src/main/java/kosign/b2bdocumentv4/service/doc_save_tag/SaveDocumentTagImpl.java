@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.print.Doc;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,10 +94,62 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         }
 
         // Mapping tags to appropriate response objects
-        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toRes).toList();
+        List<DocTagResponse> responseTagList = litDocTagByDep_ID.stream().map(documentTagListMapper::toResponse).toList();
 
         return BaseResponse.builder().code("200").message("Get success").isError(false).rec(responseTagList).build();
     }
+
+
+
+    // New API list document tag and document article
+    @Override
+    public BaseResponse getTag(Long dept_id) {
+        List<DocumentTag> listTagAndArticle = documentTagRepository.getDocumentTag(dept_id);
+
+        List<DocTagResponse> response = listTagAndArticle.stream().map(documentTagListMapper::toResponse).toList();
+
+
+        return BaseResponse.builder().code("200").message("success").isError(false).rec(response).build();
+    }
+
+
+
+
+
+
+
+
+    // Test
+    @Override
+    public BaseResponse listTagAndArticle(Long dept_id) {
+
+        // 1
+        List<DocumentTag> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id);
+        System.out.println("Article" + listAllAtricle);
+
+        // 2
+        List<DocumentTag> listAllTag = documentTagRepository.getDocumentTag(dept_id);
+        System.out.println("Tag" + listAllTag);
+
+        // return BaseResponse.builder().code("200").message("success").isError(false).rec().build();
+        TagArticleRespone tagArticleRespone = new TagArticleRespone(listAllAtricle, listAllTag);
+        System.out.println(" List ====> " + tagArticleRespone);
+
+        return BaseResponse.builder().code("200")
+                .message("success")
+                .isError(false)
+                .rec(tagArticleRespone)
+                .build();
+
+
+
+
+
+
+    }
+
+
+
 
 
 

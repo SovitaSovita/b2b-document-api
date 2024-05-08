@@ -15,11 +15,13 @@ public class DocumentFavorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    private int id;
+    private Long id;
+
     @NotNull
-    private int user_id;
+    private Long article_id;
+
     @NotNull
-    private int article_id;
-    @NotNull
-    private String dep_id;
+    private Long dept_id;
+
+    private String user_id;
 }

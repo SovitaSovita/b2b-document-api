@@ -21,4 +21,14 @@ public interface SaveDocumentTagService {
     BaseResponse getAllTagByDept_Id(Long dept_id);
     // List<DocumentTag> getAllTagByDep_Id(Long dept_id);
 
+
+    // New
+    BaseResponse getTag(Long dept_id);
+    // BaseResponse getAritcles();
+
+    // Call 2 repo
+    BaseResponse listTagAndArticle(Long dept_id);
+
+    // BaseResponse GetDocumentArticle();
+
 }
