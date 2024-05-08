@@ -21,7 +21,7 @@ public interface  DocumentArticlesRepository extends JpaRepository<DocumentArtic
              a.status,b.username,b.image,a.user_id,
              f.file_id, f.file_idnt_id,f.file_nm,f.file_size,f.thum_img_path,f.img_path
              FROM stdy.doc_articles a
-             inner join stdy.doc_users b on a.user_id = b.id
+             left join stdy.doc_users b on a.user_id = b.id
              left join stdy.doc_tags t on t.id = a.tag_id
              left join stdy.doc_file as f on f.file_article_id = a.file_article_id
              where a.id=cast(:id as INTEGER) and a.status = 1 and t.status = 1
