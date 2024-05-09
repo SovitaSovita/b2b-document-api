@@ -1,5 +1,6 @@
 package kosign.b2bdocumentv4.entity.doc_tags;
 
+import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -7,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> {
@@ -42,7 +44,7 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
             on a.tag_id = t.id
             where a.status = 1 order by title
             """, nativeQuery = true)
-    List<DocumentTag> getDocumentArticleList(Long dept_id);
+    List<Map<Object, String>> getDocumentArticleList(Long dept_id);
 
 
 

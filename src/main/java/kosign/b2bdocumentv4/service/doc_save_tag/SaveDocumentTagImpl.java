@@ -1,6 +1,7 @@
 package kosign.b2bdocumentv4.service.doc_save_tag;
 
 
+import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_tags.DocumentTag;
 import kosign.b2bdocumentv4.entity.doc_tags.DocumentTagRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
@@ -106,10 +107,10 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     public BaseResponse getTag(Long dept_id) {
         List<DocumentTag> listTagAndArticle = documentTagRepository.getDocumentTag(dept_id);
 
-        List<DocTagResponse> response = listTagAndArticle.stream().map(documentTagListMapper::toResponse).toList();
+//        List<DocTagResponse> response = listTagAndArticle.stream().map(documentTagListMapper::toResponse).toList();
 
 
-        return BaseResponse.builder().code("200").message("success").isError(false).rec(response).build();
+        return BaseResponse.builder().code("200").message("success").isError(false).rec(listTagAndArticle).build();
     }
 
 
@@ -122,18 +123,14 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     // Test
     @Override
     public BaseResponse listTagAndArticle(Long dept_id) {
-
         // 1
-        List<DocumentTag> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id);
-        System.out.println("Article" + listAllAtricle);
+        List<Map<Object, String>> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id);
 
         // 2
         List<DocumentTag> listAllTag = documentTagRepository.getDocumentTag(dept_id);
-        System.out.println("Tag" + listAllTag);
 
         // return BaseResponse.builder().code("200").message("success").isError(false).rec().build();
-        TagArticleRespone tagArticleRespone = new TagArticleRespone(listAllAtricle, listAllTag);
-        System.out.println(" List ====> " + tagArticleRespone);
+        TagArticleRespone tagArticleRespone = new TagArticleRespone(listAllTag, listAllAtricle);
 
         return BaseResponse.builder().code("200")
                 .message("success")
