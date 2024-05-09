@@ -2,6 +2,7 @@ package kosign.b2bdocumentv4.payload;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.enums.IResponseMessage;
 import kosign.b2bdocumentv4.enums.ResponseMessage;
 import kosign.b2bdocumentv4.payload.page.Page;
@@ -70,4 +71,6 @@ public class BaseResponse {
                     .build();
         return page;
     }
+
+
 }
