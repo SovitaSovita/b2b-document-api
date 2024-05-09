@@ -18,6 +18,12 @@ public class FavoriteController {
 
     private final DocFavoriteServiceImpl docFavoriteService;
 
+    // Check if have favorite
+    @GetMapping("/check_if_favorite")
+    public BaseResponse checkIfHaveFavorite(@RequestParam String user_id) {
+        return docFavoriteService.checkIsFavorite(user_id);
+    }
+
     // List
     @GetMapping("/favorite")
     public BaseResponse getFavoriteByUser(@RequestParam String user_id) {

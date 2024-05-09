@@ -23,6 +23,29 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
     // Mapper
     private final DocumentFavoriteMapper documentFavoriteMapper;
 
+    // Check is favorite
+    public BaseResponse checkIsFavorite(String user_id) {
+
+        List<Map<Object, String>> favorite = repository.checkIsFavorite(user_id);
+
+        if (favorite.isEmpty()) {
+            return BaseResponse.builder()
+                    .code("404")
+                    .message("Not favorite found")
+                    .isError(true)
+                    .build();
+        } else {
+            return BaseResponse.builder()
+                    .code("202")
+                    .message("success")
+                    .isError(false)
+                    .rec(favorite)
+                    .build();
+        }
+
+
+    }
+
     // List
     @Override
     public BaseResponse listFavorite(String user_id) {

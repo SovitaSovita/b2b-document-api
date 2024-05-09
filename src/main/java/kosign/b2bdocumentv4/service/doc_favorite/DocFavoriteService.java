@@ -13,4 +13,7 @@ public interface DocFavoriteService {
     // Delete
     BaseResponse deleteFavorite(DocumentFavoriteDeleteRequest documentFavoriteDeleteRequest);
 
+    //
+    BaseResponse checkIsFavorite(String user_id);
+
 }
