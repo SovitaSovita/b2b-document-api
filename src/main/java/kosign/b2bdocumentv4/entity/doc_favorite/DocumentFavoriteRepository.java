@@ -30,11 +30,14 @@ public interface DocumentFavoriteRepository extends JpaRepository<DocumentFavori
             """, nativeQuery = true)
     List<DocumentFavorite> deleteFavoriteByArticle_Id(Long article_id);
 
+
     // Check is favorite
     @Query(value = """
             SELECT * FROM stdy.doc_favorite
-            WHERE user_id = :user_id
+            WHERE user_id = :user_id and article_id = :article_id and dept_id = :dept_id
             """, nativeQuery = true)
-    // List<DocumentFavorite> checkIsFavorite(String user_id);
-    List<Map<Object, String>> checkIsFavorite(@Param("user_id") String user_id);
+    List<Map<Object, String>> checkIsFavorite(@Param("user_id") String user_id,
+                                              @Param("article_id") Long article_id,
+                                              @Param("dept_id") Long dept_id);
+
 }

@@ -24,9 +24,9 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
     private final DocumentFavoriteMapper documentFavoriteMapper;
 
     // Check is favorite
-    public BaseResponse checkIsFavorite(String user_id) {
+    public BaseResponse checkIsFavorite(String user_id, Long article_id, Long dept_id) {
 
-        List<Map<Object, String>> favorite = repository.checkIsFavorite(user_id);
+        List<Map<Object, String>> favorite = repository.checkIsFavorite(user_id, article_id, dept_id);
 
         if (favorite.isEmpty()) {
             return BaseResponse.builder()
