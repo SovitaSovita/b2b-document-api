@@ -9,7 +9,7 @@ public class DocTagRequest {
     private Long dept_id;
     // private Long id;
     private String title;
-    private Long user_id;
+    private String user_name;
     private Long status;
 
     private Timestamp create_date;

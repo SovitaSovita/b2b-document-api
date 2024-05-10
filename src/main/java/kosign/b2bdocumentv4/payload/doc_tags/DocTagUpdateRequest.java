@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class DocTagUpdateRequest {
     private Long id;
     private String title;
-    private Long user_id;
+    private String user_name;
     private Long status;
     private Long dept_id;
     private Timestamp create_date;
