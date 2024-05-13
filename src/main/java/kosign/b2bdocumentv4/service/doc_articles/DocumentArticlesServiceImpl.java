@@ -74,6 +74,7 @@ public abstract class DocumentArticlesServiceImpl implements DocumentArticlesSer
         }
     }
 
+
     @Override
     public BaseResponse insertArticle(DocInsertArticleRequest articleRequest ,HttpServletRequest request) {
 
