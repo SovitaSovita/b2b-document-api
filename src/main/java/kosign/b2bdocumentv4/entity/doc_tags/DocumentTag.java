@@ -24,7 +24,7 @@ public class DocumentTag {
 
     @NotBlank
     @NotEmpty
-    private Long user_id;
+    private String user_name;
 
     @NotBlank
     @NotEmpty
