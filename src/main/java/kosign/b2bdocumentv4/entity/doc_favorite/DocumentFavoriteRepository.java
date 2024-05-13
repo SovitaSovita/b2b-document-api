@@ -36,8 +36,10 @@ public interface DocumentFavoriteRepository extends JpaRepository<DocumentFavori
             SELECT * FROM stdy.doc_favorite
             WHERE user_id = :user_id and article_id = :article_id and dept_id = :dept_id
             """, nativeQuery = true)
-    List<Map<Object, String>> checkIsFavorite(@Param("user_id") String user_id,
+    Map<Object, String> checkIsFavorite(@Param("user_id") String user_id,
                                               @Param("article_id") Long article_id,
                                               @Param("dept_id") Long dept_id);
+
+
 
 }
