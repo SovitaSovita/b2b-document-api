@@ -38,7 +38,7 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
 
     // New API Articles
     @Query(value = """
-            SELECT a.id, a.tag_id, a.title,a.create_date,a.dept_id,a.modified_date,a.status,a.user_name
+            SELECT a.id, a.tag_id, a.title,a.create_date,a.dept_id,a.modified_date,a.status,t.user_name
             FROM stdy.doc_articles a
             right join stdy.doc_tags t
             on a.tag_id = t.id
