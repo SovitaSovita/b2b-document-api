@@ -15,5 +15,9 @@ public interface DocumentArticlesService {
     BaseResponse getMenuByDeptID(Long dept_id);
 
     BaseResponse insertArticle(DocInsertArticleRequest articleRequest, HttpServletRequest request);
+
+    BaseResponse updateArticles(DocInsertArticleRequest articleSaveRequest);
+
+    BaseResponse updateArticles(DocumentArticles articleRequest);
 }
 

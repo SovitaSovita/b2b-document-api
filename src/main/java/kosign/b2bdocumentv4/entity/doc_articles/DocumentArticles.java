@@ -31,4 +31,7 @@ public class DocumentArticles extends BaseEntity {
     private String dept_id;
     @NotNull
     private String isfavorite;
+
+    public void setMessage(String articleNotFound) {
+    }
 }

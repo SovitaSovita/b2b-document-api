@@ -2,6 +2,7 @@ package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
+import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.document_articles.DocInsertArticleRequest;
 import kosign.b2bdocumentv4.payload.document_articles.DocumentArticlesRequest;
@@ -30,7 +31,13 @@ public class DocumentArticlesController {
 
     @PostMapping("/add")
     public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request){
-        return service.insertArticle(articleRequest, request);
+         return service.insertArticle(articleRequest, request);
+    }
+
+   @PutMapping("/updateArticle")
+    public BaseResponse updateArticle(@RequestBody DocumentArticles articleSaveRequest){
+        return service.updateArticles(articleSaveRequest);
+
     }
 
 
