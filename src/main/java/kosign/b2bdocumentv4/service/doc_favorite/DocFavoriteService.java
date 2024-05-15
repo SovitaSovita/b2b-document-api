@@ -6,14 +6,16 @@ import kosign.b2bdocumentv4.payload.document_favorite.DocumentFavoriteRequest;
 
 public interface DocFavoriteService {
 
-    // List
+    // List favorite (not use)
     BaseResponse listFavorite(String user_id);
+
     // Add
     BaseResponse saveFavorite(DocumentFavoriteRequest documentFavoriteRequest);
+
     // Delete
     BaseResponse deleteFavorite(DocumentFavoriteDeleteRequest documentFavoriteDeleteRequest);
 
-    // List favorite base on user
+    // Check is favorite
     BaseResponse checkIsFavorite(String user_id,Long article_id, Long dept_id);
 
 }

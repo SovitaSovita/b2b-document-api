@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-
 @Service
 @RequiredArgsConstructor
 public class DocFavoriteServiceImpl implements DocFavoriteService {
@@ -44,11 +43,9 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                     .rec(favorite)
                     .build();
         }
-
-
     }
 
-    // List
+    // List favorite (not use)
     @Override
     public BaseResponse listFavorite(String user_id) {
 
@@ -62,7 +59,6 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                 .build();
     }
 
-
     // Add
     @Override
     public BaseResponse saveFavorite(DocumentFavoriteRequest documentFavoriteRequest) {
@@ -73,9 +69,8 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
         documentFavorite.setArticle_id(documentFavoriteRequest.getArticle_id());
         // Department ID
         documentFavorite.setDept_id(documentFavoriteRequest.getDept_id());
-        // user ID
+        // User ID
         documentFavorite.setUser_id(documentFavoriteRequest.getUser_id());
-
         // Using save method
         var newEntity = repository.save(documentFavorite);
         System.out.println("Insert favorite" + newEntity);
@@ -118,9 +113,5 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                 .message("Delete successful")
                 .build();
     }
-
-
-
-
 
 }

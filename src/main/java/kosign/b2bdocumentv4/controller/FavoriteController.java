@@ -28,7 +28,7 @@ public class FavoriteController {
         return docFavoriteService.checkIsFavorite(user_id, article_id, dept_id);
     }
 
-    // List
+    // List favorite (not use)
     @GetMapping("/favorite")
     public BaseResponse getFavoriteByUser(@RequestParam String user_id) {
         return docFavoriteService.listFavorite(user_id);

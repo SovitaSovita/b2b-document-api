@@ -8,11 +8,11 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+
 
 public interface DocumentFavoriteRepository extends JpaRepository<DocumentFavorite, Long> {
 
-    // list favorite by user
+    // list favorite by user (not use)
     @Query(value = """
             SELECT df.id, df.article_id, df.dept_id, df.user_id, da.title,da.content_body
             FROM stdy.doc_favorite df
@@ -21,13 +21,7 @@ public interface DocumentFavoriteRepository extends JpaRepository<DocumentFavori
             """, nativeQuery = true)
     List<Map<Object, String>> listAllFavorite(@Param("user_id") String user_id);
 
-
     // Delete
-//    @Query(value = """
-//            DELETE FROM stdy.doc_favorite WHERE article_id = :article_id
-//            """, nativeQuery = true)
-//    List<DocumentFavorite> deleteFavoriteByArticle_Id(Long article_id);
-
     @Modifying
     @Transactional
     @Query(value = """
@@ -35,16 +29,12 @@ public interface DocumentFavoriteRepository extends JpaRepository<DocumentFavori
         """, nativeQuery = true)
     int deleteFavoriteByUserIdAndArticleId(@Param("user_id") String user_id, @Param("article_id") Long article_id);
 
-
-
     // Check is favorite
     @Query(value = """
             SELECT * FROM stdy.doc_favorite
             WHERE user_id = :user_id and article_id = :article_id and dept_id = :dept_id
             """, nativeQuery = true)
-    Map<Object, String> checkIsFavorite(@Param("user_id") String user_id,
-                                              @Param("article_id") Long article_id,
-                                              @Param("dept_id") Long dept_id);
+    Map<Object, String> checkIsFavorite(@Param("user_id") String user_id,@Param("article_id") Long article_id,@Param("dept_id") Long dept_id);
 
 
 
