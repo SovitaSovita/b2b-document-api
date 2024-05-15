@@ -69,12 +69,11 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
 
         DocumentFavorite documentFavorite = documentFavoriteMapper.requestToEntity(documentFavoriteRequest);
 
-
-        // Article
+        // Article ID
         documentFavorite.setArticle_id(documentFavoriteRequest.getArticle_id());
-        // Department
+        // Department ID
         documentFavorite.setDept_id(documentFavoriteRequest.getDept_id());
-        // user
+        // user ID
         documentFavorite.setUser_id(documentFavoriteRequest.getUser_id());
 
         // Using save method
@@ -92,16 +91,24 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
     @Override
     public BaseResponse deleteFavorite(DocumentFavoriteDeleteRequest documentFavoriteDeleteRequest) {
 
-        Long articleId = documentFavoriteDeleteRequest.getId();
+        String userId  = documentFavoriteDeleteRequest.getUser_id();
+        Long articleId = documentFavoriteDeleteRequest.getArticle_id();
 
         try {
-            repository.deleteById(articleId);
+           int rowsDeleted = repository.deleteFavoriteByUserIdAndArticleId(userId, articleId);
+           if (rowsDeleted == 0) {
+               return BaseResponse.builder()
+                       .isError(true)
+                       .code("404")
+                       .message("Cannot find favorite with user_id " + userId + " and article_id " + articleId)
+                       .build();
+           }
         } catch (EmptyResultDataAccessException e) {
 
             return BaseResponse.builder()
                     .isError(true)
                     .code("404")
-                    .message("Cannot find favorite with id " + articleId)
+                    .message("Cannot find favorite with user_id " + userId + " and article_id " + articleId)
                     .build();
         }
 

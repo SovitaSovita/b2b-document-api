@@ -1,6 +1,8 @@
 package kosign.b2bdocumentv4.entity.doc_favorite;
 
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -20,15 +22,19 @@ public interface DocumentFavoriteRepository extends JpaRepository<DocumentFavori
     List<Map<Object, String>> listAllFavorite(@Param("user_id") String user_id);
 
 
-
-    // Insert
-    // List<DocumentFavorite> AddFavorite();
-
     // Delete
+//    @Query(value = """
+//            DELETE FROM stdy.doc_favorite WHERE article_id = :article_id
+//            """, nativeQuery = true)
+//    List<DocumentFavorite> deleteFavoriteByArticle_Id(Long article_id);
+
+    @Modifying
+    @Transactional
     @Query(value = """
-            DELETE FROM stdy.doc_favorite WHERE article_id = :article_id
-            """, nativeQuery = true)
-    List<DocumentFavorite> deleteFavoriteByArticle_Id(Long article_id);
+        DELETE FROM stdy.doc_favorite WHERE user_id = :user_id AND article_id = :article_id
+        """, nativeQuery = true)
+    int deleteFavoriteByUserIdAndArticleId(@Param("user_id") String user_id, @Param("article_id") Long article_id);
+
 
 
     // Check is favorite

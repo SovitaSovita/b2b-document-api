@@ -20,7 +20,7 @@ public class FavoriteController {
 
     private final DocFavoriteServiceImpl docFavoriteService;
 
-    // Check if have favorite
+    // Check is favorite
     @GetMapping("/check_if_favorite")
     public BaseResponse checkIfHaveFavorite(@RequestParam String user_id,
                                             @RequestParam Long article_id,
