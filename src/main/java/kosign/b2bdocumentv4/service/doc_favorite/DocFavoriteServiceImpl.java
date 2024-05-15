@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-
 @Service
 @RequiredArgsConstructor
 public class DocFavoriteServiceImpl implements DocFavoriteService {
@@ -26,7 +25,9 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
     // Check is favorite
     public BaseResponse checkIsFavorite(String user_id, Long article_id, Long dept_id) {
 
-        List<Map<Object, String>> favorite = repository.checkIsFavorite(user_id, article_id, dept_id);
+        Map<Object, String> favorite = repository.checkIsFavorite(user_id, article_id, dept_id);
+
+        System.out.println(favorite);
 
         if (favorite.isEmpty()) {
             return BaseResponse.builder()
@@ -42,11 +43,9 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                     .rec(favorite)
                     .build();
         }
-
-
     }
 
-    // List
+    // List favorite (not use)
     @Override
     public BaseResponse listFavorite(String user_id) {
 
@@ -60,21 +59,18 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                 .build();
     }
 
-
     // Add
     @Override
     public BaseResponse saveFavorite(DocumentFavoriteRequest documentFavoriteRequest) {
 
         DocumentFavorite documentFavorite = documentFavoriteMapper.requestToEntity(documentFavoriteRequest);
 
-
-        // Article
+        // Article ID
         documentFavorite.setArticle_id(documentFavoriteRequest.getArticle_id());
-        // Department
+        // Department ID
         documentFavorite.setDept_id(documentFavoriteRequest.getDept_id());
-        // user
+        // User ID
         documentFavorite.setUser_id(documentFavoriteRequest.getUser_id());
-
         // Using save method
         var newEntity = repository.save(documentFavorite);
         System.out.println("Insert favorite" + newEntity);
@@ -90,16 +86,24 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
     @Override
     public BaseResponse deleteFavorite(DocumentFavoriteDeleteRequest documentFavoriteDeleteRequest) {
 
-        Long articleId = documentFavoriteDeleteRequest.getId();
+        String userId  = documentFavoriteDeleteRequest.getUser_id();
+        Long articleId = documentFavoriteDeleteRequest.getArticle_id();
 
         try {
-            repository.deleteById(articleId);
+           int rowsDeleted = repository.deleteFavoriteByUserIdAndArticleId(userId, articleId);
+           if (rowsDeleted == 0) {
+               return BaseResponse.builder()
+                       .isError(true)
+                       .code("404")
+                       .message("Cannot find favorite with user_id " + userId + " and article_id " + articleId)
+                       .build();
+           }
         } catch (EmptyResultDataAccessException e) {
 
             return BaseResponse.builder()
                     .isError(true)
                     .code("404")
-                    .message("Cannot find favorite with id " + articleId)
+                    .message("Cannot find favorite with user_id " + userId + " and article_id " + articleId)
                     .build();
         }
 
@@ -109,9 +113,5 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                 .message("Delete successful")
                 .build();
     }
-
-
-
-
 
 }

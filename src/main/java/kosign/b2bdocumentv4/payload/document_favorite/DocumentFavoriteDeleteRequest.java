@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 public class DocumentFavoriteDeleteRequest {
 
-    private Long id;
+    private String user_id;
+    private Long article_id;
 
 }
