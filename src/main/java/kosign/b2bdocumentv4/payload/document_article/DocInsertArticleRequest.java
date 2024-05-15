@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.payload.document_articles;
+package kosign.b2bdocumentv4.payload.document_article;
 
 import lombok.Data;
 

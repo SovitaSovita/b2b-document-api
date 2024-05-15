@@ -2,10 +2,10 @@ package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
-import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.payload.BaseResponse;
-import kosign.b2bdocumentv4.payload.document_articles.DocInsertArticleRequest;
-import kosign.b2bdocumentv4.payload.document_articles.DocumentArticlesRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocumentArticlesRequest;
 import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +35,8 @@ public class DocumentArticlesController {
     }
 
    @PutMapping("/updateArticle")
-    public BaseResponse updateArticle(@RequestBody DocumentArticles articleSaveRequest){
-        return service.updateArticles(articleSaveRequest);
+    public BaseResponse updateArticle(@RequestBody DocUpdateArticleRequest docUpdateArticleRequest){
+        return service.updateArticles(docUpdateArticleRequest);
 
     }
 

@@ -6,9 +6,11 @@ import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 
-import kosign.b2bdocumentv4.payload.document_articles.DocInsertArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
 import kosign.b2bdocumentv4.service.doc_users.DocUserServiceImpl;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +20,8 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
-public abstract class DocumentArticlesServiceImpl implements DocumentArticlesService {
+@RequiredArgsConstructor
+public class DocumentArticlesServiceImpl implements DocumentArticlesService {
 
     private final DocumentArticlesRepository repository;
     private final DocUserServiceImpl docUserService;
@@ -99,51 +101,39 @@ public abstract class DocumentArticlesServiceImpl implements DocumentArticlesSer
     }
 
     @Override
-    public BaseResponse updateArticles(DocInsertArticleRequest articleRequest) {
-        DocumentArticles documentArticles = new DocumentArticles();
-        try {
+    public BaseResponse updateArticles(DocUpdateArticleRequest docUpdateArticleRequest) {
+
             // Find the existing article by ID
-            Optional<DocumentArticles> existingArticleOptional = repository.findById(articleRequest.getTag_id());
+            Optional<DocumentArticles> existingArticleOptional = repository.findById(docUpdateArticleRequest.getId());
+
+        System.out.println("[DEBUG >>]" + existingArticleOptional);
 
             // Check if the article exists
             if (existingArticleOptional.isPresent()) {
                 DocumentArticles existingArticle = existingArticleOptional.get();
 
-                existingArticle.setTitle(articleRequest.getTitle());
-                existingArticle.setTag_id(articleRequest.getTag_id());
-                existingArticle.setContent_body(articleRequest.getContent_body());
-                existingArticle.setUser_id(articleRequest.getUser_id());
-                existingArticle.setDept_id(articleRequest.getDept_id());
-
-                // Save the updated article
-                repository.save(existingArticle);
+                existingArticle.setTitle(docUpdateArticleRequest.getTitle());
+                existingArticle.setId(docUpdateArticleRequest.getId());
+                existingArticle.setContent_body(docUpdateArticleRequest.getContent_body());
+                existingArticle.setUser_id(docUpdateArticleRequest.getUser_id());
+                existingArticle.setDept_id(docUpdateArticleRequest.getDept_id());
+                System.out.println("vanda test >>" + existingArticle);
 
                 return BaseResponse.builder()
-                        .code("404")
-                        .message("No data found for department ID: ")
+                        .code("200")
+                        .rec(repository.save(existingArticle))
+                        .message("Update success for article ID ")
                         .isError(true)
                         .build();
-                // Set success response
 
             } else {
                 // Article with the given ID not found
-                documentArticles.setStatus(Long.valueOf("error"));
-                documentArticles.setMessage("Article not found");
+                return BaseResponse.builder()
+                        .code("404")
+                        .message("Article not found for ID: ")
+                        .isError(true)
+                        .build();
             }
-        } catch (Exception e) {
-            // Handle any exceptions
-            documentArticles.setStatus(Long.valueOf("error"));
-            documentArticles.setMessage("An error occurred while updating the article");
-            // You can log the exception for debugging purposes
-            e.printStackTrace();
-        }
-        return BaseResponse.builder()
-                .message("Update article success ")
-                .isError(true)
-                .build();
-
-
     }
-
 
 }
