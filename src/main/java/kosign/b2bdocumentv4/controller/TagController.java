@@ -25,40 +25,39 @@ public class TagController {
     private final DocUserServiceImpl docUserService;
     private final DocumentArticlesServiceImpl documentArticlesService;
 
-    // Tag and Article
+    // Tag and Article (Not use)
     @GetMapping("/getTagByDepId")
     public BaseResponse listTagByDep_Id(@RequestParam Long dept_id) {
         return service.getAllTagByDept_Id(dept_id);
     }
 
+    // Insert Tag (Use)
     @PostMapping("/saveTagTitle")
     public BaseResponse saveTagController(@RequestBody DocTagRequest docTagRequest) {
         return service.saveTag(docTagRequest);
     }
 
+    // Update Tag (Use)
     @PostMapping("/updateTag")
     public BaseResponse updateTagController(@RequestBody DocTagUpdateRequest docTagUpdateRequest) {
         return service.updateTag(docTagUpdateRequest);
     }
 
+    // Delete Tag (Use)
     @PostMapping("/deleteTag")
     public BaseResponse deleteTagById(@RequestBody DocTagDeleteRequest docTagDeleteRequest) {
         return service.deleteTag(docTagDeleteRequest);
     }
 
-    // New API list tag and article
+    // New API list tag and Title (Use)
     @GetMapping("/documentTag")
     public BaseResponse doc_menu_home_r01(@RequestParam Long dept_id) {
 
         return service.getTag(dept_id);
     }
 
-    // Test
-//    @GetMapping("/test")
-//    public BaseResponse test() {
-//        return service.GetDocumentArticle();
-//    }
 
+    // New API list Tag and Title (Not use)
     @GetMapping("/listTagAndAtricle")
     public BaseResponse test1(@RequestParam Long dept_id) {
         return service.listTagAndArticle(dept_id);
