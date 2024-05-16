@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
+import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 
 import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
@@ -134,6 +135,19 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                         .isError(true)
                         .build();
             }
+    }
+
+    @Override
+    public BaseResponse deleteArticle(Long articleId, HttpServletRequest request) {
+        DocumentArticles articles = repository.findById(articleId).orElseThrow(() -> new NotFoundExceptionClass("Article not found."));
+
+        repository.deleteById(articles.getId());
+
+        return BaseResponse.builder()
+                .code("200")
+                .message("Article Deleted Successfully.")
+                .build();
+
     }
 
 }

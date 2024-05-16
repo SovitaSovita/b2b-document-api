@@ -15,6 +15,8 @@ public interface DocumentArticlesService {
 
     BaseResponse updateArticles(DocUpdateArticleRequest docUpdateArticleRequest);
 
+    BaseResponse deleteArticle(Long articleId, HttpServletRequest request);
+
     //BaseResponse updateArticles(DocumentArticles articleRequest);
 }
 
