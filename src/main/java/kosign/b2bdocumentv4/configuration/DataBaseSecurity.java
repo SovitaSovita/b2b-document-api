@@ -54,28 +54,35 @@ public class DataBaseSecurity{
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(AbstractHttpConfigurer::disable);
-        http.csrf(AbstractHttpConfigurer::disable)
+        http.cors();
+        http.csrf()
+                .disable()
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(
                                 "/api/v1/auth/change-password",
                                 "/api/v1/auth/login",
                                 "/api/v1/auth/register",
+                                "/api/v1/auth/**",
                                 "/api/v1/excel",
                                 "/api/v1/auth",
                                 "/api/v1/send-email",
                                 "/v3/api-docs/**",
                                 "/api/v1/images/Files",
-                                "/api/v1/images/**",
+                                "/api/v1/files/**",
                                 "/api/v1/docs/**",
+                                //"/api/v1/DocTag/**",
                                 "/swagger-ui/**",
+                                "/api/v1/department/**",
                                 "/swagger/ui.html").permitAll() // for free api
                         .requestMatchers(
                                 "/api/v1/admin/**",
-                                "/api/v1/user/**"
-                        ).hasRole("ADMIN") // for admin api
+                                "/api/v1/user/**",
+                                "/api/v1/saveTag/**"
+                        ).authenticated()
                         .anyRequest().authenticated()
-                ).exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage("/403"))
+                ).exceptionHandling()
+                .authenticationEntryPoint(authEntryPoint)
+                .and()
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

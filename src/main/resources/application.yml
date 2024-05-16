@@ -4,18 +4,21 @@ spring:
     url: jdbc:postgresql://dpg-cobkludjm4es739r7j60-a.singapore-postgres.render.com:5432/b2bdoc_db
     username: b2bdoc_db_user
     password: uRWUApKZAgdx6Ekg6chegfQRvE17jHPp
-
-
-#    url: jdbc:postgresql://localhost:5432/b2b-doc-db
-#    username: postgres
-#    password: Sovita#28
+  #    url: jdbc:postgresql://178.128.52.39:5432/digital_asset_db
+  #    username: sovita
+  #    password: Sovita#28
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
-        format_sql: false
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  activemq:
+    broker-url:
+
   servlet:
     multipart:
       max-file-size: 50MB
@@ -23,12 +26,22 @@ spring:
   application:
     name: b2b-document-v4
 jwt:
-  secret: b2b-document-v4
+  secret: A0WEwEhf+UFp3tI2PM3TfxRNk4a4dr8L2AyXyxu/JqY=
 myAdmin:
   username: Admin
   password: DigitalAsset1@
 server:
   port: 4545
+
+#base_url_img : http://localhost:4545/api/v1/files/view_images?fileName=
+#dashboard_url: http://localhost:4545/
+#file_path: src/main/resources/static/images
+
+base_url_img : http://178.128.52.39:4545/api/v1/files/view_images?fileName=
+dashboard_url: http://178.128.52.39:4545/
+file_path: /srv/b2b_doc/images
+
+API_URL: http://178.128.52.39:8085
 
 # Swagger URL
 # /swagger-ui/index.html/

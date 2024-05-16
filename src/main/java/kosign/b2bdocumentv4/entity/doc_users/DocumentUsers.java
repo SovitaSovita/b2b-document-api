@@ -40,7 +40,6 @@ public class DocumentUsers implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Column(name = "dept_id")
     private Long dept_id;
 
     private String image;

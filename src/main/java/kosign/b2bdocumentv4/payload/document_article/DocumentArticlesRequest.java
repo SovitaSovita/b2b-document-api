@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.payload.document_articles;
+package kosign.b2bdocumentv4.payload.document_article;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -6,5 +6,6 @@ import lombok.Data;
 @Data
 public class DocumentArticlesRequest {
     @NotNull
-    private String dep_id;
+    // private String dep_id;
+    private String dept_id;
 }

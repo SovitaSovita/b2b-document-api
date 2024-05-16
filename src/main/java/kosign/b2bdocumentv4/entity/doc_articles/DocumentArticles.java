@@ -20,7 +20,7 @@ public class DocumentArticles extends BaseEntity {
     @NotNull
     private Long tag_id;
     private String title;
-    @NotNull
+
     private String content_body;
     @NotNull
     private Long user_id;
@@ -28,7 +28,9 @@ public class DocumentArticles extends BaseEntity {
     private Long status;
     @NotNull
     private String file_article_id;
-    private String dep_id;
+    private String dept_id;
     @NotNull
     private String isfavorite;
+
+
 }

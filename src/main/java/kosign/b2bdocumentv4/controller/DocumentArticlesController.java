@@ -1,9 +1,11 @@
 package kosign.b2bdocumentv4.controller;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.servlet.http.HttpServletRequest;
 import kosign.b2bdocumentv4.payload.BaseResponse;
-import kosign.b2bdocumentv4.payload.document_articles.DocumentArticlesRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocumentArticlesRequest;
 import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +18,33 @@ import org.springframework.web.bind.annotation.*;
 public class DocumentArticlesController {
 
     private final DocumentArticlesServiceImpl service;
-
     @PostMapping("/list")
     public BaseResponse getArticlesList(@RequestBody DocumentArticlesRequest documentArticlesRequest){
-        return service.listArticles(documentArticlesRequest.getDep_id());
+        return service.listArticlesByDeptId(documentArticlesRequest.getDept_id());
     }
+
+    @GetMapping("/listById")
+    public BaseResponse getArticlesById(@RequestParam Long id){
+        return service.ArticleById(id);
+    }
+
+
+    @PostMapping("/add")
+    public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request){
+         return service.insertArticle(articleRequest, request);
+    }
+
+   @PutMapping("/updateArticle")
+    public BaseResponse updateArticle(@RequestBody DocUpdateArticleRequest docUpdateArticleRequest){
+        return service.updateArticles(docUpdateArticleRequest);
+
+    }
+
+    @DeleteMapping("/delete")
+    public BaseResponse deleteArticle(@RequestParam Long articleId, HttpServletRequest request){
+        return service.deleteArticle(articleId, request);
+    }
+
+
 
 }

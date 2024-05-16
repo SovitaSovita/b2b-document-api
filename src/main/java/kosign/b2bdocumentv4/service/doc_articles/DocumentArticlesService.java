@@ -1,10 +1,22 @@
 package kosign.b2bdocumentv4.service.doc_articles;
 
-import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
+import jakarta.servlet.http.HttpServletRequest;
 import kosign.b2bdocumentv4.payload.BaseResponse;
-
-import java.util.List;
+import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
 
 public interface DocumentArticlesService {
-    BaseResponse listArticles(String dep_id);
+    BaseResponse listArticlesByDeptId(String dep_id);
+    BaseResponse ArticleById(Long id);
+
+    BaseResponse getMenuByDeptID(Long dept_id);
+
+    BaseResponse insertArticle(DocInsertArticleRequest articleRequest, HttpServletRequest request);
+
+    BaseResponse updateArticles(DocUpdateArticleRequest docUpdateArticleRequest);
+
+    BaseResponse deleteArticle(Long articleId, HttpServletRequest request);
+
+    //BaseResponse updateArticles(DocumentArticles articleRequest);
 }
+

@@ -1,10 +1,15 @@
 package kosign.b2bdocumentv4.controller;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.auth.AuthenticationRequest;
+import kosign.b2bdocumentv4.payload.auth.AuthenticationResponse;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
+import kosign.b2bdocumentv4.payload.login.CreateUserRequest;
 import kosign.b2bdocumentv4.service.auth.AuthService;
 import kosign.b2bdocumentv4.jwt.JwtRespon;
 import kosign.b2bdocumentv4.jwt.JwtTokenUtils;
@@ -22,6 +27,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -38,7 +45,7 @@ public class AuthController {
     }
 
 
-    @PostMapping("/login")
+//    @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest jwtRequest) {
         try {
             authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
@@ -47,17 +54,21 @@ public class AuthController {
         }
 
         final UserDetails userDetails = authService.loadUserByUsername(jwtRequest.getUsername());
+        AuthenticationResponse authResponse = authService.getUserByUsername(jwtRequest.getUsername());
+
+        System.out.println(authResponse);
+
         final String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtRespon(LocalDateTime.now(),
-                jwtRequest.getUsername(),
                 token,
-                jwtTokenUtils.getExpirationDateFromToken(token)
+                jwtTokenUtils.getExpirationDateFromToken(token),
+                authResponse
         ));
     }
 
     private void authenticate(String username, String password) throws Exception {
-//        System.out.println("User: " + username + "pass: " + password);
         try {
+//            System.out.println(username+password);
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
@@ -66,12 +77,12 @@ public class AuthController {
         }
     }
 
-    @PutMapping("/change-password")
-    @Operation(summary = "change password")
-    @SecurityRequirement(name = "bearerAuth")
+//    @PutMapping("/change-password")
+//    @Operation(summary = "change password")
+//    @SecurityRequirement(name = "bearerAuth")
     public ApiResponse<?> changePassword(@Valid @RequestBody InfoChangePassword changePassword){
         DocumentUsers currentUser = (DocumentUsers) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        System.out.println(currentUser);
+        System.out.println("[DEBUG] " + currentUser);
         authService.changePassword(currentUser.getId(),changePassword);
         return ApiResponse.builder()
                 .date(LocalDateTime.now())
@@ -86,6 +97,18 @@ public class AuthController {
                 .status(200)
                 .message("Registered Successfully!")
                 .payload(appUserDto)
+                .date(LocalDateTime.now())
+                .build();
+        return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/delete_user")
+    public ResponseEntity<?> deleteUser(@RequestParam Long user_id){
+        authService.deleteUser(user_id);
+        ApiResponse<DocumentUsers> response = ApiResponse.<DocumentUsers>builder()
+                .status(200)
+                .message("Deleted Successfully!")
+                .date(LocalDateTime.now())
                 .build();
         return ResponseEntity.ok(response);
     }

@@ -17,8 +17,8 @@ public class SearchController {
     private final DocSearchServiceImpl service;
 
     @GetMapping("/doc_search_r01")
-    public BaseResponse searchDoc(String ttile) {
+    public BaseResponse searchDoc(String title) {
 
-        return service.searchDoc(ttile);
+        return service.searchDoc(title);
     }
 }

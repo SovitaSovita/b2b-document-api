@@ -1,11 +1,14 @@
 package kosign.b2bdocumentv4.service.auth;
 
+import kosign.b2bdocumentv4.enums.Provider;
+import kosign.b2bdocumentv4.payload.auth.AuthenticationResponse;
 import kosign.b2bdocumentv4.payload.auth.InfoChangePassword;
 import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.enums.Role;
 import kosign.b2bdocumentv4.dto.UserInfoDto;
+import kosign.b2bdocumentv4.payload.login.CreateUserRequest;
 import kosign.b2bdocumentv4.payload.login.UserInfoRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -14,6 +17,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,42 +29,20 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper mapper = new ModelMapper();
 
-
-    @Value("${myAdmin.username}")
-    private String adminUsername;
-    @Value("${myAdmin.password}")
-    private String adminPassword;
-
     public AuthServiceImpl(AuthRepository authRepository, PasswordEncoder passwordEncoder ) {
         this.authRepository = authRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
-//    @PostConstruct
-    public void createAdmin() {
-        System.out.println("TEST TEST");
-        System.out.println(authRepository.findAll());
-       if (authRepository.findAll().isEmpty()){
-           DocumentUsers documentUsers = new DocumentUsers();
-           documentUsers.setUsername(adminUsername);
-           documentUsers.setRole(Role.ADMIN);
-           String pass = passwordEncoder.encode(adminPassword);
-           documentUsers.setPassword(pass);
-           authRepository.save(documentUsers);
-       }else{
-           System.out.println("already have admin");
-       }
-    }
-
     @Override
     public UserDetails loadUserByUsername(String username){
-        UserDetails userDetails = authRepository.findByUsername(username);
-        return userDetails;
+        return authRepository.findByUsername(username);
     }
 
     @Override
     public void changePassword(Long id, InfoChangePassword password) {
         Optional<DocumentUsers> adminOptional = authRepository.findById(id);
+//        System.out.println("[DEBUG] :: " + adminOptional.get());
         if (adminOptional.isPresent()) {
             DocumentUsers documentUsers = adminOptional.get();
             String pass = passwordEncoder.encode(password.getCurrentPassword());
@@ -92,14 +75,26 @@ public class AuthServiceImpl implements AuthService {
         String pass = passwordEncoder.encode(appUserRequest.getPassword());
         appUserRequest.setPassword(pass);
         appUserRequest.setRole(appUserRequest.getRole());
+        appUserRequest.setRole(appUserRequest.getRole());
         DocumentUsers appUser = mapper.map(appUserRequest, DocumentUsers.class);
+        appUser.setStatus(1L);
+        appUser.setDept_id(1L);
 
         authRepository.save(appUser);
         //return as user_dto
         return mapper.map(appUser, UserInfoDto.class);
     }
 
+    @Override
+    public void deleteUser(Long user_id) {
+        DocumentUsers user = authRepository.findById(user_id).orElseThrow(() -> new NotFoundExceptionClass("User with id [" + user_id + "] not found."));
+        authRepository.deleteById(user.getId());
+    }
 
+    @Override
+    public AuthenticationResponse getUserByUsername(String username) {
+        return mapper.map(authRepository.findByUsername(username), AuthenticationResponse.class);
+    }
 
 
 }
