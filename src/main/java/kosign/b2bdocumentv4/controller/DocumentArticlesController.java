@@ -40,5 +40,11 @@ public class DocumentArticlesController {
 
     }
 
+    @DeleteMapping("/delete")
+    public BaseResponse deleteArticle(@RequestParam Long articleId, HttpServletRequest request){
+        return service.deleteArticle(articleId, request);
+    }
+
+
 
 }
