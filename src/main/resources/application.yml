@@ -1,12 +1,10 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://dpg-cobkludjm4es739r7j60-a.singapore-postgres.render.com:5432/b2bdoc_db
-    username: b2bdoc_db_user
-    password: uRWUApKZAgdx6Ekg6chegfQRvE17jHPp
-  #    url: jdbc:postgresql://178.128.52.39:5432/digital_asset_db
-  #    username: sovita
-  #    password: Sovita#28
+    url: jdbc:postgresql://178.128.52.39:5432/b2bdoc_db
+    username: sovita
+    password: Sovita#28
+
   jpa:
     hibernate:
       ddl-auto: none
@@ -37,11 +35,11 @@ server:
 #dashboard_url: http://localhost:4545/
 #file_path: src/main/resources/static/images
 
-base_url_img : http://178.128.52.39:4545/api/v1/files/view_images?fileName=
-dashboard_url: http://178.128.52.39:4545/
+base_url_img : http://192.168.178.239:4545/api/v1/files/view_images?fileName=
+dashboard_url: http://192.168.178.239:4545/
 file_path: /srv/b2b_doc/images
 
-API_URL: http://178.128.52.39:8085
+API_URL: http://192.168.178.239:8085
 
 # Swagger URL
 # /swagger-ui/index.html/
