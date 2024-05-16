@@ -12,6 +12,6 @@ public class DocTagUpdateRequest {
     private String user_name;
     private Long status;
     private Long dept_id;
-    private Timestamp create_date;
+    //private Timestamp create_date;
     private Timestamp modified_date;
 }
