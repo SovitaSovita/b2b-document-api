@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,6 +33,8 @@ public class DocumentArticles extends BaseEntity {
     private String dept_id;
     @NotNull
     private String isfavorite;
+    private String modifiedBy;
+    private Timestamp modified_date;
 
 
 }

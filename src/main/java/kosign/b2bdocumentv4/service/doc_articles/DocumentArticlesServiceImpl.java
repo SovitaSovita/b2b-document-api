@@ -15,6 +15,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -104,8 +106,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
     @Override
     public BaseResponse updateArticles(DocUpdateArticleRequest docUpdateArticleRequest) {
 
-            // Find the existing article by ID
-            Optional<DocumentArticles> existingArticleOptional = repository.findById(docUpdateArticleRequest.getId());
+        // Find the existing article by ID
+        Optional<DocumentArticles> existingArticleOptional = repository.findById(docUpdateArticleRequest.getId());
 
         System.out.println("[DEBUG >>]" + existingArticleOptional);
 
@@ -118,6 +120,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                 existingArticle.setContent_body(docUpdateArticleRequest.getContent_body());
                 existingArticle.setUser_id(docUpdateArticleRequest.getUser_id());
                 existingArticle.setDept_id(docUpdateArticleRequest.getDept_id());
+                existingArticle.setModifiedBy(docUpdateArticleRequest.getModifiedBy());
+                existingArticle.setModified_date(Timestamp.valueOf(LocalDateTime.now()));
                 System.out.println("vanda test >>" + existingArticle);
 
                 return BaseResponse.builder()
