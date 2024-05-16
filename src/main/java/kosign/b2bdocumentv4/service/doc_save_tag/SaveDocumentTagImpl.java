@@ -58,7 +58,7 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         documentTag.setUser_name(docTagUpdateRequest.getUser_name());
         documentTag.setDept_id(docTagUpdateRequest.getDept_id());
         documentTag.setTitle(docTagUpdateRequest.getTitle());
-        documentTag.setModified_date(docTagUpdateRequest.getCreate_date());
+        documentTag.setModified_date(Timestamp.valueOf(LocalDateTime.now()));
 
         var newEntity = documentTagRepository.save(documentTag);
         return  BaseResponse.builder().rec(newEntity).code("200").message("success").build();
