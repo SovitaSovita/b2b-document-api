@@ -23,11 +23,11 @@ public interface SaveDocumentTagService {
 
 
     // New
-    BaseResponse getTag(Long dept_id);
+    BaseResponse getTag(Long dept_id, String username);
     // BaseResponse getAritcles();
 
     // Call 2 repo
-    BaseResponse listTagAndArticle(Long dept_id);
+    BaseResponse listTagAndArticle(Long dept_id, String status, String username);
 
     // BaseResponse GetDocumentArticle();
 

@@ -92,7 +92,7 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
         articles.setContent_body(articleRequest.getContent_body());
         articles.setUser_id(documentUsers.getId());
         articles.setFile_article_id(articleRequest.getFile_article_id());
-        articles.setDept_id(String.valueOf(documentUsers.getDept_id()));
+        articles.setDept_id(documentUsers.getDept_id());
         articles.setStatus(articleRequest.getStatus());
         articles.setIsfavorite("0");
 

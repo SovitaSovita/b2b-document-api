@@ -51,16 +51,18 @@ public class TagController {
 
     // New API list tag and Title (Use)
     @GetMapping("/documentTag")
-    public BaseResponse doc_menu_home_r01(@RequestParam Long dept_id) {
+    public BaseResponse doc_menu_home_r01(@RequestParam Long dept_id, String username) {
 
-        return service.getTag(dept_id);
+        return service.getTag(dept_id, username);
     }
 
 
     // New API list Tag and Title (Not use)
     @GetMapping("/listTagAndAtricle")
-    public BaseResponse test1(@RequestParam Long dept_id) {
-        return service.listTagAndArticle(dept_id);
+    public BaseResponse test1(@RequestParam Long dept_id,
+                              @RequestParam String status,
+                              @RequestParam(required = false) String username) {
+        return service.listTagAndArticle(dept_id , status, username);
     }
 
 

@@ -30,7 +30,7 @@ public class DocumentArticles extends BaseEntity {
     private Long status;
     @NotNull
     private String file_article_id;
-    private String dept_id;
+    private Long dept_id;
     @NotNull
     private String isfavorite;
     private String modifiedBy;

@@ -104,8 +104,8 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // New API list document tag and document article
     @Override
-    public BaseResponse getTag(Long dept_id) {
-        List<DocumentTag> listTagAndArticle = documentTagRepository.getDocumentTag(dept_id);
+    public BaseResponse getTag(Long dept_id ,String username) {
+        List<DocumentTag> listTagAndArticle = documentTagRepository.getDocumentTag(dept_id, "1", username);
 
 //        List<DocTagResponse> response = listTagAndArticle.stream().map(documentTagListMapper::toResponse).toList();
 
@@ -122,12 +122,12 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // Test
     @Override
-    public BaseResponse listTagAndArticle(Long dept_id) {
+    public BaseResponse listTagAndArticle(Long dept_id, String status, String username) {
         // 1
-        List<Map<Object, String>> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id);
+        List<Map<Object, String>> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id, status, username);
 
         // 2
-        List<DocumentTag> listAllTag = documentTagRepository.getDocumentTag(dept_id);
+        List<DocumentTag> listAllTag = documentTagRepository.getDocumentTag(dept_id, status, username);
 
         // return BaseResponse.builder().code("200").message("success").isError(false).rec().build();
         TagArticleRespone tagArticleRespone = new TagArticleRespone(listAllTag, listAllAtricle);

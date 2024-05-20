@@ -10,7 +10,7 @@ public class DocUpdateArticleRequest {
     private String title;
     private String content_body;
     private Long user_id;
-    private String dept_id;
+    private Long dept_id;
     private String modifiedBy;
     private Timestamp modified_date;
 

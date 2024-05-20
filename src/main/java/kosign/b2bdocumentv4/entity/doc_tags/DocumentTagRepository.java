@@ -30,11 +30,12 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
     @Query(value = """
             SELECT id,title,dept_id,create_date,modified_date,status,user_name
             FROM stdy.doc_tags
-            where status = 1 and dept_id = :dept_id
+            where status = CAST(:status AS INT) and dept_id = :dept_id 
+            and (:userName IS NULL OR user_name = :userName)
             order by
             title
             """, nativeQuery = true)
-    List<DocumentTag> getDocumentTag(Long dept_id);
+    List<DocumentTag> getDocumentTag(@Param("dept_id") Long dept_id, @Param("status") String status, @Param("userName") String userName);
 
     // New API Articles
     @Query(value = """
@@ -42,9 +43,11 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
             FROM stdy.doc_articles a
             right join stdy.doc_tags t
             on a.tag_id = t.id
-            where a.status = 1 order by title
+            where a.status = CAST(:status AS INT) and a.dept_id = :dept_id  
+            and (:userName IS NULL OR t.user_name = :userName)
+            order by title
             """, nativeQuery = true)
-    List<Map<Object, String>> getDocumentArticleList(Long dept_id);
+    List<Map<Object, String>> getDocumentArticleList(@Param("dept_id") Long dept_id, @Param("status") String status,  @Param("userName") String userName);
 
 
 
