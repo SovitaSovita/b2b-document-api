@@ -35,7 +35,9 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     public BaseResponse saveTag(DocTagRequest docTagRequest) {
         DocumentTag documentTag = documentTagMapper.requestToEntity(docTagRequest);
 
-        documentTag.setStatus(1L);
+        // Status
+        // documentTag.setStatus(1L);
+        documentTag.setStatus(docTagRequest.getStatus());
         documentTag.setUser_name(docTagRequest.getUser_name());
         documentTag.setTitle(docTagRequest.getTitle());
 
@@ -53,8 +55,10 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
         DocumentTag documentTag = documentTagUpdateMapper.requestToEntity(docTagUpdateRequest);
 
+        // Status
+        // documentTag.setStatus(1L);
+        documentTag.setStatus(docTagUpdateRequest.getStatus());
         documentTag.setId(docTagUpdateRequest.getId());
-        documentTag.setStatus(1L);
         documentTag.setUser_name(docTagUpdateRequest.getUser_name());
         documentTag.setDept_id(docTagUpdateRequest.getDept_id());
         documentTag.setTitle(docTagUpdateRequest.getTitle());
