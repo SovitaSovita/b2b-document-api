@@ -25,12 +25,6 @@ public class TagController {
     private final DocUserServiceImpl docUserService;
     private final DocumentArticlesServiceImpl documentArticlesService;
 
-    // Tag and Article (Not use)
-    @GetMapping("/getTagByDepId")
-    public BaseResponse listTagByDep_Id(@RequestParam Long dept_id) {
-        return service.getAllTagByDept_Id(dept_id);
-    }
-
     // Insert Tag (Use)
     @PostMapping("/saveTagTitle")
     public BaseResponse saveTagController(@RequestBody DocTagRequest docTagRequest) {

@@ -3,13 +3,12 @@ package kosign.b2bdocumentv4.entity.doc_tags;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import kosign.b2bdocumentv4.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
 
 @Data
 @AllArgsConstructor
