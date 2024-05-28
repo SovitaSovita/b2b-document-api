@@ -82,9 +82,9 @@ public class JwtTokenUtils implements Serializable {
         final String usernameFromToken = getUsernameFromToken(token);
         try {
 
-            DocumentUsers existUser = documentUsersRepository.findByUsername(usernameFromToken);
-                if(existUser == null){
-                    System.out.println("Work here...");
+//            DocumentUsers existUser = documentUsersRepository.findByUsername(usernameFromToken);
+//                if(existUser == null){
+//                    System.out.println("Work here...");
                     String json = apiService.getUserDetails(usernameFromToken).block();
                         ObjectMapper objectMapper = new ObjectMapper();
                         JsonNode jsonNode = objectMapper.readTree(json);
@@ -99,19 +99,19 @@ public class JwtTokenUtils implements Serializable {
                         String flnm = payloadNode.get("flnm").asText();
                         String prfl_PHTG = payloadNode.get("prfl_PHTG").asText();
 
-                        DocumentUsers documentUsers = new DocumentUsers();
-                        documentUsers.setUsername(username);
-                        documentUsers.setDept_id(Long.valueOf(dvsn_CD));
-                        documentUsers.setRole(Role.USER);
-                        documentUsers.setStatus(1L);
-                        documentUsers.setPassword(password);
-                        documentUsers.setImage(prfl_PHTG);
+//                        DocumentUsers documentUsers = new DocumentUsers();
+//                        documentUsers.setUsername(username);
+//                        documentUsers.setDept_id(Long.valueOf(dvsn_CD));
+//                        documentUsers.setRole(Role.USER);
+//                        documentUsers.setStatus(1L);
+//                        documentUsers.setPassword(password);
+//                        documentUsers.setImage(prfl_PHTG);
 
-                    documentUsersRepository.save(documentUsers);
+//                    documentUsersRepository.save(documentUsers);
 
                     return (usernameFromToken.equals(username) && !isTokenExpired(token));
-                }
-            return (usernameFromToken.equals(existUser.getUsername()) && !isTokenExpired(token));
+//                }
+//            return (usernameFromToken.equals(existUser.getUsername()) && !isTokenExpired(token));
 
         } catch (Exception e) {
             e.printStackTrace();

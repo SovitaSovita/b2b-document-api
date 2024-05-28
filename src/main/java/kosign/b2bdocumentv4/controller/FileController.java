@@ -39,11 +39,11 @@ public class FileController {
     }
 
     @PostMapping(value = "/upload_file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<ApiResponse> fileUpload(@RequestParam MultipartFile imageFile, @RequestParam String articleId) throws IOException {
+    public ResponseEntity<ApiResponse> fileUpload(@RequestParam MultipartFile imageFile) throws IOException {
         ApiResponse<DocumentFile> response = ApiResponse.<DocumentFile>builder()
                 .status(200)
                 .message("Inserted Successfully.")
-                .payload(fileService.fileUpload(imageFile, articleId))
+                .payload(fileService.fileUpload(imageFile))
                 .date(LocalDateTime.now())
                 .build();
         return ResponseEntity.ok(response);

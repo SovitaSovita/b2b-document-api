@@ -1,5 +1,7 @@
 package kosign.b2bdocumentv4.service.doc_articles;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
@@ -9,6 +11,7 @@ import kosign.b2bdocumentv4.payload.BaseResponse;
 
 import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
 import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
+import kosign.b2bdocumentv4.payload.document_article.DocumentArticlesResponse;
 import kosign.b2bdocumentv4.service.doc_users.DocUserServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -43,19 +43,46 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
     @Override
     public BaseResponse ArticleById(Long id) {
 
-        List<Map<String, Object>> response = repository.findArticlesById(id);
+        Map<String, Object> response = repository.findArticlesById(id);
 
-        System.out.println(" >> " + response);
+        if (response.isEmpty()) {
+            return BaseResponse.builder()
+                    .code("404")
+                    .message("No Data Found!")
+                    .build();
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        String data;
+        try {
+            data =  objectMapper.writeValueAsString(BaseResponse.builder()
+                    .rec(response)
+                    .code("200")
+                    .message("successfully fetch users")
+                    .build());
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        Map<String, Object> responseMap = null;
+        try {
+            responseMap = objectMapper.readValue(data, Map.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
 
-        if(response.isEmpty())
+        Map<String, Object> recMap = (Map<String, Object>) responseMap.get("rec");
+        String fileArticleId = (String) recMap.get("file_article_id");
+
+        List<Map<String, Object>> files = repository.getAllFiles(fileArticleId);
+        if (responseMap != null) {
+            responseMap.put("data_file", files);
+        }
+
         return BaseResponse.builder()
-                .rec(response)
-                .code("404")
-                .message("No Data found!")
-                .build();
-
-        else  return BaseResponse.builder()
-                .rec(response)
+                .rec(BaseResponse.builder()
+                        .rec(responseMap != null ? responseMap : response)
+                        .code("200")
+                        .message("successfully fetch users")
+                        .build())  // Use the JSON string for response data
                 .code("200")
                 .message("successfully fetch users")
                 .build();
@@ -83,8 +110,6 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
     public BaseResponse insertArticle(DocInsertArticleRequest articleRequest ,HttpServletRequest request) {
 
         DocumentUsers documentUsers = docUserService.getCurrentUser(request);
-
-        System.out.println("Hello >>> " + articleRequest);
 
         DocumentArticles articles = new DocumentArticles();
         articles.setTag_id(articleRequest.getTag_id());

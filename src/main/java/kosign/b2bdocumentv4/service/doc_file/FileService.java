@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface FileService {
-    DocumentFile fileUpload(MultipartFile imageFile, String articleId) throws IOException;
+    DocumentFile fileUpload(MultipartFile imageFile) throws IOException;
 
     List<DocumentFile> fileList(String articleId);
 
