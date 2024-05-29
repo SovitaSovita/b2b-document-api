@@ -55,7 +55,8 @@ public class TagController {
     @GetMapping("/listTagAndAtricle")
     public BaseResponse test1(@RequestParam Long dept_id,
                               @RequestParam String status,
-                              @RequestParam(required = false) String username) {
+                              @RequestParam(required = false) String username, HttpServletRequest request) {
+        docUserService.getCurrentUser(request);
         return service.listTagAndArticle(dept_id , status, username);
     }
 

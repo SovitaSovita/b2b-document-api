@@ -61,6 +61,7 @@ public class FileServiceImpl implements FileService {
             if (fileName != null &&
                     fileName.contains(".jpg") ||
                     fileName.contains(".jpeg") ||
+                    fileName.contains(".JPG") ||
                     fileName.contains(".ong") ||
                     fileName.contains((".png")) ||
                     fileName.contains((".webp")) ||

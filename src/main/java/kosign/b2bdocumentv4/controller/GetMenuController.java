@@ -31,7 +31,7 @@ public class GetMenuController {
     private final DocUserServiceImpl docUserService;
 
     // articles list by dept_id
-    @PostMapping("/doc_menu_home_r01")
+//    @PostMapping("/doc_menu_home_r01")
     public BaseResponse listMenuByDept_id(HttpServletRequest request) {
         DocumentUsers currentUser = docUserService.getCurrentUser(request);
         System.out.println("Cuurent user ::"+  currentUser);

@@ -20,7 +20,6 @@ public interface DocumentUsersRepository extends JpaRepository<DocumentUsers, Lo
             SELECT
                     du.id,
                     du.username,
-                    du.password,
                     du.status,
                     du.role,
                     du.image,

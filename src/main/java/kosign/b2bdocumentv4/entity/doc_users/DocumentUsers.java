@@ -32,11 +32,6 @@ public class DocumentUsers implements UserDetails {
     @NotEmpty
     private String username;
 
-    @NotBlank(message = ValidationConfig.PASSWORD_REQUIRED_MESSAGE)
-    @Size(min = ValidationConfig.PASSWORD_VALIDATION_MIN, message = ValidationConfig.PASSWORD_RESPONSE_MESSAGE)
-    @Pattern(regexp = ValidationConfig.PASSWORD_VALIDATION_REG, message = ValidationConfig.PASSWORD_RESPONSE_REG_MESSAGE)
-    private String password;
-
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -49,6 +44,11 @@ public class DocumentUsers implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
     }
 
     @Override
