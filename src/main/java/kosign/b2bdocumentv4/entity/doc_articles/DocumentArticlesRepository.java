@@ -16,7 +16,7 @@ public interface  DocumentArticlesRepository extends JpaRepository<DocumentArtic
     @Query(value = """
            select * from stdy.doc_articles da where da.dept_id = :dept_id
            """,nativeQuery = true)
-    List<DocumentArticles> getByDepartmentId(String dept_id);
+    List<DocumentArticles> getByDepartmentId(int dept_id);
 
 //    @Query(value = """
 //            SELECT a.id, a.tag_id, a.file_article_id, t.title as tag_title,a.title, a.content_body,
