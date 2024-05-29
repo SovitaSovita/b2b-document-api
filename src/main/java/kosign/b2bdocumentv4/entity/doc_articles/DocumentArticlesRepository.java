@@ -18,17 +18,6 @@ public interface  DocumentArticlesRepository extends JpaRepository<DocumentArtic
            """,nativeQuery = true)
     List<DocumentArticles> getByDepartmentId(int dept_id);
 
-//    @Query(value = """
-//            SELECT a.id, a.tag_id, a.file_article_id, t.title as tag_title,a.title, a.content_body,
-//            a.modified_date , a.create_date, a.created_by, a.dept_id, a.modified_by,
-//            a.status,b.username,b.image,a.user_id
-//            FROM stdy.doc_articles a
-//            left join stdy.doc_users b on a.user_id = b.id
-//            left join stdy.doc_tags t on t.id = a.tag_id
-//            where a.id=cast(:id as INTEGER)
-//            """,nativeQuery = true)
-//    List<Map<String, Object>> findArticlesById(Long id);
-
     @Query(value = """
             select * from stdy.doc_file df where df.file_article_id = :id
             """,nativeQuery = true)
