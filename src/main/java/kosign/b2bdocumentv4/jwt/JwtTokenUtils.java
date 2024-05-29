@@ -79,6 +79,7 @@ public class JwtTokenUtils implements Serializable {
 
     //validate token
     public Boolean validateToken(String token) {
+        System.out.println(" >>>>>>>>>>" + token);
         final String usernameFromToken = getUsernameFromToken(token);
         try {
 
