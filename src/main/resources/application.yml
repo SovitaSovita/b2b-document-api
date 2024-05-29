@@ -35,11 +35,15 @@ server:
 #dashboard_url: http://localhost:4545/
 #file_path: src/main/resources/static/images
 
-base_url_img : https://bizweb-doc.kosign.dev/api/v1/files/view_images?fileName=
-dashboard_url: https://bizweb-doc.kosign.dev/
-file_path: /home/was/bizweb_api/b2b_doc/srv/b2b_doc/images
+base_url_img : http://192.168.178.239:4545/api/v1/files/view_images?fileName=
+dashboard_url: http://192.168.178.239:4545/
+file_path: /srv/b2b_doc/images
 
+<<<<<<< HEAD
 API_URL: https://bizweb-api.kosign.dev
+=======
+API_URL: http://192.168.178.239:8085
+>>>>>>> 0134a43f1c3f1b8d8956d8ebf8ad5038e7911de2
 
 # Swagger URL
 # /swagger-ui/index.html/

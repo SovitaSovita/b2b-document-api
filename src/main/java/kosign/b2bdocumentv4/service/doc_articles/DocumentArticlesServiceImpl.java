@@ -32,7 +32,7 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
 
     private ModelMapper modelMapper;
     @Override
-    public BaseResponse listArticlesByDeptId(String dept_id) {
+    public BaseResponse listArticlesByDeptId(int dept_id) {
         List<DocumentArticles> list = repository.getByDepartmentId(dept_id);
 
         return BaseResponse.builder()
