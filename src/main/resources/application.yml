@@ -39,7 +39,7 @@ base_url_img : http://192.168.178.239:4545/api/v1/files/view_images?fileName=
 dashboard_url: http://192.168.178.239:4545/
 file_path: /srv/b2b_doc/images
 
-API_URL: http://192.168.178.239:8085
+API_URL: https://bizweb-api.kosign.dev
 
 # Swagger URL
 # /swagger-ui/index.html/

@@ -12,6 +12,7 @@ public class DocUpdateArticleRequest {
     private Long user_id;
     private Long dept_id;
     private String modifiedBy;
+    private Long status;
     private Timestamp modified_date;
 
 
