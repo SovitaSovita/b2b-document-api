@@ -53,8 +53,8 @@ public class TagController {
 
     // New API list Tag and Title (Not use)
     @GetMapping("/listTagAndAtricle")
-    public BaseResponse test1(@RequestParam Long dept_id,
-                              @RequestParam String status,
+    public BaseResponse test1(@RequestParam String status,
+                              @RequestParam(required = false) Long dept_id,
                               @RequestParam(required = false) String username, HttpServletRequest request) {
         docUserService.getCurrentUser(request);
         return service.listTagAndArticle(dept_id , status, username);

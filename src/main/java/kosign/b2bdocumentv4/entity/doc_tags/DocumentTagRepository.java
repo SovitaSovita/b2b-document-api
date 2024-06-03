@@ -30,7 +30,8 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
     @Query(value = """
             SELECT id,title,dept_id,create_date,modified_date,status,user_name
             FROM stdy.doc_tags
-            where status = CAST(:status AS INT) and dept_id = :dept_id 
+            where status = CAST(:status AS INT) 
+            and (:dept_id IS NULL OR dept_id = :dept_id)  
             and (:userName IS NULL OR user_name = :userName)
             order by
             title
@@ -43,7 +44,8 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
             FROM stdy.doc_articles a
             right join stdy.doc_tags t
             on a.tag_id = t.id
-            where a.status = CAST(:status AS INT) and a.dept_id = :dept_id  
+            where a.status = CAST(:status AS INT) 
+            and (:dept_id IS NULL OR a.dept_id = :dept_id)  
             and (:userName IS NULL OR t.user_name = :userName)
             order by title
             """, nativeQuery = true)
