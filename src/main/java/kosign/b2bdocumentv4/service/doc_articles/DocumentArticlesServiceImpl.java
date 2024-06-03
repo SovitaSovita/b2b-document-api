@@ -147,6 +147,7 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                 existingArticle.setDept_id(docUpdateArticleRequest.getDept_id());
                 existingArticle.setModifiedBy(docUpdateArticleRequest.getModifiedBy());
                 existingArticle.setModified_date(Timestamp.valueOf(LocalDateTime.now()));
+                existingArticle.setStatus(docUpdateArticleRequest.getStatus());
                 System.out.println("vanda test >>" + existingArticle);
 
                 return BaseResponse.builder()

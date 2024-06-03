@@ -41,6 +41,5 @@ file_path: src/main/resources/static/images
 
 API_URL: https://bizweb-api.kosign.dev
 
-
 # Swagger URL
 # /swagger-ui/index.html/
