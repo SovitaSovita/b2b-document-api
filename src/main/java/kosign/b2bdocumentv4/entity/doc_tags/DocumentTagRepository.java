@@ -52,5 +52,10 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
     List<Map<Object, String>> getDocumentArticleList(@Param("dept_id") Long dept_id, @Param("status") String status,  @Param("userName") String userName);
 
 
+    @Query(value = """
+            select id from stdy.doc_articles da where tag_id = :tag_id
+            """, nativeQuery = true)
+
+  List<Long> findArticlesId(Long tag_id);
 
 }
