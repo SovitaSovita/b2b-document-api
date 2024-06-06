@@ -17,6 +17,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,17 +42,17 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public DocumentFile fileUpload(MultipartFile file, String articleId) throws IOException {
+    public DocumentFile fileUpload(MultipartFile file) throws IOException {
 
         Path root = Paths.get(file_path);
-        String fileArticleId = articlesRepository.getFileArticleById(Long.valueOf(articleId));
+//        String fileArticleId = articlesRepository.getFileArticleById(Long.valueOf(articleId));
 
-        if(fileArticleId == null){
-            throw new NotFoundExceptionClass("Article not Found.");
-        }
+//        if(fileArticleId == null){
+//            throw new NotFoundExceptionClass("Article not Found.");
+//        }
 
         DocumentFile documentFile = new DocumentFile();
-        documentFile.setFile_article_id(fileArticleId);
+        documentFile.setFile_article_id("00" + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
         documentFile.setFile_idnt_id(LocalDate.now().toString());
 
 
@@ -59,6 +61,7 @@ public class FileServiceImpl implements FileService {
             if (fileName != null &&
                     fileName.contains(".jpg") ||
                     fileName.contains(".jpeg") ||
+                    fileName.contains(".JPG") ||
                     fileName.contains(".ong") ||
                     fileName.contains((".png")) ||
                     fileName.contains((".webp")) ||

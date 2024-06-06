@@ -21,6 +21,7 @@ public class DocumentFile {
     private String thum_img_path;
     private String img_path;
     private String file_size;
+
     @NotNull
     private String file_article_id;
     private int status = 1;

@@ -6,7 +6,7 @@ import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
 import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
 
 public interface DocumentArticlesService {
-    BaseResponse listArticlesByDeptId(String dep_id);
+    BaseResponse listArticlesByDeptId(int dep_id);
     BaseResponse ArticleById(Long id);
 
     BaseResponse getMenuByDeptID(Long dept_id);

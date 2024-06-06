@@ -60,7 +60,7 @@ public class AuthServiceImpl implements AuthService {
                 throw new IllegalArgumentException("Your confirm password does not match with your new password");
             }
 
-            documentUsers.setPassword(newpass);
+//            documentUsers.setPassword(newpass);
             authRepository.save(documentUsers);
         } else {
             throw new NotFoundExceptionClass("Admin not found with ID: " + id);
@@ -95,6 +95,4 @@ public class AuthServiceImpl implements AuthService {
     public AuthenticationResponse getUserByUsername(String username) {
         return mapper.map(authRepository.findByUsername(username), AuthenticationResponse.class);
     }
-
-
 }

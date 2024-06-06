@@ -6,6 +6,7 @@ import kosign.b2bdocumentv4.entity.doc_tags.DocumentTagRepository;
 import kosign.b2bdocumentv4.mapper.*;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_tags.*;
+import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
 import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     private final DocumentTagUpdateMapper documentTagUpdateMapper;
     private final DocumentTageDeleteMapper documentTageDeleteMapper;
     private final DocumentTagListMapper documentTagListMapper;
+    private final DocumentArticlesServiceImpl documentArticlesService;
 
     // save
     @Override
@@ -126,6 +128,14 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
             // Delete the entity
             documentTagRepository.deleteById(existingEntity.getId());
+            List<Long> articleId = documentTagRepository.findArticlesId(existingEntity.getId());
+             System.out.println("[DEBUG] : " + articleId);
+
+             for(int i = 0; i < articleId.size(); i++){
+                 System.out.println("[DEBUG]======== : " + articleId.get(i));
+                 documentArticlesService.deleteArticle(articleId.get(i), null);
+             }
+//            documentArticlesService.deleteArticle()
 
             // Return success response
             return BaseResponse.builder().code("200").message("Delete success!").isError(false).build();
