@@ -35,7 +35,7 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
             order by
             title
             """, nativeQuery = true)
-    List<DocumentTag> getDocumentTag(@Param("dept_id") Long dept_id, @Param("status") String status, @Param("userName") String userName);
+    List<DocumentTag> getDocumentTag(@Param("dept_id") Long dept_id, @Param("status") Long status, @Param("userName") String userName);
 
     // New API Articles
     @Query(value = """
@@ -47,7 +47,7 @@ public interface DocumentTagRepository extends JpaRepository<DocumentTag, Long> 
             and (:userName IS NULL OR t.user_name = :userName)
             order by title
             """, nativeQuery = true)
-    List<Map<Object, String>> getDocumentArticleList(@Param("dept_id") Long dept_id, @Param("status") String status,  @Param("userName") String userName);
+    List<Map<Object, String>> getDocumentArticleList(@Param("dept_id") Long dept_id, @Param("status") Long status,  @Param("userName") String userName);
 
 
 

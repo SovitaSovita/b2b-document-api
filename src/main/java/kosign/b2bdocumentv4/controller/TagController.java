@@ -54,7 +54,7 @@ public class TagController {
     // New API list Tag and Title (Not use)
     @GetMapping("/listTagAndAtricle")
     public BaseResponse test1(@RequestParam Long dept_id,
-                              @RequestParam String status,
+                              @RequestParam Long status,
                               @RequestParam(required = false) String username) {
         return service.listTagAndArticle(dept_id , status, username);
     }
