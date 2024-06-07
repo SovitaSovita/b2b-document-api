@@ -16,6 +16,6 @@ public interface SaveDocumentTagService {
     // Get
     BaseResponse getTag(Long dept_id, String username);
     // Call 2 repo ( not use )
-    BaseResponse listTagAndArticle(Long dept_id, String status, String username);
+    BaseResponse listTagAndArticle(Long dept_id, Long status, String username);
 
 }

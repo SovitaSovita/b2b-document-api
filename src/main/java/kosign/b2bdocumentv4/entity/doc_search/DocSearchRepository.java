@@ -11,6 +11,11 @@ import java.util.List;
 @Repository
 public interface DocSearchRepository extends JpaRepository<DocSearch, Long> {
 
-    @Query(value = "SELECT * FROM stdy.doc_articles a WHERE a.title LIKE %:title%", nativeQuery = true)
+    // old
+    // @Query(value = "SELECT * FROM stdy.doc_articles a WHERE a.title LIKE %:title%", nativeQuery = true)
+    // List<DocSearch> findByTitleContaining(@Param("title") String title);
+
+    // custom new
+    @Query(value = "SELECT * FROM stdy.doc_articles a WHERE a.title LIKE '%' || :title || '%'", nativeQuery = true)
     List<DocSearch> findByTitleContaining(@Param("title") String title);
 }

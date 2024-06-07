@@ -23,6 +23,7 @@ public class DocSearch extends BaseEntity {
     private String title;
     @NotNull
     private int tag_id;
+    private String content_body;
 
 
 }

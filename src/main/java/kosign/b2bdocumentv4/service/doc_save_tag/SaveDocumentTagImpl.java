@@ -150,7 +150,7 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     @Override
     public BaseResponse getTag(Long dept_id ,String username) {
 
-        List<DocumentTag> listTagAndArticle = documentTagRepository.getDocumentTag(dept_id, "1", username);
+        List<DocumentTag> listTagAndArticle = documentTagRepository.getDocumentTag(dept_id, 1L, username);
         // List<DocTagResponse> response = listTagAndArticle.stream().map(documentTagListMapper::toResponse).toList();
         if (listTagAndArticle.isEmpty()) {
             return BaseResponse.builder()
@@ -165,7 +165,7 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // Test
     @Override
-    public BaseResponse listTagAndArticle(Long dept_id, String status, String username) {
+    public BaseResponse listTagAndArticle(Long dept_id, Long status, String username) {
 
         // 1
         List<Map<Object, String>> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id, status, username);
