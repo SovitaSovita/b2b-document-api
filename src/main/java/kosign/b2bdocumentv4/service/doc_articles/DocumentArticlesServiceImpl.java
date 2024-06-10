@@ -118,6 +118,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
         articles.setUser_id(documentUsers.getId());
         articles.setFile_article_id(articleRequest.getFile_article_id());
         articles.setDept_id(documentUsers.getDept_id());
+        articles.setCreate_date(Timestamp.valueOf(LocalDateTime.now()));
+        articles.setCreatedBy(documentUsers.getUsername());
         articles.setStatus(articleRequest.getStatus());
         articles.setIsfavorite("0");
 
@@ -133,8 +135,6 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
 
         // Find the existing article by ID
         Optional<DocumentArticles> existingArticleOptional = repository.findById(docUpdateArticleRequest.getId());
-
-        System.out.println("[DEBUG >>]" + existingArticleOptional);
 
             // Check if the article exists
             if (existingArticleOptional.isPresent()) {

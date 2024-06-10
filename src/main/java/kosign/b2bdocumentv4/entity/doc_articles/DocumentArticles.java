@@ -36,5 +36,8 @@ public class DocumentArticles extends BaseEntity {
     private String modifiedBy;
     private Timestamp modified_date;
 
+    private String createdBy;
+    private Timestamp create_date;
+
 
 }
