@@ -50,7 +50,6 @@ public class TagController {
         return service.getTag(dept_id, username);
     }
 
-
     // New API list Tag and Title (Not use)
     @GetMapping("/listTagAndAtricle")
     public BaseResponse test1(@RequestParam Long status,
