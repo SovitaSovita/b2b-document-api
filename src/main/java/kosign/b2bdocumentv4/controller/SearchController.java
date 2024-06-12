@@ -17,4 +17,8 @@ public class SearchController {
     public BaseResponse searchDoc(String title) {
         return service.searchDoc(title);
     }
+    @GetMapping("/doc_search_r02")
+    public String searchAllCase() {
+        return "Work.";
+    }
 }

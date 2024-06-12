@@ -45,6 +45,12 @@ public class DocumentArticlesController {
         return service.deleteArticle(articleId, request);
     }
 
+    // New
+    @GetMapping("/yuth")
+    public String welcome() {
+        return "Welcome";
+    }
+
 
 
 }
