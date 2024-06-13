@@ -17,6 +17,7 @@ public interface DocumentArticlesService {
 
     BaseResponse deleteArticle(Long articleId, HttpServletRequest request);
 
-    //BaseResponse updateArticles(DocumentArticles articleRequest);
+    // API provider article
+    BaseResponse listArticlesByTagId(int tag_id);
 }
 

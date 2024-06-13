@@ -2,7 +2,6 @@ package kosign.b2bdocumentv4.payload;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import kosign.b2bdocumentv4.enums.IResponseMessage;
 import kosign.b2bdocumentv4.enums.ResponseMessage;
 import kosign.b2bdocumentv4.payload.page.Page;
@@ -40,6 +39,7 @@ public class BaseResponse {
         return null;
     }
 
+    // Getter method for 'code' field
     public String getCode() {
         if(this.code != null)
             return this.code;
@@ -48,12 +48,13 @@ public class BaseResponse {
         return null;
     }
 
+    // Getter method for 'rec' field
     public Object getRec() {
         if(this.rawData != null)
             return this.rawData.getContent();
         return rec;
     }
-
+    // Getter method for 'page' field
     public Page getPage() {
         if(this.rawData != null)
             return Page.builder()
@@ -71,6 +72,4 @@ public class BaseResponse {
                     .build();
         return page;
     }
-
-
 }
