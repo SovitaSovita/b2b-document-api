@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://192.168.178.239:5433/b2bdoc_db
-    username: b2b_doc
-    password: bizweb123
+    url: jdbc:postgresql://178.128.52.39:5432/b2bdoc_db
+    username: sovita
+    password: Sovita#28
 
   jpa:
     hibernate:
