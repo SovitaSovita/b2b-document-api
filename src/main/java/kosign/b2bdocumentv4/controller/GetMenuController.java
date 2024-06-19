@@ -37,9 +37,4 @@ public class GetMenuController {
         System.out.println("Cuurent user ::"+  currentUser);
         return service.getMenuByDeptID(currentUser.getDept_id());
     }
-
-
-
-
-
 }

@@ -28,7 +28,6 @@ public class DocumentArticlesController {
         return service.ArticleById(id);
     }
 
-
     @PostMapping("/add")
     public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request){
          return service.insertArticle(articleRequest, request);
@@ -45,6 +44,9 @@ public class DocumentArticlesController {
         return service.deleteArticle(articleId, request);
     }
 
-
-
+    // New
+    @GetMapping("/listBayTagId")
+    public BaseResponse getArticleBayTagId(@RequestParam int tag_id) {
+        return service.listArticlesByTagId(tag_id);
+    }
 }

@@ -62,6 +62,14 @@ public interface  DocumentArticlesRepository extends JpaRepository<DocumentArtic
             """, nativeQuery = true)
     List<DocumentArticles> getTAGByDept_Id(String dept_id);
 
+    // API provider article
+    @Query(value = """
+            SELECT * FROM stdy.doc_articles
+            WHERE tag_id = :tag_id
+            """, nativeQuery = true)
+    List<DocumentArticles> getArticlesByTagId(int tag_id);
+
+
 
 
 }
