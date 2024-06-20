@@ -18,6 +18,7 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
+    private String formName;
     private String formContent;
     private String username;
     private int status = 1; //0 = default, 1 = created by user
