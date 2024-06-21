@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @SecurityRequirement(name = "bearerAuth")
-@RequestMapping("/api/v1/form")
+@RequestMapping("/api/v1/form/")
 @CrossOrigin
 @RequiredArgsConstructor
 public class FormController {

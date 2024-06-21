@@ -49,7 +49,12 @@ public class RequestFormServiceImpl {
         return null;
     }
 
-    public Object getByUserId(String userId, String reqStatus) {
-        return null;
+    public List<RequestForm> getByUserId(String userId, String reqStatus) {
+
+        List<RequestForm> data = requestFormRepository.findByRequestTo(userId);
+
+        System.out.println(data.toString() + " >>>  <<< ");
+
+        return data;
     }
 }

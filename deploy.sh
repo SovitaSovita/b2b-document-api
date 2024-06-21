@@ -12,10 +12,10 @@ case "$build_choice" in
         mv "$local_file" "$new_file"
 
         # Server details
-        server_username="lmsdev"
+        server_username="was"
         server_ip="192.168.178.239"
-        server_port="24"
-        server_path="/home/lmsdev/was/b2b_doc"
+        server_port="23"
+        server_path="/home/was/bizweb_api/b2b_doc"
 
         # Copy file to server
         scp -P "$server_port" "$new_file" "$server_username@$server_ip:$server_path"

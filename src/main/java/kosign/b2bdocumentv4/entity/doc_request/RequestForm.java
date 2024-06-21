@@ -31,5 +31,7 @@ public class RequestForm {
     private String requestFrom;
     private String requestTo;
     private Timestamp requestDate;
-    private String requestStatus;
+
+    @Enumerated(EnumType.STRING)
+    private RqStatus requestStatus; //enum
 }
