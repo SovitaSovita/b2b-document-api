@@ -8,11 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "request_to" , schema = "stdy")
-public class RequestTo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long request_id;
+public class GetByUserRequest {
     private String recipient;
+    private String proposer;
+    private String reqStatus;
 }
