@@ -32479,3 +32479,96 @@ java.lang.StackOverflowError: null
 15:25:07.075 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
 15:25:07.080 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.608 seconds (process running for 1652.743)
 15:25:07.081 [BizBook-API] INFO  - Condition evaluation unchanged
+15:25:45.357 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+15:25:45.359 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+15:25:45.371 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:25:45.371 [BizBook-API] INFO  - HikariPool-11 - Shutdown initiated...
+15:25:45.372 [BizBook-API] INFO  - HikariPool-11 - Shutdown completed.
+15:25:45.454 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 13688 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+15:25:45.454 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:25:45.649 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:25:45.697 [BizBook-API] INFO  - Finished Spring Data repository scanning in 47 ms. Found 11 JPA repository interfaces.
+15:25:45.821 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:25:45.821 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:25:45.821 [BizBook-API] INFO  - Starting service [Tomcat]
+15:25:45.821 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:25:45.834 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:25:45.834 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 378 ms
+15:25:45.897 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:25:45.898 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:25:45.901 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:25:45.901 [BizBook-API] INFO  - HikariPool-12 - Starting...
+15:25:45.960 [BizBook-API] INFO  - HikariPool-12 - Added connection org.postgresql.jdbc.PgConnection@12493d2f
+15:25:45.960 [BizBook-API] INFO  - HikariPool-12 - Start completed.
+15:25:45.975 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:25:46.069 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:25:46.069 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:25:46.698 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:25:46.799 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@27013a93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56f7eed2, org.springframework.security.web.context.SecurityContextHolderFilter@1e6434b4, org.springframework.security.web.header.HeaderWriterFilter@179daeca, org.springframework.web.filter.CorsFilter@74916dd0, org.springframework.security.web.authentication.logout.LogoutFilter@16bcf766, kosign.b2bdocumentv4.jwt.JwtTokenFilter@193dce42, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@210c5d7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53d3a830, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4644281a, org.springframework.security.web.access.ExceptionTranslationFilter@3448cca0, org.springframework.security.web.access.intercept.AuthorizationFilter@1bc407d2]
+15:25:47.020 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:25:47.028 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:25:47.031 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:25:47.033 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.6 seconds (process running for 1692.698)
+15:25:47.035 [BizBook-API] INFO  - Condition evaluation unchanged
+15:25:51.526 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+15:25:51.528 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+15:25:51.539 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:25:51.540 [BizBook-API] INFO  - HikariPool-12 - Shutdown initiated...
+15:25:51.541 [BizBook-API] INFO  - HikariPool-12 - Shutdown completed.
+15:25:51.617 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 13688 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+15:25:51.618 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:25:51.800 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:25:51.847 [BizBook-API] INFO  - Finished Spring Data repository scanning in 47 ms. Found 11 JPA repository interfaces.
+15:25:51.962 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:25:51.962 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:25:51.962 [BizBook-API] INFO  - Starting service [Tomcat]
+15:25:51.962 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:25:51.990 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:25:51.990 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 371 ms
+15:25:52.043 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:25:52.045 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:25:52.050 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:25:52.050 [BizBook-API] INFO  - HikariPool-13 - Starting...
+15:25:52.107 [BizBook-API] INFO  - HikariPool-13 - Added connection org.postgresql.jdbc.PgConnection@40daf77c
+15:25:52.108 [BizBook-API] INFO  - HikariPool-13 - Start completed.
+15:25:52.124 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:25:52.216 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:25:52.216 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:25:52.796 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:25:52.898 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@78b18f3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d85931a, org.springframework.security.web.context.SecurityContextHolderFilter@1e56be30, org.springframework.security.web.header.HeaderWriterFilter@109a6108, org.springframework.web.filter.CorsFilter@4552da9c, org.springframework.security.web.authentication.logout.LogoutFilter@56c662f4, kosign.b2bdocumentv4.jwt.JwtTokenFilter@7760f720, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@eddde41, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e1b50b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67fbdd48, org.springframework.security.web.access.ExceptionTranslationFilter@55bca95a, org.springframework.security.web.access.intercept.AuthorizationFilter@5273815b]
+15:25:53.143 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:25:53.151 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:25:53.165 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:25:53.168 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.566 seconds (process running for 1698.832)
+15:25:53.169 [BizBook-API] INFO  - Condition evaluation unchanged
+15:26:10.958 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+15:26:10.959 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+15:26:10.970 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:26:10.970 [BizBook-API] INFO  - HikariPool-13 - Shutdown initiated...
+15:26:10.971 [BizBook-API] INFO  - HikariPool-13 - Shutdown completed.
+15:26:11.040 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 13688 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+15:26:11.040 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:26:11.223 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:26:11.270 [BizBook-API] INFO  - Finished Spring Data repository scanning in 47 ms. Found 11 JPA repository interfaces.
+15:26:11.374 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:26:11.375 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:26:11.375 [BizBook-API] INFO  - Starting service [Tomcat]
+15:26:11.375 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:26:11.399 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:26:11.399 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 358 ms
+15:26:11.448 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:26:11.450 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:26:11.453 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:26:11.453 [BizBook-API] INFO  - HikariPool-14 - Starting...
+15:26:11.506 [BizBook-API] INFO  - HikariPool-14 - Added connection org.postgresql.jdbc.PgConnection@2f9ccbc5
+15:26:11.506 [BizBook-API] INFO  - HikariPool-14 - Start completed.
+15:26:11.515 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:26:11.625 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:26:11.626 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:26:12.200 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:26:12.297 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f5cc49, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d819cf0, org.springframework.security.web.context.SecurityContextHolderFilter@69eeca4e, org.springframework.security.web.header.HeaderWriterFilter@15c28b21, org.springframework.web.filter.CorsFilter@3b181853, org.springframework.security.web.authentication.logout.LogoutFilter@52433f98, kosign.b2bdocumentv4.jwt.JwtTokenFilter@2ce9558a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a39e901, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cfa31ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27753e45, org.springframework.security.web.access.ExceptionTranslationFilter@21a4fc2f, org.springframework.security.web.access.intercept.AuthorizationFilter@4adf8362]
+15:26:12.534 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:26:12.542 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:26:12.545 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:26:12.548 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.522 seconds (process running for 1718.212)
+15:26:12.549 [BizBook-API] INFO  - Condition evaluation unchanged
