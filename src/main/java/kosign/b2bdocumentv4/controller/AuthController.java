@@ -90,7 +90,7 @@ public class AuthController {
                 .build();
     }
 
-    @PostMapping("/register")
+//    @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UserInfoRequest appUserRequest){
         UserInfoDto appUserDto = authService.register(appUserRequest);
         ApiResponse<UserInfoDto> response = ApiResponse.<UserInfoDto>builder()
@@ -102,7 +102,7 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/delete_user")
+//    @DeleteMapping("/delete_user")
     public ResponseEntity<?> deleteUser(@RequestParam Long user_id){
         authService.deleteUser(user_id);
         ApiResponse<DocumentUsers> response = ApiResponse.<DocumentUsers>builder()
