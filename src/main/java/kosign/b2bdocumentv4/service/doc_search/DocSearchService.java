@@ -4,4 +4,5 @@ import kosign.b2bdocumentv4.payload.BaseResponse;
 
 public interface DocSearchService {
     BaseResponse searchDoc (String title);
+    BaseResponse searchAll(String srch_wd );
 }
