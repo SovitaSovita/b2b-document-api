@@ -52,10 +52,16 @@ public class FormServiceImpl {
         }
 
         form.setFileId(formDto.getFileId());
-        form.setUsername(formDto.getUsername());
-        form.setStatus(formDto.getStatus());
-        form.setCreateDate(formDto.getCreateDate());
 
+        if (formDto.getUsername().isBlank()) {
+            form.setUsername(null);
+            form.setStatus(1);
+        }
+        else {
+            form.setUsername(formDto.getUsername());
+            form.setStatus(2);
+        }
+        form.setCreateDate(formDto.getCreateDate());
         form.setItemsData(itemsDataList);
         // Save the form (itemsDataList will be saved as well due to cascade setting)
         formRepository.save(form);
@@ -93,20 +99,31 @@ public class FormServiceImpl {
 
     public List<Form> getBy(GetFormRequest formRequest) {
         List<Form> formList = null;
-        if (formRequest.getStatus() == 1 || formRequest.getStatus() == 2) {
-            if (!formRequest.getUserId().isBlank()) {
-                formList = formRepository.findAllByStatusAndUsername(formRequest.getStatus(), formRequest.getUserId());
-            } else {
-                formList = formRepository.findAllByStatus(formRequest.getStatus());
+        if (formRequest.getUserId().isBlank() && formRequest.getStatus() != 0) {
+            if (formRequest.getStatus() == 1) {
+                formList = formRepository.findAllByStatus(1);
+            } else if(formRequest.getStatus() == 2) {
+                formList = formRepository.findAllByStatus(2);
+            }
+            else{
+                throw new IllegalArgumentException("Status must ('1' = default or '2' = create by user)");
             }
         }
-        else if (!formRequest.getUserId().isBlank()) {
+        else if(!formRequest.getUserId().isBlank() && formRequest.getStatus() == 2){
             formList = formRepository.findAllByUsername(formRequest.getUserId());
         }
+        else if(!formRequest.getUserId().isBlank() && formRequest.getStatus() == 0){
+            formList = formRepository.findAllByUsernameOrUsernameIsNull(formRequest.getUserId());
+        }
         else {
-            throw new IllegalArgumentException("Status (1 = default, 2 = created by user) and userId are required");
+            throw new IllegalArgumentException("Bad request for userId = "+formRequest.getUserId() + ", and status = " + formRequest.getStatus());
         }
 
         return formList;
+    }
+
+    public Form getDetail(Long id) {
+        Form data = formRepository.findById(id).orElseThrow(() -> new NotFoundExceptionClass("Form not found"));
+        return data;
     }
 }

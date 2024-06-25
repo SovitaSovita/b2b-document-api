@@ -1,21 +1,26 @@
 package kosign.b2bdocumentv4.service.doc_search;
 
 import kosign.b2bdocumentv4.entity.doc_search.DocSearch;
+import kosign.b2bdocumentv4.entity.doc_search.DocSearchAll;
 import kosign.b2bdocumentv4.entity.doc_search.DocSearchRepository;
+import kosign.b2bdocumentv4.entity.doc_search.DocSearhAllRepository;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class DocSearchServiceImpl implements DocSearchService {
 
     private final DocSearchRepository repository;
+    private final DocSearhAllRepository docSearhAllRepository;
     private final ModelMapper modelMapper;
 
     @Override
@@ -38,6 +43,29 @@ public class DocSearchServiceImpl implements DocSearchService {
                     .rec(getSearch)
                     .build();
         }
+    }
+
+    @Override
+    public BaseResponse searchAll(String srch_wd) {
+        System.out.println("srch_wd"+srch_wd);
+        List<DocSearchAll>  searchData = docSearhAllRepository.findAll(srch_wd);
+        System.out.println("---------"+searchData);
+        if(searchData.isEmpty()){
+            return BaseResponse.builder()
+                    .code("404")
+                    .message("No Data Found")
+                    .isError(true)
+                    .rec(searchData)
+                    .build();
+        }else {
+            return BaseResponse.builder()
+                    .code("200")
+                    .message("Success")
+                    .isError(false)
+                    .rec(searchData)
+                    .build();
+        }
+
     }
 
 }

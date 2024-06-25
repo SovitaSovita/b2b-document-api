@@ -65,4 +65,14 @@ public class FormController {
                 .rec(formService.getBy(getFormRequest))
                 .build();
     }
+
+    @GetMapping("getDetail")
+    public BaseResponse getDetail(@RequestParam Long id) {
+        return BaseResponse.builder()
+                .code("200")
+                .message("success")
+                .isError(false)
+                .rec(formService.getDetail(id))
+                .build();
+    }
 }

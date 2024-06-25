@@ -1,0 +1,442 @@
+09:05:59.627 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 17196 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:05:59.631 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:05:59.683 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09:05:59.683 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09:06:00.830 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:06:01.004 [BizBook-API] INFO  - Finished Spring Data repository scanning in 165 ms. Found 11 JPA repository interfaces.
+09:06:01.732 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:06:01.741 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:06:01.743 [BizBook-API] INFO  - Starting service [Tomcat]
+09:06:01.743 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:06:01.800 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:06:01.800 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2117 ms
+09:06:01.974 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:06:02.047 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+09:06:02.079 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:06:02.321 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:06:02.342 [BizBook-API] INFO  - HikariPool-1 - Starting...
+09:06:02.574 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@487efba8
+09:06:02.576 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+09:06:02.626 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:06:03.515 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:06:03.517 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:06:03.904 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+09:06:05.140 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:06:05.399 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62581bbf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ad8b58f, org.springframework.security.web.context.SecurityContextHolderFilter@2804c52, org.springframework.security.web.header.HeaderWriterFilter@1c489c47, org.springframework.web.filter.CorsFilter@dbdabe6, org.springframework.security.web.authentication.logout.LogoutFilter@56c2af38, kosign.b2bdocumentv4.jwt.JwtTokenFilter@5ddd946b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31ea61ba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5cf26274, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d8340a5, org.springframework.security.web.access.ExceptionTranslationFilter@166193cb, org.springframework.security.web.access.intercept.AuthorizationFilter@2a99b4ad]
+09:06:05.847 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:06:05.870 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:06:05.886 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:06:05.895 [BizBook-API] INFO  - Started B2bDocumentV4Application in 6.811 seconds (process running for 7.443)
+09:06:32.228 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:06:32.229 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+09:06:32.230 [BizBook-API] INFO  - Completed initialization in 0 ms
+09:06:32.247 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.304 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.306 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.306 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.306 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.306 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.517 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.533 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.555 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:06:32.929 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 361 ms
+09:07:30.149 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:07:37.503 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:07:38.316 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/getDetail
+09:07:38.316 [BizBook-API] INFO  - HTTP Method: GET
+09:07:38.316 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.getDetail
+09:07:38.316 [BizBook-API] INFO  - Request Args: [1223]
+09:07:38.335 [BizBook-API] DEBUG - 
+    select
+        f1_0.id,
+        f1_0.classification,
+        f1_0.create_date,
+        f1_0.file_id,
+        f1_0.form_content,
+        f1_0.form_description,
+        f1_0.form_name,
+        f1_0.form_number,
+        f1_0.is_item,
+        f1_0.status,
+        f1_0.username 
+    from
+        stdy.doc_form f1_0 
+    where
+        f1_0.id=?
+09:07:38.351 [BizBook-API] WARN  - Resolved [kosign.b2bdocumentv4.exception.NotFoundExceptionClass: Form not found]
+09:07:55.796 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:07:55.901 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/getDetail
+09:07:55.901 [BizBook-API] INFO  - HTTP Method: GET
+09:07:55.901 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.getDetail
+09:07:55.901 [BizBook-API] INFO  - Request Args: [24]
+09:07:55.901 [BizBook-API] DEBUG - 
+    select
+        f1_0.id,
+        f1_0.classification,
+        f1_0.create_date,
+        f1_0.file_id,
+        f1_0.form_content,
+        f1_0.form_description,
+        f1_0.form_name,
+        f1_0.form_number,
+        f1_0.is_item,
+        f1_0.status,
+        f1_0.username 
+    from
+        stdy.doc_form f1_0 
+    where
+        f1_0.id=?
+09:07:55.929 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=Form{id=24, classification='common', formName='Test form 1', formDescription='form des 1', formContent='<h1> TEST </h1>', formNumber='12300', isItem='use', fileId='12000', username='null', status=1, createDate=2024-06-24 10:51:43.793}, inqCnt=null, inqRec=null, message=success, code=200, responseMessage=OK, isError=false, rawData=null)
+09:07:55.945 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:10:08.005 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+09:10:08.009 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+09:10:08.034 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:10:08.038 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
+09:10:08.041 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
+09:10:08.148 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 17196 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:10:08.148 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:10:08.369 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:10:08.402 [BizBook-API] INFO  - Finished Spring Data repository scanning in 33 ms. Found 11 JPA repository interfaces.
+09:10:08.526 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:10:08.527 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:10:08.527 [BizBook-API] INFO  - Starting service [Tomcat]
+09:10:08.527 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:10:08.541 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:10:08.541 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 391 ms
+09:10:08.603 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:10:08.606 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:10:08.611 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:10:08.613 [BizBook-API] INFO  - HikariPool-2 - Starting...
+09:10:08.676 [BizBook-API] INFO  - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@523a05e4
+09:10:08.676 [BizBook-API] INFO  - HikariPool-2 - Start completed.
+09:10:08.687 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:10:08.815 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:10:08.815 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:10:09.484 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:10:09.596 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7112ff59, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b10012f, org.springframework.security.web.context.SecurityContextHolderFilter@4b18ce11, org.springframework.security.web.header.HeaderWriterFilter@91edbd6, org.springframework.web.filter.CorsFilter@30c3db9c, org.springframework.security.web.authentication.logout.LogoutFilter@249fd8ec, kosign.b2bdocumentv4.jwt.JwtTokenFilter@b58f40a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c857d22, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56c552f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e081430, org.springframework.security.web.access.ExceptionTranslationFilter@5a7e1299, org.springframework.security.web.access.intercept.AuthorizationFilter@f0a4b7f]
+09:10:09.854 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:10:09.862 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:10:09.865 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:10:09.868 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.752 seconds (process running for 251.416)
+09:10:09.870 [BizBook-API] INFO  - Condition evaluation unchanged
+09:10:10.055 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:10:10.055 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+09:10:10.056 [BizBook-API] INFO  - Completed initialization in 1 ms
+09:10:10.075 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:10:10.188 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/delete
+09:10:10.188 [BizBook-API] INFO  - HTTP Method: DELETE
+09:10:10.188 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.deleteForm
+09:10:10.188 [BizBook-API] INFO  - Request Args: [34]
+09:10:10.189 [BizBook-API] DEBUG - 
+    select
+        f1_0.id,
+        f1_0.classification,
+        f1_0.create_date,
+        f1_0.file_id,
+        f1_0.form_content,
+        f1_0.form_description,
+        f1_0.form_name,
+        f1_0.form_number,
+        f1_0.is_item,
+        f1_0.status,
+        f1_0.username 
+    from
+        stdy.doc_form f1_0 
+    where
+        f1_0.id=?
+09:10:10.202 [BizBook-API] WARN  - Resolved [kosign.b2bdocumentv4.exception.NotFoundExceptionClass: Form not found with id: 34]
+09:10:27.776 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:10:27.896 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/delete
+09:10:27.896 [BizBook-API] INFO  - HTTP Method: DELETE
+09:10:27.896 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.deleteForm
+09:10:27.896 [BizBook-API] INFO  - Request Args: [7]
+09:10:27.896 [BizBook-API] DEBUG - 
+    select
+        f1_0.id,
+        f1_0.classification,
+        f1_0.create_date,
+        f1_0.file_id,
+        f1_0.form_content,
+        f1_0.form_description,
+        f1_0.form_name,
+        f1_0.form_number,
+        f1_0.is_item,
+        f1_0.status,
+        f1_0.username 
+    from
+        stdy.doc_form f1_0 
+    where
+        f1_0.id=?
+09:10:27.932 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:10:27.956 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_form 
+    where
+        id=?
+09:10:27.980 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=null, inqCnt=null, inqRec=null, message=deleted success, code=200, responseMessage=OK, isError=false, rawData=null)
+09:10:43.870 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:10:44.015 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/delete
+09:10:44.015 [BizBook-API] INFO  - HTTP Method: DELETE
+09:10:44.015 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.deleteForm
+09:10:44.015 [BizBook-API] INFO  - Request Args: [24]
+09:10:44.016 [BizBook-API] DEBUG - 
+    select
+        f1_0.id,
+        f1_0.classification,
+        f1_0.create_date,
+        f1_0.file_id,
+        f1_0.form_content,
+        f1_0.form_description,
+        f1_0.form_name,
+        f1_0.form_number,
+        f1_0.is_item,
+        f1_0.status,
+        f1_0.username 
+    from
+        stdy.doc_form f1_0 
+    where
+        f1_0.id=?
+09:10:44.024 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:10:44.028 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_items_data 
+    where
+        id=?
+09:10:44.031 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_form 
+    where
+        id=?
+09:10:44.052 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=null, inqCnt=null, inqRec=null, message=deleted success, code=200, responseMessage=OK, isError=false, rawData=null)
+09:11:02.088 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:11:02.273 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/create
+09:11:02.273 [BizBook-API] INFO  - HTTP Method: POST
+09:11:02.273 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.insertForm
+09:11:02.275 [BizBook-API] INFO  - Request Args: [FormDto(classification=common, formName=Test form 1, formDescription=form des 1, formContent=<h1> TEST </h1>, formNumber=12300, isItem=use, itemsData=[ItemsDataDto(itemName=full Name, inputRequire=true, inputType=text, inputValue=Sovita)], fileId=12000, username=sovita, createDate=2024-06-24 10:51:43.793)]
+09:11:02.281 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_form
+        (classification, create_date, file_id, form_content, form_description, form_name, form_number, is_item, status, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+09:11:02.291 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_items_data
+        (form_id, input_require, input_type, input_value, item_name) 
+    values
+        (?, ?, ?, ?, ?)
+09:11:02.315 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=FormDto(classification=common, formName=Test form 1, formDescription=form des 1, formContent=<h1> TEST </h1>, formNumber=12300, isItem=use, itemsData=[ItemsDataDto(itemName=full Name, inputRequire=true, inputType=text, inputValue=Sovita)], fileId=12000, username=sovita, createDate=2024-06-24 10:51:43.793), inqCnt=null, inqRec=null, message=success, code=200, responseMessage=OK, isError=false, rawData=null)
+09:12:53.131 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+09:12:53.132 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+09:12:53.145 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:12:53.145 [BizBook-API] INFO  - HikariPool-2 - Shutdown initiated...
+09:12:53.146 [BizBook-API] INFO  - HikariPool-2 - Shutdown completed.
+09:12:53.223 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 17196 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:12:53.223 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:12:53.426 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:12:53.464 [BizBook-API] INFO  - Finished Spring Data repository scanning in 37 ms. Found 11 JPA repository interfaces.
+09:12:53.603 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:12:53.603 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:12:53.603 [BizBook-API] INFO  - Starting service [Tomcat]
+09:12:53.603 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:12:53.616 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:12:53.616 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 391 ms
+09:12:53.685 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:12:53.687 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:12:53.690 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:12:53.691 [BizBook-API] INFO  - HikariPool-3 - Starting...
+09:12:53.743 [BizBook-API] INFO  - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@35bb7027
+09:12:53.743 [BizBook-API] INFO  - HikariPool-3 - Start completed.
+09:12:53.757 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:12:53.855 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:12:53.855 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:12:54.525 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:12:54.662 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67b51670, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dea2b36, org.springframework.security.web.context.SecurityContextHolderFilter@1d4b822e, org.springframework.security.web.header.HeaderWriterFilter@3e24b87f, org.springframework.web.filter.CorsFilter@2015559f, org.springframework.security.web.authentication.logout.LogoutFilter@1d56f464, kosign.b2bdocumentv4.jwt.JwtTokenFilter@47a1df14, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@786f8e81, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4731f8f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1fa71f60, org.springframework.security.web.access.ExceptionTranslationFilter@826f8ec, org.springframework.security.web.access.intercept.AuthorizationFilter@51f7a720]
+09:12:54.911 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:12:54.921 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:12:54.927 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:12:54.930 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.73 seconds (process running for 416.478)
+09:12:54.932 [BizBook-API] INFO  - Condition evaluation unchanged
+09:12:55.094 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:12:55.094 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+09:12:55.095 [BizBook-API] INFO  - Completed initialization in 1 ms
+09:12:55.112 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:12:55.445 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/create
+09:12:55.445 [BizBook-API] INFO  - HTTP Method: POST
+09:12:55.446 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.insertForm
+09:12:55.446 [BizBook-API] INFO  - Request Args: [FormDto(classification=common, formName=Test form 1, formDescription=form des 1, formContent=<h1> TEST </h1>, formNumber=12300, isItem=use, itemsData=[ItemsDataDto(itemName=First Name, inputRequire=true, inputType=text, inputValue=Dara), ItemsDataDto(itemName=Last Name, inputRequire=true, inputType=text, inputValue=Sovita), ItemsDataDto(itemName=Age, inputRequire=true, inputType=number, inputValue=Sovita)], fileId=11000, username=sovita, createDate=2024-06-24 10:51:43.793)]
+09:12:55.447 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_form
+        (classification, create_date, file_id, form_content, form_description, form_name, form_number, is_item, status, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+09:12:55.454 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_items_data
+        (form_id, input_require, input_type, input_value, item_name) 
+    values
+        (?, ?, ?, ?, ?)
+09:12:55.464 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_items_data
+        (form_id, input_require, input_type, input_value, item_name) 
+    values
+        (?, ?, ?, ?, ?)
+09:12:55.471 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_items_data
+        (form_id, input_require, input_type, input_value, item_name) 
+    values
+        (?, ?, ?, ?, ?)
+09:12:55.506 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=FormDto(classification=common, formName=Test form 1, formDescription=form des 1, formContent=<h1> TEST </h1>, formNumber=12300, isItem=use, itemsData=[ItemsDataDto(itemName=First Name, inputRequire=true, inputType=text, inputValue=Dara), ItemsDataDto(itemName=Last Name, inputRequire=true, inputType=text, inputValue=Sovita), ItemsDataDto(itemName=Age, inputRequire=true, inputType=number, inputValue=Sovita)], fileId=11000, username=sovita, createDate=2024-06-24 10:51:43.793), inqCnt=null, inqRec=null, message=success, code=200, responseMessage=OK, isError=false, rawData=null)
+09:13:06.584 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+09:13:06.585 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+09:13:06.599 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:13:06.599 [BizBook-API] INFO  - HikariPool-3 - Shutdown initiated...
+09:13:06.601 [BizBook-API] INFO  - HikariPool-3 - Shutdown completed.
+09:13:06.676 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 17196 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:13:06.676 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:13:06.871 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:13:06.915 [BizBook-API] INFO  - Finished Spring Data repository scanning in 44 ms. Found 11 JPA repository interfaces.
+09:13:07.051 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:13:07.051 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:13:07.051 [BizBook-API] INFO  - Starting service [Tomcat]
+09:13:07.051 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:13:07.062 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:13:07.062 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 384 ms
+09:13:07.135 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:13:07.137 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:13:07.141 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:13:07.142 [BizBook-API] INFO  - HikariPool-4 - Starting...
+09:13:07.193 [BizBook-API] INFO  - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@8ff7edd
+09:13:07.194 [BizBook-API] INFO  - HikariPool-4 - Start completed.
+09:13:07.204 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:13:07.316 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:13:07.316 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:13:08.017 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:13:08.112 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62369a97, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a618e73, org.springframework.security.web.context.SecurityContextHolderFilter@4d67147, org.springframework.security.web.header.HeaderWriterFilter@7df735c9, org.springframework.web.filter.CorsFilter@6ccf6951, org.springframework.security.web.authentication.logout.LogoutFilter@70430f85, kosign.b2bdocumentv4.jwt.JwtTokenFilter@7ff4fc97, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b77d74, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b526ac, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@410b0ebb, org.springframework.security.web.access.ExceptionTranslationFilter@2d754e00, org.springframework.security.web.access.intercept.AuthorizationFilter@658a4f2a]
+09:13:08.313 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:13:08.320 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:13:08.322 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:13:08.327 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.677 seconds (process running for 429.874)
+09:13:08.328 [BizBook-API] INFO  - Condition evaluation unchanged

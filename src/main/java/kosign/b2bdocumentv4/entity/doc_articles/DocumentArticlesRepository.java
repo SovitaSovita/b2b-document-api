@@ -71,5 +71,4 @@ public interface  DocumentArticlesRepository extends JpaRepository<DocumentArtic
 
 
 
-
 }

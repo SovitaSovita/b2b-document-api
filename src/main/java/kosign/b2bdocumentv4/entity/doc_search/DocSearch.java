@@ -25,5 +25,4 @@ public class DocSearch extends BaseEntity {
     private int tag_id;
     private String content_body;
 
-
 }

@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.service.doc_search.DocSearchServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequiredArgsConstructor
 public class SearchController {
+    @Autowired
     private final DocSearchServiceImpl service;
     @GetMapping("/doc_search_r01")
     public BaseResponse searchDoc(String title) {
@@ -21,4 +23,10 @@ public class SearchController {
     public String searchAllCase() {
         return "Work.";
     }
+
+    @GetMapping("/doc_search_all")
+    public BaseResponse searchAll(String srch_wd) {
+        return service.searchAll(srch_wd);
+    }
+
 }
