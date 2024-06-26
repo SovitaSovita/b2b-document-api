@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.entity.doc_form;
+package kosign.b2bdocumentv4.entity.doc_request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "doc_items_data", schema = "stdy")
-public class ItemsData {
+@Table(name = "doc_request_data", schema = "stdy")
+public class RequestItemsData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -24,7 +24,21 @@ public class ItemsData {
     private boolean isSelected;
 
     @ManyToOne
-    @JoinColumn(name = "form_id")
+    @JoinColumn(name = "request_id")
     @JsonIgnore
-    private Form form;
+    private RequestForm requestForm;
+
+    @Override
+    public String toString() {
+        return "RequestItemsData{" +
+                "id=" + id +
+                ", itemName='" + itemName + '\'' +
+                ", inputRequire=" + inputRequire +
+                ", inputType='" + inputType + '\'' +
+                ", inputValue='" + inputValue + '\'' +
+                ", isSelected=" + isSelected +
+                '}';
+    }
+
+
 }

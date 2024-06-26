@@ -42,6 +42,7 @@ public class FormServiceImpl {
                     itemsData.setItemName(itemsDataDto.getItemName());
                     itemsData.setInputRequire(itemsDataDto.getInputRequire());
                     itemsData.setInputType(itemsDataDto.getInputType());
+                    itemsData.setSelected(itemsDataDto.isSelected());
                     itemsData.setInputValue(itemsDataDto.getInputValue());
                     itemsData.setForm(form);  // Set the reference to the parent Form
                     itemsDataList.add(itemsData);
