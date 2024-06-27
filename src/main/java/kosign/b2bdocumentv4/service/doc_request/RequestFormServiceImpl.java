@@ -194,9 +194,7 @@ public class RequestFormServiceImpl {
 
         for(int i=0; i<=sortedRequests.size(); i++){
             RequestForm req = sortedRequests.get(i);
-            System.out.println("Check >>> " + req.getRequestStatus() + "_" + i);
                 if(req.getRequestStatus() == RqStatus.PENDING){
-                    System.out.println("Index >>>>>>" + i);
                     req.setRequestStatus(RqStatus.APPROVED);
 
                     if(sortedRequests.size()-1 > req.getReqOrder()){
