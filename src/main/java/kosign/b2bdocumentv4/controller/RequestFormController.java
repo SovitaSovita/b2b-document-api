@@ -41,7 +41,7 @@ public class RequestFormController {
                 .build();
     }
 
-    @PutMapping("updateRequest")
+    @PutMapping("/updateRequest")
     public BaseResponse updateRequest(@RequestParam Long reqId){
         return BaseResponse.builder()
                 .code("200")
@@ -98,6 +98,15 @@ public class RequestFormController {
                 .message("successfully.")
                 .isError(false)
                 .rec(requestFormService.getListApproved(userId))
+                .build();
+    }
+    @PostMapping("/approval")
+    public BaseResponse approveRequest(@RequestParam Long id){
+        return BaseResponse.builder()
+                .code("200")
+                .message("Request have been Approved.")
+                .isError(false)
+                .rec(requestFormService.approveRequest(id))
                 .build();
     }
 }

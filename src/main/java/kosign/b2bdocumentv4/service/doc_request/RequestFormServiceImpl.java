@@ -14,6 +14,7 @@ import java.security.SecureRandom;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class RequestFormServiceImpl {
@@ -38,7 +39,7 @@ public class RequestFormServiceImpl {
         List<String> recipients = List.of(requestForm.getRequestTo().split(","));
         Long requestId = generateRequestId();
 
-        int index = 0;
+        Integer index = 0;
         for (String recipient : recipients) {
             RequestForm newRequestForm = new RequestForm();
             newRequestForm.setFormId(formExist.getId());
@@ -47,6 +48,7 @@ public class RequestFormServiceImpl {
             newRequestForm.setRequestTo(recipient.trim());
             newRequestForm.setRequestId(requestId);
             newRequestForm.setRequestDate(requestForm.getRequestDate());
+            newRequestForm.setReqOrder(index);
 
             if (index == 0) {
                 newRequestForm.setRequestStatus(RqStatus.PENDING);
@@ -154,28 +156,57 @@ public class RequestFormServiceImpl {
         List<RequestForm> newList = new ArrayList<>();
         Map<Long, RequestForm> lastRequestForms = new HashMap<>();
 
-        // Get the list of request forms by the user ID
         List<RequestForm> requestList = requestFormRepository.findByRequestFrom(userId);
-        System.out.println("req >>> " + requestList);
 
         if(requestList.isEmpty()){
             throw new NotFoundExceptionClass("Request With UserID : "+ userId +" Not Found.");
         }
-
-        // Iterate over the request list
         for (RequestForm req : requestList) {
             Long requestId = req.getRequestId();
-
-            // Update the map with the current request form
             lastRequestForms.put(requestId, req);
         }
 
-        // Print out the last request form for each requestId
         for (Map.Entry<Long, RequestForm> entry : lastRequestForms.entrySet()) {
             if (entry.getValue().getRequestStatus() == RqStatus.APPROVED) {
                 newList.add(entry.getValue());
             }
         }
         return newList;
+    }
+
+    public RequestForm approveRequest(Long id) {
+
+        RequestForm request = requestFormRepository.findById(id)
+                .orElseThrow(() -> new NotFoundExceptionClass("Request With ID : " + id + " Not Found."));
+
+        if(request.getRequestStatus() == RqStatus.APPROVED){
+            throw new IllegalArgumentException("Request is Already " + request.getRequestStatus());
+        }
+        else if(request.getRequestStatus() == RqStatus.HOLD){
+            throw new IllegalArgumentException("Request is on " + request.getRequestStatus());
+        }
+
+        List<RequestForm> allRequests = requestFormRepository.findByRequestId(request.getRequestId());
+        List<RequestForm> sortedRequests = allRequests.stream()
+                .sorted(Comparator.comparingInt(RequestForm::getReqOrder))
+                .toList();
+
+
+        for(int i=0; i<=sortedRequests.size(); i++){
+            RequestForm req = sortedRequests.get(i);
+            System.out.println("Check >>> " + req.getRequestStatus() + "_" + i);
+                if(req.getRequestStatus() == RqStatus.PENDING){
+                    System.out.println("Index >>>>>>" + i);
+                    req.setRequestStatus(RqStatus.APPROVED);
+
+                    if(sortedRequests.size()-1 > req.getReqOrder()){
+                        sortedRequests.get(i + 1).setRequestStatus(RqStatus.PENDING);
+                    }
+                    requestFormRepository.save(req);
+                    return request;
+                }
+        }
+
+        return null;
     }
 }

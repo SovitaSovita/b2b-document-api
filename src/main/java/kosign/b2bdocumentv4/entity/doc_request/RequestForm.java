@@ -29,6 +29,7 @@ public class RequestForm {
     private String formContent;
     private String requestFrom;
     private String requestTo;
+    private Integer reqOrder;
     private Timestamp requestDate;
 
     @Enumerated(EnumType.STRING)
@@ -47,6 +48,7 @@ public class RequestForm {
                 ", formContent='" + formContent + '\'' +
                 ", requestFrom='" + requestFrom + '\'' +
                 ", requestTo='" + requestTo + '\'' +
+                ", reqOrder'" + reqOrder + '\'' +
                 ", requestDate=" + requestDate +
                 ", requestStatus=" + requestStatus +
                 '}';
