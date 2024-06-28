@@ -40,4 +40,10 @@ public class DocSearchServiceImpl implements DocSearchService {
         }
     }
 
+    // Search all case
+//    @Override
+//    public BaseResponse searchAllCase(String title) {
+//
+//    }
+
 }

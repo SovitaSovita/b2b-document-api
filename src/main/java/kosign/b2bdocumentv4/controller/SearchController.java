@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequiredArgsConstructor
 public class SearchController {
+
     private final DocSearchServiceImpl service;
+
     @GetMapping("/doc_search_r01")
     public BaseResponse searchDoc(String title) {
         return service.searchDoc(title);
