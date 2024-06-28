@@ -132,11 +132,14 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
 
     @Override
     public BaseResponse updateArticles(DocUpdateArticleRequest docUpdateArticleRequest) {
+
         // Find the existing article by ID
         Optional<DocumentArticles> existingArticleOptional = repository.findById(docUpdateArticleRequest.getId());
+
             // Check if the article exists
             if (existingArticleOptional.isPresent()) {
                 DocumentArticles existingArticle = existingArticleOptional.get();
+
                 existingArticle.setTitle(docUpdateArticleRequest.getTitle());
                 existingArticle.setId(docUpdateArticleRequest.getId());
                 existingArticle.setContent_body(docUpdateArticleRequest.getContent_body());
@@ -153,6 +156,7 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                         .message("Update success for article ID ")
                         .isError(true)
                         .build();
+
             } else {
                 // Article with the given ID not found
                 return BaseResponse.builder()
@@ -173,9 +177,8 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                 .code("200")
                 .message("Article Deleted Successfully.")
                 .build();
-    }
 
-    // API provider article
+    }
     @Override
     public BaseResponse listArticlesByTagId(int tag_id) {
         List<DocumentArticles> list = repository.getArticlesByTagId(tag_id);

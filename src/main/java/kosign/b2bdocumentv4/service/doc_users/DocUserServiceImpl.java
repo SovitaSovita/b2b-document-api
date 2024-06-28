@@ -3,7 +3,6 @@ package kosign.b2bdocumentv4.service.doc_users;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
-import kosign.b2bdocumentv4.entity.doc_department.DocumentDepartmentRepository;
 import kosign.b2bdocumentv4.entity.doc_users.AuthRepository;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsers;
 import kosign.b2bdocumentv4.entity.doc_users.DocumentUsersRepository;
@@ -23,7 +22,6 @@ public class DocUserServiceImpl {
     private final AuthRepository usersRepository;
     private final DocumentUserMapper userMapper;
     private final DocumentUsersRepository repository;
-    private final DocumentDepartmentRepository departmentRepository;
     private final ModelMapper modelMapper;
     private final ApiService apiService;
     private final JwtTokenUtils jwtTokenUtils;
