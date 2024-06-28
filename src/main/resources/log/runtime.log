@@ -7948,3 +7948,24 @@ java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
 13:56:19.182 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
 13:56:19.186 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.548 seconds (process running for 1754.709)
 13:56:19.186 [BizBook-API] INFO  - Condition evaluation unchanged
+17:36:25.914 [BizBook-API] INFO  - Starting B2bDocumentV4ApplicationTests using Java 17.0.10 with PID 4336 (started by ksgusr in D:\B2B R&D Project\b2b-document-api)
+17:36:25.916 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+17:36:28.156 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:36:28.568 [BizBook-API] INFO  - Finished Spring Data repository scanning in 391 ms. Found 11 JPA repository interfaces.
+17:36:30.343 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:36:30.501 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+17:36:30.591 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+17:36:31.193 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+17:36:31.277 [BizBook-API] INFO  - HikariPool-1 - Starting...
+17:36:31.774 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@63d66761
+17:36:31.777 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+17:36:31.889 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+17:36:33.970 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+17:36:33.977 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:36:35.362 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+17:36:38.924 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:36:39.942 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@144d8c4f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7cb81ae, org.springframework.security.web.context.SecurityContextHolderFilter@7b4f1512, org.springframework.security.web.header.HeaderWriterFilter@16f108a4, org.springframework.web.filter.CorsFilter@7b338d46, org.springframework.security.web.authentication.logout.LogoutFilter@5a0379e2, kosign.b2bdocumentv4.jwt.JwtTokenFilter@28023029, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61ac8777, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4aebdaff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f6b9ab7, org.springframework.security.web.access.ExceptionTranslationFilter@14eae244, org.springframework.security.web.access.intercept.AuthorizationFilter@29e63bc3]
+17:36:41.472 [BizBook-API] INFO  - Started B2bDocumentV4ApplicationTests in 16.299 seconds (process running for 18.961)
+17:36:45.181 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:36:45.185 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
+17:36:45.193 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
