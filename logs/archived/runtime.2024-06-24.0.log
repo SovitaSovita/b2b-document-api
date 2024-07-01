@@ -1,0 +1,21 @@
+15:42:36.780 [BizBook-API] INFO  - Starting B2bDocumentV4ApplicationTests using Java 17.0.10 with PID 15540 (started by Lenovo in D:\b2b-document-api)
+15:42:36.783 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:42:38.423 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:42:38.723 [BizBook-API] INFO  - Finished Spring Data repository scanning in 280 ms. Found 11 JPA repository interfaces.
+15:42:40.063 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:42:40.184 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+15:42:40.266 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:42:40.683 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:42:40.737 [BizBook-API] INFO  - HikariPool-1 - Starting...
+15:42:41.133 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42b500aa
+15:42:41.141 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+15:42:41.189 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:42:42.681 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:42:42.690 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:42:43.721 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+15:42:46.155 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:42:46.771 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@79bc29aa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f549712, org.springframework.security.web.context.SecurityContextHolderFilter@6bd8d8a7, org.springframework.security.web.header.HeaderWriterFilter@42cb8174, org.springframework.web.filter.CorsFilter@5c1d1aa6, org.springframework.security.web.authentication.logout.LogoutFilter@7d82eeb9, kosign.b2bdocumentv4.jwt.JwtTokenFilter@1132c14, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f67401, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5323c6de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38b7b02f, org.springframework.security.web.access.ExceptionTranslationFilter@79715834, org.springframework.security.web.access.intercept.AuthorizationFilter@550244cb]
+15:42:47.949 [BizBook-API] INFO  - Started B2bDocumentV4ApplicationTests in 11.872 seconds (process running for 13.275)
+15:42:51.154 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:42:51.158 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
+15:42:51.164 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
