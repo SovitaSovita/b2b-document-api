@@ -9,4 +9,7 @@ public interface RequestFormRepository extends JpaRepository<RequestForm, Long> 
     List<RequestForm> findByRequestFromAndRequestStatus(String proposer, RqStatus status);
     List<RequestForm> findByRequestTo(String recipient);
     List<RequestForm> findByRequestFrom(String proposer);
+    List<RequestForm> findByRequestId(Long id);
+    RequestForm findByRequestIdAndId(Long reqId , Long id);
+
 }

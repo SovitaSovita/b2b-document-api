@@ -1,87 +1,3 @@
-08:23:45.647 [BizBook-API] INFO  - Starting B2bDocumentV4ApplicationTests using Java 17.0.10 with PID 16632 (started by Lenovo in D:\b2b-document-api)
-08:23:45.666 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
-08:23:47.147 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-08:23:47.400 [BizBook-API] INFO  - Finished Spring Data repository scanning in 250 ms. Found 11 JPA repository interfaces.
-08:23:48.922 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
-08:23:49.033 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
-08:23:49.111 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
-08:23:49.619 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
-08:23:49.682 [BizBook-API] INFO  - HikariPool-1 - Starting...
-08:23:49.995 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@63f2d024
-08:23:49.998 [BizBook-API] INFO  - HikariPool-1 - Start completed.
-08:23:50.044 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-08:23:51.687 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-08:23:51.687 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
-08:23:52.874 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
-08:23:55.525 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-08:23:56.128 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@353ab9e5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46aaf47c, org.springframework.security.web.context.SecurityContextHolderFilter@5efb3259, org.springframework.security.web.header.HeaderWriterFilter@1d0e2c96, org.springframework.web.filter.CorsFilter@109a28c8, org.springframework.security.web.authentication.logout.LogoutFilter@2131229e, kosign.b2bdocumentv4.jwt.JwtTokenFilter@77614e7c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69c7b870, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62ccf42c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@581a0bf, org.springframework.security.web.access.ExceptionTranslationFilter@5b7737eb, org.springframework.security.web.access.intercept.AuthorizationFilter@2a4d34b2]
-08:23:57.057 [BizBook-API] INFO  - Started B2bDocumentV4ApplicationTests in 12.059 seconds (process running for 14.19)
-08:24:00.432 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
-08:24:00.437 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
-08:24:00.454 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
-08:24:46.383 [BizBook-API] INFO  - Starting B2bDocumentV4ApplicationTests using Java 17.0.10 with PID 11324 (started by Lenovo in D:\b2b-document-api)
-08:24:46.383 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
-08:24:47.992 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-08:24:48.275 [BizBook-API] INFO  - Finished Spring Data repository scanning in 267 ms. Found 11 JPA repository interfaces.
-08:24:49.544 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
-08:24:49.631 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
-08:24:49.708 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
-08:24:50.084 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
-08:24:50.147 [BizBook-API] INFO  - HikariPool-1 - Starting...
-08:24:50.483 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e1ad7de
-08:24:50.498 [BizBook-API] INFO  - HikariPool-1 - Start completed.
-08:24:50.540 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-08:24:52.010 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-08:24:52.010 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
-08:24:53.121 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
-08:24:56.161 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-08:24:56.911 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ef48e49, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@145bcb73, org.springframework.security.web.context.SecurityContextHolderFilter@24fc815d, org.springframework.security.web.header.HeaderWriterFilter@3e40bea1, org.springframework.web.filter.CorsFilter@1352211d, org.springframework.security.web.authentication.logout.LogoutFilter@393d1a05, kosign.b2bdocumentv4.jwt.JwtTokenFilter@24fc91a3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f7b4952, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43898d09, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6716d0e1, org.springframework.security.web.access.ExceptionTranslationFilter@20c3f386, org.springframework.security.web.access.intercept.AuthorizationFilter@4907472e]
-08:24:57.959 [BizBook-API] INFO  - Started B2bDocumentV4ApplicationTests in 12.118 seconds (process running for 13.429)
-08:25:01.131 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
-08:25:01.131 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
-08:25:01.147 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
-08:25:51.859 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 6376 (D:\b2b-document-api\build\classes\java\main started by Lenovo in D:\b2b-document-api)
-08:25:51.875 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
-08:25:51.926 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-08:25:51.926 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-08:25:53.404 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-08:25:53.671 [BizBook-API] INFO  - Finished Spring Data repository scanning in 267 ms. Found 11 JPA repository interfaces.
-08:25:55.372 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
-08:25:55.404 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
-08:25:55.432 [BizBook-API] INFO  - Starting service [Tomcat]
-08:25:55.432 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
-08:25:55.531 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
-08:25:55.531 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 3593 ms
-08:25:56.018 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
-08:25:56.159 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
-08:25:56.222 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
-08:25:56.711 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
-08:25:56.758 [BizBook-API] INFO  - HikariPool-1 - Starting...
-08:25:57.119 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30b88f76
-08:25:57.119 [BizBook-API] INFO  - HikariPool-1 - Start completed.
-08:25:57.184 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-08:25:58.895 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-08:25:58.911 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
-08:25:59.932 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
-08:26:02.509 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-08:26:03.231 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4460e72f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@424fd49f, org.springframework.security.web.context.SecurityContextHolderFilter@57814459, org.springframework.security.web.header.HeaderWriterFilter@34108c95, org.springframework.web.filter.CorsFilter@6a5de51f, org.springframework.security.web.authentication.logout.LogoutFilter@723a1729, kosign.b2bdocumentv4.jwt.JwtTokenFilter@64cf7192, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e910132, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@347b7d41, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4de4fd83, org.springframework.security.web.access.ExceptionTranslationFilter@8ea257e, org.springframework.security.web.access.intercept.AuthorizationFilter@7f8e1540]
-08:26:04.207 [BizBook-API] INFO  - LiveReload server is running on port 35729
-08:26:04.238 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
-08:26:04.270 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
-08:26:04.295 [BizBook-API] INFO  - Started B2bDocumentV4Application in 13.024 seconds (process running for 13.504)
-08:26:20.141 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
-08:26:20.141 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
-08:26:20.141 [BizBook-API] INFO  - Completed initialization in 0 ms
-08:26:20.188 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.265 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.273 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.284 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.284 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.284 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.511 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:20.549 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-08:26:21.311 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 740 ms
-09:10:49.190 [BizBook-API] DEBUG - 
     select
         du1_0.id,
         du1_0.dept_id,
@@ -93,68 +9,8 @@
         stdy.doc_users du1_0 
     where
         du1_0.username=?
-09:10:50.227 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
-09:10:50.227 [BizBook-API] INFO  - HTTP Method: GET
-09:10:50.227 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
-09:10:50.227 [BizBook-API] INFO  - Request Args: [Deploy]
-09:10:50.277 [BizBook-API] DEBUG - 
     select
-        id,
-        tag_id ,
-        tag_title ,
-        title,
-        content_body 
     from
-        stdy.docs_search(?)
-09:10:50.315 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=323, title=wehrm, tag_title=oz report, tag_id=121, content_body=- when <span class="h-text">Deploy</span> oz report for wehrm uat, production 1,2&nbsp;&gt; <span class="h-text">Deploy</span> only below only 1
-
-profile:wehrm/was@10.140.11.52_was1?/was_data/webroot/hrrpt/oz70/web-inf/repository_files/
-), DocSearchAll(id=65, title=monitoring jex <span class="h-text">Deploy</span>, tag_title=jex, tag_id=103, content_body=oring jex <span class="h-text">Deploy</span>
-
-user documentation
-09/11/2019
-
-
-1. locate to jex<span class="h-text">Deploy</span> location (ps -ef | grep jex<span class="h-text">Deploy</span>)
-   cd /home/was/jex/jex<span class="h-text">Deploy</span>/logs
-   ==&gt; tail -f <span class="h-text">Deploy</span>.log
-
-2. note 
-  when you commit some file sush as (java, jar, ...) , jex<span class="h-text">Deploy</span> try to compile that files
-    - if compile sucess ==&gt; commit that file
-    - else no commit 
-
-), DocSearchAll(id=71, title=jex<span class="h-text">Deploy</span> info, tag_title=jex, tag_id=103, content_body=by jex<span class="h-text">Deploy</span> or by [ ssh, sftp, .. ]
-
-user documentation
-10/17/2019/
-
-
-was.was = by jex<span class="h-text">Deploy</span>
-contwas.was = by ssh, sftp with contwas account  
-), DocSearchAll(id=271, title=jex3 how to <span class="h-text">Deploy</span>e, tag_title=jex, tag_id=103, content_body=er_source_<span class="h-text">Deploy</span>ment_guidefor_uploader
-), DocSearchAll(id=739, title=o khen 123321, tag_title=test minh, tag_id=522, content_body=s-purgecss<span class="h-text">Deploy</span>ed
-
-
-
-company
-contact
-country
-
-
-alfreds futterkiste
-maria anders
-germany
-
-
-centro comercial moctezuma ff
-francisco chang
-mexico
-
-
-
-)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
-09:50:26.618 [BizBook-API] DEBUG - 
     select
         du1_0.id,
         du1_0.dept_id,
@@ -166,7 +22,6 @@ mexico
         stdy.doc_users du1_0 
     where
         du1_0.username=?
-09:50:26.797 [BizBook-API] ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 java.lang.NullPointerException: Cannot invoke "java.lang.Boolean.booleanValue()" because the return value of "kosign.b2bdocumentv4.jwt.JwtTokenUtils.validateToken(String)" is null
 	at kosign.b2bdocumentv4.jwt.JwtTokenFilter.doFilterInternal(JwtTokenFilter.java:50)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
@@ -229,17 +84,6 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Boolean.booleanValue()"
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-09:50:29.728 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.746 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.746 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.748 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.748 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.748 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.839 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.841 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.854 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:29.856 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
-09:50:46.848 [BizBook-API] DEBUG - 
     select
         du1_0.id,
         du1_0.dept_id,
@@ -251,124 +95,5 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Boolean.booleanValue()"
         stdy.doc_users du1_0 
     where
         du1_0.username=?
-09:50:48.698 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
-09:50:48.698 [BizBook-API] INFO  - HTTP Method: GET
-09:50:48.698 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
-09:50:48.698 [BizBook-API] INFO  - Request Args: [Jex]
-09:50:48.698 [BizBook-API] DEBUG - 
     select
-        id,
-        tag_id ,
-        tag_title ,
-        title,
-        content_body 
     from
-        stdy.docs_search(?)
-09:50:48.767 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=235, title=configuration java opt, tag_title=sql, tag_id=104, content_body=m prop or <span class="h-text">Jex</span> prop or <span class="h-text">Jex</span>.[project].user.xml
-&nbsp;+system prop ( system.getproperty(&quot;logconfigpath&quot;) ) // find in alias==&gt; start.sh
-&nbsp;&nbsp; &nbsp;export java_opts=&quot;${java_opts} -dlogconfigpath=/webroot/memo/src/web-inf/log.config&quot;
-&nbsp;&nbsp; &nbsp;export java_opts=&quot;${java_opts} -dapiconfigpath=/webroot/memo/src/web-inf/api.config&quot;
-&nbsp;&nbsp; &nbsp;export java_opts=&quot;${java_opts} -dbizplayconfigpath=/webroot/memo/src/web-inf/bizplay.config&quot;
-&nbsp;&nbsp; &nbsp;
-&nbs), DocSearchAll(id=268, title=check error log, tag_title=server, tag_id=95, content_body=nf/action/<span class="h-text">Jex</span>/wabooks/api/mrec/wabooks_005fmrec_005fr006_005fact_jsp.java
-[was@wabooks_dev /opt/wildfly-17]$ vi ./standalone/tmp/wabooks.war/org/apache/jsp/web_002dinf/action/<span class="h-text">Jex</span>/wabooks/api/mrec/wabooks_005fmrec_005fr006_005fact_jsp.java
-[was@wabooks_dev /opt/wildfly-17]$ pwd
-/opt/wildfly-17
-[was@wabooks_dev /opt/wildfly-17]$ ll
-합계 524
-&nbsp;
-), DocSearchAll(id=195, title=ajax before/after, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=<span class="h-text">Jex</span> before and completed
-
-
-it provided two functions for&nbsp;<span class="h-text">Jex</span> version:
-
-1. <span class="h-text">Jex</span> v2:
-
-$(document).ready(function(){ &nbsp;
-&nbsp; try{ &nbsp;
-&nbsp; &nbsp; <span class="h-text">Jex</span>.setajaxbeforedata( function_name );
-&nbsp; &nbsp; <span class="h-text">Jex</span>.setajaxcompletedata( function_name );&nbsp;
-&nbsp; }catch(e){};&nbsp;
-});
-
-2. <span class="h-text">Jex</span> v3
-
-$(document).ready(function(){
-&nbsp; try{
-&nbsp; &nbsp; <span class="h-text">Jex</span>js.addajaxbeforeexecute( function_name );
-&nbsp; &nbsp; <span class="h-text">Jex</span>js.addajaxfilter( function_name );
-&nbsp; }catch(e){}
-});
-
-all of them could be worked bas), DocSearchAll(id=321, title=hello, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=hello
-), DocSearchAll(id=330, title=<span class="h-text">Jex</span>2 convert to <span class="h-text">Jex</span>3, tag_title=general, tag_id=203, content_body=n decode, <span class="h-text">Jex</span>2 to <span class="h-text">Jex</span>3, calendar excel convert
-https://khawmean-hub.github.io/kosign_url_decode_json/
-), DocSearchAll(id=65, title=monitoring <span class="h-text">Jex</span> deploy, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=onitoring <span class="h-text">Jex</span> deploy
-
-user documentation
-09/11/2019
-
-
-1. locate to <span class="h-text">Jex</span>deploy location (ps -ef | grep <span class="h-text">Jex</span>deploy)
-   cd /home/was/<span class="h-text">Jex</span>/<span class="h-text">Jex</span>deploy/logs
-   ==&gt; tail -f deploy.log
-
-2. note 
-  when you commit some file sush as (java, jar, ...) , <span class="h-text">Jex</span>deploy try to compile that files
-    - if compile sucess ==&gt; commit that file
-    - else no commit 
-
-), DocSearchAll(id=222, title=bb file upload, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=document&nbsp;below:
-), DocSearchAll(id=71, title=<span class="h-text">Jex</span>deploy info, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=by <span class="h-text">Jex</span>deploy or by [ ssh, sftp, .. ]
-
-user documentation
-10/17/2019/
-
-
-was.was = by <span class="h-text">Jex</span>deploy
-contwas.was = by ssh, sftp with contwas account  
-), DocSearchAll(id=271, title=<span class="h-text">Jex</span>3 how to deploye, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=wabooksproduction_server_source_deployment_guidefor_uploader
-), DocSearchAll(id=66, title=<span class="h-text">Jex</span>system/system prop, tag_title=<span class="h-text">Jex</span>, tag_id=103, content_body=ow to set <span class="h-text">Jex</span>system property for <span class="h-text">Jex</span>2
-
-user documentation
-09/17/2019
-
-
-1. call==&gt; <span class="h-text">Jex</span>system.getproperty(&quot;key&quot;) or system.getproperty(&quot;key&quot;)
-    eg) system.getproperty(&quot;bizplayconfigpath&quot;) 
-        <span class="h-text">Jex</span>system.getproperty(&quot;bizplayconfigpath&quot;)
-
-2. add xxx.config file
-     eg) /webroot/webank/src/web-inf/bizplay.config
-
-3.  setting config path
-     eg) vi /opt/tomcat7/webank/bin/catalina.sh
-     eg) java_opts=&quot;${java_opts} -dbizplayconfigpath=/webroot/webank/src/web-inf/bi), DocSearchAll(id=133, title=gradle for <span class="h-text">Jex</span>, tag_title=gradle, tag_id=110, content_body=radle for <span class="h-text">Jex</span> project
-
-1. install gradle
-
-2. configure folder structure like &#39;1 root project to n sub projects&#39;
-
-/memo/ &nbsp;-&gt; root
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/memo_pt
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /memo_domain
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/memo_pt
-
-3. run &#39;gradlew init&#39; at root project folder
-
-├── build.gradle &nbsp;
-├── gradle
-│ &nbsp; └── wrapper
-│ &nbsp; &nbsp; &nbsp; ├── gradle-wrapper.jar &nbsp;
-│ &nbsp; &nbsp; &nbsp; └── gradle-wrapper.properties &nbsp;
-├── gradle), DocSearchAll(id=63, title=debug/error level log, tag_title=server, tag_id=95, content_body=
-1.find <span class="h-text">Jex</span>.(projecname).xml 
-  (eg. vi /was_data/webroot/emplinfo/src/web-inf/<span class="h-text">Jex</span>/config/<span class="h-text">Jex</span>.emplinfo.xml )
-
-2. change to debug or error level  
-   2.1) if debug level (eg. in java ==&gt; if(log.isdebug()) log.debug(&quot;exception... empldataecute()&quot;); ) 
-
-&nbsp; &nbsp; &nbsp; * check point&nbsp; &nbsp; &nbsp;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;default level=&quot;debug&quot; filepath=&quot;${<span class="h-text">Jex</span>_home}/logs&quot; filename=&quot;default.&quot; dateformat=&quot;yyyymmdd&quot;&gt;
-&nbsp; &nbsp; &nbsp; &nb)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
