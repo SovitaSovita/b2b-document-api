@@ -43,6 +43,7 @@ public class RequestFormServiceImpl {
         for (String recipient : recipients) {
             RequestForm newRequestForm = new RequestForm();
             newRequestForm.setFormId(formExist.getId());
+            newRequestForm.setFormName(formExist.getFormName());
             newRequestForm.setFormContent(requestForm.getFormContent());
             newRequestForm.setRequestFrom(requestForm.getRequestFrom());
             newRequestForm.setRequestTo(recipient.trim());

@@ -25,7 +25,7 @@ public class RequestForm {
     private Long requestId;
 
     private Long formId;
-
+    private String formName;
     private String formContent;
     private String requestFrom;
     private String requestTo;
