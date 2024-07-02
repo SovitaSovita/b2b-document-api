@@ -322,3 +322,232 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Boolean.booleanValue()"
 09:48:57.979 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 09:48:57.980 [BizBook-API] INFO  - HikariPool-3 - Shutdown initiated...
 09:48:57.981 [BizBook-API] INFO  - HikariPool-3 - Shutdown completed.
+09:49:02.000 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 11628 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:49:02.001 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:49:02.038 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09:49:02.038 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09:49:02.756 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:49:02.899 [BizBook-API] INFO  - Finished Spring Data repository scanning in 136 ms. Found 11 JPA repository interfaces.
+09:49:03.546 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:49:03.552 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:49:03.553 [BizBook-API] INFO  - Starting service [Tomcat]
+09:49:03.553 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:49:03.621 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:49:03.622 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 1583 ms
+09:49:03.842 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:49:03.899 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+09:49:03.936 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:49:04.224 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:49:04.249 [BizBook-API] INFO  - HikariPool-1 - Starting...
+09:49:04.481 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@459fbe6b
+09:49:04.483 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+09:49:04.527 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:49:05.452 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:49:05.454 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:49:05.813 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+09:49:06.902 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:49:07.140 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16f149b5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77bbc290, org.springframework.security.web.context.SecurityContextHolderFilter@19a1f660, org.springframework.security.web.header.HeaderWriterFilter@50f890e7, org.springframework.web.filter.CorsFilter@3be0bcde, org.springframework.security.web.authentication.logout.LogoutFilter@3b5154cc, kosign.b2bdocumentv4.jwt.JwtTokenFilter@385c035, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fe32ce2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@494ea3f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a3e5d4a, org.springframework.security.web.access.ExceptionTranslationFilter@6f4c905c, org.springframework.security.web.access.intercept.AuthorizationFilter@46936964]
+09:49:07.557 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:49:07.582 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:49:07.592 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:49:07.600 [BizBook-API] INFO  - Started B2bDocumentV4Application in 6.107 seconds (process running for 6.638)
+09:49:09.957 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:49:09.957 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+09:49:09.958 [BizBook-API] INFO  - Completed initialization in 1 ms
+09:49:09.973 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.018 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.020 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.020 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.020 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.020 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.207 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.252 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:49:10.721 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 452 ms
+09:49:23.250 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+09:49:23.988 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/form/getAll
+09:49:23.989 [BizBook-API] INFO  - HTTP Method: GET
+09:49:23.990 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FormController.getAll
+09:49:23.990 [BizBook-API] INFO  - Request Args: []
+09:49:24.014 [BizBook-API] DEBUG - 
+    select
+        f1_0.id,
+        f1_0.classification,
+        f1_0.create_date,
+        f1_0.file_id,
+        f1_0.form_content,
+        f1_0.form_description,
+        f1_0.form_name,
+        f1_0.form_number,
+        f1_0.is_item,
+        f1_0.status,
+        f1_0.username 
+    from
+        stdy.doc_form f1_0
+09:49:24.046 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[Form{id=31, classification='General', formName='Sample Form', formDescription='This is a sample decription for the form.', formContent='Sample request form create by B2b team', formNumber='F-00123', isItem='true', fileId='file123', username='sararuth', status=0, createDate=2024-07-01 00:00:00.0}, Form{id=20, classification='common', formName='Test form 1', formDescription='form des 1', formContent='<h1> TEST </h1>', formNumber='12300', isItem='unused', fileId='12000', username='sovita', status=2, createDate=2024-06-24 10:51:43.793}, Form{id=25, classification='common', formName='Test form 1', formDescription='form des 1', formContent='<h1> TEST </h1>', formNumber='12300', isItem='use', fileId='12000', username='sovita', status=2, createDate=2024-06-24 10:51:43.793}, Form{id=26, classification='common', formName='Test form 1', formDescription='form des 1', formContent='<h1> TEST 01 </h1>', formNumber='12300', isItem='use', fileId='11000', username='sovita', status=2, createDate=2024-06-24 10:51:43.793}, Form{id=2, classification='greeting', formName='Evaluation Form', formDescription='This form is used for tesing purposes', formContent='sample form content', formNumber='null', isItem='null', fileId='null', username='vimean', status=1, createDate=2024-06-19 10:09:51.4}, Form{id=3, classification='greeting', formName='My Form', formDescription='This form is used for tesing purposes', formContent='string', formNumber='null', isItem='null', fileId='null', username='sovita', status=2, createDate=2024-06-20 09:21:15.162}, Form{id=4, classification='common', formName='My 001', formDescription='This form is used for tesing purposes', formContent='<div className="inset-0 overflow-auto">', formNumber='null', isItem='null', fileId='null', username='sovita', status=2, createDate=2024-06-20 09:21:15.162}, Form{id=27, classification='Confidential', formName='Form 101', formDescription='This form is used for tesing purposes', formContent='sample form content', formNumber='F101', isItem='use', fileId='12345', username='vimean', status=0, createDate=2024-06-25 00:00:00.0}, Form{id=28, classification='Confidential', formName='Communication Day', formDescription='This form is used for tesing purposes', formContent='sample form content', formNumber='F101', isItem='use', fileId='12345', username='vimean', status=0, createDate=2024-06-25 00:00:00.0}, Form{id=6, classification='greeting', formName='Evaluation Form', formDescription='This form is used for Evaluation Employee', formContent='', formNumber='F2324', isItem='unused', fileId='null', username='null', status=1, createDate=2024-06-21 15:19:42.382}, Form{id=5, classification='common', formName='C Day Form', formDescription='This form is used for request C day payment', formContent='<img style={{ width: '150px', marginTop: '-55px' }} src='https://www.caftkh.org/wp-content/uploads/2021/08/K.O.S.I.G.N-CAMBODIA-INVESTMENT-CO.-LTD-300x300.png' />', formNumber='2424', isItem='unused', fileId='null', username='null', status=1, createDate=2024-06-20 09:21:15.162}, Form{id=30, classification='common', formName='Spring', formDescription='form des 1', formContent='<h1> Spring Boot </h1>', formNumber='10000', isItem='use', fileId='12000', username='sovita', status=2, createDate=2024-06-24 10:51:43.793}], inqCnt=null, inqRec=null, message=success, code=200, responseMessage=OK, isError=false, rawData=null)
+09:49:24.066 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.075 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.082 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.092 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.114 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.122 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.128 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.132 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.141 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.151 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.169 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
+09:49:24.186 [BizBook-API] DEBUG - 
+    select
+        id1_0.form_id,
+        id1_0.id,
+        id1_0.input_require,
+        id1_0.input_type,
+        id1_0.input_value,
+        id1_0.is_selected,
+        id1_0.item_name 
+    from
+        stdy.doc_items_data id1_0 
+    where
+        id1_0.form_id=?
