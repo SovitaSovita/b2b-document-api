@@ -46,10 +46,17 @@ public class JwtTokenUtils implements Serializable {
         return doGenerateToken(claims, userDetails.getUsername());
     }
 
-    //retrieve username from jwt token
+
     public String getUsernameFromToken(String token) {
-        return getClaimFromToken(token, Claims::getSubject);
+        Claims claims = getAllClaimsFromToken(token);
+        return claims.get("username", String.class);
     }
+
+    public String getUseInttIdFromToken(String token) {
+        Claims claims = getAllClaimsFromToken(token);
+        return claims.get("useInttId", String.class);
+    }
+
 
     //retrieve expiration date from jwt token
     public Date getExpirationDateFromToken(String token) {
@@ -79,13 +86,13 @@ public class JwtTokenUtils implements Serializable {
 
     //validate token
     public Boolean validateToken(String token) {
-        System.out.println(" >>>>>>>>>>" + token);
         final String usernameFromToken = getUsernameFromToken(token);
+        final String useInttId = getUseInttIdFromToken(token);
         try {
 
 //            DocumentUsers existUser = documentUsersRepository.findByUsername(usernameFromToken);
 //                if(existUser == null){
-                    String json = apiService.getUserDetails(usernameFromToken).block();
+                    String json = apiService.getUserDetails(usernameFromToken, useInttId).block();
                         ObjectMapper objectMapper = new ObjectMapper();
                         JsonNode jsonNode = objectMapper.readTree(json);
                         JsonNode payloadNode = jsonNode.get("payload");

@@ -28,16 +28,17 @@ public class DocUserServiceImpl {
 
     public DocumentUsers getCurrentUser(HttpServletRequest request) {
         String username = jwtTokenUtils.getUsernameFromToken(request.getHeader("Authorization").substring(7));
+        String useInttId = jwtTokenUtils.getUseInttIdFromToken(request.getHeader("Authorization").substring(7));
         DocumentUsers currentUser = repository.findByUsername(username);
         if(currentUser == null){
-            saveUser(username);
+            saveUser(username, useInttId);
             currentUser = repository.findByUsername(username);
         }
         return currentUser;
     }
 
-    public void saveUser(String userId){
-        String json = apiService.getUserDetails(userId).block();
+    public void saveUser(String userId, String useInttId){
+        String json = apiService.getUserDetails(userId, useInttId).block();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode jsonNode = objectMapper.readTree(json);

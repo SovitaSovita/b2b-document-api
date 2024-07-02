@@ -15,12 +15,12 @@ public class ApiService {
         this.webClient = webClient;
     }
 
-    public Mono<String> getUserDetails(String userId){
+    public Mono<String> getUserDetails(String userId, String userInttId){
         return webClient
                 .baseUrl(API_URL)
                 .build()
                 .get()
-                .uri("/api/v1/auth/user-details/" + userId)
+                .uri("/api/v1/auth/user-details/" + userId + "/" + userInttId)
                 .retrieve()
                 .bodyToMono(String.class);
     }
