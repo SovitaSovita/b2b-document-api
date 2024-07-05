@@ -41,8 +41,20 @@ public class FormServiceImpl {
                     ItemsData itemsData = new ItemsData();
                     itemsData.setItemName(itemsDataDto.getItemName());
                     itemsData.setInputRequire(itemsDataDto.getInputRequire());
+
+                    //select type
+                    if (Objects.equals(itemsDataDto.getInputType(), "select")) {
+                        List<String> selectValues = List.of(itemsDataDto.getInputValue().split(","));
+                        if (selectValues.size() > 1) {
+                            itemsData.setSelected(true);
+                            itemsData.setInputType("select");
+                            itemsData.setInputValue(selectValues.toString());
+                        }
+                        else{
+                            throw new IllegalArgumentException("Value must more than 1. Ex : 'value1, value2'");
+                        }
+                    }
                     itemsData.setInputType(itemsDataDto.getInputType());
-                    itemsData.setSelected(itemsDataDto.isSelected());
                     itemsData.setInputValue(itemsDataDto.getInputValue());
                     itemsData.setForm(form);  // Set the reference to the parent Form
                     itemsDataList.add(itemsData);
@@ -57,8 +69,7 @@ public class FormServiceImpl {
         if (formDto.getUsername().isBlank()) {
             form.setUsername(null);
             form.setStatus(1);
-        }
-        else {
+        } else {
             form.setUsername(formDto.getUsername());
             form.setStatus(2);
         }
@@ -103,21 +114,17 @@ public class FormServiceImpl {
         if (formRequest.getUserId().isBlank() && formRequest.getStatus() != 0) {
             if (formRequest.getStatus() == 1) {
                 formList = formRepository.findAllByStatus(1);
-            } else if(formRequest.getStatus() == 2) {
+            } else if (formRequest.getStatus() == 2) {
                 formList = formRepository.findAllByStatus(2);
-            }
-            else{
+            } else {
                 throw new IllegalArgumentException("Status must ('1' = default or '2' = create by user)");
             }
-        }
-        else if(!formRequest.getUserId().isBlank() && formRequest.getStatus() == 2){
+        } else if (!formRequest.getUserId().isBlank() && formRequest.getStatus() == 2) {
             formList = formRepository.findAllByUsername(formRequest.getUserId());
-        }
-        else if(!formRequest.getUserId().isBlank() && formRequest.getStatus() == 0){
+        } else if (!formRequest.getUserId().isBlank() && formRequest.getStatus() == 0) {
             formList = formRepository.findAllByUsernameOrUsernameIsNull(formRequest.getUserId());
-        }
-        else {
-            throw new IllegalArgumentException("Bad request for userId = "+formRequest.getUserId() + ", and status = " + formRequest.getStatus());
+        } else {
+            throw new IllegalArgumentException("Bad request for userId = " + formRequest.getUserId() + ", and status = " + formRequest.getStatus());
         }
 
         return formList;

@@ -8,5 +8,4 @@ public class ItemsDataDto {
     private Boolean inputRequire;
     private String inputType;
     private String inputValue;
-    private boolean isSelected;
 }

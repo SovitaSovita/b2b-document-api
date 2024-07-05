@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class RequestItemsDataDto {
     private String inputValue;
-    private boolean isSelected;
+    private Integer selectIndex;
 }

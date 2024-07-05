@@ -68,18 +68,24 @@ public class RequestFormServiceImpl {
                     ItemsData formItemsData = formExist.getItemsData().get(i);
 
                     RequestItemsData data = new RequestItemsData();
-
-//                    if(Objects.equals(formItemsData.getItemName(), itemsData.getItemName())){
-                    data.setItemName(formItemsData.getItemName());
                     data.setInputValue(itemsData.getInputValue());
-                    data.setSelected(itemsData.isSelected());
-//                    }
-//                    else {
-//                        throw new IllegalArgumentException("Item name not match with item name in form data.");
-//                    }
 
-                    data.setInputRequire(formItemsData.getInputRequire());
+                    if(Objects.equals(formItemsData.getInputType(), "select")){
+                        data.setInputValue(formItemsData.getInputValue());
+                        List<String> selectValues = List.of(itemsData.getInputValue().split(","));
+                        if((itemsData.getSelectIndex()+1) <= selectValues.size()){
+                            data.setSelectIndex(itemsData.getSelectIndex());
+                        }
+                        else {
+                            throw new IllegalArgumentException("Index larger than Size of Select values");
+                        }
+
+                    }
+
+                    data.setItemName(formItemsData.getItemName());
                     data.setInputType(formItemsData.getInputType());
+                    data.setSelected(formItemsData.isSelected());
+                    data.setInputRequire(formItemsData.getInputRequire());
                     data.setRequestForm(newRequestForm);
                     itemsDataList.add(data);
                     newRequestForm.setRequestItemsData(itemsDataList);
