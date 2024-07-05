@@ -12,6 +12,6 @@ import java.util.Map;
 public interface DocSearhAllRepository extends JpaRepository<DocSearchAll, Object> {
 
     //Search all condition
-    @Query(value = "select id,tag_id ,tag_title ,title,content_body from stdy.docs_search(:srch_wd)" , nativeQuery = true)
+    @Query(value = "select coalesce(id ,'1') as id,tag_id ,tag_title ,coalesce(title,'') as title,coalesce(content_body,'')as content_body from stdy.docs_search(:srch_wd)" , nativeQuery = true)
     List<DocSearchAll>  findAll(@Param("srch_wd") String srch_wd);
 }
