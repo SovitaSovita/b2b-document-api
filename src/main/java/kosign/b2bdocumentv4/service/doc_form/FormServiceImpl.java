@@ -22,7 +22,7 @@ public class FormServiceImpl {
     }
 
 
-    public FormDto createForm(FormDto formDto) {
+    public Form createForm(FormDto formDto) {
         Form form = new Form();
         form.setClassification(formDto.getClassification());
         form.setFormName(formDto.getFormName());
@@ -66,7 +66,7 @@ public class FormServiceImpl {
         form.setItemsData(itemsDataList);
         // Save the form (itemsDataList will be saved as well due to cascade setting)
         formRepository.save(form);
-        return formDto;
+        return form;
     }
 
     public List<Form> getAll() {

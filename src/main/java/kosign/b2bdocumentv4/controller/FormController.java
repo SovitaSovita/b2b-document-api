@@ -2,6 +2,7 @@ package kosign.b2bdocumentv4.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import kosign.b2bdocumentv4.dto.FormDto;
+import kosign.b2bdocumentv4.entity.doc_form.Form;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_form.GetFormRequest;
 import kosign.b2bdocumentv4.service.doc_form.FormServiceImpl;
@@ -18,12 +19,12 @@ public class FormController {
 
     @PostMapping("create")
     public BaseResponse insertForm(@RequestBody FormDto request) {
-        FormDto formDto = formService.createForm(request);
+        Form form = formService.createForm(request);
         return BaseResponse.builder()
                 .code("200")
                 .message("success")
                 .isError(false)
-                .rec(formDto)
+                .rec(form)
                 .build();
     }
 
