@@ -1,0 +1,842 @@
+00:14:56.170 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m18s557ms746탎500ns).
+11:51:43.684 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m35s541ms162탎700ns).
+12:43:50.801 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m36s574ms469탎700ns).
+12:51:14.070 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s151ms317탎100ns).
+13:23:51.934 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:23:52.320 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/files/view_images
+13:23:52.320 [BizBook-API] INFO  - HTTP Method: GET
+13:23:52.336 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FileController.getImagesByFileName
+13:23:52.338 [BizBook-API] INFO  - Request Args: [7bf62851-ee9e-40a1-887b-3b4513a15c91.png]
+13:23:52.805 [BizBook-API] WARN  - Resolved [kosign.b2bdocumentv4.exception.NotFoundExceptionClass: this file isn't exist.]
+13:25:05.421 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:25:10.444 [BizBook-API] WARN  - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@20efc399 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+13:25:15.802 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:25:15.802 [BizBook-API] INFO  - HTTP Method: GET
+13:25:15.802 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:25:15.802 [BizBook-API] INFO  - Request Args: [dydy]
+13:25:15.871 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:25:16.798 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:38:48.377 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:38:48.979 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:38:48.979 [BizBook-API] INFO  - HTTP Method: GET
+13:38:48.979 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:38:48.979 [BizBook-API] INFO  - Request Args: [daaaa]
+13:38:48.980 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:38:49.008 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:38:58.913 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:38:59.614 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:38:59.615 [BizBook-API] INFO  - HTTP Method: GET
+13:38:59.615 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:38:59.615 [BizBook-API] INFO  - Request Args: [Next js]
+13:38:59.616 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:38:59.748 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=765, title=test0604, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=test on 2024/06/04
+hi everyone), DocSearchAll(id=741, title=new test, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=??), DocSearchAll(id=745, title=jytjt, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=how to create a next.js projects
+next.js is a popular react framework that provides server-side rendering (ssr) and static site generation (ssg) out of the box. this guide will show you how to create a new next.js project and get it up and running.
+prerequisites
+before you can create a next.js project, you will need the following:
+
+node.js installed on your system
+a code editor or ide
+
+creating a new project
+to create a new next.js project, open your terminal or command prompt and run the following comma), DocSearchAll(id=857, title=step: 1, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=how to configure a react app
+creating a new react app
+to create a new react app, use the following command:
+npx create-react-app my-app
+this will create a new directory called my-app with all the necessary files and dependencies.
+configuring the app
+the main configuration file for a react app is package.json. this file contains information about the app, such as its name, version, and dependencies.
+to edit package.json, open it in a text editor. you can modify the following properties:
+
+name: the name of), DocSearchAll(id=879, title=yyyyyyy, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=), DocSearchAll(id=1, title=err, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=), DocSearchAll(id=885, title=test id, tag_title=<span class="h-text">Next js</span>, tag_id=530, content_body=helooooo)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:40:28.174 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:40:28.716 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:40:28.716 [BizBook-API] INFO  - HTTP Method: GET
+13:40:28.716 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:40:28.716 [BizBook-API] INFO  - Request Args: [dydy]
+13:40:28.717 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:40:28.769 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:46:09.170 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:46:09.378 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:46:09.378 [BizBook-API] INFO  - HTTP Method: GET
+13:46:09.378 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:46:09.378 [BizBook-API] INFO  - Request Args: [daaaa]
+13:46:09.380 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:46:09.442 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:46:21.849 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:46:21.968 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:46:21.968 [BizBook-API] INFO  - HTTP Method: GET
+13:46:21.968 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:46:21.968 [BizBook-API] INFO  - Request Args: [Deploy123]
+13:46:21.968 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:46:22.021 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=252, title=jex3.0 (how to request deploy on jexstudio), tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=#----------------------------------------------
+# how to request korea-side (deployment process)
+#----------------------------------------------
+&nbsp; url : http://10.254.241.174:18300/markdown/jex_vcs_index/index.html
+&nbsp; or
+&nbsp; ------------------
+&nbsp; &nbsp; 1. jexstuido &gt; ???? &gt; ?????? : ?? ??? ??? &quot;??????&quot; ?? ?? =&gt; &quot;??????&quot; ????
+&nbsp; &nbsp; 2. jexstuido &gt; ???? &gt; ???? : ?????, ??????, ???(???), ????(????) ?? ? &quot;????&quot; ?? ??
+&nbsp; &nbsp; 3. jexstu), DocSearchAll(id=68, title=make history, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=after deploy alert in telegram (sample)
+
+user documentation
+09/20/2019
+
+
+-  version         : https://www.kosign.com.kh/redmine/versions/1174
+-  deploy_list     : src_deploy20190829.tar.gz  
+-  when            : 20190829_5pm               (deploy time)
+-  who             : chheang ratha
+-  deploy method by: scp , rsync , filezilla, ....    
+-  revision        : 27332 (the last commit in eclipse revision of project) 
+), DocSearchAll(id=239, title=class file, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=- when deploy class files please check the related class (inner class).
+
+and deploy it all (related class)
+), DocSearchAll(id=62, title=deploy method, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=
+ref : https://snapshooter.com/learn/linux/tar-backup-server#:~:text=tar%20command%20syntax,-the%20basic%20syntax&amp;text=%2dx%3a%20used%20to%20extract%20from,to%20verify%20a%20tar%20archive.
+
+* by rsync
+    1.for backup src   
+         1.1) # cd /was_data/webroot/(projectname)/
+         1.2) # tar -czvf src_20190829.tar.gz src 
+&nbsp;             1.2.1)or append each file
+&nbsp;               tar cvf src_20230914.tar.gz web-inf/src/jex/studio/domain/ido/mcomm_date_001/dcomm_date_001in.java &nbsp;
+&nbsp), DocSearchAll(id=744, title=ok, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=ok), DocSearchAll(id=896, title=my new editor, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=welcome to this demo!this is a heading blockblocks:this is a paragraph blockheadingbullet list itemnumbered list itemcheck list itemtable celltable celltable celltable celltable celltable celltable celltable celltable celladd filefrom https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpgfrom https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webmfrom https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3inline content:styled text)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:46:48.065 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:46:48.199 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:46:48.200 [BizBook-API] INFO  - HTTP Method: GET
+13:46:48.200 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:46:48.200 [BizBook-API] INFO  - Request Args: [Deploy123]
+13:46:48.200 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search(?)
+13:46:48.234 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=252, title=jex3.0 (how to request deploy on jexstudio), tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=#----------------------------------------------
+# how to request korea-side (deployment process)
+#----------------------------------------------
+&nbsp; url : http://10.254.241.174:18300/markdown/jex_vcs_index/index.html
+&nbsp; or
+&nbsp; ------------------
+&nbsp; &nbsp; 1. jexstuido &gt; ???? &gt; ?????? : ?? ??? ??? &quot;??????&quot; ?? ?? =&gt; &quot;??????&quot; ????
+&nbsp; &nbsp; 2. jexstuido &gt; ???? &gt; ???? : ?????, ??????, ???(???), ????(????) ?? ? &quot;????&quot; ?? ??
+&nbsp; &nbsp; 3. jexstu), DocSearchAll(id=68, title=make history, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=after deploy alert in telegram (sample)
+
+user documentation
+09/20/2019
+
+
+-  version         : https://www.kosign.com.kh/redmine/versions/1174
+-  deploy_list     : src_deploy20190829.tar.gz  
+-  when            : 20190829_5pm               (deploy time)
+-  who             : chheang ratha
+-  deploy method by: scp , rsync , filezilla, ....    
+-  revision        : 27332 (the last commit in eclipse revision of project) 
+), DocSearchAll(id=239, title=class file, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=- when deploy class files please check the related class (inner class).
+
+and deploy it all (related class)
+), DocSearchAll(id=62, title=deploy method, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=
+ref : https://snapshooter.com/learn/linux/tar-backup-server#:~:text=tar%20command%20syntax,-the%20basic%20syntax&amp;text=%2dx%3a%20used%20to%20extract%20from,to%20verify%20a%20tar%20archive.
+
+* by rsync
+    1.for backup src   
+         1.1) # cd /was_data/webroot/(projectname)/
+         1.2) # tar -czvf src_20190829.tar.gz src 
+&nbsp;             1.2.1)or append each file
+&nbsp;               tar cvf src_20230914.tar.gz web-inf/src/jex/studio/domain/ido/mcomm_date_001/dcomm_date_001in.java &nbsp;
+&nbsp), DocSearchAll(id=744, title=ok, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=ok), DocSearchAll(id=896, title=my new editor, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=welcome to this demo!this is a heading blockblocks:this is a paragraph blockheadingbullet list itemnumbered list itemcheck list itemtable celltable celltable celltable celltable celltable celltable celltable celltable celladd filefrom https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpgfrom https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webmfrom https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3inline content:styled text)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:44:20.752 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 13148 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+14:44:20.754 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+14:44:20.806 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:44:20.807 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:44:21.703 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:44:21.840 [BizBook-API] INFO  - Finished Spring Data repository scanning in 136 ms. Found 11 JPA repository interfaces.
+14:44:22.836 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+14:44:22.850 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+14:44:22.856 [BizBook-API] INFO  - Starting service [Tomcat]
+14:44:22.856 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+14:44:22.932 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+14:44:22.933 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2125 ms
+14:44:23.173 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:44:23.256 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+14:44:23.300 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+14:44:23.575 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+14:44:23.603 [BizBook-API] INFO  - HikariPool-1 - Starting...
+14:44:23.866 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@420e116a
+14:44:23.867 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+14:44:23.909 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+14:44:24.801 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:44:24.803 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:44:25.329 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+14:44:26.749 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:44:27.056 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@71c3a6f0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60b21c04, org.springframework.security.web.context.SecurityContextHolderFilter@7a563ad1, org.springframework.security.web.header.HeaderWriterFilter@3a0dc616, org.springframework.web.filter.CorsFilter@3031d5b5, org.springframework.security.web.authentication.logout.LogoutFilter@11706d57, kosign.b2bdocumentv4.jwt.JwtTokenFilter@2730cce1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39bf3dc6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77a70a8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ee7386e, org.springframework.security.web.access.ExceptionTranslationFilter@2dba121e, org.springframework.security.web.access.intercept.AuthorizationFilter@4d647bff]
+14:44:27.564 [BizBook-API] INFO  - LiveReload server is running on port 35729
+14:44:27.583 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+14:44:27.597 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+14:44:27.610 [BizBook-API] INFO  - Started B2bDocumentV4Application in 7.32 seconds (process running for 7.695)
+14:44:53.428 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:44:53.429 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+14:44:53.430 [BizBook-API] INFO  - Completed initialization in 0 ms
+14:44:53.621 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:44:54.423 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:44:54.423 [BizBook-API] INFO  - HTTP Method: GET
+14:44:54.424 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:44:54.424 [BizBook-API] INFO  - Request Args: [Deploy123]
+14:44:54.454 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:44:54.493 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:44:57.477 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:44:57.535 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:44:57.535 [BizBook-API] INFO  - HTTP Method: GET
+14:44:57.536 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:44:57.536 [BizBook-API] INFO  - Request Args: [Deploy123]
+14:44:57.536 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:44:57.563 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:44:58.152 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:44:58.215 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:44:58.215 [BizBook-API] INFO  - HTTP Method: GET
+14:44:58.215 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:44:58.215 [BizBook-API] INFO  - Request Args: [Deploy123]
+14:44:58.215 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:44:58.259 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:44:58.799 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:44:58.919 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:44:58.919 [BizBook-API] INFO  - HTTP Method: GET
+14:44:58.919 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:44:58.919 [BizBook-API] INFO  - Request Args: [Deploy123]
+14:44:58.919 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:44:58.982 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:45:00.815 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.841 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.841 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.843 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.843 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.844 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.963 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.964 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:00.985 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:01.493 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 504 ms
+14:45:07.706 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:45:29.105 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:45:29.209 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:45:29.209 [BizBook-API] INFO  - HTTP Method: GET
+14:45:29.209 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:45:29.209 [BizBook-API] INFO  - Request Args: [ghthg]
+14:45:29.210 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:45:29.254 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:47:38.054 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:47:38.157 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:47:38.157 [BizBook-API] INFO  - HTTP Method: GET
+14:47:38.157 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:47:38.157 [BizBook-API] INFO  - Request Args: [ghthg]
+14:47:38.158 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:47:38.187 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:47:40.109 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:47:40.202 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:47:40.202 [BizBook-API] INFO  - HTTP Method: GET
+14:47:40.202 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:47:40.202 [BizBook-API] INFO  - Request Args: [ghthg]
+14:47:40.204 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:47:40.269 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:50:46.990 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:50:47.131 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:50:47.131 [BizBook-API] INFO  - HTTP Method: GET
+14:50:47.131 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:50:47.131 [BizBook-API] INFO  - Request Args: [ghthg]
+14:50:47.133 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:50:47.167 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:50:49.300 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:50:49.347 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:50:49.347 [BizBook-API] INFO  - HTTP Method: GET
+14:50:49.347 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:50:49.347 [BizBook-API] INFO  - Request Args: [ghthg]
+14:50:49.348 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:50:49.390 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:50:50.412 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:50:50.470 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:50:50.470 [BizBook-API] INFO  - HTTP Method: GET
+14:50:50.470 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:50:50.470 [BizBook-API] INFO  - Request Args: [ghthg]
+14:50:50.471 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:50:50.511 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+14:50:57.000 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 16964 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+14:50:57.001 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+14:50:57.053 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:50:57.054 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:50:57.948 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:50:58.167 [BizBook-API] INFO  - Finished Spring Data repository scanning in 210 ms. Found 11 JPA repository interfaces.
+14:50:59.307 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+14:50:59.323 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+14:50:59.327 [BizBook-API] INFO  - Starting service [Tomcat]
+14:50:59.327 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+14:50:59.421 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+14:50:59.422 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2367 ms
+14:50:59.674 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:50:59.750 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+14:50:59.799 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+14:51:00.110 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+14:51:00.147 [BizBook-API] INFO  - HikariPool-1 - Starting...
+14:51:00.391 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@282791fe
+14:51:00.393 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+14:51:00.434 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+14:51:01.520 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:51:01.522 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:51:02.186 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+14:51:03.813 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:51:04.188 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@489c2f21, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27e2bbc0, org.springframework.security.web.context.SecurityContextHolderFilter@66c1a666, org.springframework.security.web.header.HeaderWriterFilter@53cfce7e, org.springframework.web.filter.CorsFilter@2caa64b0, org.springframework.security.web.authentication.logout.LogoutFilter@54d56767, kosign.b2bdocumentv4.jwt.JwtTokenFilter@6e1b40aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3aa14eac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43e9bc21, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b05b847, org.springframework.security.web.access.ExceptionTranslationFilter@4532a262, org.springframework.security.web.access.intercept.AuthorizationFilter@3d382467]
+14:51:04.782 [BizBook-API] INFO  - LiveReload server is running on port 35729
+14:51:04.803 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+14:51:04.823 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+14:51:04.838 [BizBook-API] INFO  - Started B2bDocumentV4Application in 8.245 seconds (process running for 8.67)
+14:51:27.891 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:51:27.891 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+14:51:27.892 [BizBook-API] INFO  - Completed initialization in 1 ms
+14:51:28.070 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:51:28.711 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:51:28.711 [BizBook-API] INFO  - HTTP Method: GET
+14:51:28.712 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:51:28.712 [BizBook-API] INFO  - Request Args: [ghthg]
+14:51:28.744 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:51:28.794 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+14:51:28.832 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+15:05:12.079 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 10168 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+15:05:12.080 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:05:12.132 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:05:12.132 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:05:13.000 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:05:13.141 [BizBook-API] INFO  - Finished Spring Data repository scanning in 132 ms. Found 11 JPA repository interfaces.
+15:05:14.348 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:05:14.365 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:05:14.368 [BizBook-API] INFO  - Starting service [Tomcat]
+15:05:14.369 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:05:14.452 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:05:14.453 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2321 ms
+15:05:14.700 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:05:14.774 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+15:05:14.814 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:05:15.136 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:05:15.172 [BizBook-API] INFO  - HikariPool-1 - Starting...
+15:05:15.607 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@f06748e
+15:05:15.608 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+15:05:15.649 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:05:16.707 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:05:16.710 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:05:17.294 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+15:05:18.945 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:05:19.318 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@28677acc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76314673, org.springframework.security.web.context.SecurityContextHolderFilter@3080d361, org.springframework.security.web.header.HeaderWriterFilter@27dfb518, org.springframework.web.filter.CorsFilter@3677c081, org.springframework.security.web.authentication.logout.LogoutFilter@517a85ab, kosign.b2bdocumentv4.jwt.JwtTokenFilter@63e83c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@478b5deb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45b2fa89, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3361d19f, org.springframework.security.web.access.ExceptionTranslationFilter@6f62d558, org.springframework.security.web.access.intercept.AuthorizationFilter@40f0bca6]
+15:05:19.907 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:05:19.928 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:05:19.938 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:05:19.955 [BizBook-API] INFO  - Started B2bDocumentV4Application in 8.296 seconds (process running for 8.674)
+15:19:34.019 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 3436 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+15:19:34.020 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:19:34.066 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:19:34.067 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:19:34.861 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:19:35.018 [BizBook-API] INFO  - Finished Spring Data repository scanning in 146 ms. Found 11 JPA repository interfaces.
+15:19:35.953 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:19:35.964 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:19:35.967 [BizBook-API] INFO  - Starting service [Tomcat]
+15:19:35.973 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:19:36.048 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:19:36.048 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 1981 ms
+15:19:36.263 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:19:36.326 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+15:19:36.367 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:19:36.609 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:19:36.632 [BizBook-API] INFO  - HikariPool-1 - Starting...
+15:19:36.851 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79de5911
+15:19:36.852 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+15:19:36.893 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:19:37.756 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:19:37.759 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:19:38.271 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+15:19:39.563 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:19:39.861 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56f3acf9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27dfb518, org.springframework.security.web.context.SecurityContextHolderFilter@5471b02f, org.springframework.security.web.header.HeaderWriterFilter@3af348d0, org.springframework.web.filter.CorsFilter@452c13cb, org.springframework.security.web.authentication.logout.LogoutFilter@646bfb0, kosign.b2bdocumentv4.jwt.JwtTokenFilter@30aedfd8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75aecba4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33c6211c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e6e7cae, org.springframework.security.web.access.ExceptionTranslationFilter@6a1bbbd5, org.springframework.security.web.access.intercept.AuthorizationFilter@6f62d558]
+15:19:40.335 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:19:40.355 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:19:40.364 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:19:40.376 [BizBook-API] INFO  - Started B2bDocumentV4Application in 6.762 seconds (process running for 7.099)
+15:19:53.728 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:19:53.728 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+15:19:53.729 [BizBook-API] INFO  - Completed initialization in 1 ms
+15:19:53.909 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+15:19:54.533 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+15:19:54.533 [BizBook-API] INFO  - HTTP Method: GET
+15:19:54.534 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+15:19:54.534 [BizBook-API] INFO  - Request Args: [ghthg]
+15:19:54.571 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('Deploy123')
+15:19:54.627 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('Deploy123')
+15:19:54.679 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=252, title=jex3.0 (how to request deploy on jexstudio), tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=#----------------------------------------------
+# how to request korea-side (deployment process)
+#----------------------------------------------
+&nbsp; url : http://10.254.241.174:18300/markdown/jex_vcs_index/index.html
+&nbsp; or
+&nbsp; ------------------
+&nbsp; &nbsp; 1. jexstuido &gt; ???? &gt; ?????? : ?? ??? ??? &quot;??????&quot; ?? ?? =&gt; &quot;??????&quot; ????
+&nbsp; &nbsp; 2. jexstuido &gt; ???? &gt; ???? : ?????, ??????, ???(???), ????(????) ?? ? &quot;????&quot; ?? ??
+&nbsp; &nbsp; 3. jexstu), DocSearchAll(id=68, title=make history, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=after deploy alert in telegram (sample)
+
+user documentation
+09/20/2019
+
+
+-  version         : https://www.kosign.com.kh/redmine/versions/1174
+-  deploy_list     : src_deploy20190829.tar.gz  
+-  when            : 20190829_5pm               (deploy time)
+-  who             : chheang ratha
+-  deploy method by: scp , rsync , filezilla, ....    
+-  revision        : 27332 (the last commit in eclipse revision of project) 
+), DocSearchAll(id=239, title=class file, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=- when deploy class files please check the related class (inner class).
+
+and deploy it all (related class)
+), DocSearchAll(id=62, title=deploy method, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=
+ref : https://snapshooter.com/learn/linux/tar-backup-server#:~:text=tar%20command%20syntax,-the%20basic%20syntax&amp;text=%2dx%3a%20used%20to%20extract%20from,to%20verify%20a%20tar%20archive.
+
+* by rsync
+    1.for backup src   
+         1.1) # cd /was_data/webroot/(projectname)/
+         1.2) # tar -czvf src_20190829.tar.gz src 
+&nbsp;             1.2.1)or append each file
+&nbsp;               tar cvf src_20230914.tar.gz web-inf/src/jex/studio/domain/ido/mcomm_date_001/dcomm_date_001in.java &nbsp;
+&nbsp), DocSearchAll(id=744, title=ok, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=ok), DocSearchAll(id=896, title=my new editor, tag_title=<span class="h-text">Deploy123</span>, tag_id=109, content_body=welcome to this demo!this is a heading blockblocks:this is a paragraph blockheadingbullet list itemnumbered list itemcheck list itemtable celltable celltable celltable celltable celltable celltable celltable celltable celladd filefrom https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpgfrom https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webmfrom https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3inline content:styled text)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+15:20:15.503 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 10748 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+15:20:15.504 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:20:15.559 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:20:15.559 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:20:16.459 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:20:16.632 [BizBook-API] INFO  - Finished Spring Data repository scanning in 164 ms. Found 11 JPA repository interfaces.
+15:20:17.818 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:20:17.838 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:20:17.843 [BizBook-API] INFO  - Starting service [Tomcat]
+15:20:17.843 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:20:17.936 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:20:17.936 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2376 ms
+15:20:18.231 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:20:18.326 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+15:20:18.382 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:20:18.703 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:20:18.740 [BizBook-API] INFO  - HikariPool-1 - Starting...
+15:20:20.746 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@278b777c
+15:20:20.748 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+15:20:20.789 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:20:21.740 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:20:21.743 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:20:22.354 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+15:20:24.006 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:20:24.388 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@770e9edd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a77e1d2, org.springframework.security.web.context.SecurityContextHolderFilter@3184062c, org.springframework.security.web.header.HeaderWriterFilter@3b145b2b, org.springframework.web.filter.CorsFilter@349f024d, org.springframework.security.web.authentication.logout.LogoutFilter@23ea46f1, kosign.b2bdocumentv4.jwt.JwtTokenFilter@1fe0e54b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@536fec49, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36d2b697, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@384328a7, org.springframework.security.web.access.ExceptionTranslationFilter@33c6211c, org.springframework.security.web.access.intercept.AuthorizationFilter@45b2fa89]
+15:20:24.959 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:20:24.975 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:20:24.987 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:20:25.001 [BizBook-API] INFO  - Started B2bDocumentV4Application in 9.912 seconds (process running for 10.268)
+15:20:58.372 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:20:58.372 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+15:20:58.374 [BizBook-API] INFO  - Completed initialization in 2 ms
+15:20:58.559 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+15:20:59.293 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+15:20:59.294 [BizBook-API] INFO  - HTTP Method: GET
+15:20:59.297 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+15:20:59.297 [BizBook-API] INFO  - Request Args: [ghthg]
+15:20:59.321 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+15:20:59.395 [BizBook-API] DEBUG - 
+    select
+        id,
+        tag_id ,
+        tag_title ,
+        title,
+        content_body 
+    from
+        stdy.docs_search('hurt')
+15:20:59.733 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[null], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+16:04:24.308 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m32s988ms196탎600ns).
