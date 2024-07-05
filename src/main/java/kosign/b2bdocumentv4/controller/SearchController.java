@@ -25,8 +25,8 @@ public class SearchController {
     }
 
     @GetMapping("/doc_search_all")
-    public BaseResponse searchAll(String srch_wd) {
-        return service.searchAll(srch_wd);
+    public BaseResponse searchAll(String srch_wd , int dept_id) {
+        return service.searchAll(srch_wd,dept_id);
     }
 
 }
