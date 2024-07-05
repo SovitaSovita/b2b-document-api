@@ -7,13 +7,11 @@ import kosign.b2bdocumentv4.entity.doc_search.DocSearhAllRepository;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -47,8 +45,13 @@ public class DocSearchServiceImpl implements DocSearchService {
 
     @Override
     public BaseResponse searchAll(String srch_wd) {
+        return null;
+    }
+
+    @Override
+    public BaseResponse searchAll(String srch_wd, int dept_id) {
         System.out.println("srch_wd"+srch_wd);
-        List<DocSearchAll>  searchData = docSearhAllRepository.findAll(srch_wd);
+        List<DocSearchAll>  searchData = docSearhAllRepository.findAll(srch_wd, dept_id);
         System.out.println("---------"+searchData);
         if(searchData.isEmpty()){
             return BaseResponse.builder()

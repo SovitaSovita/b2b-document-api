@@ -39,7 +39,7 @@ base_url_img : https://bizweb-doc.kosign.dev/api/v1/files/view_images?fileName=
 dashboard_url: https://bizweb-doc.kosign.dev/
 file_path: /home/was/bizweb_api/b2b_doc/srv/b2b_doc/images
 
-API_URL: https://bizweb-api.kosign.dev
+API_URL: https://bizweb.kosign.dev
 
 # Swagger URL
 # /swagger-ui/index.html/
