@@ -1,25 +1,29 @@
 package kosign.b2bdocumentv4.service.doc_request;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import kosign.b2bdocumentv4.dto.RequestFormDto;
 import kosign.b2bdocumentv4.dto.RequestItemsDataDto;
+import kosign.b2bdocumentv4.dto.RequestToDto;
 import kosign.b2bdocumentv4.entity.doc_form.Form;
 import kosign.b2bdocumentv4.entity.doc_form.FormRepository;
 import kosign.b2bdocumentv4.entity.doc_form.ItemsData;
 import kosign.b2bdocumentv4.entity.doc_request.*;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
-import lombok.extern.java.Log;
+import kosign.b2bdocumentv4.payload.doc_users.UserDetiailPayload;
+import kosign.b2bdocumentv4.utils.ApiService;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class RequestFormServiceImpl {
     private final RequestFormRepository requestFormRepository;
     private final FormRepository formRepository;
+    private final ApiService apiService;
     private static final SecureRandom random = new SecureRandom();
 
     private static long generateRequestId() {
@@ -27,26 +31,38 @@ public class RequestFormServiceImpl {
     }
 
 
-    public RequestFormServiceImpl(FormRepository formRepository, RequestFormRepository requestFormRepository) {
+    public RequestFormServiceImpl(FormRepository formRepository, RequestFormRepository requestFormRepository, ApiService apiService) {
         this.requestFormRepository = requestFormRepository;
         this.formRepository = formRepository;
+        this.apiService = apiService;
     }
 
-    public RequestFormDto sendFormRequest(RequestFormDto requestForm) {
+    public RequestFormDto sendFormRequest(RequestFormDto requestForm) throws JsonProcessingException {
         Form formExist = formRepository.findById(requestForm.getFormId())
                 .orElseThrow(() -> new NotFoundExceptionClass("Form not found with id: " + requestForm.getFormId()));
 
-        List<String> recipients = List.of(requestForm.getRequestTo().split(","));
+
         Long requestId = generateRequestId();
 
         Integer index = 0;
-        for (String recipient : recipients) {
+        for (RequestToDto recipient : requestForm.getRequestTo()) {
             RequestForm newRequestForm = new RequestForm();
             newRequestForm.setFormId(formExist.getId());
             newRequestForm.setFormName(formExist.getFormName());
+            newRequestForm.setClassification(formExist.getClassification());
             newRequestForm.setFormContent(requestForm.getFormContent());
-            newRequestForm.setRequestFrom(requestForm.getRequestFrom());
-            newRequestForm.setRequestTo(recipient.trim());
+
+            //set user info who Request
+            newRequestForm.setRequestFrom(requestForm.getWhoRequest());
+            newRequestForm.setFromCompany(requestForm.getWhoRequestCompany());
+            newRequestForm.setFromDepartment(getUserDetailFromBizLogin(requestForm.getWhoRequest(), requestForm.getWhoRequestCompany()).getDepartment());
+
+            //set user info who Request To
+            UserDetiailPayload userDetiailPayload = getUserDetailFromBizLogin(recipient.getRequestTo(), recipient.getRequestToCompany());
+            newRequestForm.setRequestTo(userDetiailPayload.getUsername());
+            newRequestForm.setToDepartment(userDetiailPayload.getDepartment());
+            newRequestForm.setToCompany(userDetiailPayload.getCompany());
+
             newRequestForm.setRequestId(requestId);
             newRequestForm.setRequestDate(requestForm.getRequestDate());
             newRequestForm.setReqOrder(index);
@@ -62,6 +78,7 @@ public class RequestFormServiceImpl {
 
 //            System.out.println("[countItems][countInputItems] >> " + countInputItems + " : " + countItems);
 
+            //set input items data
             if (countFormItems == countInputItems) {
                 for (int i = 0; i < countFormItems; i++) {
                     RequestItemsDataDto itemsData = requestForm.getRequestItemsData().get(i);
@@ -97,6 +114,35 @@ public class RequestFormServiceImpl {
             index++;
         }
         return requestForm;
+    }
+
+    public UserDetiailPayload getUserDetailFromBizLogin(String userId, String company) throws JsonProcessingException {
+        String json = apiService.getUserDetails(userId, company).block();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = objectMapper.readTree(json);
+        JsonNode payloadNode = jsonNode.get("payload");
+        String username = payloadNode.get("username").asText();
+        String clph_NO = payloadNode.get("clph_NO").asText();
+        String dvsn_CD = payloadNode.get("dvsn_CD").asText();
+        String dvsn_NM = payloadNode.get("dvsn_NM").asText();
+        String jbcl_NM = payloadNode.get("jbcl_NM").asText();
+        String eml = payloadNode.get("eml").asText();
+        String use_INTT_ID = payloadNode.get("use_INTT_ID").asText();
+        String flnm = payloadNode.get("flnm").asText();
+        String prfl_PHTG = payloadNode.get("prfl_PHTG").asText();
+
+        UserDetiailPayload paylaod = new UserDetiailPayload();
+        paylaod.setDepartment(dvsn_NM);
+        paylaod.setDepartmentId(dvsn_CD);
+        paylaod.setPosition(jbcl_NM);
+        paylaod.setPhoneNumber(clph_NO);
+        paylaod.setUsername(username);
+        paylaod.setEmail(eml);
+        paylaod.setCompany(use_INTT_ID);
+        paylaod.setFullName(flnm);
+        paylaod.setProfile(prfl_PHTG);
+
+        return paylaod;
     }
 
     public List<RequestForm> getByUserId(GetByUserRequest request) {
@@ -207,6 +253,7 @@ public class RequestFormServiceImpl {
                     if(sortedRequests.size()-1 > req.getReqOrder()){
                         sortedRequests.get(i + 1).setRequestStatus(RqStatus.PENDING);
                     }
+                    req.setApproveDate(new Timestamp(System.currentTimeMillis()));
                     requestFormRepository.save(req);
                     return request;
                 }
