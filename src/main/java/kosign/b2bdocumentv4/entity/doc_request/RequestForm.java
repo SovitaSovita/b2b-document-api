@@ -26,11 +26,20 @@ public class RequestForm {
 
     private Long formId;
     private String formName;
+    private String classification;
     private String formContent;
+
     private String requestFrom;
+    private String fromDepartment;
+    private String fromCompany;
+
     private String requestTo;
+    private String toDepartment;
+    private String toCompany;
+
     private Integer reqOrder;
     private Timestamp requestDate;
+    private Timestamp approveDate;
 
     @Enumerated(EnumType.STRING)
     private RqStatus requestStatus; //enum
@@ -45,11 +54,17 @@ public class RequestForm {
                 "id=" + id +
                 ", requestId=" + requestId +
                 ", formId=" + formId +
+                ", formName=" + formName +
+                ", classification='" + classification + '\'' +
                 ", formContent='" + formContent + '\'' +
                 ", requestFrom='" + requestFrom + '\'' +
+                ", fromDepartment='" + fromDepartment + '\'' +
+                ", fromCompany='" + fromCompany + '\'' +
                 ", requestTo='" + requestTo + '\'' +
+                ", toDepartment='" + toDepartment + '\'' +
+                ", toCompany='" + toCompany + '\'' +
                 ", reqOrder'" + reqOrder + '\'' +
-                ", requestDate=" + requestDate +
+                ", requestDate=" + requestDate + '\'' +
                 ", requestStatus=" + requestStatus +
                 '}';
     }

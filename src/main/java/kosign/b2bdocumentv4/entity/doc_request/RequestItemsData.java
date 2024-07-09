@@ -22,6 +22,7 @@ public class RequestItemsData {
     private String inputType;
     private String inputValue;
     private boolean isSelected;
+    private int selectIndex = 0; //use for identify what input value that user select when input type 'select'
 
     @ManyToOne
     @JoinColumn(name = "request_id")
@@ -36,7 +37,8 @@ public class RequestItemsData {
                 ", inputRequire=" + inputRequire +
                 ", inputType='" + inputType + '\'' +
                 ", inputValue='" + inputValue + '\'' +
-                ", isSelected=" + isSelected +
+                ", isSelected=" + isSelected + '\'' +
+                ", selectIndex=" + selectIndex +
                 '}';
     }
 

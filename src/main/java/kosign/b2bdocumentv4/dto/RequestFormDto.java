@@ -9,8 +9,9 @@ import java.util.List;
 public class RequestFormDto {
     private Long formId;
     private String formContent;
-    private String requestFrom;
-    private String requestTo;
+    private String whoRequest;
+    private String whoRequestCompany;
+    private List<RequestToDto> requestTo;
     private Timestamp requestDate;
     private List<RequestItemsDataDto> requestItemsData;
 }

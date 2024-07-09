@@ -10,18 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Get pusher's name
-      id: get_pusher_name
-      run: echo "::set-output name=name::$(git log -1 --format='%an')"
+      - name: Get pusher's name
+        id: get_pusher_name
+        run: echo "::set-output name=name::$(git log -1 --format='%an')"
 
-    - name: Send notification
-      if: github.ref == 'refs/heads/main'
-      run: |
-        curl -X POST \
-          -d "chatId=-4173491325" \
-          -d "message=[${{ steps.get_pusher_name.outputs.name }}] has pushed new code to branch main in API. Please pull." \
-          -H "Content-Type: application/x-www-form-urlencoded" \
-          https://daraboth-personalai.vercel.app/telegram/daraboth/send-message
+      - name: Send notification to Telegram
+        if: github.ref == 'refs/heads/main'
+        run: |
+          PUSHER_NAME="${{ steps.get_pusher_name.outputs.name }}"
+          if [[ "$PUSHER_NAME" == "Vandaphat" || "$PUSHER_NAME" == "Laychanvimean" ]]; then
+            MESSAGE="[nak single] $PUSHER_NAME has pushed new code to branch main in API. Please pull."
+          else
+            MESSAGE="[$PUSHER_NAME] has pushed new code to branch main in API. Please pull."
+          fi
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\": \"-1002117315042\", \"text\": \"$MESSAGE\"}" \
+            "https://api.telegram.org/bot6751474194:AAEONyKqL-lNA5HlbYu7q2wPlCL6zyPeraA/sendMessage"

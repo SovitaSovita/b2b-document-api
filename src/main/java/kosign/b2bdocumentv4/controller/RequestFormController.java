@@ -1,5 +1,6 @@
 package kosign.b2bdocumentv4.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import kosign.b2bdocumentv4.dto.RequestFormDto;
 import kosign.b2bdocumentv4.entity.doc_request.GetByUserRequest;
@@ -20,7 +21,7 @@ import java.util.List;
 public class RequestFormController {
     private final RequestFormServiceImpl requestFormService;
     @PostMapping("/sendRequest")
-    public BaseResponse sendFormRequest(@RequestBody RequestFormDto requestForm){
+    public BaseResponse sendFormRequest(@RequestBody RequestFormDto requestForm) throws JsonProcessingException {
         return BaseResponse.builder()
                 .code("200")
                 .message("success")

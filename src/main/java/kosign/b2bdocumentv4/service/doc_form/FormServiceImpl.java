@@ -2,9 +2,11 @@ package kosign.b2bdocumentv4.service.doc_form;
 
 import kosign.b2bdocumentv4.dto.FormDto;
 import kosign.b2bdocumentv4.dto.ItemsDataDto;
+import kosign.b2bdocumentv4.dto.SubItemsDto;
 import kosign.b2bdocumentv4.entity.doc_form.Form;
 import kosign.b2bdocumentv4.entity.doc_form.FormRepository;
 import kosign.b2bdocumentv4.entity.doc_form.ItemsData;
+import kosign.b2bdocumentv4.entity.doc_form.SubItems;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.doc_form.GetFormRequest;
 import org.springframework.stereotype.Service;
@@ -23,50 +25,87 @@ public class FormServiceImpl {
 
 
     public Form createForm(FormDto formDto) {
+        Form form = mapFormDtoToForm(formDto);  //func
+        List<ItemsData> itemsDataList = new ArrayList<>();
+
+        if (!formDto.getIsItem().isBlank()) {
+            handleIsItemField(formDto, form, itemsDataList);  //func
+        } else {
+            throw new IllegalArgumentException("IsItems couldn't be blank!");
+        }
+
+        form.setFileId(formDto.getFileId());
+        setFormStatusAndUsername(formDto, form); //func
+        form.setCreateDate(formDto.getCreateDate());
+        form.setItemsData(itemsDataList);
+
+        formRepository.save(form);
+        return form;
+    }
+
+    private Form mapFormDtoToForm(FormDto formDto) {
         Form form = new Form();
         form.setClassification(formDto.getClassification());
         form.setFormName(formDto.getFormName());
         form.setFormDescription(formDto.getFormDescription());
         form.setFormContent(formDto.getFormContent());
         form.setFormNumber(formDto.getFormNumber());
+        return form;
+    }
 
-        List<ItemsData> itemsDataList = new ArrayList<>();
-        if (!formDto.getIsItem().isBlank()) {
-            if (formDto.getIsItem().equals("unused")) {
+    private void handleIsItemField(FormDto formDto, Form form, List<ItemsData> itemsDataList) {
+        switch (formDto.getIsItem()) {
+            case "unused":
                 form.setIsItem("unused");
                 itemsDataList.add(null);
-            } else if (formDto.getIsItem().equals("use")) {
+                break;
+            case "use":
                 form.setIsItem("use");
                 for (ItemsDataDto itemsDataDto : formDto.getItemsData()) {
-                    ItemsData itemsData = new ItemsData();
-                    itemsData.setItemName(itemsDataDto.getItemName());
-                    itemsData.setInputRequire(itemsDataDto.getInputRequire());
-                    itemsData.setInputType(itemsDataDto.getInputType());
-                    itemsData.setSelected(itemsDataDto.isSelected());
-                    itemsData.setInputValue(itemsDataDto.getInputValue());
-                    itemsData.setForm(form);  // Set the reference to the parent Form
+                    ItemsData itemsData = mapItemsDataDtoToItemsData(itemsDataDto, form);
                     itemsDataList.add(itemsData);
                 }
-            } else throw new IllegalArgumentException("IsItems must ('use', or 'unused') !");
+                break;
+            default:
+                throw new IllegalArgumentException("IsItems must be 'use' or 'unused'!");
+        }
+    }
+
+    private ItemsData mapItemsDataDtoToItemsData(ItemsDataDto itemsDataDto, Form form) {
+        ItemsData itemsData = new ItemsData();
+        itemsData.setItemName(itemsDataDto.getItemName());
+        itemsData.setInputRequire(itemsDataDto.getInputRequire());
+        itemsData.setInputType(itemsDataDto.getInputType());
+        itemsData.setInputValue(itemsDataDto.getInputValue());
+        itemsData.setForm(form);
+
+        List<SubItems> subItemsList = new ArrayList<>();
+        if ("select".equals(itemsDataDto.getInputType())) {
+            itemsData.setSelected(true);
+            itemsData.setInputValue(null);
+            for (SubItemsDto subItemsDto : itemsDataDto.getSubItems()) {
+                SubItems subItems = new SubItems();
+                subItems.setItem(subItemsDto.isItem());
+                subItems.setItemName(subItemsDto.getItemName());
+                subItems.setItemsData(itemsData);
+                subItemsList.add(subItems);
+            }
         } else {
-            throw new IllegalArgumentException("IsItems couldn't blank!");
+            subItemsList.add(null);
         }
 
-        form.setFileId(formDto.getFileId());
+        itemsData.setSubItemsList(subItemsList);
+        return itemsData;
+    }
 
+    private void setFormStatusAndUsername(FormDto formDto, Form form) {
         if (formDto.getUsername().isBlank()) {
             form.setUsername(null);
             form.setStatus(1);
-        }
-        else {
+        } else {
             form.setUsername(formDto.getUsername());
             form.setStatus(2);
         }
-        form.setCreateDate(formDto.getCreateDate());
-        form.setItemsData(itemsDataList);
-        // Save the form (itemsDataList will be saved as well due to cascade setting)
-        formRepository.save(form);
-        return form;
     }
 
     public List<Form> getAll() {
@@ -103,21 +142,17 @@ public class FormServiceImpl {
         if (formRequest.getUserId().isBlank() && formRequest.getStatus() != 0) {
             if (formRequest.getStatus() == 1) {
                 formList = formRepository.findAllByStatus(1);
-            } else if(formRequest.getStatus() == 2) {
+            } else if (formRequest.getStatus() == 2) {
                 formList = formRepository.findAllByStatus(2);
-            }
-            else{
+            } else {
                 throw new IllegalArgumentException("Status must ('1' = default or '2' = create by user)");
             }
-        }
-        else if(!formRequest.getUserId().isBlank() && formRequest.getStatus() == 2){
+        } else if (!formRequest.getUserId().isBlank() && formRequest.getStatus() == 2) {
             formList = formRepository.findAllByUsername(formRequest.getUserId());
-        }
-        else if(!formRequest.getUserId().isBlank() && formRequest.getStatus() == 0){
+        } else if (!formRequest.getUserId().isBlank() && formRequest.getStatus() == 0) {
             formList = formRepository.findAllByUsernameOrUsernameIsNull(formRequest.getUserId());
-        }
-        else {
-            throw new IllegalArgumentException("Bad request for userId = "+formRequest.getUserId() + ", and status = " + formRequest.getStatus());
+        } else {
+            throw new IllegalArgumentException("Bad request for userId = " + formRequest.getUserId() + ", and status = " + formRequest.getStatus());
         }
 
         return formList;

@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +24,9 @@ public class ItemsData {
     private String inputType;
     private String inputValue;
     private boolean isSelected;
+
+    @OneToMany(mappedBy = "itemsData", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubItems> subItemsList;
 
     @ManyToOne
     @JoinColumn(name = "form_id")
