@@ -23,6 +23,19 @@ case "$build_choice" in
         server_port="23"
         server_path="/home/was/bizweb_api/b2b_doc"
 
+        # Check if the JAR file is running on the server and kill it
+        ssh -p "$server_port" "$server_username@$server_ip" "
+            if pgrep -f b2b-document-v4.jar; then
+                pkill -f b2b-document-v4.jar
+            fi
+        "
+
+        # Check if the ssh command was successful
+        if [ $? -ne 0 ]; then
+            echo "Failed to kill the running Java file on the server."
+            exit 1
+        fi
+
         # Copy file to server
         scp -P "$server_port" "$new_file" "$server_username@$server_ip:$server_path"
 
