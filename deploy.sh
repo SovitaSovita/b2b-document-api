@@ -23,10 +23,16 @@ case "$build_choice" in
         server_port="23"
         server_path="/home/was/bizweb_api/b2b_doc"
 
+        # SSH command to kill the running Java process
+        ssh_command="ssh -p $server_port $server_username@$server_ip"
+
         # Check if the JAR file is running on the server and kill it
-        ssh -p "$server_port" "$server_username@$server_ip" "
-            if pgrep -f b2b-document-v4.jar; then
+        $ssh_command "
+            if pgrep -f b2b-document-v4.jar >/dev/null; then
+                echo 'Found running process. Killing it...'
                 pkill -f b2b-document-v4.jar
+            else
+                echo 'No running process found.'
             fi
         "
 
@@ -46,7 +52,7 @@ case "$build_choice" in
         fi
 
         # Run the Java file with nohup on the server
-        ssh -p "$server_port" "$server_username@$server_ip" "cd $server_path && nohup java -jar b2b-document-v4.jar &"
+        $ssh_command "cd $server_path && nohup java -jar b2b-document-v4.jar > /dev/null 2>&1 &"
 
         # Check if the ssh command was successful
         if [ $? -ne 0 ]; then
