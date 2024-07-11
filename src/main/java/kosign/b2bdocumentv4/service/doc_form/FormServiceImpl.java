@@ -35,6 +35,7 @@ public class FormServiceImpl {
         }
 
         form.setFileId(formDto.getFileId());
+        form.setCompany(formDto.getCompany());
         setFormStatusAndUsername(formDto, form); //func
         form.setCreateDate(formDto.getCreateDate());
         form.setItemsData(itemsDataList);
@@ -80,7 +81,7 @@ public class FormServiceImpl {
         itemsData.setForm(form);
 
         List<SubItems> subItemsList = new ArrayList<>();
-        if ("select".equals(itemsDataDto.getInputType())) {
+        if ("select".equals(itemsDataDto.getInputType()) || "radio".equals(itemsDataDto.getInputType())) {
             itemsData.setSelected(true);
             itemsData.setInputValue(null);
             for (SubItemsDto subItemsDto : itemsDataDto.getSubItems()) {
@@ -139,7 +140,7 @@ public class FormServiceImpl {
 
     public List<Form> getBy(GetFormRequest formRequest) {
         List<Form> formList = null;
-        if (formRequest.getUserId().isBlank() && formRequest.getStatus() != 0) {
+        if ((formRequest.getUserId().isBlank() && formRequest.getCompany().isBlank()) && formRequest.getStatus() != 0) {
             if (formRequest.getStatus() == 1) {
                 formList = formRepository.findAllByStatus(1);
             } else if (formRequest.getStatus() == 2) {
@@ -147,10 +148,10 @@ public class FormServiceImpl {
             } else {
                 throw new IllegalArgumentException("Status must ('1' = default or '2' = create by user)");
             }
-        } else if (!formRequest.getUserId().isBlank() && formRequest.getStatus() == 2) {
-            formList = formRepository.findAllByUsername(formRequest.getUserId());
-        } else if (!formRequest.getUserId().isBlank() && formRequest.getStatus() == 0) {
-            formList = formRepository.findAllByUsernameOrUsernameIsNull(formRequest.getUserId());
+        } else if (!(formRequest.getUserId().isBlank() && formRequest.getCompany().isBlank()) && formRequest.getStatus() == 2) {
+            formList = formRepository.findAllByUsernameAndCompany(formRequest.getUserId(), formRequest.getCompany());
+        } else if (formRequest.getUserId().isBlank() && formRequest.getStatus() == 0) {
+            formList = formRepository.findAllByCompany(formRequest.getCompany());
         } else {
             throw new IllegalArgumentException("Bad request for userId = " + formRequest.getUserId() + ", and status = " + formRequest.getStatus());
         }

@@ -93,12 +93,12 @@ public class RequestFormController {
 
     //list all Request that Already "Approved" by all recipient
     @GetMapping("/listApproved")
-    public BaseResponse getListApproved(@RequestParam String userId){
+    public BaseResponse getListApproved(@RequestParam String userId, @RequestParam String company){
         return BaseResponse.builder()
                 .code("200")
                 .message("successfully.")
                 .isError(false)
-                .rec(requestFormService.getListApproved(userId))
+                .rec(requestFormService.getListApproved(userId, company))
                 .build();
     }
     @PostMapping("/approval")

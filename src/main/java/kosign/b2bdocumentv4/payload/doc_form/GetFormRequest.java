@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class GetFormRequest {
     private String userId;
+    private String company;
     private int status;
 }

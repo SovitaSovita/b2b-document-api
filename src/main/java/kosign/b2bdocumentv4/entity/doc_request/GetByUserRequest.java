@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetByUserRequest {
+    private String company;
     private String recipient;
     private String proposer;
     private String reqStatus;

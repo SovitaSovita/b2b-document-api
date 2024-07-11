@@ -30,6 +30,7 @@ public class Form {
 
     private String fileId;
     private String username;
+    private String company;
     private int status = 1; //0 = none, 1 = default , 2 = created by user
     private Timestamp createDate;
 

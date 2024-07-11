@@ -88,7 +88,7 @@ public class RequestFormServiceImpl {
                     data.setInputValue(itemsData.getInputValue());
 
                     if(Objects.equals(formItemsData.getInputType(), "select")){
-                        data.setInputValue(formItemsData.getInputValue());
+//                        data.setInputValue(formItemsData.getInputValue());
                         List<String> selectValues = List.of(itemsData.getInputValue().split(","));
                         if((itemsData.getSelectIndex()+1) <= selectValues.size()){
                             data.setSelectIndex(itemsData.getSelectIndex());
@@ -150,17 +150,21 @@ public class RequestFormServiceImpl {
         if (request.getProposer().isBlank() && request.getRecipient().isBlank()) {
             throw new IllegalArgumentException("Recipient or Proposer must only one with data");
         }
+        if(request.getCompany().isBlank()){
+            throw new IllegalArgumentException("Company can not blank.");
+        }
 
         if (Objects.isNull(request.getReqStatus())) {
             if (request.getProposer().isBlank()) {
-                return requestFormRepository.findByRequestTo(request.getRecipient());
-            } else if (request.getRecipient().isBlank()) {
-                return requestFormRepository.findByRequestFrom(request.getProposer());
-            } else {
+                return requestFormRepository.findByRequestToAndToCompany(request.getRecipient(), request.getCompany());
+            }
+            else if (request.getRecipient().isBlank()) {
+                return requestFormRepository.findByRequestFromAndFromCompany(request.getProposer(), request.getCompany());
+            }
+            else {
                 throw new IllegalArgumentException("Recipient or Proposer must only one with data");
             }
         } else {
-
             if (request.getProposer().isBlank()) {
                 return requestFormRepository.findByRequestToAndRequestStatus(request.getRecipient(), RqStatus.valueOf(request.getReqStatus()));
             } else if (request.getRecipient() == null || request.getRecipient().isBlank()) {
@@ -205,11 +209,11 @@ public class RequestFormServiceImpl {
         return requests;
     }
 
-    public List<RequestForm> getListApproved(String userId) {
+    public List<RequestForm> getListApproved(String userId, String company) {
         List<RequestForm> newList = new ArrayList<>();
         Map<Long, RequestForm> lastRequestForms = new HashMap<>();
 
-        List<RequestForm> requestList = requestFormRepository.findByRequestFrom(userId);
+        List<RequestForm> requestList = requestFormRepository.findByRequestFromAndFromCompany(userId, company);
 
         if(requestList.isEmpty()){
             throw new NotFoundExceptionClass("Request With UserID : "+ userId +" Not Found.");

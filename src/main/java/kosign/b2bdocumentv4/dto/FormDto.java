@@ -16,5 +16,6 @@ public class FormDto {
     private List<ItemsDataDto> itemsData;
     private String fileId;
     private String username;
+    private String company;
     private Timestamp createDate;
 }

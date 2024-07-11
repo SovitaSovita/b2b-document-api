@@ -12,6 +12,7 @@ import java.util.Map;
 public interface FormRepository extends JpaRepository<Form, Long> {
     List<Form> findAllByUsernameOrUsernameIsNull(String username);
     List<Form> findAllByStatus(int status);
-    List<Form> findAllByUsername(String username);
+    List<Form> findAllByUsernameAndCompany(String username, String company);
+    List<Form> findAllByCompany(String company);
 
 }

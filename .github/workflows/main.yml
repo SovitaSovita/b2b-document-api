@@ -21,10 +21,10 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           PUSHER_NAME="${{ steps.get_pusher_name.outputs.name }}"
-          if [[ "$PUSHER_NAME" == "Vandaphat" || "$PUSHER_NAME" == "Laychanvimean" ]]; then
-            MESSAGE="[nak single] $PUSHER_NAME has pushed new code to branch main in API. Please pull."
+          if [[ "$PUSHER_NAME" == "vandaphat" || "$PUSHER_NAME" == "laychanvimean" ]]; then
+            MESSAGE="single person [$PUSHER_NAME] has pushed new code to branch main in API. Please pull."
           else
-            MESSAGE="[$PUSHER_NAME] has pushed new code to branch main in API. Please pull."
+            MESSAGE="[$PUSHER_NAME] has pushed new code to branch main in [Spring BOOT API]. Please pull."
           fi
           curl -X POST \
             -H "Content-Type: application/json" \
