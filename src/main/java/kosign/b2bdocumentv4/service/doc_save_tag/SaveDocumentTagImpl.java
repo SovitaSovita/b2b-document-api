@@ -120,16 +120,19 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
         try {
             // Find the entity by ID
             var existingEntity = documentTagRepository.findById(docTagDeleteRequest.getId()).orElse(null);
+            System.out.println("vimean"+existingEntity.getId());
 
             // Check if the entity exists
             if (existingEntity == null) {
                 return BaseResponse.builder().isError(true).code("404").message("Document Tag with id [" + docTagDeleteRequest.getId() + "] does not exist!").build();
             }
+            System.out.println("hiiii");
 
             // Delete the entity
-            documentTagRepository.deleteById(existingEntity.getId());
+            //documentTagRepository.deleteById(existingEntity.getId());
+            System.out.println("meanmean");
             List<Long> articleId = documentTagRepository.findArticlesId(existingEntity.getId());
-             System.out.println("[DEBUG] : " + articleId);
+             System.out.println("Helllllloooo" + articleId);
 
              for(int i = 0; i < articleId.size(); i++){
                  System.out.println("[DEBUG]======== : " + articleId.get(i));

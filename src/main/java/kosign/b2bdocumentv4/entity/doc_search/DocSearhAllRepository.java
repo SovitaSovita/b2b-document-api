@@ -13,5 +13,5 @@ public interface DocSearhAllRepository extends JpaRepository<DocSearchAll, Objec
 
     //Search all condition
     @Query(value = "select coalesce(id ,'1') as id,tag_id ,tag_title ,coalesce(title,'') as title,coalesce(content_body,'')as content_body from stdy.docs_search(:srch_wd,:dept_id)" , nativeQuery = true)
-    List<DocSearchAll>  findAll(@Param("srch_wd") String srch_wd, @Param("dept_id") int dept_id);
+    List<DocSearchAll>  findAll(@Param("srch_wd") String srch_wd, @Param("dept_id") Integer dept_id);
 }

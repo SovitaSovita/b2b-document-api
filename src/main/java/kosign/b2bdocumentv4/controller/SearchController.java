@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class SearchController {
     @Autowired
     private final DocSearchServiceImpl service;
+
+
     @GetMapping("/doc_search_r01")
     public BaseResponse searchDoc(String title) {
         return service.searchDoc(title);

@@ -68,7 +68,6 @@ public class DocSearchServiceImpl implements DocSearchService {
                     .rec(searchData)
                     .build();
         }
-
     }
 
 }
