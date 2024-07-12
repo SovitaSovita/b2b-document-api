@@ -2,6 +2,7 @@ package kosign.b2bdocumentv4.entity.doc_form;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import kosign.b2bdocumentv4.entity.doc_request.RequestItemsData;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,4 +24,9 @@ public class SubItems {
     @JoinColumn(name = "items_data_id")
     @JsonIgnore
     private ItemsData itemsData;
+
+    @ManyToOne
+    @JoinColumn(name = "items_data_id")
+    @JsonIgnore
+    private RequestItemsData requestItemsData;
 }

@@ -82,7 +82,7 @@ public class RequestFormServiceImpl {
             if (countFormItems == countInputItems) {
                 for (int i = 0; i < countFormItems; i++) {
                     RequestItemsDataDto itemsData = requestForm.getRequestItemsData().get(i);
-                    ItemsData formItemsData = formExist.getItemsData().get(i);
+                    ItemsData formItemsData = formExist.getItemsData().get(i); //work here
 
                     RequestItemsData data = new RequestItemsData();
                     data.setInputValue(itemsData.getInputValue());

@@ -3,9 +3,12 @@ package kosign.b2bdocumentv4.entity.doc_request;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import kosign.b2bdocumentv4.entity.doc_form.SubItems;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,6 +26,9 @@ public class RequestItemsData {
     private String inputValue;
     private boolean isSelected;
     private int selectIndex = 0; //use for identify what input value that user select when input type 'select'
+
+    @OneToMany(mappedBy = "itemsData", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubItems> subItemsList;
 
     @ManyToOne
     @JoinColumn(name = "request_id")
