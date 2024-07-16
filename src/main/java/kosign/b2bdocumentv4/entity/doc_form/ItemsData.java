@@ -25,7 +25,7 @@ public class ItemsData {
     private String inputValue;
     private boolean isSelected;
 
-    @OneToMany(mappedBy = "requestItemsData", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "itemsData", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SubItems> subItemsList;
 
     @ManyToOne
