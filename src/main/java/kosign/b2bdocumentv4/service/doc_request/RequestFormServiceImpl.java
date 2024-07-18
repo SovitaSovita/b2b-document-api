@@ -5,10 +5,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kosign.b2bdocumentv4.dto.RequestFormDto;
 import kosign.b2bdocumentv4.dto.RequestItemsDataDto;
+import kosign.b2bdocumentv4.dto.RequestMainItemsDto;
 import kosign.b2bdocumentv4.dto.RequestToDto;
 import kosign.b2bdocumentv4.entity.doc_form.Form;
 import kosign.b2bdocumentv4.entity.doc_form.FormRepository;
 import kosign.b2bdocumentv4.entity.doc_form.ItemsData;
+import kosign.b2bdocumentv4.entity.doc_form.MainItems;
 import kosign.b2bdocumentv4.entity.doc_request.*;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.doc_users.UserDetiailPayload;
@@ -41,10 +43,9 @@ public class RequestFormServiceImpl {
         Form formExist = formRepository.findById(requestForm.getFormId())
                 .orElseThrow(() -> new NotFoundExceptionClass("Form not found with id: " + requestForm.getFormId()));
 
-
         Long requestId = generateRequestId();
-
         Integer index = 0;
+
         for (RequestToDto recipient : requestForm.getRequestTo()) {
             RequestForm newRequestForm = new RequestForm();
             newRequestForm.setFormId(formExist.getId());
@@ -52,16 +53,16 @@ public class RequestFormServiceImpl {
             newRequestForm.setClassification(formExist.getClassification());
             newRequestForm.setFormContent(requestForm.getFormContent());
 
-            //set user info who Request
+            // Set user info who requested
             newRequestForm.setRequestFrom(requestForm.getWhoRequest());
             newRequestForm.setFromCompany(requestForm.getWhoRequestCompany());
             newRequestForm.setFromDepartment(getUserDetailFromBizLogin(requestForm.getWhoRequest(), requestForm.getWhoRequestCompany()).getDepartment());
 
-            //set user info who Request To
-            UserDetiailPayload userDetiailPayload = getUserDetailFromBizLogin(recipient.getRequestTo(), recipient.getRequestToCompany());
-            newRequestForm.setRequestTo(userDetiailPayload.getUsername());
-            newRequestForm.setToDepartment(userDetiailPayload.getDepartment());
-            newRequestForm.setToCompany(userDetiailPayload.getCompany());
+            // Set user info who requested to
+            UserDetiailPayload userDetailPayload = getUserDetailFromBizLogin(recipient.getRequestTo(), recipient.getRequestToCompany());
+            newRequestForm.setRequestTo(userDetailPayload.getUsername());
+            newRequestForm.setToDepartment(userDetailPayload.getDepartment());
+            newRequestForm.setToCompany(userDetailPayload.getCompany());
 
             newRequestForm.setRequestId(requestId);
             newRequestForm.setRequestDate(requestForm.getRequestDate());
@@ -72,49 +73,50 @@ public class RequestFormServiceImpl {
             } else {
                 newRequestForm.setRequestStatus(RqStatus.HOLD);
             }
-            List<RequestItemsData> itemsDataList = new ArrayList<>();
-            int countFormItems = formExist.getItemsData().size();
-            int countInputItems = requestForm.getRequestItemsData().size();
 
-//            System.out.println("[countItems][countInputItems] >> " + countInputItems + " : " + countItems);
+            List<RequestMainItems> mainItemsList = new ArrayList<>();
 
-            //set input items data
-            if (countFormItems == countInputItems) {
-                for (int i = 0; i < countFormItems; i++) {
-                    RequestItemsDataDto itemsData = requestForm.getRequestItemsData().get(i);
-                    ItemsData formItemsData = formExist.getItemsData().get(i);
+            int count = 0;
+            for (RequestMainItemsDto mainItemsDto : requestForm.getRequestMainItems()) {
+                MainItems formMainItems = formExist.getMainItems().get(count);
 
-                    RequestItemsData data = new RequestItemsData();
-                    data.setInputValue(itemsData.getInputValue());
+                RequestMainItems mainItems = new RequestMainItems();
+                mainItems.setValue(mainItemsDto.getValue());
+                mainItems.setItemName(formMainItems.getItemName());
+                mainItems.setRequire(formMainItems.getRequire());
+                mainItems.setType(formMainItems.getType());
+                mainItems.setRequestForm(newRequestForm);
 
-                    if(Objects.equals(formItemsData.getInputType(), "select")){
-//                        data.setInputValue(formItemsData.getInputValue());
-                        List<String> selectValues = List.of(itemsData.getInputValue().split(","));
-                        if((itemsData.getSelectIndex()+1) <= selectValues.size()){
-                            data.setSelectIndex(itemsData.getSelectIndex());
-                        }
-                        else {
-                            throw new IllegalArgumentException("Index larger than Size of Select values");
-                        }
+                List<RequestItemsData> itemsDataList = new ArrayList<>();
+                for (int i = 0; i < formMainItems.getItemsData().size(); i++) {
+                    ItemsData formItemsData = formMainItems.getItemsData().get(i);
+                    RequestItemsDataDto itemsDataDto = mainItemsDto.getRequestItemsData().get(i);
 
-                    }
-
-                    data.setItemName(formItemsData.getItemName());
-                    data.setInputType(formItemsData.getInputType());
-                    data.setSelected(formItemsData.isSelected());
-                    data.setInputRequire(formItemsData.getInputRequire());
-                    data.setRequestForm(newRequestForm);
-                    itemsDataList.add(data);
-                    newRequestForm.setRequestItemsData(itemsDataList);
+                    RequestItemsData itemsData = new RequestItemsData();
+                    itemsData.setInputValue(itemsDataDto.getInputValue());
+                    itemsData.setItemName(formItemsData.getItemName());
+                    itemsData.setInputType(formItemsData.getInputType());
+                    itemsData.setSelected(formItemsData.isSelected());
+                    itemsData.setInputRequire(formItemsData.getInputRequire());
+                    itemsData.setDescription(formItemsData.getDescription());
+                    itemsData.setRequestMainItems(mainItems);
+                    itemsDataList.add(itemsData);
                 }
-            } else {
-                throw new IllegalArgumentException("We found itemsData in Form [" + countFormItems + "], But your input provided [" + countInputItems + "]");
+
+                mainItems.setRequestItemsData(itemsDataList);
+                mainItemsList.add(mainItems);
+                count++;
             }
+
+            newRequestForm.setRequestMainItems(mainItemsList);
             requestFormRepository.save(newRequestForm);
             index++;
         }
+
         return requestForm;
     }
+
+
 
     public UserDetiailPayload getUserDetailFromBizLogin(String userId, String company) throws JsonProcessingException {
         String json = apiService.getUserDetails(userId, company).block();

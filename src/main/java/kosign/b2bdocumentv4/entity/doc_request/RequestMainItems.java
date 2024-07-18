@@ -1,4 +1,4 @@
-package kosign.b2bdocumentv4.entity.doc_form;
+package kosign.b2bdocumentv4.entity.doc_request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,24 +13,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "doc_items_data", schema = "stdy")
-public class ItemsData {
+@Table(name = "doc_request_main_items" , schema = "stdy")
+
+public class RequestMainItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
-    private String itemName;
-    private Boolean inputRequire;
-    private String inputType;
-    private String inputValue;
-    private String description;
-    private boolean isSelected;
 
-    @OneToMany(mappedBy = "itemsData", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SubItems> subItemsList;
+    private String itemName;
+    private String type;
+    private boolean require;
+    private String value;
+
+    @OneToMany(mappedBy = "requestMainItems", cascade = CascadeType.ALL)
+    private List<RequestItemsData> requestItemsData;
 
     @ManyToOne
-    @JoinColumn(name = "main_items_id")
+    @JoinColumn(name = "request_id")
     @JsonIgnore
-    private MainItems mainItems;
+    private RequestForm requestForm;
 }

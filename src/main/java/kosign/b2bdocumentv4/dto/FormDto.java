@@ -13,7 +13,7 @@ public class FormDto {
     private String formContent;
     private String formNumber;
     private String isItem;
-    private List<ItemsDataDto> itemsData;
+    private List<MainItemsDto> mainItems;
     private String fileId;
     private String username;
     private String company;

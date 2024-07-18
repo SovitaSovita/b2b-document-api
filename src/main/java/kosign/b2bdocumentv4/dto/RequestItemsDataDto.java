@@ -5,5 +5,4 @@ import lombok.Data;
 @Data
 public class RequestItemsDataDto {
     private String inputValue;
-    private Integer selectIndex;
 }

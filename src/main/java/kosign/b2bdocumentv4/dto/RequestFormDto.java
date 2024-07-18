@@ -13,5 +13,5 @@ public class RequestFormDto {
     private String whoRequestCompany;
     private List<RequestToDto> requestTo;
     private Timestamp requestDate;
-    private List<RequestItemsDataDto> requestItemsData;
+    private List<RequestMainItemsDto> requestMainItems;
 }

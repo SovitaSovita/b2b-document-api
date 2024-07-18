@@ -45,8 +45,7 @@ public class RequestForm {
     private RqStatus requestStatus; //enum
 
     @OneToMany(mappedBy = "requestForm", cascade = CascadeType.ALL)
-    private List<RequestItemsData> requestItemsData;
-
+    private List<RequestMainItems> requestMainItems;
 
     @Override
     public String toString() {

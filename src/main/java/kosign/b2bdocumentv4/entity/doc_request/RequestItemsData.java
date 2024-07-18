@@ -21,13 +21,13 @@ public class RequestItemsData {
     private Boolean inputRequire;
     private String inputType;
     private String inputValue;
+    private String description;
     private boolean isSelected;
-    private int selectIndex = 0; //use for identify what input value that user select when input type 'select'
 
     @ManyToOne
-    @JoinColumn(name = "request_id")
+    @JoinColumn(name = "main_items_id")
     @JsonIgnore
-    private RequestForm requestForm;
+    private RequestMainItems requestMainItems;
 
     @Override
     public String toString() {
@@ -37,8 +37,7 @@ public class RequestItemsData {
                 ", inputRequire=" + inputRequire +
                 ", inputType='" + inputType + '\'' +
                 ", inputValue='" + inputValue + '\'' +
-                ", isSelected=" + isSelected + '\'' +
-                ", selectIndex=" + selectIndex +
+                ", isSelected=" + isSelected +
                 '}';
     }
 
