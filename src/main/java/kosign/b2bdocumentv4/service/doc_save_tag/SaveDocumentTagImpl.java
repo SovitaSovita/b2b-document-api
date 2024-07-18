@@ -1,15 +1,22 @@
 package kosign.b2bdocumentv4.service.doc_save_tag;
 
 
+import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticlesRepository;
+import kosign.b2bdocumentv4.entity.doc_favorite.DocumentFavoriteRepository;
 import kosign.b2bdocumentv4.entity.doc_tags.DocumentTag;
 import kosign.b2bdocumentv4.entity.doc_tags.DocumentTagRepository;
 import kosign.b2bdocumentv4.mapper.*;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_tags.*;
+import kosign.b2bdocumentv4.payload.document_favorite.DocumentFavoriteDeleteRequest;
 import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
+import kosign.b2bdocumentv4.service.doc_favorite.DocFavoriteService;
 import kosign.b2bdocumentv4.utils.AuthHelper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -25,7 +32,10 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     private final DocumentTageDeleteMapper documentTageDeleteMapper;
     private final DocumentTagListMapper documentTagListMapper;
     private final DocumentArticlesServiceImpl documentArticlesService;
+    private final DocumentFavoriteRepository documentFavoriteRepository;
 
+    private final DocFavoriteService docFavoriteService;
+    private final DocumentArticlesRepository documentArticlesRepository;
     // save
     @Override
     public BaseResponse saveTag(DocTagRequest docTagRequest) {
@@ -111,40 +121,63 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
 
     // delete
     @Override
-    public BaseResponse deleteTag(DocTagDeleteRequest docTagDeleteRequest) {
+    public ResponseEntity<?> deleteTag(Long tagId) {
+        Map<String,Object> response = new HashMap<>();
+        response.put("error",true);
         // Validate the ID field
-        if (docTagDeleteRequest.getId() == null) {
-            return BaseResponse.builder().isError(true).code("400").message("ID is empty").build();
+        if (tagId == null) {
+            response.put("Message","Tag id is not found");
+            return new ResponseEntity<>(response,HttpStatus.NOT_FOUND);
         }
-
         try {
             // Find the entity by ID
-            var existingEntity = documentTagRepository.findById(docTagDeleteRequest.getId()).orElse(null);
-            System.out.println("vimean"+existingEntity.getId());
+            var existingEntity = documentTagRepository.findById(tagId).orElse(null);
+            // Find the existing ID doc_favorite
+            System.out.println("vimean--------" + existingEntity);
+
 
             // Check if the entity exists
             if (existingEntity == null) {
-                return BaseResponse.builder().isError(true).code("404").message("Document Tag with id [" + docTagDeleteRequest.getId() + "] does not exist!").build();
-            }
-            System.out.println("hiiii");
 
+            }
             // Delete the entity
             //documentTagRepository.deleteById(existingEntity.getId());
             System.out.println("meanmean");
             List<Long> articleId = documentTagRepository.findArticlesId(existingEntity.getId());
-             System.out.println("Helllllloooo" + articleId);
+            System.out.println("Helllllloooo" + articleId);
 
-             for(int i = 0; i < articleId.size(); i++){
-                 System.out.println("[DEBUG]======== : " + articleId.get(i));
-                 documentArticlesService.deleteArticle(articleId.get(i), null);
-             }
-//            documentArticlesService.deleteArticle()
 
-            // Return success response
-            return BaseResponse.builder().code("200").message("Delete success!").isError(false).build();
+            for(int i = 0; i < articleId.size(); i++) {
+                Long currentArticleId = articleId.get(i);
+                System.out.println("[DEBUG] Processing articleId: " + currentArticleId);
+
+                var existingFavoriteID = documentFavoriteRepository.findArticlesId(articleId.get(i));
+                System.out.println("vimean" + existingFavoriteID);
+
+                if(!documentFavoriteRepository.findArticlesId(articleId.get(i)).isEmpty()){
+                    docFavoriteService.deleteArticleFromFavorite(articleId.get(i));
+                }
+
+                if(!documentArticlesRepository.findArticlesById(articleId.get(i)).isEmpty()){
+                    documentArticlesService.deleteArticle(articleId.get(i),null);
+                }
+
+            }
+            try {
+                if(documentTagRepository.findById(existingEntity.getId()).isPresent()){
+                    documentTagRepository.deleteById(existingEntity.getId());
+                    response.put("error",false);
+                    response.put("Message","Delete success");
+                }else{
+                    response.put("Message","Tag Not Found");
+                }
+
+            }catch (Exception e){
+                System.err.println("[ERROR] Failed to delete tag. Error: " + e.getMessage());
+            }
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-
-            return BaseResponse.builder().code("500").message("An error occurred: " + e.getMessage()).isError(true).build();
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }
 
@@ -184,4 +217,5 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
                 .rec(tagArticleRespone)
                 .build();
     }
+
 }
