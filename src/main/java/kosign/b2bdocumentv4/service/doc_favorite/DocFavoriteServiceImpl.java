@@ -44,6 +44,10 @@ public class DocFavoriteServiceImpl implements DocFavoriteService {
                     .build();
         }
     }
+    @Override
+    public void deleteArticleFromFavorite(Long tag_id) {
+        repository.deleteArticleId(tag_id);
+    }
 
     // List favorite (not use)
     @Override

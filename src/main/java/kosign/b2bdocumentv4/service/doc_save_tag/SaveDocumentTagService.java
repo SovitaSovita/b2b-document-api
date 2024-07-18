@@ -4,6 +4,7 @@ import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.doc_tags.DocTagDeleteRequest;
 import kosign.b2bdocumentv4.payload.doc_tags.DocTagRequest;
 import kosign.b2bdocumentv4.payload.doc_tags.DocTagUpdateRequest;
+import org.springframework.http.ResponseEntity;
 
 public interface SaveDocumentTagService {
 
@@ -12,7 +13,7 @@ public interface SaveDocumentTagService {
     // Update
     BaseResponse updateTag(DocTagUpdateRequest docTagUpdateRequest);
     // Delete
-    BaseResponse deleteTag(DocTagDeleteRequest docTagDeleteRequest);
+    ResponseEntity<?> deleteTag(Long tag_id);
     // Get
     BaseResponse getTag(Long dept_id, String username);
     // Call 2 repo ( not use )
