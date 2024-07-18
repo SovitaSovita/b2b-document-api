@@ -17,5 +17,6 @@ public interface DocFavoriteService {
 
     // Check is favorite
     BaseResponse checkIsFavorite(String user_id,Long article_id, Long dept_id);
+    void  deleteArticleFromFavorite(Long tag_id);
 
 }
