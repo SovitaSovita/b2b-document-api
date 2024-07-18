@@ -44,69 +44,12 @@ public class RequestFormServiceImpl {
                 .orElseThrow(() -> new NotFoundExceptionClass("Form not found with id: " + requestForm.getFormId()));
 
         Long requestId = generateRequestId();
-        Integer index = 0;
+        int index = 0;
 
         for (RequestToDto recipient : requestForm.getRequestTo()) {
-            RequestForm newRequestForm = new RequestForm();
-            newRequestForm.setFormId(formExist.getId());
-            newRequestForm.setFormName(formExist.getFormName());
-            newRequestForm.setClassification(formExist.getClassification());
-            newRequestForm.setFormContent(requestForm.getFormContent());
+            RequestForm newRequestForm = createRequestForm(requestForm, formExist, recipient, requestId, index);
 
-            // Set user info who requested
-            newRequestForm.setRequestFrom(requestForm.getWhoRequest());
-            newRequestForm.setFromCompany(requestForm.getWhoRequestCompany());
-            newRequestForm.setFromDepartment(getUserDetailFromBizLogin(requestForm.getWhoRequest(), requestForm.getWhoRequestCompany()).getDepartment());
-
-            // Set user info who requested to
-            UserDetiailPayload userDetailPayload = getUserDetailFromBizLogin(recipient.getRequestTo(), recipient.getRequestToCompany());
-            newRequestForm.setRequestTo(userDetailPayload.getUsername());
-            newRequestForm.setToDepartment(userDetailPayload.getDepartment());
-            newRequestForm.setToCompany(userDetailPayload.getCompany());
-
-            newRequestForm.setRequestId(requestId);
-            newRequestForm.setRequestDate(requestForm.getRequestDate());
-            newRequestForm.setReqOrder(index);
-
-            if (index == 0) {
-                newRequestForm.setRequestStatus(RqStatus.PENDING);
-            } else {
-                newRequestForm.setRequestStatus(RqStatus.HOLD);
-            }
-
-            List<RequestMainItems> mainItemsList = new ArrayList<>();
-
-            int count = 0;
-            for (RequestMainItemsDto mainItemsDto : requestForm.getRequestMainItems()) {
-                MainItems formMainItems = formExist.getMainItems().get(count);
-
-                RequestMainItems mainItems = new RequestMainItems();
-                mainItems.setValue(mainItemsDto.getValue());
-                mainItems.setItemName(formMainItems.getItemName());
-                mainItems.setRequire(formMainItems.getRequire());
-                mainItems.setType(formMainItems.getType());
-                mainItems.setRequestForm(newRequestForm);
-
-                List<RequestItemsData> itemsDataList = new ArrayList<>();
-                for (int i = 0; i < formMainItems.getItemsData().size(); i++) {
-                    ItemsData formItemsData = formMainItems.getItemsData().get(i);
-                    RequestItemsDataDto itemsDataDto = mainItemsDto.getRequestItemsData().get(i);
-
-                    RequestItemsData itemsData = new RequestItemsData();
-                    itemsData.setInputValue(itemsDataDto.getInputValue());
-                    itemsData.setItemName(formItemsData.getItemName());
-                    itemsData.setInputType(formItemsData.getInputType());
-                    itemsData.setSelected(formItemsData.isSelected());
-                    itemsData.setInputRequire(formItemsData.getInputRequire());
-                    itemsData.setDescription(formItemsData.getDescription());
-                    itemsData.setRequestMainItems(mainItems);
-                    itemsDataList.add(itemsData);
-                }
-
-                mainItems.setRequestItemsData(itemsDataList);
-                mainItemsList.add(mainItems);
-                count++;
-            }
+            List<RequestMainItems> mainItemsList = createMainItemsList(requestForm, formExist, newRequestForm);
 
             newRequestForm.setRequestMainItems(mainItemsList);
             requestFormRepository.save(newRequestForm);
@@ -115,6 +58,80 @@ public class RequestFormServiceImpl {
 
         return requestForm;
     }
+
+    private RequestForm createRequestForm(RequestFormDto requestForm, Form formExist, RequestToDto recipient, Long requestId, int index) throws JsonProcessingException {
+        RequestForm newRequestForm = new RequestForm();
+        newRequestForm.setFormId(formExist.getId());
+        newRequestForm.setFormName(formExist.getFormName());
+        newRequestForm.setClassification(formExist.getClassification());
+        newRequestForm.setFormContent(requestForm.getFormContent());
+
+        // Set user info who requested
+        newRequestForm.setRequestFrom(requestForm.getWhoRequest());
+        newRequestForm.setFromCompany(requestForm.getWhoRequestCompany());
+        newRequestForm.setFromDepartment(getUserDetailFromBizLogin(requestForm.getWhoRequest(), requestForm.getWhoRequestCompany()).getDepartment());
+
+        // Set user info who requested to
+        UserDetiailPayload userDetailPayload = getUserDetailFromBizLogin(recipient.getRequestTo(), recipient.getRequestToCompany());
+        newRequestForm.setRequestTo(userDetailPayload.getUsername());
+        newRequestForm.setToDepartment(userDetailPayload.getDepartment());
+        newRequestForm.setToCompany(userDetailPayload.getCompany());
+
+        newRequestForm.setRequestId(requestId);
+        newRequestForm.setRequestDate(requestForm.getRequestDate());
+        newRequestForm.setReqOrder(index);
+
+        newRequestForm.setRequestStatus(index == 0 ? RqStatus.PENDING : RqStatus.HOLD);
+
+        return newRequestForm;
+    }
+
+    private List<RequestMainItems> createMainItemsList(RequestFormDto requestForm, Form formExist, RequestForm newRequestForm) {
+        List<RequestMainItems> mainItemsList = new ArrayList<>();
+        int count = 0;
+
+        for (RequestMainItemsDto mainItemsDto : requestForm.getRequestMainItems()) {
+            MainItems formMainItems = formExist.getMainItems().get(count);
+
+            RequestMainItems mainItems = new RequestMainItems();
+            mainItems.setValue(mainItemsDto.getValue());
+            mainItems.setItemName(formMainItems.getItemName());
+            mainItems.setRequire(formMainItems.getRequire());
+            mainItems.setType(formMainItems.getType());
+            mainItems.setRequestForm(newRequestForm);
+
+            List<RequestItemsData> itemsDataList = createItemsDataList(mainItemsDto, formMainItems, mainItems);
+
+            mainItems.setRequestItemsData(itemsDataList);
+            mainItemsList.add(mainItems);
+            count++;
+        }
+
+        return mainItemsList;
+    }
+
+    private List<RequestItemsData> createItemsDataList(RequestMainItemsDto mainItemsDto, MainItems formMainItems, RequestMainItems mainItems) {
+        List<RequestItemsData> itemsDataList = new ArrayList<>();
+
+        for (int i = 0; i < formMainItems.getItemsData().size(); i++) {
+            ItemsData formItemsData = formMainItems.getItemsData().get(i);
+            RequestItemsDataDto itemsDataDto = mainItemsDto.getRequestItemsData().get(i);
+
+            RequestItemsData itemsData = new RequestItemsData();
+            itemsData.setInputValue(itemsDataDto.getInputValue());
+            itemsData.setItemName(formItemsData.getItemName());
+            itemsData.setInputType(formItemsData.getInputType());
+            itemsData.setSelected(formItemsData.isSelected());
+            itemsData.setInputRequire(formItemsData.getInputRequire());
+            itemsData.setDescription(formItemsData.getDescription());
+            itemsData.setRequestMainItems(mainItems);
+
+            itemsDataList.add(itemsData);
+        }
+
+        return itemsDataList;
+    }
+
 
 
 
