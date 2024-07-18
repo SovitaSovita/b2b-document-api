@@ -25,8 +25,9 @@ public class Form {
     private String formNumber;
     private String isItem;// use, unused
 
+
     @OneToMany(mappedBy = "form", cascade = CascadeType.ALL)
-    private List<ItemsData> itemsData;
+    private List<MainItems> mainItems;
 
     private String fileId;
     private String username;

@@ -2,11 +2,9 @@ package kosign.b2bdocumentv4.service.doc_form;
 
 import kosign.b2bdocumentv4.dto.FormDto;
 import kosign.b2bdocumentv4.dto.ItemsDataDto;
+import kosign.b2bdocumentv4.dto.MainItemsDto;
 import kosign.b2bdocumentv4.dto.SubItemsDto;
-import kosign.b2bdocumentv4.entity.doc_form.Form;
-import kosign.b2bdocumentv4.entity.doc_form.FormRepository;
-import kosign.b2bdocumentv4.entity.doc_form.ItemsData;
-import kosign.b2bdocumentv4.entity.doc_form.SubItems;
+import kosign.b2bdocumentv4.entity.doc_form.*;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.doc_form.GetFormRequest;
 import org.springframework.stereotype.Service;
@@ -25,20 +23,20 @@ public class FormServiceImpl {
 
 
     public Form createForm(FormDto formDto) {
-        Form form = mapFormDtoToForm(formDto);  //func
-        List<ItemsData> itemsDataList = new ArrayList<>();
+        Form form = mapFormDtoToForm(formDto);  // Mapping function
+        List<MainItems> mainItemsList = new ArrayList<>();
 
         if (!formDto.getIsItem().isBlank()) {
-            handleIsItemField(formDto, form, itemsDataList);  //func
+            handleIsItemField(formDto, form, mainItemsList);  // Handling function
         } else {
             throw new IllegalArgumentException("IsItems couldn't be blank!");
         }
 
         form.setFileId(formDto.getFileId());
         form.setCompany(formDto.getCompany());
-        setFormStatusAndUsername(formDto, form); //func
+        setFormStatusAndUsername(formDto, form);  // Set status and username function
         form.setCreateDate(formDto.getCreateDate());
-        form.setItemsData(itemsDataList);
+        form.setMainItems(mainItemsList);
 
         formRepository.save(form);
         return form;
@@ -54,17 +52,17 @@ public class FormServiceImpl {
         return form;
     }
 
-    private void handleIsItemField(FormDto formDto, Form form, List<ItemsData> itemsDataList) {
+    private void handleIsItemField(FormDto formDto, Form form, List<MainItems> mainItemsList) {
         switch (formDto.getIsItem()) {
             case "unused":
                 form.setIsItem("unused");
-                itemsDataList.add(null);
+                mainItemsList.add(null);
                 break;
             case "use":
                 form.setIsItem("use");
-                for (ItemsDataDto itemsDataDto : formDto.getItemsData()) {
-                    ItemsData itemsData = mapItemsDataDtoToItemsData(itemsDataDto, form);
-                    itemsDataList.add(itemsData);
+                for (MainItemsDto mainItemsDto : formDto.getMainItems()) {
+                    MainItems mainItems = mapMainItemsDtoToMainItems(mainItemsDto, form);
+                    mainItemsList.add(mainItems);
                 }
                 break;
             default:
@@ -72,13 +70,31 @@ public class FormServiceImpl {
         }
     }
 
-    private ItemsData mapItemsDataDtoToItemsData(ItemsDataDto itemsDataDto, Form form) {
+    private MainItems mapMainItemsDtoToMainItems(MainItemsDto mainItemsDto, Form form) {
+        MainItems mainItems = new MainItems();
+        mainItems.setItemName(mainItemsDto.getItemName());
+        mainItems.setType(mainItemsDto.getType());
+        mainItems.setRequire(mainItemsDto.getRequire());
+        mainItems.setForm(form);
+
+        List<ItemsData> itemsDataList = new ArrayList<>();
+        for (ItemsDataDto itemsDataDto : mainItemsDto.getItemsData()) {
+            ItemsData itemsData = mapItemsDataDtoToItemsData(itemsDataDto, mainItems);
+            itemsDataList.add(itemsData);
+        }
+        mainItems.setItemsData(itemsDataList);
+
+        return mainItems;
+    }
+
+    private ItemsData mapItemsDataDtoToItemsData(ItemsDataDto itemsDataDto, MainItems mainItems) {
         ItemsData itemsData = new ItemsData();
         itemsData.setItemName(itemsDataDto.getItemName());
         itemsData.setInputRequire(itemsDataDto.getInputRequire());
+        itemsData.setDescription(itemsDataDto.getDescription());
         itemsData.setInputType(itemsDataDto.getInputType());
         itemsData.setInputValue(itemsDataDto.getInputValue());
-        itemsData.setForm(form);
+        itemsData.setMainItems(mainItems);
 
         List<SubItems> subItemsList = new ArrayList<>();
         if ("select".equals(itemsDataDto.getInputType()) || "radio".equals(itemsDataDto.getInputType())) {
@@ -108,6 +124,7 @@ public class FormServiceImpl {
             form.setStatus(2);
         }
     }
+
 
     public List<Form> getAll() {
         List<Form> data = formRepository.findAll();
