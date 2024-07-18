@@ -12,6 +12,7 @@ import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
 import kosign.b2bdocumentv4.service.doc_save_tag.SaveDocumentTagImpl;
 import kosign.b2bdocumentv4.service.doc_users.DocUserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -39,14 +40,13 @@ public class TagController {
 
     // Delete Tag (Use)
     @PostMapping("/deleteTag")
-    public BaseResponse deleteTagById(@RequestBody DocTagDeleteRequest docTagDeleteRequest) {
-        return service.deleteTag(docTagDeleteRequest);
+    public ResponseEntity<?> deleteTagById(@RequestParam Long tag_id) {
+        return service.deleteTag(tag_id);
     }
 
     // New API list tag and Title (Use)
     @GetMapping("/documentTag")
     public BaseResponse doc_menu_home_r01(@RequestParam Long dept_id, String username) {
-
         return service.getTag(dept_id, username);
     }
 
