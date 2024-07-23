@@ -81,12 +81,28 @@ public class FileServiceImpl implements FileService {
                     fileName.contains((".zip")) ||
                     fileName.contains((".tar"))
             ) {
-                fileName = UUID.randomUUID() +  "." + StringUtils.getFilenameExtension(fileName);
-
                 // create directory if not exist
                 if (!Files.exists(root)) {
                     Files.createDirectories(root);
                 }
+                // Ensure the filename is unique by checking if it already exists
+                Path destinationFile = root.resolve(Paths.get(fileName)).normalize().toAbsolutePath();
+                if (!destinationFile.getParent().equals(root.toAbsolutePath())) {
+                    throw new IOException("Cannot store file outside current directory.");
+                }
+
+                // If file exists, append a number to make it unique
+                int counter = 1;
+                String baseName = fileName.substring(0, fileName.lastIndexOf('.'));
+                String extension = fileName.substring(fileName.lastIndexOf('.'));
+                while (Files.exists(destinationFile)) {
+                    fileName = baseName + "(" + counter++ + ")" + extension;
+                    destinationFile = root.resolve(
+                                    Paths.get(fileName))
+                            .normalize().toAbsolutePath();
+                }
+
+
                 Files.copy(file.getInputStream(), root.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
                 documentFile.setFile_nm(fileName);
                 documentFile.setThum_img_path(base_url + fileName);
