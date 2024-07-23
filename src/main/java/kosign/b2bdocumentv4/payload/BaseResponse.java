@@ -14,9 +14,12 @@ public class BaseResponse {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Page page;
+
     @JsonIgnore
     private org.springframework.data.domain.Page<?> pageable;
+
     private Object rec;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String inqCnt;
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -54,6 +57,7 @@ public class BaseResponse {
             return this.rawData.getContent();
         return rec;
     }
+
     // Getter method for 'page' field
     public Page getPage() {
         if(this.rawData != null)

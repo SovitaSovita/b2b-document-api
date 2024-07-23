@@ -1,7 +1,9 @@
 package kosign.b2bdocumentv4.entity.doc_file;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import kosign.b2bdocumentv4.entity.doc_articles.DocumentArticles;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +27,10 @@ public class DocumentFile {
     @NotNull
     private String file_article_id;
     private int status = 1;
+
+    @ManyToOne
+    @JoinColumn(name = "file_article_id", referencedColumnName = "file_article_id", insertable = false, updatable = false)
+    @JsonIgnore
+    private DocumentArticles documentArticles;
+
 }
