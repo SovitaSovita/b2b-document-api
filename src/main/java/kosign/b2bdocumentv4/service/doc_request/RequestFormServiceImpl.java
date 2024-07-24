@@ -3,14 +3,8 @@ package kosign.b2bdocumentv4.service.doc_request;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kosign.b2bdocumentv4.dto.RequestFormDto;
-import kosign.b2bdocumentv4.dto.RequestItemsDataDto;
-import kosign.b2bdocumentv4.dto.RequestMainItemsDto;
-import kosign.b2bdocumentv4.dto.RequestToDto;
-import kosign.b2bdocumentv4.entity.doc_form.Form;
-import kosign.b2bdocumentv4.entity.doc_form.FormRepository;
-import kosign.b2bdocumentv4.entity.doc_form.ItemsData;
-import kosign.b2bdocumentv4.entity.doc_form.MainItems;
+import kosign.b2bdocumentv4.dto.*;
+import kosign.b2bdocumentv4.entity.doc_form.*;
 import kosign.b2bdocumentv4.entity.doc_request.*;
 import kosign.b2bdocumentv4.exception.NotFoundExceptionClass;
 import kosign.b2bdocumentv4.payload.doc_users.UserDetiailPayload;
@@ -86,25 +80,32 @@ public class RequestFormServiceImpl {
         return newRequestForm;
     }
 
-    private List<RequestMainItems> createMainItemsList(RequestFormDto requestForm, Form formExist, RequestForm newRequestForm) {
+    private List<RequestMainItems> createMainItemsList(RequestFormDto requestFormDto, Form formExist, RequestForm newRequestForm) {
         List<RequestMainItems> mainItemsList = new ArrayList<>();
         int count = 0;
 
-        for (RequestMainItemsDto mainItemsDto : requestForm.getRequestMainItems()) {
-            MainItems formMainItems = formExist.getMainItems().get(count);
+        for (RequestMainItemsDto mainItemsDto : requestFormDto.getRequestMainItems()) {
+            MainItems formMainItemsExist = formExist.getMainItems().get(count);
+            RequestMainItemsDto dto = requestFormDto.getRequestMainItems().get(count);
 
-            RequestMainItems mainItems = new RequestMainItems();
-            mainItems.setValue(mainItemsDto.getValue());
-            mainItems.setItemName(formMainItems.getItemName());
-            mainItems.setRequire(formMainItems.getRequire());
-            mainItems.setType(formMainItems.getType());
-            mainItems.setRequestForm(newRequestForm);
+            if(Objects.equals(formMainItemsExist.getId(), dto.getId())){
+                RequestMainItems mainItems = new RequestMainItems();
+                mainItems.setValue(mainItemsDto.getValue());
+                mainItems.setItemName(formMainItemsExist.getItemName());
+                mainItems.setRequire(formMainItemsExist.getRequire());
+                mainItems.setType(formMainItemsExist.getType());
+                mainItems.setRequestForm(newRequestForm);
 
-            List<RequestItemsData> itemsDataList = createItemsDataList(mainItemsDto, formMainItems, mainItems);
+                List<RequestItemsData> itemsDataList = createItemsDataList(mainItemsDto, formMainItemsExist, mainItems);
 
-            mainItems.setRequestItemsData(itemsDataList);
-            mainItemsList.add(mainItems);
-            count++;
+                mainItems.setRequestItemsData(itemsDataList);
+                mainItemsList.add(mainItems);
+
+                count++;
+            }
+            else{
+                throw new IllegalArgumentException("Main Item with ID " + dto.getId() + " Not Found");
+            }
         }
 
         return mainItemsList;
@@ -117,23 +118,25 @@ public class RequestFormServiceImpl {
             ItemsData formItemsData = formMainItems.getItemsData().get(i);
             RequestItemsDataDto itemsDataDto = mainItemsDto.getRequestItemsData().get(i);
 
-            RequestItemsData itemsData = new RequestItemsData();
-            itemsData.setInputValue(itemsDataDto.getInputValue());
-            itemsData.setItemName(formItemsData.getItemName());
-            itemsData.setInputType(formItemsData.getInputType());
-            itemsData.setSelected(formItemsData.isSelected());
-            itemsData.setInputRequire(formItemsData.getInputRequire());
-            itemsData.setDescription(formItemsData.getDescription());
-            itemsData.setRequestMainItems(mainItems);
+            if(Objects.equals(formItemsData.getId(), itemsDataDto.getId())){
+                RequestItemsData itemsData = new RequestItemsData();
+                itemsData.setInputValue(itemsDataDto.getInputValue());
+                itemsData.setItemName(formItemsData.getItemName());
+                itemsData.setInputType(formItemsData.getInputType());
+                itemsData.setSelected(formItemsData.isSelected());
+                itemsData.setInputRequire(formItemsData.getInputRequire());
+                itemsData.setDescription(formItemsData.getDescription());
+                itemsData.setRequestMainItems(mainItems);
 
-            itemsDataList.add(itemsData);
+                itemsDataList.add(itemsData);
+            }
+            else {
+                throw new IllegalArgumentException("Item Data with ID " + itemsDataDto.getId() + " Not Found.");
+            }
         }
 
         return itemsDataList;
     }
-
-
-
 
     public UserDetiailPayload getUserDetailFromBizLogin(String userId, String company) throws JsonProcessingException {
         String json = apiService.getUserDetails(userId, company).block();
@@ -283,5 +286,15 @@ public class RequestFormServiceImpl {
         }
 
         return null;
+    }
+
+    public List<RequestForm> getRequestById(Long requestId) {
+        List<RequestForm> requestForm = requestFormRepository.findByRequestId(requestId);
+
+        if(requestForm.isEmpty()){
+            throw new NotFoundExceptionClass("Request with ID " + requestId + " Not Found");
+        }
+
+        return requestForm;
     }
 }

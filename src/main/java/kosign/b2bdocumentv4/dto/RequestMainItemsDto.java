@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestMainItemsDto {
+    private Long id;
     private String value;
     private List<RequestItemsDataDto> requestItemsData;
 }

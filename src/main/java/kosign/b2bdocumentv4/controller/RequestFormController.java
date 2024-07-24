@@ -42,6 +42,17 @@ public class RequestFormController {
                 .build();
     }
 
+    @PostMapping("/getByRequestId")
+    public BaseResponse getByRequestId(@RequestParam Long requestId){
+        return BaseResponse.builder()
+                .code("200")
+                .message("success")
+                .isError(false)
+                .rec(requestFormService.getRequestById(requestId))
+                .build();
+    }
+
+
     @PutMapping("/updateRequest")
     public BaseResponse updateRequest(@RequestParam Long reqId){
         return BaseResponse.builder()
