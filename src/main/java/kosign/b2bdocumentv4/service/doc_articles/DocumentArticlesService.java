@@ -1,5 +1,6 @@
 package kosign.b2bdocumentv4.service.doc_articles;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.servlet.http.HttpServletRequest;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
@@ -11,13 +12,10 @@ public interface DocumentArticlesService {
 
     BaseResponse getMenuByDeptID(Long dept_id);
 
-    BaseResponse insertArticle(DocInsertArticleRequest articleRequest, HttpServletRequest request);
+    BaseResponse insertArticle(DocInsertArticleRequest articleRequest, HttpServletRequest request) throws JsonProcessingException;
 
     BaseResponse updateArticles(DocUpdateArticleRequest docUpdateArticleRequest);
 
     BaseResponse deleteArticle(Long articleId, HttpServletRequest request);
-
-    // API provider article
-    BaseResponse listArticlesByTagId(int tag_id);
 }
 

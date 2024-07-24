@@ -1,7 +1,9 @@
 package kosign.b2bdocumentv4.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
+import kosign.b2bdocumentv4.dto.ArticleEditorDto;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.payload.document_article.DocInsertArticleRequest;
 import kosign.b2bdocumentv4.payload.document_article.DocUpdateArticleRequest;
@@ -9,6 +11,8 @@ import kosign.b2bdocumentv4.payload.document_article.DocumentArticlesRequest;
 import kosign.b2bdocumentv4.service.doc_articles.DocumentArticlesServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @SecurityRequirement(name = "bearerAuth")
@@ -29,8 +33,17 @@ public class DocumentArticlesController {
     }
 
     @PostMapping("/add")
-    public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request){
+    public BaseResponse insertArticlesList(@RequestBody DocInsertArticleRequest articleRequest, HttpServletRequest request) throws JsonProcessingException {
          return service.insertArticle(articleRequest, request);
+    }
+
+    @PostMapping("/addEditor")
+    public BaseResponse assignEditorArticle(@RequestParam Long articleId, @RequestBody List<ArticleEditorDto> articleRequest) throws JsonProcessingException {
+        return BaseResponse.builder()
+                .rec(service.asssignEditorArticle(articleId, articleRequest))
+                .code("200")
+                .message("Editors Assigned Successfully.")
+                .build();
     }
 
    @PutMapping("/updateArticle")
@@ -42,11 +55,5 @@ public class DocumentArticlesController {
     @DeleteMapping("/delete")
     public BaseResponse deleteArticle(@RequestParam Long articleId, HttpServletRequest request){
         return service.deleteArticle(articleId, request);
-    }
-
-    // New
-    @GetMapping("/listBayTagId")
-    public BaseResponse getArticleBayTagId(@RequestParam int tag_id) {
-        return service.listArticlesByTagId(tag_id);
     }
 }
