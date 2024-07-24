@@ -1,0 +1,406 @@
+08:22:50.871 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 18788 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+08:22:50.878 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+08:22:50.959 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08:22:50.959 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08:22:52.890 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08:22:53.110 [BizBook-API] INFO  - Finished Spring Data repository scanning in 212 ms. Found 11 JPA repository interfaces.
+08:22:54.714 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+08:22:54.747 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+08:22:54.762 [BizBook-API] INFO  - Starting service [Tomcat]
+08:22:54.762 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+08:22:54.881 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+08:22:54.881 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 3922 ms
+08:22:55.309 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+08:22:55.466 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+08:22:55.529 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+08:22:56.092 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+08:22:56.156 [BizBook-API] INFO  - HikariPool-1 - Starting...
+08:22:56.495 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@eb7736e
+08:22:56.495 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+08:22:56.566 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+08:22:58.236 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+08:22:58.236 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08:22:59.121 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+08:23:01.763 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08:23:02.331 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@8ae6bb3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23bb7f81, org.springframework.security.web.context.SecurityContextHolderFilter@5c7722ef, org.springframework.security.web.header.HeaderWriterFilter@3c95b2bf, org.springframework.web.filter.CorsFilter@25cc0fa2, org.springframework.security.web.authentication.logout.LogoutFilter@56aa7a99, kosign.b2bdocumentv4.jwt.JwtTokenFilter@7550a706, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a44200b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5716fa4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d006768, org.springframework.security.web.access.ExceptionTranslationFilter@3e87f3c2, org.springframework.security.web.access.intercept.AuthorizationFilter@5e2801a7]
+08:23:03.240 [BizBook-API] INFO  - LiveReload server is running on port 35729
+08:23:03.296 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+08:23:03.319 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+08:23:03.334 [BizBook-API] INFO  - Started B2bDocumentV4Application in 13.232 seconds (process running for 13.836)
+08:32:13.963 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08:32:13.963 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+08:32:13.963 [BizBook-API] INFO  - Completed initialization in 0 ms
+08:32:13.996 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.073 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.073 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.073 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.073 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.073 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.327 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:14.403 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:32:15.180 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 732 ms
+08:54:37.299 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m10s148ms935탎900ns).
+09:33:29.090 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=35m21s740ms33탎500ns).
+10:44:09.735 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+10:44:10.474 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/DocTag/deleteTag
+10:44:10.474 [BizBook-API] INFO  - HTTP Method: POST
+10:44:10.476 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.TagController.deleteTagById
+10:44:10.476 [BizBook-API] INFO  - Request Args: [33]
+10:44:10.499 [BizBook-API] DEBUG - 
+    select
+        dt1_0.id,
+        dt1_0.create_date,
+        dt1_0.dept_id,
+        dt1_0.modified_date,
+        dt1_0.status,
+        dt1_0.title,
+        dt1_0.user_name 
+    from
+        stdy.doc_tags dt1_0 
+    where
+        dt1_0.id=?
+10:44:10.624 [BizBook-API] INFO  - Response: <404 NOT_FOUND Not Found,{error=true},[]>
+10:50:19.285 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+10:50:19.476 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/DocTag/deleteTag
+10:50:19.476 [BizBook-API] INFO  - HTTP Method: POST
+10:50:19.476 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.TagController.deleteTagById
+10:50:19.476 [BizBook-API] INFO  - Request Args: [109]
+10:50:19.478 [BizBook-API] DEBUG - 
+    select
+        dt1_0.id,
+        dt1_0.create_date,
+        dt1_0.dept_id,
+        dt1_0.modified_date,
+        dt1_0.status,
+        dt1_0.title,
+        dt1_0.user_name 
+    from
+        stdy.doc_tags dt1_0 
+    where
+        dt1_0.id=?
+10:50:19.556 [BizBook-API] DEBUG - 
+    select
+        id 
+    from
+        stdy.doc_articles da 
+    where
+        tag_id = ? 
+10:50:19.606 [BizBook-API] DEBUG - 
+    SELECT
+        * 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.630 [BizBook-API] DEBUG - 
+    SELECT
+        * 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.650 [BizBook-API] DEBUG - 
+    SELECT
+        a.id,
+        a.tag_id,
+        a.file_article_id,
+        t.title as tag_title,
+        a.title,
+        a.content_body,
+        a.modified_date ,
+        a.create_date,
+        a.created_by,
+        a.dept_id,
+        a.modified_by,
+        a.status,
+        b.username,
+        b.image,
+        a.user_id 
+    FROM
+        stdy.doc_articles a 
+    left join
+        stdy.doc_users b 
+            on a.user_id = b.id 
+    left join
+        stdy.doc_tags t 
+            on t.id = a.tag_id 
+    where
+        a.id=cast(? as INTEGER) 
+10:50:19.678 [BizBook-API] DEBUG - 
+    select
+        da1_0.id,
+        da1_0.content_body,
+        da1_0.create_date,
+        da1_0.created_by,
+        da1_0.dept_id,
+        da1_0.file_article_id,
+        da1_0.isfavorite,
+        da1_0.modified_by,
+        da1_0.modified_date,
+        da1_0.status,
+        da1_0.tag_id,
+        da1_0.title,
+        da1_0.user_id 
+    from
+        stdy.doc_articles da1_0 
+    where
+        da1_0.id=?
+10:50:19.768 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_articles 
+    where
+        id=?
+10:50:19.809 [BizBook-API] DEBUG - 
+    SELECT
+        * 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.814 [BizBook-API] DEBUG - 
+    SELECT
+        * 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.818 [BizBook-API] DEBUG - 
+    SELECT
+        a.id,
+        a.tag_id,
+        a.file_article_id,
+        t.title as tag_title,
+        a.title,
+        a.content_body,
+        a.modified_date ,
+        a.create_date,
+        a.created_by,
+        a.dept_id,
+        a.modified_by,
+        a.status,
+        b.username,
+        b.image,
+        a.user_id 
+    FROM
+        stdy.doc_articles a 
+    left join
+        stdy.doc_users b 
+            on a.user_id = b.id 
+    left join
+        stdy.doc_tags t 
+            on t.id = a.tag_id 
+    where
+        a.id=cast(? as INTEGER) 
+10:50:19.826 [BizBook-API] DEBUG - 
+    select
+        da1_0.id,
+        da1_0.content_body,
+        da1_0.create_date,
+        da1_0.created_by,
+        da1_0.dept_id,
+        da1_0.file_article_id,
+        da1_0.isfavorite,
+        da1_0.modified_by,
+        da1_0.modified_date,
+        da1_0.status,
+        da1_0.tag_id,
+        da1_0.title,
+        da1_0.user_id 
+    from
+        stdy.doc_articles da1_0 
+    where
+        da1_0.id=?
+10:50:19.839 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_articles 
+    where
+        id=?
+10:50:19.855 [BizBook-API] DEBUG - 
+    SELECT
+        * 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.861 [BizBook-API] DEBUG - 
+    SELECT
+        * 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.887 [BizBook-API] DEBUG - 
+    DELETE 
+    FROM
+        stdy.doc_favorite 
+    WHERE
+        article_id = ? 
+10:50:19.903 [BizBook-API] DEBUG - 
+    SELECT
+        a.id,
+        a.tag_id,
+        a.file_article_id,
+        t.title as tag_title,
+        a.title,
+        a.content_body,
+        a.modified_date ,
+        a.create_date,
+        a.created_by,
+        a.dept_id,
+        a.modified_by,
+        a.status,
+        b.username,
+        b.image,
+        a.user_id 
+    FROM
+        stdy.doc_articles a 
+    left join
+        stdy.doc_users b 
+            on a.user_id = b.id 
+    left join
+        stdy.doc_tags t 
+            on t.id = a.tag_id 
+    where
+        a.id=cast(? as INTEGER) 
+10:50:19.912 [BizBook-API] DEBUG - 
+    select
+        da1_0.id,
+        da1_0.content_body,
+        da1_0.create_date,
+        da1_0.created_by,
+        da1_0.dept_id,
+        da1_0.file_article_id,
+        da1_0.isfavorite,
+        da1_0.modified_by,
+        da1_0.modified_date,
+        da1_0.status,
+        da1_0.tag_id,
+        da1_0.title,
+        da1_0.user_id 
+    from
+        stdy.doc_articles da1_0 
+    where
+        da1_0.id=?
+10:50:19.954 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_articles 
+    where
+        id=?
+10:50:19.978 [BizBook-API] DEBUG - 
+    select
+        dt1_0.id,
+        dt1_0.create_date,
+        dt1_0.dept_id,
+        dt1_0.modified_date,
+        dt1_0.status,
+        dt1_0.title,
+        dt1_0.user_name 
+    from
+        stdy.doc_tags dt1_0 
+    where
+        dt1_0.id=?
+10:50:20.002 [BizBook-API] DEBUG - 
+    delete 
+    from
+        stdy.doc_tags 
+    where
+        id=?
+10:50:20.021 [BizBook-API] INFO  - Response: <200 OK OK,{Message=Delete success, error=false},[]>
+11:41:51.726 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50s505ms768탎900ns).
+12:10:10.625 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m18s481ms15탎500ns).
+12:26:27.496 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m46s683ms662탎100ns).
+13:06:38.043 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m10s38ms848탎500ns).
+14:15:53.874 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+14:15:54.246 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+14:15:54.246 [BizBook-API] INFO  - HTTP Method: GET
+14:15:54.246 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+14:15:54.246 [BizBook-API] INFO  - Request Args: [HRMS, 50]
+14:15:54.281 [BizBook-API] DEBUG - 
+    select
+        coalesce(id , '1') as id,
+        tag_id ,
+        tag_title ,
+        coalesce(title, '') as title,
+        coalesce(content_body, '')as content_body 
+    from
+        stdy.docs_search(?, ?)
+14:15:54.480 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[], inqCnt=null, inqRec=null, message=No Data Found, code=404, responseMessage=OK, isError=true, rawData=null)
+14:22:56.579 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 14968 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+14:22:56.579 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+14:22:56.651 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:22:56.651 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:22:58.210 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:22:58.424 [BizBook-API] INFO  - Finished Spring Data repository scanning in 200 ms. Found 11 JPA repository interfaces.
+14:23:00.061 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+14:23:00.093 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+14:23:00.102 [BizBook-API] INFO  - Starting service [Tomcat]
+14:23:00.103 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+14:23:00.245 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+14:23:00.245 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 3594 ms
+14:23:00.659 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:23:00.809 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+14:23:00.838 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+14:23:01.283 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+14:23:01.353 [BizBook-API] INFO  - HikariPool-1 - Starting...
+14:23:01.787 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2112fcf8
+14:23:01.790 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+14:23:01.849 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+14:23:03.501 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:23:03.504 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:23:04.369 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+14:23:06.973 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:23:07.555 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@fafe56c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@423df09f, org.springframework.security.web.context.SecurityContextHolderFilter@168c751b, org.springframework.security.web.header.HeaderWriterFilter@621956ed, org.springframework.web.filter.CorsFilter@52e892d5, org.springframework.security.web.authentication.logout.LogoutFilter@351e0080, kosign.b2bdocumentv4.jwt.JwtTokenFilter@4e5ec12f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@73980630, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cf2b88b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2bab7522, org.springframework.security.web.access.ExceptionTranslationFilter@244441ce, org.springframework.security.web.access.intercept.AuthorizationFilter@34eba298]
+14:23:08.413 [BizBook-API] INFO  - LiveReload server is running on port 35729
+14:23:08.461 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+14:23:08.501 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+14:23:08.522 [BizBook-API] INFO  - Started B2bDocumentV4Application in 12.517 seconds (process running for 13.09)
+14:39:12.114 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m10s150ms433탎600ns).
+14:42:43.118 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:42:43.122 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+14:42:43.126 [BizBook-API] INFO  - Completed initialization in 4 ms
+14:42:43.182 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:43.373 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:43.374 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:43.375 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:43.456 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:43.460 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:44.344 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:44.485 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+14:42:45.486 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 976 ms
+14:51:38.975 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m26s671ms744탎800ns).

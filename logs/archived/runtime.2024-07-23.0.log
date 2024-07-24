@@ -1,0 +1,36 @@
+08:03:33.631 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 15928 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+08:03:33.649 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+08:03:33.807 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08:03:33.807 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08:03:35.806 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08:03:36.352 [BizBook-API] INFO  - Finished Spring Data repository scanning in 526 ms. Found 11 JPA repository interfaces.
+08:03:39.180 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+08:03:39.225 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+08:03:39.241 [BizBook-API] INFO  - Starting service [Tomcat]
+08:03:39.241 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+08:03:39.406 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+08:03:39.406 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 5594 ms
+08:03:39.912 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+08:03:40.113 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+08:03:40.231 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+08:03:40.879 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+08:03:40.946 [BizBook-API] INFO  - HikariPool-1 - Starting...
+08:03:41.330 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6d58579e
+08:03:41.330 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+08:03:41.431 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+08:03:43.488 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+08:03:43.496 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08:03:44.775 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+08:03:47.727 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08:03:48.676 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7ec78774, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@eb7c1d5, org.springframework.security.web.context.SecurityContextHolderFilter@74a90b33, org.springframework.security.web.header.HeaderWriterFilter@2427565, org.springframework.web.filter.CorsFilter@748d7219, org.springframework.security.web.authentication.logout.LogoutFilter@5b7d3b0c, kosign.b2bdocumentv4.jwt.JwtTokenFilter@595fdb76, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4921af80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e1cd6e7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@248fb732, org.springframework.security.web.access.ExceptionTranslationFilter@29ffe887, org.springframework.security.web.access.intercept.AuthorizationFilter@48bc45d4]
+08:03:49.880 [BizBook-API] INFO  - LiveReload server is running on port 35729
+08:03:49.924 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+08:03:49.970 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+08:03:49.997 [BizBook-API] INFO  - Started B2bDocumentV4Application in 17.383 seconds (process running for 18.471)
+08:35:38.863 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m12s974ms831탎300ns).
+09:25:12.024 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=35m32s889ms929탎100ns).
+09:51:23.552 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m41s153ms938탎).
+10:41:30.038 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m5s848ms681탎500ns).
+13:33:40.627 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s433ms438탎200ns).
+14:23:15.582 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m4s195ms705탎100ns).
+17:10:47.931 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m234ms860탎800ns).
