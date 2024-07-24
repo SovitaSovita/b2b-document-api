@@ -19182,3 +19182,1032 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 19:19:57.709 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 19:19:57.710 [BizBook-API] INFO  - HikariPool-7 - Shutdown initiated...
 19:19:57.711 [BizBook-API] INFO  - HikariPool-7 - Shutdown completed.
+08:50:40.347 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 7876 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+08:50:40.350 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+08:50:40.410 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08:50:40.410 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08:50:41.834 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08:50:42.115 [BizBook-API] INFO  - Finished Spring Data repository scanning in 273 ms. Found 12 JPA repository interfaces.
+08:50:43.842 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+08:50:43.892 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+08:50:43.898 [BizBook-API] INFO  - Starting service [Tomcat]
+08:50:43.899 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+08:50:44.031 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+08:50:44.032 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 3620 ms
+08:50:44.430 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+08:50:44.571 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+08:50:44.648 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+08:50:45.091 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+08:50:45.150 [BizBook-API] INFO  - HikariPool-1 - Starting...
+08:50:45.531 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@c8e4607
+08:50:45.531 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+08:50:45.591 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+08:50:47.477 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+08:50:47.481 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08:50:48.368 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+08:50:50.880 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08:50:51.431 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@acf52e1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48d63571, org.springframework.security.web.context.SecurityContextHolderFilter@60f325f5, org.springframework.security.web.header.HeaderWriterFilter@4f86b1d9, org.springframework.web.filter.CorsFilter@6d638e39, org.springframework.security.web.authentication.logout.LogoutFilter@54c51ad0, kosign.b2bdocumentv4.jwt.JwtTokenFilter@8a838e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@676577d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@87083f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36b8fd90, org.springframework.security.web.access.ExceptionTranslationFilter@532aab9d, org.springframework.security.web.access.intercept.AuthorizationFilter@3219812a]
+08:50:52.302 [BizBook-API] INFO  - LiveReload server is running on port 35729
+08:50:52.333 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+08:50:52.357 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+08:50:52.376 [BizBook-API] INFO  - Started B2bDocumentV4Application in 12.647 seconds (process running for 13.135)
+08:51:23.544 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08:51:23.545 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+08:51:23.545 [BizBook-API] INFO  - Completed initialization in 0 ms
+08:51:23.567 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.622 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.634 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.635 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.635 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.637 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.861 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.865 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:23.913 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+08:51:24.569 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 636 ms
+09:34:27.620 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=26m11s655ms676µs900ns).
+10:36:12.357 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m43s884ms698µs100ns).
+11:11:34.183 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.215 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.215 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.216 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.217 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.217 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.274 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.274 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:11:34.303 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:23:35.612 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+11:23:36.613 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+11:23:36.614 [BizBook-API] INFO  - HTTP Method: GET
+11:23:36.617 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+11:23:36.617 [BizBook-API] INFO  - Request Args: [g, 50]
+11:23:36.637 [BizBook-API] DEBUG - 
+    select
+        coalesce(id , '1') as id,
+        tag_id ,
+        tag_title ,
+        coalesce(title, '') as title,
+        coalesce(content_body, '')as content_body 
+    from
+        stdy.docs_search(?, ?)
+11:23:37.026 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=283, title=import project, tag_title=ubuntus servers, tag_id=235, content_body=rt existin<span class="h-text">g</span> projects
+
+5. on select root directory&nbsp;click the button browse (first button)
+
+6. select your project which you want to import example: (stdy) and click ok
+
+7. in the options box click check search for nested projects and wait for it&#39;s done
+
+8. uncheck root directory example: (stdy) and click finish
+
+and wait for it complete.
+&nbsp;
+), DocSearchAll(id=284, title=checkout svn, tag_title=ubuntus servers, tag_id=235, content_body= name
+
+2. <span class="h-text">g</span>o inside the folder you created and ri<span class="h-text">g</span>ht-click svn checkout...
+
+3. input svn host
+
+4. click ok
+), DocSearchAll(id=132, title=fstp, tag_title=server, tag_id=95, content_body=fstp confi<span class="h-text">g</span> for upload src by vs code editor
+
+{
+&nbsp; &nbsp; &quot;name&quot;: &quot;my server&quot;,
+&nbsp; &nbsp; &quot;host&quot;: &quot;10.254.241.151&quot;,
+&nbsp; &nbsp; &quot;protocol&quot;: &quot;sftp&quot;,
+&nbsp; &nbsp; &quot;port&quot;: 22,
+&nbsp; &nbsp; &quot;username&quot;: &quot;was&quot;,
+&nbsp; &nbsp; &quot;context&quot;: &quot;out/js&quot;,
+&nbsp; &nbsp; &quot;remotepath&quot;: &quot;/prj/emplinfo/src/js&quot;,
+&nbsp; &nbsp; &quot;uploadonsave&quot;: false
+}
+), DocSearchAll(id=223, title=beyond compare settin<span class="h-text">g</span>, tag_title=<span class="h-text">g</span>eneral, tag_id=203, content_body= r&nbsp;=&<span class="h-text">g</span>t;&nbsp;(%appdata%\scooter software\beyond compare 4) [delete all ]
+
+2. add license key
+
+h1bjtd2saupv5<span class="h-text">g</span>aruaq0i<span class="h-text">g</span>43uqq5njoew94wxdztpu-pfb9<span class="h-text">g</span>mypk677<span class="h-text">g</span>j
+
+vc1ro6sbavkr4pvwtxdcfuozdb6hj5bvqkqlfihjfsyzt-xvrvu27+0ja
+
+hfbqtmyskatmt<span class="h-text">g</span>pyjvv99cf2te8ec+ys2spxyzaf0ywocnowmsyqn5y9t
+
+q2kw2pjoids5<span class="h-text">g</span>ih-uw5u49jzob6ots7kthbje-h9a76u4uuvr8dkb+vcb
+
+rwu5qsj<span class="h-text">g</span>enbsxnfjdq5l2d8q<span class="h-text">g</span>rdv-sxhp2a-7j1x2n4wiisvu1v9koiys
+
+nishfbtcwjs0sc5btfwrtflee9lewz2bxhqpwjiu12zekpi+7ousqebx+
+
+&nbsp;
+
+orr download a<span class="h-text">g</span>ain from this pa<span class="h-text">g</span>e:
+
+https://filehippo.com/), DocSearchAll(id=234, title=ille<span class="h-text">g</span>al key size, tag_title=server, tag_id=95, content_body=184 - ille<span class="h-text">g</span>al key size
+13:29:17,542 ?? &nbsp; &nbsp;[stdout] java.security.invalidkeyexception: ille<span class="h-text">g</span>al key size
+13:29:17,542 ?? &nbsp; &nbsp;[stdout] &nbsp; at javax.crypto.cipher.checkcryptoperm(cipher.java:1029)
+
+
+	how to do&nbsp;
+
+
++ ps -ef | <span class="h-text">g</span>rep <span class="h-text">g</span>ms<span class="h-text">g</span> ==&<span class="h-text">g</span>t; cd /was_data/webroot/<span class="h-text">g</span>ms<span class="h-text">g</span>/jdk1.7.0_80/
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;==&<span class="h-text">g</span>t; cd /jre/lib/security
++ check these &nbsp;file with other server
+&nbsp; &nbsp; &nbsp;- us_exp), DocSearchAll(id=324, title=flow, tag_title=sprin<span class="h-text">g</span> boot, tag_id=249, content_body=ps://docs.<span class="h-text">g</span>oo<span class="h-text">g</span>le.com/presentation/d/13u7yq7xxb<span class="h-text">g</span>5xxln<span class="h-text">g</span>hphmkhf2c8dhisbqstru1sqt5<span class="h-text">g</span>y/edit#slide=id.p), DocSearchAll(id=267, title=confi<span class="h-text">g</span> uat server, tag_title=server, tag_id=95, content_body=/memo/src&<span class="h-text">g</span>t;
+&nbsp; &nbsp;allowoverride authconfi<span class="h-text">g</span>
+&nbsp; &nbsp;require all <span class="h-text">g</span>ranted
+&nbsp; &nbsp;&lt;limitexcept <span class="h-text">g</span>et post&<span class="h-text">g</span>t;
+&nbsp; &nbsp;require all denied
+&nbsp; &nbsp;&lt;/limitexcept&<span class="h-text">g</span>t;
+&nbsp; &nbsp;limitrequestbody 1048576000
+&lt;/directory&<span class="h-text">g</span>t;
+
+$vi /opt/apache-2.4.43/conf/httpd-ssl.conf
+
+##
+# ??
+##
+&lt;virtualhost *:443&<span class="h-text">g</span>t;
+&nbsp; &nbsp; serveradmin infinitywin<span class="h-text">g</span>@webcash.co.kr
+&nbsp; &nbsp; documentroot &quot;/was_data/webroot/memo/src&quot;
+&nbsp; &nbsp; servername &nbsp;memo.appplay.co.kr
+&nbsp; &nbsp; er), DocSearchAll(id=322, title=how to create database and user, tag_title=sql, tag_id=104, content_body=.com/codin<span class="h-text">g</span>-blocks/creatin<span class="h-text">g</span>-user-database-and-addin<span class="h-text">g</span>-access-on-post<span class="h-text">g</span>resql-8bfcd2f4a91e
+
+sudo -u post<span class="h-text">g</span>res psql
+post<span class="h-text">g</span>res=# create database mydb;
+post<span class="h-text">g</span>res=# create user myuser with encrypted password &#39;mypass&#39;;
+post<span class="h-text">g</span>res=# <span class="h-text">g</span>rant all privile<span class="h-text">g</span>es on database mydb to myuser;
+), DocSearchAll(id=268, title=check error lo<span class="h-text">g</span>, tag_title=server, tag_id=95, content_body=oks.war/or<span class="h-text">g</span>/apache/jsp/web_002dinf/action/jex/wabooks/api/mrec/wabooks_005fmrec_005fr006_005fact_jsp.java
+[was@wabooks_dev /opt/wildfly-17]$ vi ./standalone/tmp/wabooks.war/or<span class="h-text">g</span>/apache/jsp/web_002dinf/action/jex/wabooks/api/mrec/wabooks_005fmrec_005fr006_005fact_jsp.java
+[was@wabooks_dev /opt/wildfly-17]$ pwd
+/opt/wildfly-17
+[was@wabooks_dev /opt/wildfly-17]$ ll
+?? 524
+&nbsp;
+), DocSearchAll(id=287, title=jjiji, tag_title=ubuntus servers, tag_id=235, content_body=nhi <span class="h-text">g</span>huibhi
+), DocSearchAll(id=323, title=wehrm, tag_title=oz report, tag_id=121, content_body=1,2&nbsp;&<span class="h-text">g</span>t; deploy only below only 1
+
+profile:wehrm/was@10.140.11.52_was1?/was_data/webroot/hrrpt/oz70/web-inf/repository_files/
+), DocSearchAll(id=280, title=ssh remote confi<span class="h-text">g</span>, tag_title=ubuntus servers, tag_id=235, content_body=.
+
+enablin<span class="h-text">g</span> ssh will allow you to connect to your system remotely and perform administrative tasks. you&rsquo;ll also be able to securely transfer files via&nbsp;scp&nbsp;and&nbsp;sftp&nbsp;.
+
+&nbsp;
+
+enablin<span class="h-text">g</span> ssh on ubuntu
+
+by default, when ubuntu is first installed, remote access via ssh is not allowed. enablin<span class="h-text">g</span> ssh on ubuntu is fairly strai<span class="h-text">g</span>htforward.
+
+&nbsp;
+
+sudo apt update
+
+sudo apt install openssh-server
+
+when prompted, enter your password and press enter to continue with the installation.
+
+once the installa), DocSearchAll(id=330, title=jex2 convert to jex3, tag_title=<span class="h-text">g</span>eneral, tag_id=203, content_body=wmean-hub.<span class="h-text">g</span>ithub.io/kosi<span class="h-text">g</span>n_url_decode_json/
+), DocSearchAll(id=360, title=testin<span class="h-text">g</span>, tag_title=test, tag_id=261, content_body=test), DocSearchAll(id=243, title=confi<span class="h-text">g</span>uration in server, tag_title=oz report, tag_id=121, content_body=$.cd /opt/jboss-6.1/domains/hrmyadm/oz70/web-inf
+$ ln -s /was_data/webroot/hrmyadm/src/repository_files repository_files
+), DocSearchAll(id=278, title=domain name (dns), tag_title=ubuntus servers, tag_id=235, content_body=
+
+elearnin<span class="h-text">g</span>.setecu.com, and translate it to an ip address. when we access a website, we are usin<span class="h-text">g</span> this service to locate the server where the domain&#39;s website is located. when browsin<span class="h-text">g</span> the web, we usually type in a domain name like www.<span class="h-text">g</span>oo<span class="h-text">g</span>le.com into our browser.
+
+it is a central part of the internet, providin<span class="h-text">g</span> a way to match names (a website you&rsquo;re seekin<span class="h-text">g</span>) to numbers (the address for the website). anythin<span class="h-text">g</span> connected to the internet - laptops, tablets, mobile phones, websites - has an internet protocol ), DocSearchAll(id=65, title=monitorin<span class="h-text">g</span> jex deploy, tag_title=jex, tag_id=103, content_body=monitorin<span class="h-text">g</span> jex deploy
+
+user documentation
+09/11/2019
+
+
+1. locate to jexdeploy location (ps -ef | <span class="h-text">g</span>rep jexdeploy)
+   cd /home/was/jex/jexdeploy/lo<span class="h-text">g</span>s
+   ==&<span class="h-text">g</span>t; tail -f deploy.lo<span class="h-text">g</span>
+
+2. note 
+  when you commit some file sush as (java, jar, ...) , jexdeploy try to compile that files
+    - if compile sucess ==&<span class="h-text">g</span>t; commit that file
+    - else no commit 
+
+), DocSearchAll(id=256, title=how to backup and restore post<span class="h-text">g</span>ressql, tag_title=sql, tag_id=104, content_body=1.dump
+
+p<span class="h-text">g</span>_dump -h host -p port -u user -w -f t database_name &<span class="h-text">g</span>t; /path/to/your/file/dump_name.tar
+
+2.restore
+
+p<span class="h-text">g</span>password=&quot;password&quot; p<span class="h-text">g</span>_restore -u user -d database_name -v &quot;/path/to/your/file/dump_name.tar&quot;
+), DocSearchAll(id=253, title=printer, tag_title=<span class="h-text">g</span>eneral, tag_id=203, content_body=n this ==&<span class="h-text">g</span>t;&nbsp;how_to_setup_printer_ip_192_168_178_48_camintel_setup_<span class="h-text">g</span>uide.docx
+), DocSearchAll(id=271, title=jex3 how to deploye, tag_title=jex, tag_id=103, content_body=eployment_<span class="h-text">g</span>uidefor_uploader
+), DocSearchAll(id=134, title=comman, tag_title=server, tag_id=95, content_body=e f -exec <span class="h-text">g</span>rep -l &quot;http://emplinfo.webcash.co.kr/&quot; {} \;
+
+
+&nbsp;find specific&nbsp;extension file
+
+
+	&nbsp; find . -type f \( -name &quot;*.java&quot; -o -name &quot;*.jsp&quot; \) -exec <span class="h-text">g</span>rep -rihn &#39;^\s*.system.out.println&#39; {} \;
+	&nbsp; find . -name &#39;*.js&#39; -exec <span class="h-text">g</span>rep -rihn &#39;^\s*.console.lo<span class="h-text">g</span>&#39; {} \;
+
+
+space detail&nbsp;
+
+
+	&nbsp; du --max-depth=1 -h
+
+
+zip/backup file
+
+
+	tar czvf 2021.tar.<span class="h-text">g</span>z 2021/
+
+
+find with pattern
+
+
+	find . -maxdepth 1 -type f | <span class="h-text">g</span>rep -p &quot;(starter|transaction), DocSearchAll(id=66, title=jexsystem/system prop, tag_title=jex, tag_id=103, content_body=1. call==&<span class="h-text">g</span>t; jexsystem.<span class="h-text">g</span>etproperty(&quot;key&quot;) or system.<span class="h-text">g</span>etproperty(&quot;key&quot;)
+    e<span class="h-text">g</span>) system.<span class="h-text">g</span>etproperty(&quot;bizplayconfi<span class="h-text">g</span>path&quot;) 
+        jexsystem.<span class="h-text">g</span>etproperty(&quot;bizplayconfi<span class="h-text">g</span>path&quot;)
+
+2. add xxx.confi<span class="h-text">g</span> file
+     e<span class="h-text">g</span>) /webroot/webank/src/web-inf/bizplay.confi<span class="h-text">g</span>
+
+3.  settin<span class="h-text">g</span> confi<span class="h-text">g</span> path
+     e<span class="h-text">g</span>) vi /opt/tomcat7/webank/bin/catalina.sh
+     e<span class="h-text">g</span>) java_opts=&quot;${java_opts} -dbizplayconfi<span class="h-text">g</span>path=/webroot/webank/src/web-inf/bizplay.confi<span class="h-text">g</span>&quot; 
+
+&nbsp;
+
+how to set jexsystem property for jex3
+
+us), DocSearchAll(id=279, title=where to buy server, tag_title=ubuntus servers, tag_id=235, content_body=tes.
+
+
+	di<span class="h-text">g</span>italocean
+	alibabacloud
+
+), DocSearchAll(id=198, title=js module, tag_title=javascript, tag_id=99, content_body=mply typin<span class="h-text">g</span> 
+        
+            $ tsc --init
+        
+        2. confi<span class="h-text">g</span>ure the tsconfi<span class="h-text">g</span>.json file as below
+        
+            {
+                "compileroptions": {
+                  "module": "amd",
+                  "rootdir": "./src",
+                  "sourceroot": "./src/",
+                  "outfile": "app.js",
+                  "tar<span class="h-text">g</span>et": "es5", 
+                  "sourcemap": true,
+                  "noimplicitusestrict": true,        
+                  "forceconsistentcasin<span class="h-text">g</span>infilenames": ), DocSearchAll(id=285, title=testin<span class="h-text">g</span>, tag_title=ubuntus servers, tag_id=235, content_body=asdfasdfasdf
+), DocSearchAll(id=70, title=blockin<span class="h-text">g</span> table, tag_title=sql, tag_id=104, content_body=ck blockin<span class="h-text">g</span> table(post<span class="h-text">g</span>resql)
+
+user documentation
+10/17/2019
+
+
+select 
+    kl.pid as blockin<span class="h-text">g</span>_pid,
+    ka.usename as blockin<span class="h-text">g</span>_user,
+    ka.current_query as blockin<span class="h-text">g</span>_query,
+    bl.pid as blocked_pid,
+    a.usename as blocked_user, 
+    a.current_query as blocked_query, 
+    to_char(a<span class="h-text">g</span>e(now(), a.query_start),&#39;hh24h:mim:sss&#39;) as a<span class="h-text">g</span>e
+from p<span class="h-text">g</span>_catalo<span class="h-text">g</span>.p<span class="h-text">g</span>_locks bl
+    join p<span class="h-text">g</span>_catalo<span class="h-text">g</span>.p<span class="h-text">g</span>_stat_activity a 
+        on bl.pid = a.procpid
+    join p<span class="h-text">g</span>_catalo<span class="h-text">g</span>.p<span class="h-text">g</span>_locks kl 
+        on bl.locktype = kl.locktype
+        and ), DocSearchAll(id=63, title=debu<span class="h-text">g</span>/error level lo<span class="h-text">g</span>, tag_title=server, tag_id=95, content_body=.xml 
+  (e<span class="h-text">g</span>. vi /was_data/webroot/emplinfo/src/web-inf/jex/confi<span class="h-text">g</span>/jex.emplinfo.xml )
+
+2. chan<span class="h-text">g</span>e to debu<span class="h-text">g</span> or error level  
+   2.1) if debu<span class="h-text">g</span> level (e<span class="h-text">g</span>. in java ==&<span class="h-text">g</span>t; if(lo<span class="h-text">g</span>.isdebu<span class="h-text">g</span>()) lo<span class="h-text">g</span>.debu<span class="h-text">g</span>(&quot;exception... empldataecute()&quot;); ) 
+
+&nbsp; &nbsp; &nbsp; * check point&nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;default level=&quot;debu<span class="h-text">g</span>&quot; filepath=&quot;${jex_home}/lo<span class="h-text">g</span>s&quot; filename=&quot;default.&quot; dateformat=&quot;yyyymmdd&quot;&<span class="h-text">g</span>t;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &), DocSearchAll(id=705, title=monday workin<span class="h-text">g</span>, tag_title=bizweb infooooooooooooooooooooooooooooooooo , tag_id=606, content_body= am workin<span class="h-text">g</span>.), DocSearchAll(id=718, title=test minh, tag_title=test minh, tag_id=522, content_body=llo nh pon<span class="h-text">g</span> test minh
+ download 954abbf1-8c08-4269-8aae-f5efae51056e.docx  ), DocSearchAll(id=719, title=sokhen test, tag_title=test minh, tag_id=522, content_body=1b8c4e4.jp<span class="h-text">g</span>  ), DocSearchAll(id=294, title=aba, tag_title=<span class="h-text">g</span>eneral, tag_id=203, content_body=qr), DocSearchAll(id=739, title=o khen 123321, tag_title=test minh, tag_id=522, content_body=.com/packa<span class="h-text">g</span>e/@fullhuman/postcss-pur<span class="h-text">g</span>ecssdeployed
+
+
+
+company
+contact
+country
+
+
+alfreds futterkiste
+maria anders
+<span class="h-text">g</span>ermany
+
+
+centro comercial moctezuma ff
+francisco chan<span class="h-text">g</span>
+mexico
+
+
+
+), DocSearchAll(id=738, title=new template, tag_title=test minh, tag_id=522, content_body=ia anders
+<span class="h-text">g</span>ermany
+
+
+centro comercial moctezuma
+francisco chan<span class="h-text">g</span>
+mexico
+
+
+
+
+
+
+company
+contact
+country
+
+
+alfreds futterkiste
+maria anders
+<span class="h-text">g</span>ermany
+
+
+centro comercial moctezuma
+francisco chan<span class="h-text">g</span>
+mexico
+
+
+
+), DocSearchAll(id=734, title=nh vanda not <span class="h-text">g</span> devit, tag_title=test minh, tag_id=522, content_body=ok not ok 12
+&nbsp;
+&nbsp;
+&nbsp;
+), DocSearchAll(id=875, title=??????9, tag_title=mana<span class="h-text">g</span>ement, tag_id=582, content_body=????), DocSearchAll(id=729, title=<span class="h-text">g</span>hbjkl, tag_title=test minh, tag_id=522, content_body=asdf), DocSearchAll(id=727, title=templates kosi<span class="h-text">g</span>n, tag_title=test minh, tag_id=522, content_body=p;
+
+
+
+kosi<span class="h-text">g</span>n software innovation
+
+
+requester
+mana<span class="h-text">g</span>er 1
+checker
+approver
+
+
+ly chen<span class="h-text">g</span>hao
+ch&iacute; dlear
+&nbsp;
+&nbsp;
+
+
+5/2/2024
+05 102/204
+05-feb-24
+06 feb 24
+
+
+document no. vo_202402_007
+
+
+requestor
+subject
+
+
+sann puthy
+advance payment
+
+
+requested date
+scheduled date
+&nbsp;
+
+
+01-02-2024
+05-02-2024
+&nbsp;
+
+
+description
+
+
+communications day in feb (mb dept 31 pax)
+
+
+currency
+total
+&nbsp;
+
+
+usd
+$310.00
+&nbsp;
+
+
+details
+
+
+name
+amount
+purpose
+description
+
+
+&nbsp;
+$310.00
+employee benefits
+communications day in feb (mb ), DocSearchAll(id=746, title=syntax, tag_title=java, tag_id=532, content_body=main(strin<span class="h-text">g</span>[] ar<span class="h-text">g</span>s) {
+    system.out.println("hello world");
+  }
+}), DocSearchAll(id=782, title=?^?, tag_title=mana<span class="h-text">g</span>ement, tag_id=582, content_body=?-?
+&nbsp;), DocSearchAll(id=886, title=tabletestin<span class="h-text">g</span>, tag_title=sokhen, tag_id=535, content_body=
+
+
+fasdfas
+fsadf
+&nbsp;
+asfd
+fasd
+afsd
+
+
+&nbsp;
+&nbsp;
+fasdfasd
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+fas
+fasd
+fasd
+fasd
+fa
+fas
+
+
+), DocSearchAll(id=754, title=testin<span class="h-text">g</span>, tag_title=sokhen, tag_id=535, content_body=), DocSearchAll(id=743, title=nisa, tag_title=test minh, tag_id=522, content_body=ia anders
+<span class="h-text">g</span>ermany
+
+
+centro comercial moctezuma
+francisco chan<span class="h-text">g</span>
+mexico
+
+
+
+), DocSearchAll(id=777, title=testin<span class="h-text">g</span>, tag_title=sokhen, tag_id=535, content_body=fasdfasdfasfadf), DocSearchAll(id=806, title=error, tag_title=testin<span class="h-text">g</span> by me, tag_id=601, content_body=error or&nbsp;
+no error), DocSearchAll(id=807, title=review, tag_title=testin<span class="h-text">g</span> by me, tag_id=601, content_body=ff<span class="h-text">g</span>
+ii9800
+8hkkl), DocSearchAll(id=817, title=no chan<span class="h-text">g</span>e, tag_title=on department, tag_id=531, content_body=my heart is for u), DocSearchAll(id=835, title=<span class="h-text">g</span>s<span class="h-text">g</span>ss, tag_title=on department, tag_id=531, content_body=wffs), DocSearchAll(id=799, title=test119, tag_title=my special note, tag_id=571, content_body=ttr<span class="h-text">g</span><span class="h-text">g</span><span class="h-text">g</span>h
+
+77667
+uu
+7779
+1122bjjk
+), DocSearchAll(id=841, title=server info, tag_title=bizweb infooooooooooooooooooooooooooooooooo , tag_id=606, content_body=+ testin<span class="h-text">g</span> server
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - ssh : was@192.168.178.239:23 , bizweb123$
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - db :&nbsp; &nbsp; &nbsp; &nbsp;
++ production server
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- ssh :&nbsp;b2b@54.251.201.192:22,&nbsp;b2b@kosi<span class="h-text">g</span>n
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- db:&nbsp;
++ server install software&nbsp;
+
+
+
+jdk
+21
+
+
+node
+v20.13.1 (lts)
+
+
+mon<span class="h-text">g</span>odb
+7.0.8
+
+
+post<span class="h-text">g</span>resql
+v15.1.0
+
+
+pm2
+5.3.1
+
+
+docker
+24.04 (lts)
+
+
+), DocSearchAll(id=843, title=bizweb api server information, tag_title=bizweb info, tag_id=608, content_body=
+testin<span class="h-text">g</span> server
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - ssh : was@192.168.178.239:23 , bizweb123$
+production server
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- ssh : b2b@54.251.201.192:22, b2b@kosi<span class="h-text">g</span>n
+wbs: https://docs.<span class="h-text">g</span>oo<span class="h-text">g</span>le.com/spreadsheets/d/1s<span class="h-text">g</span>v4kytcpopvpovzejh5bofmr3qpc0f_6m3ml_eejde/edit#<span class="h-text">g</span>id=0
+repository:
+api: https://<span class="h-text">g</span>ithub.com/renrithysak095/api-ms-service.<span class="h-text">g</span>it
+client: https://<span class="h-text">g</span>ithub.com/renrithysak095/api-ms-web.<span class="h-text">g</span>it), DocSearchAll(id=851, title=2024-06-07, tag_title=weekly report, tag_id=615, content_body= info mana<span class="h-text">g</span>ement...
+ren rithysak
+2024-04-23
+&nbsp;
+0%
+
+
+ui
+kon<span class="h-text">g</span> rady
+2024-04-09
+&nbsp;
+0%
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+service (sprin<span class="h-text">g</span>)
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+), DocSearchAll(id=849, title=2024-06-07, tag_title=bizweb info, tag_id=608, content_body= info mana<span class="h-text">g</span>ement...
+ren rithysak
+2024-04-23
+&nbsp;
+0%
+
+
+ui
+kon<span class="h-text">g</span> rady
+2024-04-09
+&nbsp;
+0%
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+service (sprin<span class="h-text">g</span>)
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+), DocSearchAll(id=876, title=biz-book project information, tag_title=biz-book information, tag_id=620, content_body=<span class="h-text">g</span>it repository:
+
+ui: https://<span class="h-text">g</span>ithub.com/sovitasovita/b2b-document-v4-ui.<span class="h-text">g</span>it
+api: https://<span class="h-text">g</span>ithub.com/sovitasovita/b2b-document-api.<span class="h-text">g</span>it
+
+wbs: https://docs.<span class="h-text">g</span>oo<span class="h-text">g</span>le.com/spreadsheets/d/1s0sn0<span class="h-text">g</span>uuo0uzi_fsa3m1dcoqijvqwuzwfdcj_t96vty/edit#<span class="h-text">g</span>id=304356611
+testin<span class="h-text">g</span> server:
+
+ssh: was@192.168.178.239:23 , bizweb123$
+db: 
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;host: 192.168.178.239 , port: 5433
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;database:&nbsp; b2bdoc_db
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;username: bizweb123
+&nbsp; &nbsp; &nbsp;), DocSearchAll(id=768, title=test article, tag_title=leave form, tag_id=561, content_body=ia anders
+<span class="h-text">g</span>ermany
+
+
+centro comercial moctezuma
+francisco chan<span class="h-text">g</span>
+mexico
+
+
+
+), DocSearchAll(id=282, title=installation, tag_title=ubuntus servers, tag_id=235, content_body=e.exe
+
+4. <span class="h-text">g</span>o to your desktop ri<span class="h-text">g</span>ht click and click paste shortcut
+), DocSearchAll(id=905, title=deploy, tag_title=database, tag_id=1, content_body=der l<span class="h-text">g</span>), DocSearchAll(id=939, title=????? (api ???), tag_title=api, tag_id=151, content_body= ??...  pa<span class="h-text">g</span>eref _toc530671608 \h 2
+ 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003500330030003600370031003600300038000000
+
+2)&nbsp; ?????? ?? &ndash; 0001.  pa<span class="h-text">g</span>eref
+_toc530671609 \h 3
+ 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003500330030003600370031003600300039000000
+
+?????? ?? ?? &ndash; a001.  pa<span class="h-text">g</span>eref
+_toc530671610 \h 4
+ 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003500330030003600370031003600310030000000
+
+3)&nbsp; ???? ?? &), DocSearchAll(id=938, title=overview, tag_title=cardmis-api, tag_id=150, content_body=p
+
+
+testin<span class="h-text">g</span> accountsimdemo01t / qwer1234!
+
+
+tmap
+
+
+http://tmapapi.sktelecom.com/main.html#webservice/docs/fulltext<span class="h-text">g</span>eocodin<span class="h-text">g</span>http://tmapapi.sktelecom.com/main.html#web/sample/websample20
+
+
+api
+
+
+?????_api???_v1.07(tadr_??).docx?????_???????_v1.51(?????_?????).doc
+
+
+database
+
+
+????mis_??????_v1.35(push????).xlsx????_??????_(????????_??)_181203.xlsx
+
+
+wbs
+
+
+?????_??????_v1.39(push????).xlsx
+
+
+batch error (crontab)
+
+ download 0c994114-2df7-46a1-ba64-a8d4201aa5e0.doc  ), DocSearchAll(id=941, title=api response code, tag_title=employee, tag_id=152, content_body=",\,&lt;,&<span class="h-text">g</span>t;] ????? ??? ? ????.
+
+
+94
+4013
+??? ??? ?????.
+
+
+95
+5000
+??? ??? ??????? ????????? ???? ???? ??? ???????.
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+), DocSearchAll(id=940, title=emplinfo01 api, tag_title=employee, tag_id=152, content_body=p;
+&nbsp;
+<span class="h-text">g</span>ndr
+??
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+dvsn_cd
+????
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+dvsn_nm
+???
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+jbcl_cd
+????
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+jbcl_nm
+???
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+rspt_cd
+????
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+rspt_nm
+???
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+exnm_no
+????
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+eml
+???
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+brdt
+????
+c
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+lnr_sl), DocSearchAll(id=942, title=what is jexframework?, tag_title=framework, tag_id=230, content_body=or creatin<span class="h-text">g</span> web services, inte<span class="h-text">g</span>ratin<span class="h-text">g</span> data objects, and mana<span class="h-text">g</span>in<span class="h-text">g</span> business lo<span class="h-text">g</span>ic components.
+key components of the jexframework include:
+
+web service: this handles the interaction between the web interface (jsp) and the backend lo<span class="h-text">g</span>ic, defined in xml files.
+action: the business lo<span class="h-text">g</span>ic component within a web service that handles processin<span class="h-text">g</span> and data manipulation.
+view: the part of a web service that deals with the presentation layer, typically rendered as jsp files.
+service: similar to action, but used for backend proce), DocSearchAll(id=943, title=jex ?? ?? ??? ??, tag_title=framework, tag_id=230, content_body=, client-&<span class="h-text">g</span>t;(request)-&<span class="h-text">g</span>t;web(service)-&<span class="h-text">g</span>t;action-&<span class="h-text">g</span>t;view-&<span class="h-text">g</span>t;(response)? ???? ??/?? ??
+
+2. jexframework ??
+
+jexframework ? ?? ?? ???? pt(presentation tier)? bt(business tier)? ???.
+pt? bt? ??? ??? ?? ??
+
+3. jexframework ?? ??? ???
+
+jexframework ? jexstudio?? web?? ?? ??? svn? ?? ?? ?? ??
+svn ?? ?? ? ??, jexdeploy ? ?? ?? ??? ???? ??? ? ??
+
+4. jexframework ??
+??
+
+input/output field
+
+
+jexframework ??? ?? ???? ?? ?? ?????
+jexstudio?? ???? ??? ???? xml ?? ??
+jexstudio? ?? ??? ?? ? ?? ?? ??
+
+
+ido(inte<span class="h-text">g</span>rated data obje), DocSearchAll(id=949, title=sql join, tag_title=sql, tag_id=231, content_body=ft join
+ri<span class="h-text">g</span>ht join
+full join
+self join
+
+
+), DocSearchAll(id=966, title=hr, tag_title=kosi<span class="h-text">g</span>n role, tag_id=305, content_body=..), DocSearchAll(id=967, title=sit layout, tag_title=kosi<span class="h-text">g</span>n role, tag_id=305, content_body=ctrl + alt + code. repeat. ??), DocSearchAll(id=1013, title=test article after update, tag_title=no someone know, tag_id=86, content_body=hello <span class="h-text">g</span>uy
+ download pxfuel (1).jp<span class="h-text">g</span>  ), DocSearchAll(id=1014, title=hhh, tag_title=deploy to production, tag_id=112, content_body=java code <span class="h-text">g</span>eeks.pdf  )], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:14:25.105 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 19392 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+13:14:25.107 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+13:14:25.158 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13:14:25.159 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13:14:26.014 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:14:26.140 [BizBook-API] INFO  - Finished Spring Data repository scanning in 118 ms. Found 12 JPA repository interfaces.
+13:14:27.133 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+13:14:27.155 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+13:14:27.160 [BizBook-API] INFO  - Starting service [Tomcat]
+13:14:27.161 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13:14:27.224 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+13:14:27.225 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2064 ms
+13:14:27.433 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:14:27.511 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+13:14:27.558 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+13:14:27.819 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+13:14:27.842 [BizBook-API] INFO  - HikariPool-1 - Starting...
+13:14:28.029 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@618b41cc
+13:14:28.030 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+13:14:28.063 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+13:14:29.022 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13:14:29.025 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:14:29.606 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+13:14:31.445 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:14:31.815 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7872fea7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1604e305, org.springframework.security.web.context.SecurityContextHolderFilter@79be94fa, org.springframework.security.web.header.HeaderWriterFilter@7986031b, org.springframework.web.filter.CorsFilter@779509aa, org.springframework.security.web.authentication.logout.LogoutFilter@6a2f9ece, kosign.b2bdocumentv4.jwt.JwtTokenFilter@647c9cd2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f444fc5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@327f4215, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@496e8953, org.springframework.security.web.access.ExceptionTranslationFilter@2893517a, org.springframework.security.web.access.intercept.AuthorizationFilter@71b05cb]
+13:14:32.307 [BizBook-API] INFO  - LiveReload server is running on port 35729
+13:14:32.326 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+13:14:32.344 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+13:14:32.352 [BizBook-API] INFO  - Started B2bDocumentV4Application in 7.684 seconds (process running for 8.095)
+13:14:55.512 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:14:55.512 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+13:14:55.513 [BizBook-API] INFO  - Completed initialization in 1 ms
+13:14:55.541 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.599 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.599 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.600 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.600 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.601 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.738 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.739 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:55.777 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:14:56.383 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 590 ms
+13:15:41.103 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:15:41.918 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:15:41.918 [BizBook-API] INFO  - HTTP Method: GET
+13:15:41.918 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:15:41.918 [BizBook-API] INFO  - Request Args: [lol, 50, sovita]
+13:15:41.949 [BizBook-API] DEBUG - 
+    select
+        coalesce(id , '1') as id,
+        tag_id ,
+        tag_title ,
+        coalesce(title, '') as title,
+        coalesce(content_body, '')as content_body 
+    from
+        stdy.docs_search(?, ?, ?)
+13:15:42.083 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[], inqCnt=null, inqRec=null, message=No Data Found, code=404, responseMessage=OK, isError=true, rawData=null)
+13:19:14.531 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:19:14.740 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/articles/doc_search_all
+13:19:14.740 [BizBook-API] INFO  - HTTP Method: GET
+13:19:14.740 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.SearchController.searchAll
+13:19:14.740 [BizBook-API] INFO  - Request Args: [lol, 50, phartvanda]
+13:19:14.740 [BizBook-API] DEBUG - 
+    select
+        coalesce(id , '1') as id,
+        tag_id ,
+        tag_title ,
+        coalesce(title, '') as title,
+        coalesce(content_body, '')as content_body 
+    from
+        stdy.docs_search(?, ?, ?)
+13:19:14.874 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[DocSearchAll(id=928, title=vsvsv, tag_title=<span class="h-text">lol</span>, tag_id=139, content_body=vsvsvs), DocSearchAll(id=1018, title=sampleyuth, tag_title=loy, tag_id=309, content_body=<span class="h-text">lol</span>)], inqCnt=null, inqRec=null, message=Success, code=200, responseMessage=OK, isError=false, rawData=null)
+13:21:19.132 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.10 with PID 8288 (D:\b2b-document-api\build\classes\java\main started by vimean in D:\b2b-document-api)
+13:21:19.134 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+13:21:19.183 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13:21:19.183 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13:21:20.029 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:21:20.178 [BizBook-API] INFO  - Finished Spring Data repository scanning in 140 ms. Found 12 JPA repository interfaces.
+13:21:21.139 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+13:21:21.158 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+13:21:21.167 [BizBook-API] INFO  - Starting service [Tomcat]
+13:21:21.168 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13:21:21.224 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+13:21:21.225 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 2041 ms
+13:21:21.424 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:21:21.489 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+13:21:21.539 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+13:21:21.824 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+13:21:21.858 [BizBook-API] INFO  - HikariPool-1 - Starting...
+13:21:22.071 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@749e81d3
+13:21:22.073 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+13:21:22.110 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+13:21:23.101 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13:21:23.102 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:21:23.630 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+13:21:25.291 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:21:25.643 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46c69178, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e54e4d, org.springframework.security.web.context.SecurityContextHolderFilter@518915ee, org.springframework.security.web.header.HeaderWriterFilter@34b994be, org.springframework.web.filter.CorsFilter@11b52a4a, org.springframework.security.web.authentication.logout.LogoutFilter@266de7b, kosign.b2bdocumentv4.jwt.JwtTokenFilter@1389893c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@675b2fc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2dd95138, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d38e85c, org.springframework.security.web.access.ExceptionTranslationFilter@509a64c, org.springframework.security.web.access.intercept.AuthorizationFilter@73554a3f]
+13:21:26.215 [BizBook-API] INFO  - LiveReload server is running on port 35729
+13:21:26.232 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+13:21:26.245 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+13:21:26.258 [BizBook-API] INFO  - Started B2bDocumentV4Application in 7.515 seconds (process running for 7.883)
+13:21:33.423 [BizBook-API] INFO  - Starting B2bDocumentV4ApplicationTests using Java 17.0.10 with PID 13172 (started by vimean in D:\b2b-document-api)
+13:21:33.425 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+13:21:34.435 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:21:34.633 [BizBook-API] INFO  - Finished Spring Data repository scanning in 185 ms. Found 12 JPA repository interfaces.
+13:21:35.606 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:21:35.681 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+13:21:35.733 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+13:21:36.031 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+13:21:36.054 [BizBook-API] INFO  - HikariPool-1 - Starting...
+13:21:36.290 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@71687d8f
+13:21:36.292 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+13:21:36.334 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+13:21:37.365 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13:21:37.368 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:21:38.027 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+13:21:39.522 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:21:39.960 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c8ec2f6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ccdd8a6, org.springframework.security.web.context.SecurityContextHolderFilter@48c372db, org.springframework.security.web.header.HeaderWriterFilter@66f4fb48, org.springframework.web.filter.CorsFilter@4b91ac30, org.springframework.security.web.authentication.logout.LogoutFilter@2c3344f0, kosign.b2bdocumentv4.jwt.JwtTokenFilter@5a4929f5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3408fdb8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64db8a3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e0f22c3, org.springframework.security.web.access.ExceptionTranslationFilter@2b7e2212, org.springframework.security.web.access.intercept.AuthorizationFilter@52da1357]
+13:21:40.577 [BizBook-API] INFO  - Started B2bDocumentV4ApplicationTests in 7.521 seconds (process running for 8.629)
+13:21:43.362 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:21:43.365 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
+13:21:43.371 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.

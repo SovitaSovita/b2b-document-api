@@ -16,7 +16,6 @@ public class SearchController {
     @Autowired
     private final DocSearchServiceImpl service;
 
-
     @GetMapping("/doc_search_r01")
     public BaseResponse searchDoc(String title) {
         return service.searchDoc(title);
@@ -27,8 +26,8 @@ public class SearchController {
     }
 
     @GetMapping("/doc_search_all")
-    public BaseResponse searchAll(String srch_wd , int dept_id) {
-        return service.searchAll(srch_wd,dept_id);
+    public BaseResponse searchAll(String srch_wd , int dept_id , String user_name) {
+        return service.searchAll(srch_wd,dept_id,user_name);
     }
 
 }

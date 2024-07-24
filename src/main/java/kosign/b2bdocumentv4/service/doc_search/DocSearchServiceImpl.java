@@ -43,15 +43,12 @@ public class DocSearchServiceImpl implements DocSearchService {
         }
     }
 
-    @Override
-    public BaseResponse searchAll(String srch_wd) {
-        return null;
-    }
+
 
     @Override
-    public BaseResponse searchAll(String srch_wd, int dept_id) {
+    public BaseResponse searchAll(String srch_wd, int dept_id , String user_name) {
         System.out.println("srch_wd"+srch_wd);
-        List<DocSearchAll>  searchData = docSearhAllRepository.findAll(srch_wd, dept_id);
+        List<DocSearchAll>  searchData = docSearhAllRepository.findAll(srch_wd, dept_id,user_name);
         System.out.println("---------"+searchData);
         if(searchData.isEmpty()){
             return BaseResponse.builder()
