@@ -1455,3 +1455,242 @@
 11:56:58.594 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 11:56:58.595 [BizBook-API] INFO  - HikariPool-3 - Shutdown initiated...
 11:56:58.596 [BizBook-API] INFO  - HikariPool-3 - Shutdown completed.
+11:57:17.727 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 375728 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+11:57:17.732 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+11:57:17.858 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+11:57:17.858 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+11:57:19.999 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11:57:20.678 [BizBook-API] INFO  - Finished Spring Data repository scanning in 645 ms. Found 12 JPA repository interfaces.
+11:57:22.287 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+11:57:22.301 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+11:57:22.303 [BizBook-API] INFO  - Starting service [Tomcat]
+11:57:22.304 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+11:57:22.405 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+11:57:22.405 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 4546 ms
+11:57:22.752 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:57:22.847 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+11:57:22.903 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+11:57:23.325 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+11:57:23.369 [BizBook-API] INFO  - HikariPool-1 - Starting...
+11:57:23.696 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3ad1868f
+11:57:23.698 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+11:57:23.747 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+11:57:25.726 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+11:57:25.732 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11:57:26.509 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+11:57:28.872 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11:57:29.425 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b351c72, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a3ce35a, org.springframework.security.web.context.SecurityContextHolderFilter@5f301dd6, org.springframework.security.web.header.HeaderWriterFilter@3c905680, org.springframework.web.filter.CorsFilter@565a597f, org.springframework.security.web.authentication.logout.LogoutFilter@bcd38b, kosign.b2bdocumentv4.jwt.JwtTokenFilter@7dfdcdc2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79c9a292, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@85a1a19, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6661d48e, org.springframework.security.web.access.ExceptionTranslationFilter@508a2de7, org.springframework.security.web.access.intercept.AuthorizationFilter@3d0c21a2]
+11:57:30.245 [BizBook-API] INFO  - LiveReload server is running on port 35729
+11:57:30.283 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+11:57:30.299 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+11:57:30.316 [BizBook-API] INFO  - Started B2bDocumentV4Application in 13.846 seconds (process running for 15.997)
+11:57:53.724 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:57:53.725 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+11:57:53.725 [BizBook-API] INFO  - Completed initialization in 0 ms
+11:57:53.739 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.786 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.786 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.786 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.786 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.786 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.961 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.977 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:53.991 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+11:57:54.349 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 345 ms
+11:58:09.062 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+11:58:09.947 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/requestform/getByRequestId
+11:58:09.947 [BizBook-API] INFO  - HTTP Method: POST
+11:58:09.948 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.RequestFormController.getByRequestId
+11:58:09.948 [BizBook-API] INFO  - Request Args: [719380]
+11:58:09.953 [BizBook-API] DEBUG - 
+    select
+        rf1_0.id,
+        rf1_0.approve_date,
+        rf1_0.classification,
+        rf1_0.form_content,
+        rf1_0.form_id,
+        rf1_0.form_name,
+        rf1_0.from_company,
+        rf1_0.from_department,
+        rf1_0.req_order,
+        rf1_0.request_date,
+        rf1_0.request_from,
+        rf1_0.request_id,
+        rf1_0.request_status,
+        rf1_0.request_to,
+        rf1_0.to_company,
+        rf1_0.to_department 
+    from
+        stdy.doc_request rf1_0 
+    where
+        rf1_0.request_id=?
+11:58:09.993 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[RequestForm{id=400, requestId=719380, formId=129, formName=test form, classification='open', formContent='', requestFrom='sararuth', fromDepartment='BizWeb', fromCompany='UTLZ_590', requestTo='sovita', toDepartment='BizWeb', toCompany='UTLZ_590', reqOrder'0', requestDate=2024-07-24 11:26:58.695', requestStatus=PENDING}, RequestForm{id=401, requestId=719380, formId=129, formName=test form, classification='open', formContent='', requestFrom='sararuth', fromDepartment='BizWeb', fromCompany='UTLZ_590', requestTo='chanvimean', toDepartment='BizWeb', toCompany='UTLZ_590', reqOrder'1', requestDate=2024-07-24 11:26:58.695', requestStatus=HOLD}], inqCnt=null, inqRec=null, message=success, code=200, responseMessage=OK, isError=false, rawData=null)
+11:58:10.028 [BizBook-API] DEBUG - 
+    select
+        rmi1_0.request_id,
+        rmi1_0.id,
+        rmi1_0.item_name,
+        rmi1_0.require,
+        rmi1_0.type,
+        rmi1_0.value 
+    from
+        stdy.doc_request_main_items rmi1_0 
+    where
+        rmi1_0.request_id=?
+11:58:10.041 [BizBook-API] DEBUG - 
+    select
+        rid1_0.main_items_id,
+        rid1_0.id,
+        rid1_0.description,
+        rid1_0.input_require,
+        rid1_0.input_type,
+        rid1_0.input_value,
+        rid1_0.is_selected,
+        rid1_0.item_name 
+    from
+        stdy.doc_request_data rid1_0 
+    where
+        rid1_0.main_items_id=?
+11:58:10.052 [BizBook-API] DEBUG - 
+    select
+        rmi1_0.request_id,
+        rmi1_0.id,
+        rmi1_0.item_name,
+        rmi1_0.require,
+        rmi1_0.type,
+        rmi1_0.value 
+    from
+        stdy.doc_request_main_items rmi1_0 
+    where
+        rmi1_0.request_id=?
+11:58:10.127 [BizBook-API] DEBUG - 
+    select
+        rid1_0.main_items_id,
+        rid1_0.id,
+        rid1_0.description,
+        rid1_0.input_require,
+        rid1_0.input_type,
+        rid1_0.input_value,
+        rid1_0.is_selected,
+        rid1_0.item_name 
+    from
+        stdy.doc_request_data rid1_0 
+    where
+        rid1_0.main_items_id=?
+13:06:38.269 [BizBook-API] WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m14s6ms79µs200ns).
+13:16:39.783 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:16:40.019 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/requestform/approval
+13:16:40.019 [BizBook-API] INFO  - HTTP Method: POST
+13:16:40.019 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.RequestFormController.approveRequest
+13:16:40.019 [BizBook-API] INFO  - Request Args: [719380]
+13:16:40.036 [BizBook-API] DEBUG - 
+    select
+        rf1_0.id,
+        rf1_0.approve_date,
+        rf1_0.classification,
+        rf1_0.form_content,
+        rf1_0.form_id,
+        rf1_0.form_name,
+        rf1_0.from_company,
+        rf1_0.from_department,
+        rf1_0.req_order,
+        rf1_0.request_date,
+        rf1_0.request_from,
+        rf1_0.request_id,
+        rf1_0.request_status,
+        rf1_0.request_to,
+        rf1_0.to_company,
+        rf1_0.to_department 
+    from
+        stdy.doc_request rf1_0 
+    where
+        rf1_0.id=?
+13:16:40.056 [BizBook-API] WARN  - Resolved [kosign.b2bdocumentv4.exception.NotFoundExceptionClass: Request With ID : 719380 Not Found.]
+13:17:01.928 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+13:17:02.140 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/requestform/approvedById
+13:17:02.140 [BizBook-API] INFO  - HTTP Method: GET
+13:17:02.140 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.RequestFormController.getApproved
+13:17:02.140 [BizBook-API] INFO  - Request Args: [719380]
+13:17:02.142 [BizBook-API] DEBUG - 
+    select
+        rf1_0.id,
+        rf1_0.approve_date,
+        rf1_0.classification,
+        rf1_0.form_content,
+        rf1_0.form_id,
+        rf1_0.form_name,
+        rf1_0.from_company,
+        rf1_0.from_department,
+        rf1_0.req_order,
+        rf1_0.request_date,
+        rf1_0.request_from,
+        rf1_0.request_id,
+        rf1_0.request_status,
+        rf1_0.request_to,
+        rf1_0.to_company,
+        rf1_0.to_department 
+    from
+        stdy.doc_request rf1_0 
+    where
+        rf1_0.request_id=?
+13:17:02.148 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=null, inqCnt=null, inqRec=null, message=Your Request is Pending., code=201, responseMessage=OK, isError=false, rawData=null)
+13:20:29.683 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:29.717 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:29.736 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:29.736 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:29.736 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:29.736 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:30.052 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:30.061 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:30.077 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.213 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.362 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.362 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.363 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.363 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.363 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.626 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.633 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:45.644 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.141 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.171 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.176 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.179 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.180 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.181 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.416 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.420 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+13:20:55.434 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
