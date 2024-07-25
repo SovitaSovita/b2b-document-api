@@ -102,7 +102,7 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
         ArticleUsers articleUser = new ArticleUsers();
         articleUser.setUserId(userDetiailPayload.getUsername());
         articleUser.setCompany(userDetiailPayload.getCompany());
-        articleUser.setDepartment(userDetiailPayload.getDepartmentId());
+        articleUser.setDepartment(userDetiailPayload.getDepartment());
         articleUser.setFullName(userDetiailPayload.getFullName());
         articleUser.setImage(userDetiailPayload.getProfile());
         articleUser.setArticleRole(String.valueOf(ArticleRole.OWNER));
@@ -174,12 +174,23 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
                 .orElseThrow(() -> new NotFoundExceptionClass("Article " + articleId + " Not Found."));
 
         List<ArticleUsers> articleUsersList = new ArrayList<>();
+
         for (ArticleEditorDto dto : articleEditorDtos) {
+            if (!articlesExist.getArticleUsers().isEmpty()) {
+                for(ArticleUsers users : articlesExist.getArticleUsers()){
+                    System.out.println("users >>" + users);
+                    System.out.println(dto.getUserId() + " <users> " +  users.getUserId());
+
+                    if (Objects.equals(dto.getUserId(), users.getUserId())) {
+                        throw new IllegalArgumentException("User [" + dto.getUserId() + "] already Exist.");
+                    }
+                }
+            }
             ArticleUsers articleUser = new ArticleUsers();
             articleUser.setUserId(dto.getUserId());
             articleUser.setCompany(dto.getCompany());
             UserDetiailPayload userDetiailPayload = apiService.getUserDetailFromBizLogin(dto.getUserId(), dto.getCompany());
-            articleUser.setDepartment(userDetiailPayload.getDepartmentId());
+            articleUser.setDepartment(userDetiailPayload.getDepartment());
             articleUser.setFullName(userDetiailPayload.getFullName());
             articleUser.setImage(userDetiailPayload.getProfile());
 
@@ -187,6 +198,7 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
             articleUser.setArticleRole(String.valueOf(ArticleRole.EDITOR)); // Set role to EDITOR or any other role if necessary
 
             articleUsersList.add(articleUser);
+
         }
 
         return articleUsersRepository.saveAll(articleUsersList);
