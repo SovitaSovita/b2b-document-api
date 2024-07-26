@@ -175,14 +175,23 @@ public class DocumentArticlesServiceImpl implements DocumentArticlesService {
 
         List<ArticleUsers> articleUsersList = new ArrayList<>();
 
+        if(articlesExist.getStatus() == 0){
+            throw new IllegalArgumentException("Article is Private Could not Assign.");
+        }
+
         for (ArticleEditorDto dto : articleEditorDtos) {
             if (!articlesExist.getArticleUsers().isEmpty()) {
                 for(ArticleUsers users : articlesExist.getArticleUsers()){
-                    System.out.println("users >>" + users);
-                    System.out.println(dto.getUserId() + " <users> " +  users.getUserId());
-
                     if (Objects.equals(dto.getUserId(), users.getUserId())) {
                         throw new IllegalArgumentException("User [" + dto.getUserId() + "] already Exist.");
+                    }
+
+                    if(articlesExist.getStatus() == 2){
+                        UserDetiailPayload userDetiailPayload = apiService.getUserDetailFromBizLogin(dto.getUserId(), dto.getCompany());
+
+                        if(articlesExist.getDept_id() != Integer.parseInt(userDetiailPayload.getDepartmentId())){
+                            throw new IllegalArgumentException("Article: Department Restriction on Employee Assignment");
+                        }
                     }
                 }
             }

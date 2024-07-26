@@ -204,12 +204,12 @@ public class SaveDocumentTagImpl  implements SaveDocumentTagService {
     public BaseResponse listTagAndArticle(Long dept_id, Long status, String username) {
 
         // 1
-        List<Map<Object, String>> listAllAtricle = documentTagRepository.getDocumentArticleList(dept_id, status, username);
+        List<Map<Object, String>> listAllArticle = documentTagRepository.getDocumentArticleList(dept_id, status, username);
         // 2
         List<DocumentTag> listAllTag = documentTagRepository.getDocumentTag(dept_id, status, username);
 
         // return BaseResponse.builder().code("200").message("success").isError(false).rec().build();
-        TagArticleRespone tagArticleRespone = new TagArticleRespone(listAllTag, listAllAtricle);
+        TagArticleRespone tagArticleRespone = new TagArticleRespone(listAllTag, listAllArticle);
 
         return BaseResponse.builder().code("200")
                 .message("success")
