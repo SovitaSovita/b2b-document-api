@@ -13,7 +13,11 @@ import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class RequestFormServiceImpl {
@@ -88,7 +92,7 @@ public class RequestFormServiceImpl {
             MainItems formMainItemsExist = formExist.getMainItems().get(count);
             RequestMainItemsDto dto = requestFormDto.getRequestMainItems().get(count);
 
-            if(Objects.equals(formMainItemsExist.getId(), dto.getId())){
+            if (Objects.equals(formMainItemsExist.getId(), dto.getId())) {
                 RequestMainItems mainItems = new RequestMainItems();
                 mainItems.setValue(mainItemsDto.getValue());
                 mainItems.setItemName(formMainItemsExist.getItemName());
@@ -102,8 +106,7 @@ public class RequestFormServiceImpl {
                 mainItemsList.add(mainItems);
 
                 count++;
-            }
-            else{
+            } else {
                 throw new IllegalArgumentException("Main Item with ID " + dto.getId() + " Not Found");
             }
         }
@@ -118,7 +121,7 @@ public class RequestFormServiceImpl {
             ItemsData formItemsData = formMainItems.getItemsData().get(i);
             RequestItemsDataDto itemsDataDto = mainItemsDto.getRequestItemsData().get(i);
 
-            if(Objects.equals(formItemsData.getId(), itemsDataDto.getId())){
+            if (Objects.equals(formItemsData.getId(), itemsDataDto.getId())) {
                 RequestItemsData itemsData = new RequestItemsData();
                 itemsData.setInputValue(itemsDataDto.getInputValue());
                 itemsData.setItemName(formItemsData.getItemName());
@@ -129,8 +132,7 @@ public class RequestFormServiceImpl {
                 itemsData.setRequestMainItems(mainItems);
 
                 itemsDataList.add(itemsData);
-            }
-            else {
+            } else {
                 throw new IllegalArgumentException("Item Data with ID " + itemsDataDto.getId() + " Not Found.");
             }
         }
@@ -169,32 +171,47 @@ public class RequestFormServiceImpl {
 
     public List<RequestForm> getByUserId(GetByUserRequest request) {
 
+        if (request.getStartDate() == null || request.getEndDate() == null) {
+            throw new IllegalArgumentException("Start date and End date Can not empty.");
+        }
+
         if (request.getProposer().isBlank() && request.getRecipient().isBlank()) {
             throw new IllegalArgumentException("Recipient or Proposer must only one with data");
         }
-        if(request.getCompany().isBlank()){
+        if (request.getCompany().isBlank()) {
             throw new IllegalArgumentException("Company can not blank.");
         }
 
+        List<RequestForm> getData = new ArrayList<>();
+
         if (Objects.isNull(request.getReqStatus())) {
             if (request.getProposer().isBlank()) {
-                return requestFormRepository.findByRequestToAndToCompany(request.getRecipient(), request.getCompany());
-            }
-            else if (request.getRecipient().isBlank()) {
-                return requestFormRepository.findByRequestFromAndFromCompany(request.getProposer(), request.getCompany());
-            }
-            else {
+                getData = requestFormRepository.findByRequestToAndToCompany(request.getRecipient(), request.getCompany());
+            } else if (request.getRecipient().isBlank()) {
+                getData = requestFormRepository.findByRequestFromAndFromCompany(request.getProposer(), request.getCompany());
+            } else {
                 throw new IllegalArgumentException("Recipient or Proposer must only one with data");
             }
         } else {
             if (request.getProposer().isBlank()) {
-                return requestFormRepository.findByRequestToAndRequestStatus(request.getRecipient(), RqStatus.valueOf(request.getReqStatus()));
+                getData = requestFormRepository.findByRequestToAndRequestStatus(request.getRecipient(), RqStatus.valueOf(request.getReqStatus()));
             } else if (request.getRecipient() == null || request.getRecipient().isBlank()) {
-                return requestFormRepository.findByRequestFromAndRequestStatus(request.getProposer(), RqStatus.valueOf(request.getReqStatus()));
+                getData = requestFormRepository.findByRequestFromAndRequestStatus(request.getProposer(), RqStatus.valueOf(request.getReqStatus()));
             } else {
                 throw new IllegalArgumentException("Recipient or Proposer must only one with data");
             }
         }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        List<RequestForm> filteredData = getData.stream()
+                .filter(item -> {
+                    LocalDateTime localDateTime = LocalDateTime.parse(item.getRequestDate().toString(), formatter);
+                    LocalDate requestLocalDate = localDateTime.toLocalDate();
+                    return !requestLocalDate.isBefore(request.getStartDate()) && !requestLocalDate.isAfter(request.getEndDate());
+                })
+                .collect(Collectors.toList());
+
+        return filteredData;
     }
 
     public RequestForm updateRequestById(Long reqId) {
@@ -237,8 +254,8 @@ public class RequestFormServiceImpl {
 
         List<RequestForm> requestList = requestFormRepository.findByRequestFromAndFromCompany(userId, company);
 
-        if(requestList.isEmpty()){
-            throw new NotFoundExceptionClass("Request With UserID : "+ userId +" Not Found.");
+        if (requestList.isEmpty()) {
+            throw new NotFoundExceptionClass("Request With UserID : " + userId + " Not Found.");
         }
         for (RequestForm req : requestList) {
             Long requestId = req.getRequestId();
@@ -258,10 +275,9 @@ public class RequestFormServiceImpl {
         RequestForm request = requestFormRepository.findById(id)
                 .orElseThrow(() -> new NotFoundExceptionClass("Request With ID : " + id + " Not Found."));
 
-        if(request.getRequestStatus() == RqStatus.APPROVED){
+        if (request.getRequestStatus() == RqStatus.APPROVED) {
             throw new IllegalArgumentException("Request is Already " + request.getRequestStatus());
-        }
-        else if(request.getRequestStatus() == RqStatus.HOLD){
+        } else if (request.getRequestStatus() == RqStatus.HOLD) {
             throw new IllegalArgumentException("Request is on " + request.getRequestStatus());
         }
 
@@ -271,18 +287,18 @@ public class RequestFormServiceImpl {
                 .toList();
 
 
-        for(int i=0; i<=sortedRequests.size(); i++){
+        for (int i = 0; i <= sortedRequests.size(); i++) {
             RequestForm req = sortedRequests.get(i);
-                if(req.getRequestStatus() == RqStatus.PENDING){
-                    req.setRequestStatus(RqStatus.APPROVED);
+            if (req.getRequestStatus() == RqStatus.PENDING) {
+                req.setRequestStatus(RqStatus.APPROVED);
 
-                    if(sortedRequests.size()-1 > req.getReqOrder()){
-                        sortedRequests.get(i + 1).setRequestStatus(RqStatus.PENDING);
-                    }
-                    req.setApproveDate(new Timestamp(System.currentTimeMillis()));
-                    requestFormRepository.save(req);
-                    return request;
+                if (sortedRequests.size() - 1 > req.getReqOrder()) {
+                    sortedRequests.get(i + 1).setRequestStatus(RqStatus.PENDING);
                 }
+                req.setApproveDate(new Timestamp(System.currentTimeMillis()));
+                requestFormRepository.save(req);
+                return request;
+            }
         }
 
         return null;
@@ -291,7 +307,7 @@ public class RequestFormServiceImpl {
     public List<RequestForm> getRequestById(Long requestId) {
         List<RequestForm> requestForm = requestFormRepository.findByRequestId(requestId);
 
-        if(requestForm.isEmpty()){
+        if (requestForm.isEmpty()) {
             throw new NotFoundExceptionClass("Request with ID " + requestId + " Not Found");
         }
 

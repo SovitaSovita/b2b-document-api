@@ -1,0 +1,627 @@
+09:20:27.446 [BizBook-API] INFO  - Starting B2bDocumentV4ApplicationTests using Java 17.0.9 with PID 14640 (started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:20:27.450 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:20:28.508 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:20:28.734 [BizBook-API] INFO  - Finished Spring Data repository scanning in 214 ms. Found 12 JPA repository interfaces.
+09:20:29.692 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:20:29.766 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+09:20:29.808 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:20:30.163 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:20:30.227 [BizBook-API] INFO  - HikariPool-1 - Starting...
+09:20:30.573 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@b68932b
+09:20:30.576 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+09:20:30.645 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:20:32.221 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:20:32.226 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:20:33.209 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+09:20:35.397 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:20:35.910 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49c819c7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17d28c1d, org.springframework.security.web.context.SecurityContextHolderFilter@1fd49ed3, org.springframework.security.web.header.HeaderWriterFilter@4d45ec8c, org.springframework.web.filter.CorsFilter@3543c9a4, org.springframework.security.web.authentication.logout.LogoutFilter@564375d7, kosign.b2bdocumentv4.jwt.JwtTokenFilter@4bcb45e4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a237f14, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74a9a20d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ab86832, org.springframework.security.web.access.ExceptionTranslationFilter@3918a9f9, org.springframework.security.web.access.intercept.AuthorizationFilter@2b9ac1b4]
+09:20:36.670 [BizBook-API] INFO  - Started B2bDocumentV4ApplicationTests in 9.649 seconds (process running for 10.862)
+09:20:39.431 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:20:39.433 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
+09:20:39.435 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
+09:20:45.209 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 2156 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:20:45.211 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:20:45.252 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09:20:45.252 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09:20:46.010 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:20:46.151 [BizBook-API] INFO  - Finished Spring Data repository scanning in 136 ms. Found 12 JPA repository interfaces.
+09:20:46.849 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:20:46.857 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:20:46.858 [BizBook-API] INFO  - Starting service [Tomcat]
+09:20:46.859 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:20:46.899 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:20:46.899 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 1647 ms
+09:20:47.039 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:20:47.085 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+09:20:47.113 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:20:47.277 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:20:47.298 [BizBook-API] INFO  - HikariPool-1 - Starting...
+09:20:47.620 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f457cf2
+09:20:47.621 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+09:20:47.658 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:20:48.606 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:20:48.610 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:20:49.038 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+09:20:50.251 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:20:50.537 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@225cf14f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@542b8e99, org.springframework.security.web.context.SecurityContextHolderFilter@734ba410, org.springframework.security.web.header.HeaderWriterFilter@2b7fcadf, org.springframework.web.filter.CorsFilter@647ab6f5, org.springframework.security.web.authentication.logout.LogoutFilter@3996de3b, kosign.b2bdocumentv4.jwt.JwtTokenFilter@257bc8de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66a4e5a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58a75327, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70a3f30a, org.springframework.security.web.access.ExceptionTranslationFilter@24c53c5, org.springframework.security.web.access.intercept.AuthorizationFilter@15b6334d]
+09:20:51.500 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:20:51.549 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:20:51.565 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:20:51.583 [BizBook-API] INFO  - Started B2bDocumentV4Application in 6.792 seconds (process running for 7.518)
+09:20:51.794 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:20:51.795 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+09:20:51.801 [BizBook-API] INFO  - Completed initialization in 3 ms
+09:20:51.844 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:51.972 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:51.988 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:51.989 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:51.995 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:52.013 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:52.470 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:52.473 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:52.510 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:20:52.971 [BizBook-API] INFO  - Init duration for springdoc-openapi is: 448 ms
+09:21:03.305 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:21:03.323 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/files/upload_file
+09:21:03.324 [BizBook-API] INFO  - HTTP Method: POST
+09:21:03.324 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FileController.fileUpload
+09:21:03.324 [BizBook-API] INFO  - Request Args: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@408b3050]
+09:21:03.410 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_file
+        (file_article_id, file_idnt_id, file_nm, file_size, img_path, status, thum_img_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+09:21:03.431 [BizBook-API] WARN  - SQL Error: 0, SQLState: 23505
+09:21:03.431 [BizBook-API] ERROR - ERROR: duplicate key value violates unique constraint "file_pkey"
+  Detail: Key (file_id)=(40) already exists.
+09:21:03.452 [BizBook-API] ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: duplicate key value violates unique constraint "file_pkey"
+  Detail: Key (file_id)=(40) already exists.] [insert into stdy.doc_file (file_article_id,file_idnt_id,file_nm,file_size,img_path,status,thum_img_path) values (?,?,?,?,?,?,?)]; SQL [insert into stdy.doc_file (file_article_id,file_idnt_id,file_nm,file_size,img_path,status,thum_img_path) values (?,?,?,?,?,?,?)]; constraint [file_pkey]] with root cause
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "file_pkey"
+  Detail: Key (file_id)=(40) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy4/jdk.proxy4.$Proxy148.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy4/jdk.proxy4.$Proxy148.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy4/jdk.proxy4.$Proxy165.save(Unknown Source)
+	at kosign.b2bdocumentv4.service.doc_file.FileServiceImpl.fileUpload(FileServiceImpl.java:112)
+	at kosign.b2bdocumentv4.controller.FileController.fileUpload(FileController.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at kosign.b2bdocumentv4.controller.FileController$$SpringCGLIB$$0.fileUpload(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at kosign.b2bdocumentv4.jwt.JwtTokenFilter.doFilterInternal(JwtTokenFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+09:21:46.178 [BizBook-API] INFO  - Restarting due to 4 class path changes (1 addition, 0 deletions, 3 modifications)
+09:21:46.183 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+09:21:46.213 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:21:46.216 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
+09:21:46.218 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
+09:21:46.324 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 2156 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:21:46.324 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:21:46.546 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:21:46.588 [BizBook-API] INFO  - Finished Spring Data repository scanning in 42 ms. Found 12 JPA repository interfaces.
+09:21:46.733 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:21:46.734 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:21:46.734 [BizBook-API] INFO  - Starting service [Tomcat]
+09:21:46.734 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:21:46.746 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:21:46.746 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 419 ms
+09:21:46.809 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:21:46.811 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:21:46.815 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:21:46.817 [BizBook-API] INFO  - HikariPool-2 - Starting...
+09:21:46.915 [BizBook-API] INFO  - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@45d1683d
+09:21:46.915 [BizBook-API] INFO  - HikariPool-2 - Start completed.
+09:21:46.941 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:21:47.139 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:21:47.139 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:21:47.896 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:21:48.013 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@249cfea3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9a639e5, org.springframework.security.web.context.SecurityContextHolderFilter@455b059, org.springframework.security.web.header.HeaderWriterFilter@543e9ebd, org.springframework.web.filter.CorsFilter@4f58fcdf, org.springframework.security.web.authentication.logout.LogoutFilter@33f3cc91, kosign.b2bdocumentv4.jwt.JwtTokenFilter@2c550950, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30fb4791, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ae6da66, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2642b92a, org.springframework.security.web.access.ExceptionTranslationFilter@2f74ac64, org.springframework.security.web.access.intercept.AuthorizationFilter@55e70606]
+09:21:48.229 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:21:48.239 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:21:48.242 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:21:48.247 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.964 seconds (process running for 64.181)
+09:21:48.248 [BizBook-API] INFO  - Condition evaluation unchanged
+09:21:48.432 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:21:48.432 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+09:21:48.434 [BizBook-API] INFO  - Completed initialization in 2 ms
+09:21:48.435 [BizBook-API] WARN  - JWT Token does not begin with Bearer String
+09:21:48.441 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/files/upload_file
+09:21:48.441 [BizBook-API] INFO  - HTTP Method: POST
+09:21:48.442 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.FileController.fileUpload
+09:21:48.442 [BizBook-API] INFO  - Request Args: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@4423eea3]
+09:21:48.453 [BizBook-API] DEBUG - 
+    insert 
+    into
+        stdy.doc_file
+        (file_article_id, file_idnt_id, file_nm, file_size, img_path, status, thum_img_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+09:21:48.463 [BizBook-API] WARN  - SQL Error: 0, SQLState: 23505
+09:21:48.463 [BizBook-API] ERROR - ERROR: duplicate key value violates unique constraint "file_pkey"
+  Detail: Key (file_id)=(41) already exists.
+09:21:48.503 [BizBook-API] ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: duplicate key value violates unique constraint "file_pkey"
+  Detail: Key (file_id)=(41) already exists.] [insert into stdy.doc_file (file_article_id,file_idnt_id,file_nm,file_size,img_path,status,thum_img_path) values (?,?,?,?,?,?,?)]; SQL [insert into stdy.doc_file (file_article_id,file_idnt_id,file_nm,file_size,img_path,status,thum_img_path) values (?,?,?,?,?,?,?)]; constraint [file_pkey]] with root cause
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "file_pkey"
+  Detail: Key (file_id)=(41) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy5/jdk.proxy5.$Proxy195.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy5/jdk.proxy5.$Proxy195.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy5/jdk.proxy5.$Proxy202.save(Unknown Source)
+	at kosign.b2bdocumentv4.service.doc_file.FileServiceImpl.fileUpload(FileServiceImpl.java:112)
+	at kosign.b2bdocumentv4.controller.FileController.fileUpload(FileController.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at kosign.b2bdocumentv4.controller.FileController$$SpringCGLIB$$0.fileUpload(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at kosign.b2bdocumentv4.jwt.JwtTokenFilter.doFilterInternal(JwtTokenFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+09:25:53.256 [BizBook-API] INFO  - Restarting due to 5 class path changes (1 addition, 0 deletions, 4 modifications)
+09:25:53.258 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+09:25:53.270 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:25:53.271 [BizBook-API] INFO  - HikariPool-2 - Shutdown initiated...
+09:25:53.272 [BizBook-API] INFO  - HikariPool-2 - Shutdown completed.
+09:25:53.353 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 2156 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+09:25:53.354 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+09:25:53.557 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:25:53.597 [BizBook-API] INFO  - Finished Spring Data repository scanning in 38 ms. Found 12 JPA repository interfaces.
+09:25:53.717 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+09:25:53.718 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+09:25:53.718 [BizBook-API] INFO  - Starting service [Tomcat]
+09:25:53.718 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+09:25:53.730 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+09:25:53.730 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 375 ms
+09:25:53.786 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:25:53.788 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+09:25:53.791 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:25:53.792 [BizBook-API] INFO  - HikariPool-3 - Starting...
+09:25:53.886 [BizBook-API] INFO  - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@2d425b91
+09:25:53.886 [BizBook-API] INFO  - HikariPool-3 - Start completed.
+09:25:53.899 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+09:25:54.071 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:25:54.071 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:25:54.732 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:25:54.834 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@263b74fd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6792c454, org.springframework.security.web.context.SecurityContextHolderFilter@63d0d277, org.springframework.security.web.header.HeaderWriterFilter@2ea999a7, org.springframework.web.filter.CorsFilter@13b5024c, org.springframework.security.web.authentication.logout.LogoutFilter@2f8ddca2, kosign.b2bdocumentv4.jwt.JwtTokenFilter@7e3b4116, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36ad6296, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@282d3cf9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5854abab, org.springframework.security.web.access.ExceptionTranslationFilter@77ad267c, org.springframework.security.web.access.intercept.AuthorizationFilter@33e28257]
+09:25:55.037 [BizBook-API] INFO  - LiveReload server is running on port 35729
+09:25:55.046 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+09:25:55.048 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+09:25:55.052 [BizBook-API] INFO  - Started B2bDocumentV4Application in 1.726 seconds (process running for 310.986)
+09:25:55.053 [BizBook-API] INFO  - Condition evaluation unchanged
+10:27:45.899 [BizBook-API] WARN  - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=9m21s119ms366µs800ns).
+10:42:08.368 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+10:42:08.380 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+10:42:08.403 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:42:08.407 [BizBook-API] INFO  - HikariPool-3 - Shutdown initiated...
+10:42:08.412 [BizBook-API] INFO  - HikariPool-3 - Shutdown completed.
+10:42:08.536 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 2156 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+10:42:08.536 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+10:42:08.837 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:42:08.886 [BizBook-API] INFO  - Finished Spring Data repository scanning in 49 ms. Found 12 JPA repository interfaces.
+10:42:09.092 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+10:42:09.092 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+10:42:09.093 [BizBook-API] INFO  - Starting service [Tomcat]
+10:42:09.093 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+10:42:09.107 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+10:42:09.108 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 569 ms
+10:42:09.163 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:42:09.166 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+10:42:09.169 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+10:42:09.170 [BizBook-API] INFO  - HikariPool-4 - Starting...
+10:42:09.290 [BizBook-API] INFO  - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@61f558da
+10:42:09.290 [BizBook-API] INFO  - HikariPool-4 - Start completed.
+10:42:09.312 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+10:42:09.460 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+10:42:09.460 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:42:10.258 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:42:10.378 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7275b6aa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@879a8b4, org.springframework.security.web.context.SecurityContextHolderFilter@d0f7ad3, org.springframework.security.web.header.HeaderWriterFilter@7c2b2e79, org.springframework.web.filter.CorsFilter@5e006de7, org.springframework.security.web.authentication.logout.LogoutFilter@64c3c6a6, kosign.b2bdocumentv4.jwt.JwtTokenFilter@747b50f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e420b90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@371157b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@282334f9, org.springframework.security.web.access.ExceptionTranslationFilter@6a527f10, org.springframework.security.web.access.intercept.AuthorizationFilter@7121b2d]
+10:42:10.635 [BizBook-API] INFO  - LiveReload server is running on port 35729
+10:42:10.644 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+10:42:10.647 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+10:42:10.651 [BizBook-API] INFO  - Started B2bDocumentV4Application in 2.146 seconds (process running for 4886.586)
+10:42:10.653 [BizBook-API] INFO  - Condition evaluation unchanged
+10:56:24.916 [BizBook-API] INFO  - Restarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)
+10:56:24.916 [BizBook-API] INFO  - Stopping ProtocolHandler ["http-nio-4545"]
+10:56:24.939 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:56:24.939 [BizBook-API] INFO  - HikariPool-4 - Shutdown initiated...
+10:56:24.939 [BizBook-API] INFO  - HikariPool-4 - Shutdown completed.
+10:56:25.027 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 2156 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+10:56:25.027 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+10:56:25.294 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:56:25.342 [BizBook-API] INFO  - Finished Spring Data repository scanning in 49 ms. Found 12 JPA repository interfaces.
+10:56:25.528 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+10:56:25.528 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+10:56:25.528 [BizBook-API] INFO  - Starting service [Tomcat]
+10:56:25.528 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+10:56:25.545 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+10:56:25.545 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 517 ms
+10:56:25.617 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:56:25.617 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+10:56:25.625 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+10:56:25.625 [BizBook-API] INFO  - HikariPool-5 - Starting...
+10:56:25.746 [BizBook-API] INFO  - HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@58979e79
+10:56:25.746 [BizBook-API] INFO  - HikariPool-5 - Start completed.
+10:56:25.758 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+10:56:25.931 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+10:56:25.931 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:56:26.708 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:56:26.837 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21f6967a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54a82822, org.springframework.security.web.context.SecurityContextHolderFilter@5bdf4018, org.springframework.security.web.header.HeaderWriterFilter@6ba3bc48, org.springframework.web.filter.CorsFilter@44e80515, org.springframework.security.web.authentication.logout.LogoutFilter@50e4b9e7, kosign.b2bdocumentv4.jwt.JwtTokenFilter@ca0f86f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60cb4ea6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ad550d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d38a0ff, org.springframework.security.web.access.ExceptionTranslationFilter@6230b624, org.springframework.security.web.access.intercept.AuthorizationFilter@788465f]
+10:56:27.080 [BizBook-API] INFO  - LiveReload server is running on port 35729
+10:56:27.088 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+10:56:27.096 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+10:56:27.096 [BizBook-API] INFO  - Started B2bDocumentV4Application in 2.108 seconds (process running for 5743.036)
+10:56:27.096 [BizBook-API] INFO  - Condition evaluation unchanged
+13:01:38.423 [BizBook-API] WARN  - HikariPool-5 - Thread starvation or clock leap detected (housekeeper delta=24m10s970ms997µs800ns).
+17:58:37.958 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:58:37.997 [BizBook-API] INFO  - HikariPool-5 - Shutdown initiated...
+17:58:37.999 [BizBook-API] INFO  - HikariPool-5 - Shutdown completed.
