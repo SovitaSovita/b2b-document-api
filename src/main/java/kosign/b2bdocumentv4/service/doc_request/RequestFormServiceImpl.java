@@ -313,4 +313,85 @@ public class RequestFormServiceImpl {
 
         return requestForm;
     }
+
+    public List<CombineRequestFormDto> getListRequest(String userId, String company) {
+        // Fetch the list of request forms
+        List<RequestForm> requestFormList = requestFormRepository.findByRequestFromAndFromCompany(userId, company);
+
+        // Group the request forms by requestId
+        Map<Long, List<RequestForm>> groupedByRequestId = requestFormList.stream()
+                .collect(Collectors.groupingBy(RequestForm::getRequestId));
+
+        // Merge the request forms with the same requestId into CombineRequestFormDto
+        List<CombineRequestFormDto> combinedRequestForms = groupedByRequestId.values().stream().map(requestForms -> {
+            // Sort the request forms by reqOrder
+            requestForms.sort(Comparator.comparingInt(RequestForm::getReqOrder));
+
+            // Take the first form as the base
+            RequestForm firstForm = requestForms.get(0);
+            CombineRequestFormDto combinedRequestFormDto = new CombineRequestFormDto(
+                    firstForm.getId(),
+                    firstForm.getRequestId(),
+                    firstForm.getFormId(),
+                    firstForm.getFormName(),
+                    firstForm.getClassification(),
+                    firstForm.getFormContent(),
+                    firstForm.getRequestFrom(),
+                    firstForm.getFromDepartment(),
+                    firstForm.getFromCompany(),
+                    null, // requestTo will be set later
+                    firstForm.getToDepartment(),
+                    firstForm.getToCompany(),
+                    firstForm.getReqOrder(),
+                    firstForm.getRequestDate(),
+                    null, // requestStatus will be set later
+                    firstForm.getRequestMainItems(),
+                    null, // nextApprove will be set later
+                    null  // finalApprove will be set later
+            );
+
+            // Merge requestTo, requestStatus, and determine nextApprove and finalApprove
+            StringBuilder requestToBuilder = new StringBuilder();
+            StringBuilder requestStatusBuilder = new StringBuilder();
+            String whoChecking = null;
+            String finalApprove = null;
+
+            for (int i = 0; i < requestForms.size(); i++) {
+                RequestForm currentForm = requestForms.get(i);
+
+                // Combine requestTo
+                requestToBuilder.append(currentForm.getRequestTo());
+                if (i < requestForms.size() - 1) {
+                    requestToBuilder.append(", ");
+                }
+
+                // Combine requestStatus
+                requestStatusBuilder.append(currentForm.getRequestStatus());
+                if (i < requestForms.size() - 1) {
+                    requestStatusBuilder.append(", ");
+                }
+
+                // Determine nextApprove (first status after PENDING)
+                if (whoChecking == null && "PENDING".equals(String.valueOf(currentForm.getRequestStatus()))) {
+                    whoChecking = currentForm.getRequestTo();
+                }
+
+                // Determine finalApprove (highest reqOrder)
+                if (finalApprove == null || currentForm.getReqOrder() > firstForm.getReqOrder()) {
+                    finalApprove = currentForm.getRequestTo();
+                }
+            }
+
+            // Set the combined and calculated values
+            combinedRequestFormDto.setRequestTo(requestToBuilder.toString());
+            combinedRequestFormDto.setRequestStatus(requestStatusBuilder.toString());
+            combinedRequestFormDto.setWhoChecking(whoChecking);
+            combinedRequestFormDto.setFinalApprove(finalApprove);
+
+            return combinedRequestFormDto;
+        }).collect(Collectors.toList());
+
+        return combinedRequestForms;
+    }
+
 }

@@ -112,6 +112,15 @@ public class RequestFormController {
                 .rec(requestFormService.getListApproved(userId, company))
                 .build();
     }
+    @GetMapping("/listRequest")
+    public BaseResponse getListRequest(@RequestParam String userId, @RequestParam String company){
+        return BaseResponse.builder()
+                .code("200")
+                .message("successfully.")
+                .isError(false)
+                .rec(requestFormService.getListRequest(userId, company))
+                .build();
+    }
     @PostMapping("/approval")
     public BaseResponse approveRequest(@RequestParam Long id){
         return BaseResponse.builder()
