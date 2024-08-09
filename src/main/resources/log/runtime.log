@@ -2668,3 +2668,115 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Boolean.booleanValue()"
 15:49:38.200 [BizBook-API] INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 15:49:38.202 [BizBook-API] INFO  - HikariPool-1 - Shutdown initiated...
 15:49:38.204 [BizBook-API] INFO  - HikariPool-1 - Shutdown completed.
+15:49:41.699 [BizBook-API] INFO  - Starting B2bDocumentV4Application using Java 17.0.9 with PID 3012 (D:\WORK_SPACE\b2b-document-api\build\classes\java\main started by ksg-usr in D:\WORK_SPACE\b2b-document-api)
+15:49:41.700 [BizBook-API] INFO  - No active profile set, falling back to 1 default profile: "default"
+15:49:41.733 [BizBook-API] INFO  - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:49:41.733 [BizBook-API] INFO  - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:49:42.371 [BizBook-API] INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:42.503 [BizBook-API] INFO  - Finished Spring Data repository scanning in 123 ms. Found 12 JPA repository interfaces.
+15:49:43.041 [BizBook-API] INFO  - Tomcat initialized with port 4545 (http)
+15:49:43.047 [BizBook-API] INFO  - Initializing ProtocolHandler ["http-nio-4545"]
+15:49:43.048 [BizBook-API] INFO  - Starting service [Tomcat]
+15:49:43.049 [BizBook-API] INFO  - Starting Servlet engine: [Apache Tomcat/10.1.19]
+15:49:43.089 [BizBook-API] INFO  - Initializing Spring embedded WebApplicationContext
+15:49:43.089 [BizBook-API] INFO  - Root WebApplicationContext: initialization completed in 1356 ms
+15:49:43.208 [BizBook-API] INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:43.240 [BizBook-API] INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+15:49:43.266 [BizBook-API] INFO  - HHH000026: Second-level cache disabled
+15:49:43.430 [BizBook-API] INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:43.449 [BizBook-API] INFO  - HikariPool-1 - Starting...
+15:49:43.600 [BizBook-API] INFO  - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2f409cc9
+15:49:43.601 [BizBook-API] INFO  - HikariPool-1 - Start completed.
+15:49:43.631 [BizBook-API] WARN  - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+15:49:44.477 [BizBook-API] INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:49:44.480 [BizBook-API] INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:44.817 [BizBook-API] INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+15:49:45.873 [BizBook-API] WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:46.104 [BizBook-API] INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1521f975, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49976730, org.springframework.security.web.context.SecurityContextHolderFilter@7e1d4565, org.springframework.security.web.header.HeaderWriterFilter@276ccf3e, org.springframework.web.filter.CorsFilter@231df318, org.springframework.security.web.authentication.logout.LogoutFilter@4b8b1fa5, kosign.b2bdocumentv4.jwt.JwtTokenFilter@3ce48221, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6eee94bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4fc96314, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bbdb3ff, org.springframework.security.web.access.ExceptionTranslationFilter@402bf8bc, org.springframework.security.web.access.intercept.AuthorizationFilter@a2515a8]
+15:49:46.470 [BizBook-API] INFO  - LiveReload server is running on port 35729
+15:49:46.486 [BizBook-API] INFO  - Starting ProtocolHandler ["http-nio-4545"]
+15:49:46.494 [BizBook-API] INFO  - Tomcat started on port 4545 (http) with context path ''
+15:49:46.503 [BizBook-API] INFO  - Started B2bDocumentV4Application in 5.16 seconds (process running for 5.609)
+15:50:01.911 [BizBook-API] INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:50:01.911 [BizBook-API] INFO  - Initializing Servlet 'dispatcherServlet'
+15:50:01.913 [BizBook-API] INFO  - Completed initialization in 2 ms
+15:50:02.086 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+15:50:02.886 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/requestform/listRequest
+15:50:02.886 [BizBook-API] INFO  - HTTP Method: GET
+15:50:02.887 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.RequestFormController.getListRequest
+15:50:02.887 [BizBook-API] INFO  - Request Args: [sovita, UTLZ_590]
+15:50:02.891 [BizBook-API] DEBUG - 
+    select
+        rf1_0.id,
+        rf1_0.approve_date,
+        rf1_0.classification,
+        rf1_0.form_content,
+        rf1_0.form_id,
+        rf1_0.form_name,
+        rf1_0.from_company,
+        rf1_0.from_department,
+        rf1_0.req_order,
+        rf1_0.request_date,
+        rf1_0.request_from,
+        rf1_0.request_id,
+        rf1_0.request_status,
+        rf1_0.request_to,
+        rf1_0.to_company,
+        rf1_0.to_department 
+    from
+        stdy.doc_request rf1_0 
+    where
+        rf1_0.request_from=? 
+        and rf1_0.from_company=?
+15:50:02.919 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[CombineRequestFormDto(id=453, requestId=134817, formId=136, formName=LMS Form, classification=common, formContent=, requestFrom=sovita, fromDepartment=BizWeb, fromCompany=UTLZ_590, requestTo=sararuth, chanvimean, toDepartment=BizWeb, toCompany=UTLZ_590, reqOrder=0, requestDate=2024-08-09 14:49:43.783, requestStatus=PENDING, HOLD, requestMainItems=[RequestMainItems(id=77, itemName=Request Form, type=, require=false, value=, requestItemsData=[RequestItemsData{id=1926, itemName='Request Type', inputRequire=false, inputType='select', inputValue='Annual Leave', isSelected=true}, RequestItemsData{id=1927, itemName='Start Date', inputRequire=false, inputType='date', inputValue='2024-08-08', isSelected=false}, RequestItemsData{id=1928, itemName='End Date', inputRequire=false, inputType='date', inputValue='2024-08-09', isSelected=false}, RequestItemsData{id=1929, itemName='Holiday Number', inputRequire=false, inputType='number', inputValue='1', isSelected=false}, RequestItemsData{id=1930, itemName='Reason', inputRequire=false, inputType='textArea', inputValue='no reason', isSelected=false}, RequestItemsData{id=1931, itemName='Status', inputRequire=false, inputType='select', inputValue='requested', isSelected=true}], requestForm=RequestForm{id=453, requestId=134817, formId=136, formName=LMS Form, classification='common', formContent='', requestFrom='sovita', fromDepartment='BizWeb', fromCompany='UTLZ_590', requestTo='sararuth', toDepartment='BizWeb', toCompany='UTLZ_590', reqOrder'0', requestDate=2024-08-09 14:49:43.783', requestStatus=PENDING})], whoChecking=sararuth, finalApprove=chanvimean), CombineRequestFormDto(id=455, requestId=143894, formId=136, formName=LMS Form, classification=common, formContent=, requestFrom=sovita, fromDepartment=BizWeb, fromCompany=UTLZ_590, requestTo=sararuth, chanvimean, toDepartment=BizWeb, toCompany=UTLZ_590, reqOrder=0, requestDate=2024-08-09 14:49:43.783, requestStatus=PENDING, HOLD, requestMainItems=[RequestMainItems(id=79, itemName=Request Form, type=, require=false, value=, requestItemsData=[RequestItemsData{id=1938, itemName='Request Type', inputRequire=false, inputType='select', inputValue='Annual Leave', isSelected=true}, RequestItemsData{id=1939, itemName='Start Date', inputRequire=false, inputType='date', inputValue='2024-08-08', isSelected=false}, RequestItemsData{id=1940, itemName='End Date', inputRequire=false, inputType='date', inputValue='2024-08-09', isSelected=false}, RequestItemsData{id=1941, itemName='Holiday Number', inputRequire=false, inputType='number', inputValue='1', isSelected=false}, RequestItemsData{id=1942, itemName='Reason', inputRequire=false, inputType='textArea', inputValue='no reason', isSelected=false}, RequestItemsData{id=1943, itemName='Status', inputRequire=false, inputType='select', inputValue='requested', isSelected=true}], requestForm=RequestForm{id=455, requestId=143894, formId=136, formName=LMS Form, classification='common', formContent='', requestFrom='sovita', fromDepartment='BizWeb', fromCompany='UTLZ_590', requestTo='sararuth', toDepartment='BizWeb', toCompany='UTLZ_590', reqOrder'0', requestDate=2024-08-09 14:49:43.783', requestStatus=PENDING})], whoChecking=sararuth, finalApprove=chanvimean)], inqCnt=null, inqRec=null, message=successfully., code=200, responseMessage=OK, isError=false, rawData=null)
+15:50:38.474 [BizBook-API] DEBUG - 
+    select
+        du1_0.id,
+        du1_0.dept_id,
+        du1_0.image,
+        du1_0.role,
+        du1_0.status,
+        du1_0.username 
+    from
+        stdy.doc_users du1_0 
+    where
+        du1_0.username=?
+15:50:38.738 [BizBook-API] INFO  - Request URL: http://localhost:4545/api/v1/requestform/listRequest
+15:50:38.738 [BizBook-API] INFO  - HTTP Method: GET
+15:50:38.738 [BizBook-API] INFO  - Class Method: kosign.b2bdocumentv4.controller.RequestFormController.getListRequest
+15:50:38.738 [BizBook-API] INFO  - Request Args: [sovita, UTLZ_590]
+15:50:38.740 [BizBook-API] DEBUG - 
+    select
+        rf1_0.id,
+        rf1_0.approve_date,
+        rf1_0.classification,
+        rf1_0.form_content,
+        rf1_0.form_id,
+        rf1_0.form_name,
+        rf1_0.from_company,
+        rf1_0.from_department,
+        rf1_0.req_order,
+        rf1_0.request_date,
+        rf1_0.request_from,
+        rf1_0.request_id,
+        rf1_0.request_status,
+        rf1_0.request_to,
+        rf1_0.to_company,
+        rf1_0.to_department 
+    from
+        stdy.doc_request rf1_0 
+    where
+        rf1_0.request_from=? 
+        and rf1_0.from_company=?
+15:50:38.746 [BizBook-API] INFO  - Response: BaseResponse(page=null, pageable=null, rec=[CombineRequestFormDto(id=453, requestId=134817, formId=136, formName=LMS Form, classification=common, formContent=, requestFrom=sovita, fromDepartment=BizWeb, fromCompany=UTLZ_590, requestTo=sararuth, chanvimean, toDepartment=BizWeb, toCompany=UTLZ_590, reqOrder=0, requestDate=2024-08-09 14:49:43.783, requestStatus=PENDING, HOLD, requestMainItems=[RequestMainItems(id=77, itemName=Request Form, type=, require=false, value=, requestItemsData=[RequestItemsData{id=1926, itemName='Request Type', inputRequire=false, inputType='select', inputValue='Annual Leave', isSelected=true}, RequestItemsData{id=1927, itemName='Start Date', inputRequire=false, inputType='date', inputValue='2024-08-08', isSelected=false}, RequestItemsData{id=1928, itemName='End Date', inputRequire=false, inputType='date', inputValue='2024-08-09', isSelected=false}, RequestItemsData{id=1929, itemName='Holiday Number', inputRequire=false, inputType='number', inputValue='1', isSelected=false}, RequestItemsData{id=1930, itemName='Reason', inputRequire=false, inputType='textArea', inputValue='no reason', isSelected=false}, RequestItemsData{id=1931, itemName='Status', inputRequire=false, inputType='select', inputValue='requested', isSelected=true}], requestForm=RequestForm{id=453, requestId=134817, formId=136, formName=LMS Form, classification='common', formContent='', requestFrom='sovita', fromDepartment='BizWeb', fromCompany='UTLZ_590', requestTo='sararuth', toDepartment='BizWeb', toCompany='UTLZ_590', reqOrder'0', requestDate=2024-08-09 14:49:43.783', requestStatus=PENDING})], whoChecking=sararuth, finalApprove=chanvimean), CombineRequestFormDto(id=455, requestId=143894, formId=136, formName=LMS Form, classification=common, formContent=, requestFrom=sovita, fromDepartment=BizWeb, fromCompany=UTLZ_590, requestTo=phartvanda, chanvimean, toDepartment=BizWeb, toCompany=UTLZ_590, reqOrder=0, requestDate=2024-08-09 14:49:43.783, requestStatus=PENDING, HOLD, requestMainItems=[RequestMainItems(id=79, itemName=Request Form, type=, require=false, value=, requestItemsData=[RequestItemsData{id=1938, itemName='Request Type', inputRequire=false, inputType='select', inputValue='Annual Leave', isSelected=true}, RequestItemsData{id=1939, itemName='Start Date', inputRequire=false, inputType='date', inputValue='2024-08-08', isSelected=false}, RequestItemsData{id=1940, itemName='End Date', inputRequire=false, inputType='date', inputValue='2024-08-09', isSelected=false}, RequestItemsData{id=1941, itemName='Holiday Number', inputRequire=false, inputType='number', inputValue='1', isSelected=false}, RequestItemsData{id=1942, itemName='Reason', inputRequire=false, inputType='textArea', inputValue='no reason', isSelected=false}, RequestItemsData{id=1943, itemName='Status', inputRequire=false, inputType='select', inputValue='requested', isSelected=true}], requestForm=RequestForm{id=455, requestId=143894, formId=136, formName=LMS Form, classification='common', formContent='', requestFrom='sovita', fromDepartment='BizWeb', fromCompany='UTLZ_590', requestTo='phartvanda', toDepartment='BizWeb', toCompany='UTLZ_590', reqOrder'0', requestDate=2024-08-09 14:49:43.783', requestStatus=PENDING})], whoChecking=phartvanda, finalApprove=chanvimean)], inqCnt=null, inqRec=null, message=successfully., code=200, responseMessage=OK, isError=false, rawData=null)
