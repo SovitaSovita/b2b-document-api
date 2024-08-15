@@ -5,4 +5,5 @@ public enum RqStatus {
     APPROVED,
     HOLD,
     REJECTED,
+    REFERENCE,
 }

@@ -31,14 +31,19 @@ public class RequestForm {
 
     private String requestFrom;
     private String fromDepartment;
+    private String fromPosition;
     private String fromCompany;
 
     private String requestTo;
     private String toDepartment;
+    private String toPosition;
     private String toCompany;
+
+//    private String reference;
 
     private Integer reqOrder;
     private Timestamp requestDate;
+    private Timestamp modifiedDate;
     private Timestamp approveDate;
 
     @Enumerated(EnumType.STRING)
@@ -58,12 +63,15 @@ public class RequestForm {
                 ", formContent='" + formContent + '\'' +
                 ", requestFrom='" + requestFrom + '\'' +
                 ", fromDepartment='" + fromDepartment + '\'' +
+                ", fromPosition='" + fromPosition + '\'' +
                 ", fromCompany='" + fromCompany + '\'' +
                 ", requestTo='" + requestTo + '\'' +
                 ", toDepartment='" + toDepartment + '\'' +
+                ", toPosition='" + toPosition + '\'' +
                 ", toCompany='" + toCompany + '\'' +
                 ", reqOrder'" + reqOrder + '\'' +
                 ", requestDate=" + requestDate + '\'' +
+                ", modifiedDate=" + modifiedDate + '\'' +
                 ", requestStatus=" + requestStatus +
                 '}';
     }

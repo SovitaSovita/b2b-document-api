@@ -1,6 +1,5 @@
 package kosign.b2bdocumentv4.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestToDto {
-    private String requestTo;
-    private String requestToCompany;
-    private String status; //REFERENCE or ""
+public class ReferenceDto {
+    private String refUser;
+    private String refUserCompany;
 }

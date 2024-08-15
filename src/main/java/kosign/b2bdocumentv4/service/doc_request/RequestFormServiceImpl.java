@@ -22,6 +22,8 @@ import java.util.stream.Collectors;
 @Service
 public class RequestFormServiceImpl {
     private final RequestFormRepository requestFormRepository;
+    private final RequestMainItemsRepository requestMainItemsRepository;
+    private final RequestItemDataRepository requestItemDataRepository;
     private final FormRepository formRepository;
     private final ApiService apiService;
     private static final SecureRandom random = new SecureRandom();
@@ -31,9 +33,11 @@ public class RequestFormServiceImpl {
     }
 
 
-    public RequestFormServiceImpl(FormRepository formRepository, RequestFormRepository requestFormRepository, ApiService apiService) {
+    public RequestFormServiceImpl(FormRepository formRepository, RequestFormRepository requestFormRepository, RequestMainItemsRepository requestMainItemsRepository, RequestItemDataRepository requestItemDataRepository, ApiService apiService) {
         this.requestFormRepository = requestFormRepository;
         this.formRepository = formRepository;
+        this.requestMainItemsRepository = requestMainItemsRepository;
+        this.requestItemDataRepository = requestItemDataRepository;
         this.apiService = apiService;
     }
 
@@ -51,7 +55,10 @@ public class RequestFormServiceImpl {
 
             newRequestForm.setRequestMainItems(mainItemsList);
             requestFormRepository.save(newRequestForm);
-            index++;
+
+            if (!Objects.equals(recipient.getStatus(), "REFERENCE")) {
+                index++;
+            }
         }
 
         return requestForm;
@@ -68,18 +75,32 @@ public class RequestFormServiceImpl {
         newRequestForm.setRequestFrom(requestForm.getWhoRequest());
         newRequestForm.setFromCompany(requestForm.getWhoRequestCompany());
         newRequestForm.setFromDepartment(getUserDetailFromBizLogin(requestForm.getWhoRequest(), requestForm.getWhoRequestCompany()).getDepartment());
+        newRequestForm.setFromPosition(getUserDetailFromBizLogin(requestForm.getWhoRequest(), requestForm.getWhoRequestCompany()).getPosition());
 
         // Set user info who requested to
         UserDetiailPayload userDetailPayload = getUserDetailFromBizLogin(recipient.getRequestTo(), recipient.getRequestToCompany());
         newRequestForm.setRequestTo(userDetailPayload.getUsername());
         newRequestForm.setToDepartment(userDetailPayload.getDepartment());
+        newRequestForm.setToPosition(userDetailPayload.getPosition());
         newRequestForm.setToCompany(userDetailPayload.getCompany());
+
+//        List<String> referencerList = new ArrayList<>();
+//        for(ReferenceDto reference : requestForm.getReference()){
+//            String username = getUserDetailFromBizLogin(reference.getRefUser(), reference.getRefUserCompany()).getUsername();
+//            referencerList.add(username);
+//        }
+//        newRequestForm.setReference(referencerList.toString());
 
         newRequestForm.setRequestId(requestId);
         newRequestForm.setRequestDate(requestForm.getRequestDate());
-        newRequestForm.setReqOrder(index);
 
-        newRequestForm.setRequestStatus(index == 0 ? RqStatus.PENDING : RqStatus.HOLD);
+        if (Objects.equals(recipient.getStatus(), "REFERENCE")) {
+            newRequestForm.setReqOrder(99);
+            newRequestForm.setRequestStatus(RqStatus.REFERENCE);
+        } else {
+            newRequestForm.setReqOrder(index); // Sequential order for other statuses
+            newRequestForm.setRequestStatus(index == 0 ? RqStatus.PENDING : RqStatus.HOLD);
+        }
 
         return newRequestForm;
     }
@@ -214,9 +235,43 @@ public class RequestFormServiceImpl {
         return filteredData;
     }
 
-    public RequestForm updateRequestById(Long reqId) {
-        return null;
+    public RequestForm updateRequestById(Long reqId, UpdateFormRequest requestFormDto) {
+        RequestForm existingRequestForm = requestFormRepository.findById(reqId)
+                .orElseThrow(() -> new NotFoundExceptionClass("RequestForm not found with id: " + reqId));
+//        Form formExist = formRepository.findById(existingRequestForm.getFormId())
+//                .orElseThrow(() -> new NotFoundExceptionClass("Form not found with id: " + existingRequestForm.getFormId()));
+
+        existingRequestForm.setFormContent(requestFormDto.getFormContent());
+        existingRequestForm.setModifiedDate(Timestamp.valueOf(LocalDateTime.now()));
+
+        // Update RequestMainItems
+        List<RequestMainItems> updatedMainItemsList = new ArrayList<>();
+        int index = 0;
+        for (RequestMainItems mainItems : existingRequestForm.getRequestMainItems()) {
+            RequestMainItems updatedMainItem = requestMainItemsRepository.findById(mainItems.getId())
+                    .orElseThrow(() -> new NotFoundExceptionClass("Main items with ID " + mainItems.getId() + " Not Found."));
+
+            updatedMainItem.setValue(requestFormDto.getRequestMainItems().get(index).getValue());
+
+            int j = 0;
+            List<RequestItemsData> updateItemsDataList = new ArrayList<>();
+            for(RequestItemsData itemData : updatedMainItem.getRequestItemsData()){
+                RequestItemsData updatedItemData = requestItemDataRepository.findById(itemData.getId())
+                        .orElseThrow(() -> new NotFoundExceptionClass("Item Data with ID " + itemData.getId() + " Not Found."));
+                updatedItemData.setInputValue(requestFormDto.getRequestMainItems().get(index).getRequestItemsData().get(j).getInputValue());
+                updateItemsDataList.add(updatedItemData);
+                j++;
+            }
+            updatedMainItem.setRequestItemsData(updateItemsDataList);
+            updatedMainItemsList.add(updatedMainItem);
+            index++;
+        }
+        existingRequestForm.setRequestMainItems(updatedMainItemsList);
+
+        // Save the updated request form
+        return requestFormRepository.save(existingRequestForm);
     }
+
 
     public RequestForm getDetailById(Long id) {
         return requestFormRepository.findById(id).orElseThrow(() -> new NotFoundExceptionClass("Request with ID : " + id + " Not Found."));
@@ -271,7 +326,6 @@ public class RequestFormServiceImpl {
     }
 
     public RequestForm approveRequest(Long id) {
-
         RequestForm request = requestFormRepository.findById(id)
                 .orElseThrow(() -> new NotFoundExceptionClass("Request With ID : " + id + " Not Found."));
 
@@ -314,9 +368,9 @@ public class RequestFormServiceImpl {
         return requestForm;
     }
 
-    public List<CombineRequestFormDto> getListRequest(String userId, String company) {
+    public List<CombineRequestFormDto> getListRequest(ListRequestReq req) {
         // Fetch the list of request forms
-        List<RequestForm> requestFormList = requestFormRepository.findByRequestFromAndFromCompany(userId, company);
+        List<RequestForm> requestFormList = requestFormRepository.findByRequestFromAndFromCompany(req.getUserId(), req.getCompany());
 
         // Group the request forms by requestId
         Map<Long, List<RequestForm>> groupedByRequestId = requestFormList.stream()
@@ -327,7 +381,6 @@ public class RequestFormServiceImpl {
             // Sort the request forms by reqOrder
             requestForms.sort(Comparator.comparingInt(RequestForm::getReqOrder));
 
-            // Take the first form as the base
             RequestForm firstForm = requestForms.get(0);
             CombineRequestFormDto combinedRequestFormDto = new CombineRequestFormDto(
                     firstForm.getId(),
@@ -339,20 +392,23 @@ public class RequestFormServiceImpl {
                     firstForm.getRequestFrom(),
                     firstForm.getFromDepartment(),
                     firstForm.getFromCompany(),
-                    null, // requestTo will be set later
+                    firstForm.getFromPosition(),
+                    null,
                     firstForm.getToDepartment(),
                     firstForm.getToCompany(),
+                    firstForm.getToPosition(),
                     firstForm.getReqOrder(),
                     firstForm.getRequestDate(),
-                    null, // requestStatus will be set later
+                    null,
+                    null,
                     firstForm.getRequestMainItems(),
-                    null, // nextApprove will be set later
-                    null  // finalApprove will be set later
+                    null,
+                    null
             );
 
             // Merge requestTo, requestStatus, and determine nextApprove and finalApprove
             StringBuilder requestToBuilder = new StringBuilder();
-            StringBuilder requestStatusBuilder = new StringBuilder();
+            List<String> statusList = new ArrayList<>();
             String whoChecking = null;
             String finalApprove = null;
 
@@ -365,33 +421,69 @@ public class RequestFormServiceImpl {
                     requestToBuilder.append(", ");
                 }
 
-                // Combine requestStatus
-                requestStatusBuilder.append(currentForm.getRequestStatus());
-                if (i < requestForms.size() - 1) {
-                    requestStatusBuilder.append(", ");
-                }
+                // Add status to the list
+                statusList.add(String.valueOf(currentForm.getRequestStatus()));
 
-                // Determine nextApprove (first status after PENDING)
-                if (whoChecking == null && "PENDING".equals(String.valueOf(currentForm.getRequestStatus()))) {
+                // nextApprove (first status after PENDING)
+                if ("PENDING".equals(String.valueOf(currentForm.getRequestStatus()))) {
                     whoChecking = currentForm.getRequestTo();
                 }
 
-                // Determine finalApprove (highest reqOrder)
+                //finalApprove
                 if (finalApprove == null || currentForm.getReqOrder() > firstForm.getReqOrder()) {
                     finalApprove = currentForm.getRequestTo();
                 }
             }
 
+            // requestStatus based on the conditions
+            if (statusList.contains("PENDING")) {
+                combinedRequestFormDto.setFinalStatus("PENDING");
+            } else {
+                // Filter out "REFERENCE" statuses
+                List<String> filteredStatusList = statusList.stream()
+                        .filter(status -> !status.equals("REFERENCE"))
+                        .toList();
+
+                if (filteredStatusList.stream().allMatch(status -> status.equals("HOLD"))) {
+                    combinedRequestFormDto.setFinalStatus("HOLD");
+                } else if (filteredStatusList.stream().allMatch(status -> status.equals("APPROVED"))) {
+                    combinedRequestFormDto.setFinalStatus("APPROVED");
+                } else {
+                    combinedRequestFormDto.setFinalStatus("HOLD"); // Default behavior if none match
+                }
+            }
+
             // Set the combined and calculated values
+            combinedRequestFormDto.setRequestStatus(String.join(", ", statusList)); // Default behavior if none match
             combinedRequestFormDto.setRequestTo(requestToBuilder.toString());
-            combinedRequestFormDto.setRequestStatus(requestStatusBuilder.toString());
             combinedRequestFormDto.setWhoChecking(whoChecking);
             combinedRequestFormDto.setFinalApprove(finalApprove);
 
             return combinedRequestFormDto;
         }).collect(Collectors.toList());
 
-        return combinedRequestForms;
+        // Filter based on date range
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        List<CombineRequestFormDto> filteredData = combinedRequestForms.stream()
+                .filter(item -> {
+                    LocalDateTime localDateTime = LocalDateTime.parse(item.getRequestDate().toString(), formatter);
+                    LocalDate requestLocalDate = localDateTime.toLocalDate();
+                    return !requestLocalDate.isBefore(req.getStartDate()) && !requestLocalDate.isAfter(req.getEndDate());
+                })
+                .collect(Collectors.toList());
+
+        // Final filter based on req.getStatus()
+//        if(!Objects.equals(req.getStatus(), "PENDING") || !Objects.equals(req.getStatus(), "HOLD") || !Objects.equals(req.getStatus(), "APPROVED")){
+//            throw new IllegalArgumentException("Status " + req.getStatus() +" is Invalid. It's must : PENDING, HOLD or APPROVED");
+//        }
+        if (!req.getStatus().isEmpty()) {
+            filteredData = filteredData.stream()
+                    .filter(item -> item.getFinalStatus().equals(req.getStatus()))
+                    .collect(Collectors.toList());
+        }
+
+
+        return filteredData;
     }
 
 }

@@ -2,9 +2,11 @@ package kosign.b2bdocumentv4.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import kosign.b2bdocumentv4.dto.ListRequestReq;
 import kosign.b2bdocumentv4.dto.RequestFormDto;
 import kosign.b2bdocumentv4.entity.doc_request.GetByUserRequest;
 import kosign.b2bdocumentv4.entity.doc_request.RequestForm;
+import kosign.b2bdocumentv4.entity.doc_request.UpdateFormRequest;
 import kosign.b2bdocumentv4.payload.BaseResponse;
 import kosign.b2bdocumentv4.service.doc_request.RequestFormServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -54,12 +56,12 @@ public class RequestFormController {
 
 
     @PutMapping("/updateRequest")
-    public BaseResponse updateRequest(@RequestParam Long reqId){
+    public BaseResponse updateRequest(@RequestParam Long reqId, @RequestBody UpdateFormRequest requestFormDto){
         return BaseResponse.builder()
                 .code("200")
                 .message("success")
                 .isError(false)
-                .rec(requestFormService.updateRequestById(reqId))
+                .rec(requestFormService.updateRequestById(reqId, requestFormDto))
                 .build();
     }
 
@@ -112,13 +114,13 @@ public class RequestFormController {
                 .rec(requestFormService.getListApproved(userId, company))
                 .build();
     }
-    @GetMapping("/listRequest")
-    public BaseResponse getListRequest(@RequestParam String userId, @RequestParam String company){
+    @PostMapping("/listRequest")
+    public BaseResponse getListRequest(@RequestBody ListRequestReq req){
         return BaseResponse.builder()
                 .code("200")
                 .message("successfully.")
                 .isError(false)
-                .rec(requestFormService.getListRequest(userId, company))
+                .rec(requestFormService.getListRequest(req))
                 .build();
     }
     @PostMapping("/approval")

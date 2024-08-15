@@ -21,12 +21,15 @@ public class CombineRequestFormDto {
     private String requestFrom;
     private String fromDepartment;
     private String fromCompany;
+    private String fromPosition;
     private String requestTo;
     private String toDepartment;
     private String toCompany;
+    private String toPosition;
     private int reqOrder;
     private Timestamp requestDate;
     private String requestStatus;
+    private String finalStatus;
     private List<RequestMainItems> requestMainItems;
     private String whoChecking;
     private String finalApprove;
