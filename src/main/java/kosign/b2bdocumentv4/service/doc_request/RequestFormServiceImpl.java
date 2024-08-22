@@ -331,12 +331,17 @@ public class RequestFormServiceImpl {
 
         if (request.getRequestStatus() == RqStatus.APPROVED) {
             throw new IllegalArgumentException("Request is Already " + request.getRequestStatus());
-        } else if (request.getRequestStatus() == RqStatus.HOLD) {
+        }
+        else if (request.getRequestStatus() == RqStatus.HOLD) {
+            throw new IllegalArgumentException("Request is on " + request.getRequestStatus());
+        }
+        else if (request.getRequestStatus() == RqStatus.REFERENCE) {
             throw new IllegalArgumentException("Request is on " + request.getRequestStatus());
         }
 
         List<RequestForm> allRequests = requestFormRepository.findByRequestId(request.getRequestId());
         List<RequestForm> sortedRequests = allRequests.stream()
+                .filter(rf -> rf.getReqOrder() != 99)
                 .sorted(Comparator.comparingInt(RequestForm::getReqOrder))
                 .toList();
 
