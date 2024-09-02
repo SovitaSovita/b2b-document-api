@@ -84,6 +84,16 @@ public class RequestFormController {
                 .build();
     }
 
+    @DeleteMapping("/deleteAll")
+    public BaseResponse deleteAllByReqId(@RequestParam Long ReqId){
+        requestFormService.deleteAllByReqId(ReqId);
+        return BaseResponse.builder()
+                .code("200")
+                .message("deleted success")
+                .isError(false)
+                .build();
+    }
+
     //check a Request that Already "Approved" by all recipient
     @GetMapping("/approvedById")
     public BaseResponse getApproved(@RequestParam Long requestId){
@@ -123,6 +133,17 @@ public class RequestFormController {
                 .rec(requestFormService.getListRequest(req))
                 .build();
     }
+
+    @PostMapping("/reject")
+    public BaseResponse rejectRequest(@RequestParam Long id){
+        return BaseResponse.builder()
+                .code("200")
+                .message("successfully.")
+                .isError(false)
+                .rec(requestFormService.rejectRequest(id))
+                .build();
+    }
+
     @PostMapping("/approval")
     public BaseResponse approveRequest(@RequestParam Long id){
         return BaseResponse.builder()

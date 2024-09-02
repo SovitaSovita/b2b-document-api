@@ -11,5 +11,6 @@ public interface RequestFormRepository extends JpaRepository<RequestForm, Long> 
     List<RequestForm> findByRequestFromAndFromCompany(String proposer,String company);
     List<RequestForm> findByRequestId(Long id);
     RequestForm findByRequestIdAndId(Long reqId , Long id);
+    void deleteAllByRequestId(Long reqId);
 
 }

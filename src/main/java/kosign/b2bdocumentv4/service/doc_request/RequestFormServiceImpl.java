@@ -3,6 +3,7 @@ package kosign.b2bdocumentv4.service.doc_request;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
 import kosign.b2bdocumentv4.dto.*;
 import kosign.b2bdocumentv4.entity.doc_form.*;
 import kosign.b2bdocumentv4.entity.doc_request.*;
@@ -226,7 +227,13 @@ public class RequestFormServiceImpl {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
         List<RequestForm> filteredData = getData.stream()
                 .filter(item -> {
-                    LocalDateTime localDateTime = LocalDateTime.parse(item.getRequestDate().toString(), formatter);
+                    String dateString = item.getRequestDate().toString();
+
+                    // Handle cases where milliseconds are less than 3 digits
+                    if (dateString.matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{1,2}")) {
+                        dateString = dateString + "0".repeat(3 - dateString.substring(20).length());
+                    }
+                    LocalDateTime localDateTime = LocalDateTime.parse(dateString, formatter);
                     LocalDate requestLocalDate = localDateTime.toLocalDate();
                     return !requestLocalDate.isBefore(request.getStartDate()) && !requestLocalDate.isAfter(request.getEndDate());
                 })
@@ -255,7 +262,7 @@ public class RequestFormServiceImpl {
 
             int j = 0;
             List<RequestItemsData> updateItemsDataList = new ArrayList<>();
-            for(RequestItemsData itemData : updatedMainItem.getRequestItemsData()){
+            for (RequestItemsData itemData : updatedMainItem.getRequestItemsData()) {
                 RequestItemsData updatedItemData = requestItemDataRepository.findById(itemData.getId())
                         .orElseThrow(() -> new NotFoundExceptionClass("Item Data with ID " + itemData.getId() + " Not Found."));
                 updatedItemData.setInputValue(requestFormDto.getRequestMainItems().get(index).getRequestItemsData().get(j).getInputValue());
@@ -331,11 +338,9 @@ public class RequestFormServiceImpl {
 
         if (request.getRequestStatus() == RqStatus.APPROVED) {
             throw new IllegalArgumentException("Request is Already " + request.getRequestStatus());
-        }
-        else if (request.getRequestStatus() == RqStatus.HOLD) {
+        } else if (request.getRequestStatus() == RqStatus.HOLD) {
             throw new IllegalArgumentException("Request is on " + request.getRequestStatus());
-        }
-        else if (request.getRequestStatus() == RqStatus.REFERENCE) {
+        } else if (request.getRequestStatus() == RqStatus.REFERENCE) {
             throw new IllegalArgumentException("Request is on " + request.getRequestStatus());
         }
 
@@ -435,7 +440,7 @@ public class RequestFormServiceImpl {
                 }
 
                 //finalApprove
-                if (finalApprove == null || currentForm.getReqOrder() > firstForm.getReqOrder()) {
+                if ((finalApprove == null || currentForm.getReqOrder() > firstForm.getReqOrder()) && !"REFERENCE".equals(String.valueOf(currentForm.getRequestStatus()))) {
                     finalApprove = currentForm.getRequestTo();
                 }
             }
@@ -454,7 +459,7 @@ public class RequestFormServiceImpl {
                 } else if (filteredStatusList.stream().allMatch(status -> status.equals("APPROVED"))) {
                     combinedRequestFormDto.setFinalStatus("APPROVED");
                 } else {
-                    combinedRequestFormDto.setFinalStatus("HOLD"); // Default behavior if none match
+                    combinedRequestFormDto.setFinalStatus("REJECTED"); // Default behavior if none match
                 }
             }
 
@@ -471,11 +476,16 @@ public class RequestFormServiceImpl {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
         List<CombineRequestFormDto> filteredData = combinedRequestForms.stream()
                 .filter(item -> {
-                    LocalDateTime localDateTime = LocalDateTime.parse(item.getRequestDate().toString(), formatter);
+                    String dateString = item.getRequestDate().toString();
+                    if (dateString.matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{1,2}")) {
+                        dateString = dateString + "0".repeat(3 - dateString.substring(20).length());
+                    }
+                    LocalDateTime localDateTime = LocalDateTime.parse(dateString, formatter);
                     LocalDate requestLocalDate = localDateTime.toLocalDate();
                     return !requestLocalDate.isBefore(req.getStartDate()) && !requestLocalDate.isAfter(req.getEndDate());
                 })
                 .collect(Collectors.toList());
+
 
         // Final filter based on req.getStatus()
 //        if(!Objects.equals(req.getStatus(), "PENDING") || !Objects.equals(req.getStatus(), "HOLD") || !Objects.equals(req.getStatus(), "APPROVED")){
@@ -491,4 +501,45 @@ public class RequestFormServiceImpl {
         return filteredData;
     }
 
+    public Object rejectRequest(Long id) {
+        RequestForm existReq = requestFormRepository.findById(id).
+                orElseThrow(() -> new NotFoundExceptionClass("Request with ID: " + id + " Not Found."));
+
+        if (!"PENDING".equals(existReq.getRequestStatus().toString())) {
+            throw new IllegalArgumentException("Your Request is on " + existReq.getRequestStatus().toString());
+        }
+        List<RequestForm> reqList = requestFormRepository.findByRequestId(existReq.getRequestId());
+        //filter out Reference
+        List<RequestForm> filteredReqList = reqList.stream()
+                .filter(req -> req.getRequestStatus() != RqStatus.REFERENCE)
+                .toList();
+
+        if(filteredReqList.size() > 1){
+            for(RequestForm eachReq : filteredReqList){
+                if(eachReq.getRequestStatus() == existReq.getRequestStatus()){ //nPENDING
+                    eachReq.setRequestStatus(RqStatus.REJECTED);
+                }
+                Integer order = existReq.getReqOrder() - 1;
+                if(Objects.equals(eachReq.getReqOrder(), order) && eachReq.getRequestStatus() == RqStatus.APPROVED){
+                    eachReq.setRequestStatus(RqStatus.PENDING);
+                }
+                requestFormRepository.save(eachReq);
+            }
+        }
+        else{
+            existReq.setRequestStatus(RqStatus.REJECTED);
+            requestFormRepository.save(existReq);
+        }
+
+        return null;
+    }
+
+    @Transactional
+    public void deleteAllByReqId(Long reqId) {
+        List<RequestForm> list = requestFormRepository.findByRequestId(reqId);
+        if(list.isEmpty()){
+            throw new NotFoundExceptionClass("Request with ID: " + reqId + " Not Found");
+        }
+        requestFormRepository.deleteAllByRequestId(reqId);
+    }
 }
